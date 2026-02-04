@@ -1,7 +1,6 @@
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
-import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 
 interface HeaderProps {
   dict: {
@@ -22,32 +21,32 @@ export default function Header({ dict }: HeaderProps) {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const offset = 96; // header height
+      const offset = 96;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full px-4 py-6 md:px-8 lg:px-[220px]">
-      <div className="backdrop-blur-[35px] bg-white/90 rounded-2xl shadow-lg px-6 py-4 flex items-center justify-between">
+    <header className="sticky top-0 z-50 w-full min-w-[1000px] max-w-[1440px] mx-auto py-[24px]">
+      <div className="min-w[1000px] backdrop-blur-[35px] bg-white/90 rounded-[16px] shadow-[0px_4px_12px_0px_rgba(62,20,180,0.08)] px-[16px] py-[12px] flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center">
-          <button
-            onClick={() => router.push(pathname.split('/').slice(0, 2).join('/') || '/')}
-            className="text-xl font-bold text-[#363a5b] hover:opacity-80 transition-opacity"
-          >
-            FinProfile
-          </button>
-        </div>
+        <button
+          onClick={() =>
+            router.push(pathname.split('/').slice(0, 2).join('/') || '/')
+          }
+          className="text-[20px] font-bold text-[#363a5b] hover:opacity-80 transition-opacity font-['Poppins',sans-serif]"
+        >
+          FinProfile
+        </button>
 
         {/* Navigation */}
-        <nav className="hidden lg:flex items-center gap-6 text-[#363a5b] font-medium">
+        <nav className="flex items-center gap-[24px] text-[#363a5b] text-[16px] font-medium tracking-[-0.08px] font-['Poppins',sans-serif]">
           <button
             onClick={() => scrollToSection('why-finprofile')}
             className="hover:text-[#3b3f61] transition-colors"
@@ -79,11 +78,6 @@ export default function Header({ dict }: HeaderProps) {
             {dict.nav.requestDemo}
           </button>
         </nav>
-
-        {/* Language Switcher */}
-        <div className="flex items-center">
-          <LanguageSwitcher />
-        </div>
       </div>
     </header>
   );

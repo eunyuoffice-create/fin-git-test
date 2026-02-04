@@ -7,14 +7,13 @@ import Team from '@/components/Sections/Team';
 import ContactForm from '@/components/Sections/ContactForm';
 import Footer from '@/components/Footer/Footer';
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://main.do7mxvr098ojb.amplifyapp.com';
+const baseUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  'https://main.do7mxvr098ojb.amplifyapp.com';
 
 // 정적 생성할 언어 목록
 export async function generateStaticParams() {
-  return [
-    { lang: 'en' },
-    { lang: 'ko' }
-  ];
+  return [{ lang: 'en' }, { lang: 'ko' }];
 }
 
 // JSON-LD 구조화된 데이터
@@ -25,7 +24,8 @@ function generateJsonLd(lang: string) {
     name: 'FinProfile',
     url: `${baseUrl}/${lang}`,
     logo: `${baseUrl}/favicon.ico`,
-    description: 'AI-Powered Credit Infrastructure - Close credit data gaps with AI',
+    description:
+      'AI-Powered Credit Infrastructure - Close credit data gaps with AI',
     address: {
       '@type': 'PostalAddress',
       streetAddress: '503, 474 Gwangnaru-ro, Gwangjin-gu',
@@ -42,9 +42,9 @@ function generateJsonLd(lang: string) {
 }
 
 export default async function HomePage({
-  params
+  params,
 }: {
-  params: { lang: string }
+  params: { lang: string };
 }) {
   const dict = await getDictionary(params.lang as Locale);
   const jsonLd = generateJsonLd(params.lang);
@@ -57,24 +57,24 @@ export default async function HomePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <main className="min-h-screen bg-white">
+      <main className="min-h-screen bg-white min-w-[1000px]">
         {/* Header - Sticky Navigation */}
         <Header dict={dict} />
 
-      {/* Hero Banner */}
-      <HeroBanner dict={dict} />
+        {/* Hero Banner */}
+        <HeroBanner dict={dict} />
 
-      {/* Feature Sections (1-6) */}
-      <FeatureSections dict={dict} />
+        {/* Feature Sections (1-6) */}
+        <FeatureSections dict={dict} />
 
-      {/* Testimonials */}
-      <Testimonials dict={dict} />
+        {/* Testimonials */}
+        <Testimonials dict={dict} />
 
-      {/* Team */}
-      <Team dict={dict} />
+        {/* Team */}
+        <Team dict={dict} />
 
-      {/* Contact Form */}
-      <ContactForm dict={dict} lang={params.lang} />
+        {/* Contact Form */}
+        <ContactForm dict={dict} lang={params.lang} />
 
         {/* Footer */}
         <Footer dict={dict} />

@@ -16,41 +16,55 @@ interface TeamProps {
 
 export default function Team({ dict }: TeamProps) {
   return (
-    <section id="team" className="w-full px-4 py-20 md:px-8 lg:px-[220px] bg-white relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-20" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-100 rounded-full blur-3xl opacity-20" />
+    <section id="team" className="w-full px-[220px] py-[80px] bg-white relative overflow-hidden">
+      {/* Background circles */}
+      <div className="absolute top-[-256px] right-0 w-[512px] h-[512px] bg-[#e3ecfc] rounded-full blur-[200px] opacity-30" />
+      <div className="absolute bottom-[-200px] left-0 w-[422px] h-[422px] bg-[#e8e3fc] rounded-full blur-[100px] opacity-30" />
 
-      <div className="max-w-[1000px] mx-auto relative z-10">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#363a5b] mb-16 text-center">
+      <div className="relative z-10">
+        {/* Title */}
+        <h2 className="text-[52px] font-medium text-[#363a5b] mb-[64px] font-['Poppins',sans-serif]">
           {dict.team.title}
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Team Grid */}
+        <div className="flex gap-[40px]">
           {dict.team.members.map((member, index) => (
-            <div key={index} className="flex flex-col">
-              {/* Profile Image Placeholder */}
-              <div className="relative mb-6">
-                <div className="w-full h-[460px] bg-gradient-to-br from-[#3b3f61] to-[#5a5e80] rounded-2xl overflow-hidden">
-                  <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm p-6">
-                    <h3 className="text-xl font-bold text-[#363a5b]">{member.name}</h3>
-                    <p className="text-sm text-gray-600">
-                      {member.koreanName ? `${member.koreanName}・${member.role}` : member.role}
+            <div key={index} className="flex-1 flex flex-col">
+              {/* Profile Card */}
+              <div className="flex gap-[16px] mb-[40px]">
+                {/* Profile Image Placeholder */}
+                <div className="w-[184px] h-[260px] bg-gradient-to-br from-[#3b3f61] to-[#5a5e80] rounded-[16px] flex items-center justify-center text-white text-[48px] font-bold">
+                  {member.name.charAt(0)}
+                </div>
+
+                {/* Name & Role */}
+                <div className="pt-[65px]">
+                  <p className="text-[16px] text-[#363a5b] font-medium font-['Poppins',sans-serif] mb-[4px]">
+                    {member.role}
+                  </p>
+                  <h3 className="text-[24px] font-medium text-[#363a5b] leading-[1.2] font-['Poppins',sans-serif]">
+                    {member.name}
+                  </h3>
+                  {member.koreanName && (
+                    <p className="text-[14px] text-[#7a7a7a] font-['Poppins',sans-serif]">
+                      ({member.koreanName})
                     </p>
-                  </div>
+                  )}
                 </div>
               </div>
 
               {/* Description */}
-              <p className="text-gray-700 mb-6 leading-relaxed">
+              <p className="text-[18px] text-[#363a5b] leading-[1.4] tracking-[-0.27px] font-['Poppins',sans-serif] mb-[40px]">
                 {member.description}
               </p>
 
               {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-6">
+              <div className="flex flex-col gap-[12px] mb-[40px]">
                 {member.tags.map((tag, tagIndex) => (
                   <span
                     key={tagIndex}
-                    className="px-4 py-2 bg-gray-100 rounded-lg text-sm text-gray-700"
+                    className="w-fit px-[16px] py-[6px] bg-[#f0f5ff] rounded-[8px] text-[16px] text-[#363a5b] font-['Poppins',sans-serif]"
                   >
                     {tag}
                   </span>
@@ -58,11 +72,11 @@ export default function Team({ dict }: TeamProps) {
               </div>
 
               {/* LinkedIn Button */}
-              <button className="flex items-center gap-2 px-6 py-3 border-2 border-[#3b3f61] text-[#3b3f61] rounded-lg hover:bg-[#3b3f61] hover:text-white transition-colors">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
+              <button className="w-[153px] h-[56px] flex items-center gap-[8px] px-[32px] border-2 border-[#363a5b] text-[#363a5b] rounded-[999px] hover:bg-[#363a5b] hover:text-white transition-colors font-['Poppins',sans-serif] font-bold text-[15px]">
                 {dict.team.linkedIn}
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
               </button>
             </div>
           ))}
