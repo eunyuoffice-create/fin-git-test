@@ -1,0 +1,82 @@
+# ===========================================
+# AWS Amplify 빌드 설정
+# ===========================================
+# Next.js SSR (Server-Side Rendering) 빌드 파이프라인
+# API 라우트 및 동적 기능 포함
+# ===========================================
+
+version: 1
+
+frontend:
+  # -----------------------------------------------
+  # 빌드 단계 (Phases)
+  # -----------------------------------------------
+  phases:
+    # 빌드 전 준비 (Pre-build)
+    preBuild:
+      commands:
+        # Next.js 프로젝트 폴더로 이동
+        - cd finprofile
+
+        # 의존성 설치 (npm ci는 package-lock.json 기반 정확한 버전 설치)
+        - npm ci
+
+        # 빌드 시작 로그
+        - echo "Starting Next.js SSR build..."
+
+    # 빌드 실행 (Build)
+    build:
+      commands:
+        # Next.js 프로젝트 폴더로 이동
+        - cd finprofile
+
+        # Next.js SSR 빌드
+        # 결과물: .next/ 폴더에 빌드 (서버 사이드 기능 포함)
+        - npm run build
+
+        # 빌드 완료 로그
+        - echo "SSR build completed successfully!"
+
+  # -----------------------------------------------
+  # 빌드 산출물 (Artifacts)
+  # -----------------------------------------------
+  artifacts:
+    # ⚠️ 중요: Next.js SSR 모드는 'finprofile/.next' 폴더 사용
+    # Amplify가 자동으로 Lambda@Edge에 배포
+    baseDirectory: finprofile/.next
+
+    # 모든 파일 배포 대상에 포함
+    files:
+      - '**/*'
+
+  # -----------------------------------------------
+  # 캐싱 (Cache)
+  # -----------------------------------------------
+  # 재빌드 시간 단축을 위한 캐싱 설정
+  cache:
+    paths:
+      # npm 패키지 캐싱 (의존성 재설치 시간 절약)
+      - finprofile/node_modules/**/*
+
+      # Next.js 빌드 캐시 (증분 빌드 성능 향상)
+      - finprofile/.next/cache/**/*
+
+# ===========================================
+# 참고사항
+# ===========================================
+# 1. 환경 변수는 Amplify Console에서 설정하세요:
+#    - SLACK_WEBHOOK_URL (필수)
+#    - ALLOWED_ORIGINS (권장)
+#    - NODE_VERSION (선택)
+#
+# 2. 빌드 시간 예상: 3-5분
+#
+# 3. SSR 기능:
+#    - API 라우트 자동으로 Lambda 함수로 배포
+#    - 동적 페이지 서버 사이드 렌더링 지원
+#    - 정적 페이지는 자동으로 캐싱
+#
+# 4. 트러블슈팅:
+#    - 빌드 실패 시 Amplify Console 로그 확인
+#    - 로컬에서 'npm run build' 테스트 권장
+# ===========================================
