@@ -15,9 +15,6 @@ frontend:
     # 빌드 전 준비 (Pre-build)
     preBuild:
       commands:
-        # Node.js 버전 명시 (안정성 확보)
-        - nvm use 18
-
         # 의존성 설치 (npm ci는 package-lock.json 기반 정확한 버전 설치)
         - npm ci
 
