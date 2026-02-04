@@ -7,8 +7,11 @@ frontend:
     build:
       commands:
         - npm run build
+        - cp -r .next/standalone/. .next/standalone-app
+        - cp -r .next/static .next/standalone-app/.next/
+        - cp -r public .next/standalone-app/
   artifacts:
-    # Next.js SSR: baseDirectory 제거하여 Amplify가 자동으로 처리하도록 함
+    baseDirectory: .next/standalone-app
     files:
       - '**/*'
   cache:
