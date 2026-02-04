@@ -6,6 +6,8 @@ frontend:
         - npm ci
     build:
       commands:
+        - echo "SLACK_WEBHOOK_URL=$SLACK_WEBHOOK_URL" >> .env.production
+        - echo "ALLOWED_ORIGINS=$ALLOWED_ORIGINS" >> .env.production
         - npm run build
   artifacts:
     baseDirectory: .next
