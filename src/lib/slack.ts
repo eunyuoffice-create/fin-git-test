@@ -8,6 +8,8 @@ export async function sendSlackNotification(data: ContactFormRequest): Promise<v
     throw new Error('SLACK_WEBHOOK_URL is not configured');
   }
 
+  const lang = data.lang || 'en';
+
   const message: {
     text: string;
     blocks: Array<{
@@ -26,41 +28,34 @@ export async function sendSlackNotification(data: ContactFormRequest): Promise<v
           emoji: true,
         },
       },
-        {
-       type: 'section',
-       text: {
-         type: 'mrkdwn',
-         text: `*Company:*\n${data.company}`
-      }
-    },
-    {
-      type: 'section',
-      text: {
-        type: 'mrkdwn',
-        text: `*Name:*\n${data.name}`
-      }
-    },
-    {
-      type: 'section',
-      text: {
-        type: 'mrkdwn',
-        text: `*Phone:*\n${data.phone}`
-      }
-    },
-    {
-      type: 'section',
-      text: {
-        type: 'mrkdwn',
-        text: `*Email:*\n${data.email}`
-      }
-    },
-    {
-      type: 'section',
-      text: {
-        type: 'mrkdwn',
-        text: `*Business Needs:*\n${data.needs}`
-      }
-    },
+      {
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: `*Company:*\n${data.company}`,
+        },
+      },
+      {
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: `*Name:*\n${data.name}`,
+        },
+      },
+      {
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: `*Phone:*\n${data.phone}`,
+        },
+      },
+      {
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: `*Email:*\n${data.email}`,
+        },
+      },
     ],
   };
 
@@ -81,7 +76,7 @@ export async function sendSlackNotification(data: ContactFormRequest): Promise<v
     elements: [
       {
         type: 'mrkdwn',
-        text: `Language: *${data.lang.toUpperCase()}* | Submitted: <!date^${Math.floor(Date.now() / 1000)}^{date_short_pretty} at {time}|${new Date().toISOString()}>`,
+        text: `Language: *${lang.toUpperCase()}* | Submitted: <!date^${Math.floor(Date.now() / 1000)}^{date_short_pretty} at {time}|${new Date().toISOString()}>`,
       },
     ],
   });
