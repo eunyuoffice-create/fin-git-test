@@ -187,14 +187,31 @@ export async function POST(request: NextRequest) {
     // -----------------------------------------------
     console.error('Contact API Error:', error);
 
+    // 디버그용 - 에러 상세 정보 반환 (프로덕션에서는 제거 필요)
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    const hasWebhook = !!process.env.SLACK_WEBHOOK_URL;
+
     // Slack 전송 실패 (네트워크 오류 등)
     if (axios.isAxiosError(error)) {
-      return NextResponse.json({ error: 'Failed to send notification' }, { status: 502 });
+      return NextResponse.json({
+        error: 'Failed to send notification',
+        debug: {
+          message: error.message,
+          status: error.response?.status,
+          data: error.response?.data,
+          hasWebhook
+        }
+      }, { status: 502 });
     }
 
     // 기타 서버 에러
-    // ⚠️ 보안: 에러 상세 정보를 클라이언트에 노출하지 않음
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json({
+      error: 'Internal server error',
+      debug: {
+        message: errorMessage,
+        hasWebhook
+      }
+    }, { status: 500 });
   }
 }
 
