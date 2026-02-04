@@ -7,6 +7,8 @@ import Team from '@/components/Sections/Team';
 import ContactForm from '@/components/Sections/ContactForm';
 import Footer from '@/components/Footer/Footer';
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://main.do7mxvr098ojb.amplifyapp.com';
+
 // 정적 생성할 언어 목록
 export async function generateStaticParams() {
   return [
@@ -15,17 +17,49 @@ export async function generateStaticParams() {
   ];
 }
 
+// JSON-LD 구조화된 데이터
+function generateJsonLd(lang: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'FinProfile',
+    url: `${baseUrl}/${lang}`,
+    logo: `${baseUrl}/favicon.ico`,
+    description: 'AI-Powered Credit Infrastructure - Close credit data gaps with AI',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '503, 474 Gwangnaru-ro, Gwangjin-gu',
+      addressLocality: 'Seoul',
+      addressCountry: 'KR',
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: 'hello@finprofile.id',
+      contactType: 'customer service',
+    },
+    sameAs: [],
+  };
+}
+
 export default async function HomePage({
   params
 }: {
   params: { lang: string }
 }) {
   const dict = await getDictionary(params.lang as Locale);
+  const jsonLd = generateJsonLd(params.lang);
 
   return (
-    <main className="min-h-screen bg-white">
-      {/* Header - Sticky Navigation */}
-      <Header dict={dict} />
+    <>
+      {/* JSON-LD 구조화된 데이터 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      <main className="min-h-screen bg-white">
+        {/* Header - Sticky Navigation */}
+        <Header dict={dict} />
 
       {/* Hero Banner */}
       <HeroBanner dict={dict} />
@@ -42,8 +76,9 @@ export default async function HomePage({
       {/* Contact Form */}
       <ContactForm dict={dict} lang={params.lang} />
 
-      {/* Footer */}
-      <Footer dict={dict} />
-    </main>
+        {/* Footer */}
+        <Footer dict={dict} />
+      </main>
+    </>
   );
 }
