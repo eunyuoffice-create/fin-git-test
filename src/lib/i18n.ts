@@ -1,6 +1,6 @@
-export type Locale = 'en' | 'id';
+export type Locale = 'en' | 'ko';
 
-export const locales: Locale[] = ['en', 'id'];
+export const locales: Locale[] = ['en', 'ko'];
 export const defaultLocale: Locale = 'en';
 
 export async function getDictionary(locale: Locale) {
