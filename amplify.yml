@@ -10,6 +10,9 @@ frontend:
         - cp -r .next/standalone/. .next/standalone-app
         - cp -r .next/static .next/standalone-app/.next/
         - cp -r public .next/standalone-app/
+        - cp .next/required-server-files.json .next/standalone-app/.next/
+        - cp .next/routes-manifest.json .next/standalone-app/.next/
+        - cp .next/prerender-manifest.json .next/standalone-app/.next/
   artifacts:
     baseDirectory: .next/standalone-app
     files:
