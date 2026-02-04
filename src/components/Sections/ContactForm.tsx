@@ -34,7 +34,6 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
     phone: '',
     email: '',
     privacy: false,
-    website: '', // 🔒 Honeypot 필드 (봇 차단용)
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -59,7 +58,6 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
           name: formData.name,
           phone: formData.phone,
           email: formData.email,
-          website: formData.website, // 🔒 Honeypot 필드 (봇 차단용)
           lang: lang,
         }),
       });
@@ -80,7 +78,6 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
         phone: '',
         email: '',
         privacy: false,
-        website: '', // 🔒 Honeypot 필드 리셋
       });
     } catch (error) {
       console.error('Form submission error:', error);
@@ -148,30 +145,6 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* ========================================
-                  🔒 Honeypot 필드 (봇 차단용)
-                  ========================================
-                  - 정상 사용자는 이 필드를 볼 수 없음 (CSS로 숨김)
-                  - 봇이 자동으로 채우면 서버에서 차단
-                  - API route.ts에서 검증 로직 있음
-              */}
-              <input
-                type="text"
-                name="website"
-                value={formData.website}
-                onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-                tabIndex={-1}
-                autoComplete="off"
-                style={{
-                  position: 'absolute',
-                  left: '-9999px',
-                  width: '1px',
-                  height: '1px',
-                  opacity: 0,
-                }}
-                aria-hidden="true"
-              />
-
               {/* Name */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">

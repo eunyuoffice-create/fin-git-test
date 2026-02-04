@@ -104,22 +104,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
 
     // -----------------------------------------------
-    // 4. Honeypot 체크 (봇 차단)
-    // -----------------------------------------------
-    // 숨겨진 필드 'website'가 채워지면 봇으로 판단
-    // 정상 사용자는 이 필드를 볼 수 없음
-    const honeypot = body.website;
-    if (honeypot) {
-      console.warn(`[Honeypot] Bot detected from IP ${ip}`);
-      // 봇에게는 정상 응답을 반환하여 감지 회피 방지
-      return NextResponse.json(
-        { success: true, message: 'Form submitted successfully' },
-        { status: 200 }
-      );
-    }
-
-    // -----------------------------------------------
-    // 5. Zod 스키마 검증
+    // 4. Zod 스키마 검증
     // -----------------------------------------------
     const validationResult = z
       .object({
@@ -148,7 +133,7 @@ export async function POST(request: NextRequest) {
     }
 
     // -----------------------------------------------
-    // 6. Sanitization (XSS 공격 방지)
+    // 5. Sanitization (XSS 공격 방지)
     // -----------------------------------------------
     // 검증된 데이터에서 위험한 문자 제거
     const formData: ContactFormRequest = {
@@ -163,12 +148,12 @@ export async function POST(request: NextRequest) {
     };
 
     // -----------------------------------------------
-    // 7. Slack 알림 전송
+    // 6. Slack 알림 전송
     // -----------------------------------------------
     await sendSlackNotification(formData);
 
     // -----------------------------------------------
-    // 8. 성공 응답
+    // 7. 성공 응답
     // -----------------------------------------------
     console.log(`[Success] Contact form submitted from IP ${ip}`);
     return NextResponse.json(
