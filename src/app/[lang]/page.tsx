@@ -44,10 +44,11 @@ function generateJsonLd(lang: string) {
 export default async function HomePage({
   params,
 }: {
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 }) {
-  const dict = await getDictionary(params.lang as Locale);
-  const jsonLd = generateJsonLd(params.lang);
+  const { lang } = await params;
+  const dict = await getDictionary(lang as Locale);
+  const jsonLd = generateJsonLd(lang);
 
   return (
     <>
@@ -74,7 +75,7 @@ export default async function HomePage({
         <Team dict={dict} />
 
         {/* Contact Form */}
-        <ContactForm dict={dict} lang={params.lang} />
+        <ContactForm dict={dict} lang={lang} />
 
         {/* Footer */}
         <Footer dict={dict} />

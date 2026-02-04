@@ -11,9 +11,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
-  const lang = params.lang as Locale;
+  const { lang: langParam } = await params;
+  const lang = langParam as Locale;
   const dict = await getDictionary(lang);
   const url = `${baseUrl}/${lang}`;
 
@@ -77,15 +78,17 @@ export async function generateMetadata({
   };
 }
 
-export default function LangLayout({
+export default async function LangLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 }) {
+  const { lang } = await params;
+
   // 유효하지 않은 언어는 404
-  if (!isValidLocale(params.lang)) {
+  if (!isValidLocale(lang)) {
     notFound();
   }
 

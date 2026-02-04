@@ -8,11 +8,11 @@
 
 | 항목 | 값 |
 |------|-----|
-| 프레임워크 | Next.js 14.2.x (App Router) |
+| 프레임워크 | Next.js 15.5.x (App Router) |
 | 배포 | AWS Amplify SSR |
 | 포트 | 8080 (로컬) |
 | 다국어 | `en`, `ko` |
-| Node.js | 18.x |
+| Node.js | 22.x |
 | **타겟 시장** | **인도네시아** |
 
 ---
@@ -350,7 +350,7 @@ Contact Form 제출 → Slack 알림 전송
 
 | 분류 | 기술 |
 |------|------|
-| Framework | Next.js 14.2.x (App Router) |
+| Framework | Next.js 15.5.x (App Router) |
 | Language | TypeScript |
 | Styling | Tailwind CSS |
 | Validation | Zod |
