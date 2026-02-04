@@ -35,9 +35,9 @@ frontend:
   # 빌드 산출물 (Artifacts)
   # -----------------------------------------------
   artifacts:
-    # ⚠️ 중요: Next.js SSR 모드는 '.next' 폴더 사용
-    # Amplify가 자동으로 Lambda@Edge에 배포
-    baseDirectory: .next
+    # ⚠️ 중요: Next.js SSR 모드는 전체 프로젝트 필요
+    # baseDirectory를 루트로 설정하여 .next, public, node_modules 등 모두 포함
+    baseDirectory: .
 
     # 모든 파일 배포 대상에 포함
     files:
