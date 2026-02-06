@@ -43,69 +43,6 @@ interface FeatureSectionsProps {
   };
 }
 
-function ChevronDownIcon({ className = '' }: { className?: string }) {
-  return (
-    <svg
-      width="44"
-      height="38"
-      viewBox="0 0 44 38"
-      fill="none"
-      className={className}
-      aria-hidden="true"
-    >
-      <path
-        d="M4 4L22 19L40 4"
-        stroke="#7B8CDE"
-        strokeWidth="6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M4 19L22 34L40 19"
-        stroke="#7B8CDE"
-        strokeWidth="6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function ChevronDownLargeIcon({ className = '' }: { className?: string }) {
-  return (
-    <svg
-      width="88"
-      height="102"
-      viewBox="0 0 88 102"
-      fill="none"
-      className={className}
-      aria-hidden="true"
-    >
-      <path
-        d="M8 8L44 38L80 8"
-        stroke="#7B8CDE"
-        strokeWidth="10"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M8 38L44 68L80 38"
-        stroke="#A8B4E8"
-        strokeWidth="10"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M8 68L44 98L80 68"
-        stroke="#D0D8F5"
-        strokeWidth="10"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 export default function FeatureSections({ dict }: FeatureSectionsProps) {
   return (
     <>
@@ -245,6 +182,13 @@ export default function FeatureSections({ dict }: FeatureSectionsProps) {
             role="region"
             aria-label="Time consuming note"
           >
+            <div
+              className="rounded-[8px] w-[635px] h-[84px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+              style={{
+                background:
+                  'radial-gradient(50% 50% at 50% 50%, #C3FFE2 0%, rgba(195, 255, 226, 0.00) 100%)',
+              }}
+            />
             {/* But Badge */}
             <span
               className={cn(
@@ -259,7 +203,7 @@ export default function FeatureSections({ dict }: FeatureSectionsProps) {
             <p
               className={cn(
                 'text-[28px] font-medium text-[#3e4ed1] text-center',
-                'tracking-[-0.42px] font-poppins'
+                'tracking-[-0.42px] font-poppins relative z-10'
               )}
             >
               {dict.section1.timeConsuming}
@@ -362,7 +306,7 @@ export default function FeatureSections({ dict }: FeatureSectionsProps) {
       </section>
 
       {/* Section 3-6 - Feature Details */}
-      <div className="w-full px-[220px] bg-white">
+      <div className="w-full px-[220px]">
         <div className="w-[1000px] mx-auto">
           {[
             {
@@ -389,7 +333,7 @@ export default function FeatureSections({ dict }: FeatureSectionsProps) {
               image: '/images/ai-04.png',
               imagePosition: 'right',
             },
-          ].map((item) => (
+          ].map((item, index) => (
             <section
               key={item.id}
               id={item.id}

@@ -75,16 +75,16 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
       className="w-full h-[580px] py-6 relative"
       aria-labelledby="hero-title"
     >
-      <div className="w-[512px] h-[512px] rounded-full blur-[200px] bg-[#D2F9EA] absolute left-[-256px] top-[-256px]"></div>
-      <div className="w-[512px] h-[512px] rounded-full blur-[200px] bg-[#C3C2FF] absolute right-[-256px] bottom-[-256px]"></div>
       <div
         className={cn(
           'w-[1000px] mx-auto h-full',
           'flex gap-20 items-center relative z-10'
         )}
       >
+        <div className="w-[512px] h-[512px] rounded-full blur-[200px] bg-[#D2F9EA] absolute left-[-256px] top-[-256px]"></div>
+        <div className="w-[512px] h-[512px] rounded-full blur-[200px] bg-[#C3C2FF] absolute right-[-256px] bottom-[-256px]"></div>
         {/* Left Content */}
-        <article className="flex-1 flex flex-col gap-12 min-w-[460px]">
+        <article className="flex-1 flex flex-col gap-12 min-w-[460px] relative z-10">
           <h1
             id="hero-title"
             className={cn(

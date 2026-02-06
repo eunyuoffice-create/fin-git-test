@@ -121,21 +121,21 @@
     "title": "FinProfile People",
     "members": [
       {
-        "name": "Cruz Yoon",
+        "name": "Cruz\nYoon",
         "koreanName": "Jae Ho Yoon",
         "role": "CEO",
         "description": "Extensive experience in Southeast Asian markets, specializing in AI-driven industrial problem solving.",
         "tags": ["AI Specialist Consultant", "Global Business Lead", "New Business & Investment"]
       },
       {
-        "name": "Chang ho Moon",
+        "name": "Chang ho\nMoon",
         "koreanName": "Jae Ho Yoon",
         "role": "CTO",
         "description": "Full-stack Engineer with 10 years of experience. Ranked 4th in the National IT Skills Competition",
         "tags": ["System Architecture", "Technical Strategy", "10+ Years Exp"]
       },
       {
-        "name": "Jannele Shin",
+        "name": "Jannele\nShin",
         "koreanName": "Eun jung Shin",
         "role": "CXO",
         "description": "Service Designer with 15 years of expertise in global design consultancy. Led digital service planning for 20+ domestic and international startups.",
