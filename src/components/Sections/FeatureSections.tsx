@@ -1,10 +1,40 @@
+import Image from 'next/image';
+import { cn } from '@/lib/utils';
+
 interface FeatureSectionsProps {
   dict: {
-    section1: { title: string; challenges: string[]; badge: string };
+    section1: {
+      title: string;
+      point1: {
+        title: string;
+      };
+      point2: {
+        title: string;
+      };
+      bankStatement: {
+        line1: string;
+        line2: string;
+      };
+      timeConsuming: string;
+      but: string;
+      experienceTitle: string;
+    };
     section2: {
       title: string;
-      manual: { label: string; time: string; note: string; description: string; additionalNote: string };
-      ai: { label: string; time: string; description: string };
+      finsightAI: string;
+      manual: {
+        perLoan: string;
+        timeValue: string;
+        timeUnit: string;
+        timeDetail: string;
+        descriptions: string[];
+      };
+      ai: {
+        perLoan: string;
+        timeValue: string;
+        timeUnit: string;
+        description: string;
+      };
     };
     section3: { badge: string; title: string; description: string };
     section4: { badge: string; title: string; description: string };
@@ -13,188 +43,451 @@ interface FeatureSectionsProps {
   };
 }
 
+function ChevronDownIcon({ className = '' }: { className?: string }) {
+  return (
+    <svg
+      width="44"
+      height="38"
+      viewBox="0 0 44 38"
+      fill="none"
+      className={className}
+      aria-hidden="true"
+    >
+      <path
+        d="M4 4L22 19L40 4"
+        stroke="#7B8CDE"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M4 19L22 34L40 19"
+        stroke="#7B8CDE"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function ChevronDownLargeIcon({ className = '' }: { className?: string }) {
+  return (
+    <svg
+      width="88"
+      height="102"
+      viewBox="0 0 88 102"
+      fill="none"
+      className={className}
+      aria-hidden="true"
+    >
+      <path
+        d="M8 8L44 38L80 8"
+        stroke="#7B8CDE"
+        strokeWidth="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8 38L44 68L80 38"
+        stroke="#A8B4E8"
+        strokeWidth="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8 68L44 98L80 68"
+        stroke="#D0D8F5"
+        strokeWidth="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export default function FeatureSections({ dict }: FeatureSectionsProps) {
   return (
     <>
-      {/* Section 1 - Why FinProfile */}
-      <section id="why-finprofile" className="w-full px-[220px] pt-[80px] pb-[100px] relative">
-        {/* Background gradient circle */}
-        <div className="absolute bottom-[-447px] left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-[#e8e3fc] rounded-full blur-[200px] opacity-30" />
-
-        <div className="flex flex-col gap-[40px] items-center relative z-10">
+      {/* Section 1 - Expand credit access safely */}
+      <section
+        id="why-finprofile"
+        className={cn('w-full pt-[80px]', 'relative')}
+        aria-labelledby="section1-title"
+      >
+        <div
+          className={cn(
+            'w-[1000px] mx-auto flex flex-col gap-[40px]',
+            'items-center relative z-10'
+          )}
+        >
           {/* Title */}
-          <h2 className="text-[32px] font-medium text-[#363a5b] text-center leading-[1.4] tracking-[-0.48px] font-['Poppins',sans-serif]">
-            Expand credit access safely<br />
-            with AI-powered credit infrastructure.
+          <h2
+            id="section1-title"
+            className={cn(
+              'text-[32px] font-medium text-[#363a5b] text-center',
+              'leading-[1.4] tracking-[-0.48px] font-poppins whitespace-pre-wrap'
+            )}
+          >
+            {dict.section1.title}
           </h2>
 
-          {/* Challenge Cards */}
-          <div className="flex gap-[24px] items-center">
-            {dict.section1.challenges.map((challenge, index) => (
+          {/* Two Point Boxes */}
+          <div
+            className={cn(
+              'flex gap-[24px] items-start',
+              'justify-center w-full'
+            )}
+            role="list"
+          >
+            {/* Point 1 */}
+            <article
+              className="flex flex-col gap-[16px] items-center"
+              role="listitem"
+            >
               <div
-                key={index}
-                className="w-[300px] h-[100px] bg-[#e7efff] rounded-[16px] flex items-center justify-center"
+                className={cn(
+                  'w-[400px] h-[110px] bg-[#e7efff] rounded-[16px]',
+                  'flex items-center justify-center'
+                )}
               >
-                <p className="text-[20px] font-medium text-[#363a5b] text-center leading-[1.4] tracking-[-0.3px] font-['Poppins',sans-serif]">
-                  {challenge}
+                <p
+                  className={cn(
+                    'text-[20px] font-medium text-[#363a5b] text-center',
+                    'leading-[1.4] tracking-[-0.3px] font-poppins whitespace-pre-wrap'
+                  )}
+                >
+                  {dict.section1.point1.title}
                 </p>
               </div>
-            ))}
+              <div
+                className={cn(
+                  'w-[64px] h-[64px] flex items-center',
+                  'justify-center overflow-hidden'
+                )}
+              >
+                <Image
+                  src="/images/icons/icon-arrow-sm.png"
+                  alt=""
+                  width={64}
+                  height={64}
+                  className="object-contain"
+                />
+              </div>
+            </article>
+
+            {/* Point 2 */}
+            <article
+              className="flex flex-col gap-[16px] items-center"
+              role="listitem"
+            >
+              <div
+                className={cn(
+                  'w-[400px] h-[110px] bg-[#e7efff] rounded-[16px]',
+                  'flex items-center justify-center'
+                )}
+              >
+                <p
+                  className={cn(
+                    'text-[20px] font-medium text-[#363a5b] text-center',
+                    'leading-[1.4] tracking-[-0.3px] font-poppins whitespace-pre-wrap'
+                  )}
+                >
+                  {dict.section1.point2.title}
+                </p>
+              </div>
+              <div
+                className={cn(
+                  'w-[64px] h-[64px] flex items-center',
+                  'justify-center overflow-hidden'
+                )}
+              >
+                <Image
+                  src="/images/icons/icon-arrow-sm.png"
+                  alt=""
+                  width={64}
+                  height={64}
+                />
+              </div>
+            </article>
           </div>
 
-          {/* FinSight AI Card */}
-          <div className="w-[696px] h-[219px] rounded-[18px] bg-gradient-to-r from-[#cee1ff] to-[#9abffb] shadow-[0px_9px_18px_0px_rgba(62,20,180,0.08)] flex items-center justify-center">
-            <div className="text-[48px] font-bold text-[#363a5b] font-['Poppins',sans-serif]">
-              FinSight AI
+          {/* Bank Statement Box */}
+          <div
+            className={cn(
+              'w-[824px] h-[130px] rounded-[18px] overflow-hidden',
+              'relative flex items-center justify-center'
+            )}
+            style={{
+              background:
+                'linear-gradient(132deg, rgb(208, 226, 255) 0%, rgb(223, 230, 244) 58%, rgb(164, 198, 255) 89%, rgb(118, 168, 255) 100%)',
+            }}
+            role="region"
+            aria-label="Bank Statement highlight"
+          >
+            <div
+              className={cn(
+                'text-[#363a5b] text-center font-poppins font-medium',
+                'leading-[1.4] tracking-[-0.38px]'
+              )}
+            >
+              <p className="text-[20px]">{dict.section1.bankStatement.line1}</p>
+              <p className="text-[28px]">{dict.section1.bankStatement.line2}</p>
             </div>
           </div>
 
-          {/* Bottom Text */}
-          <div className="text-center text-[#363a5b] font-['Poppins',sans-serif]">
-            <p className="text-[28px] font-medium tracking-[-0.48px]">
-              The only thing you can trust is
+          {/* Time consuming with But label */}
+          <div
+            className={cn(
+              'relative flex gap-[16px] items-center justify-center',
+              'pl-[56px] pr-[36px] py-[24px] rounded-[8px]'
+            )}
+            role="region"
+            aria-label="Time consuming note"
+          >
+            {/* But Badge */}
+            <span
+              className={cn(
+                'absolute left-[-39px] top-1/2 -translate-y-1/2 -rotate-[16deg]',
+                'bg-[#76f8b6] px-[16px] py-[4px] rounded-[4px]',
+                'text-[24px] font-medium italic text-[#4e4bfb] font-poppins'
+              )}
+              aria-hidden="true"
+            >
+              {dict.section1.but}
+            </span>
+            <p
+              className={cn(
+                'text-[28px] font-medium text-[#3e4ed1] text-center',
+                'tracking-[-0.42px] font-poppins'
+              )}
+            >
+              {dict.section1.timeConsuming}
             </p>
-            <p className="text-[48px] font-medium tracking-[-0.48px]">
-              Bank Statement
-            </p>
+            {/* Money Stack Icon */}
+            <div
+              className="w-[80px] h-[40px] flex items-center justify-center"
+              aria-hidden="true"
+            >
+              <Image
+                src="/images/section1/money-stack.svg"
+                alt=""
+                width={74}
+                height={35}
+              />
+            </div>
+          </div>
+
+          {/* Large Chevron Down Arrow */}
+          <div
+            className={cn(
+              'w-[128px] h-[128px] flex items-center',
+              'justify-center overflow-hidden'
+            )}
+          >
+            <Image
+              src="/images/icons/icon-arrow.png"
+              alt=""
+              width={128}
+              height={128}
+              className="object-contain"
+            />
+          </div>
+
+          <div className="w-full relative overflow-hidden">
+            {/* Experience FinProfile Title */}
+            <h3
+              id="experience-title"
+              className={cn(
+                'text-[40px] font-medium text-[#363a5b] text-center',
+                'leading-[1.4] tracking-[-0.6px] font-poppins'
+              )}
+            >
+              {dict.section1.experienceTitle}
+            </h3>
+
+            <div className="w-full h-[420px] relative overflow-hidden mt-6">
+              <Image
+                src="/images/experience.png"
+                alt=""
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Section 2 - Solutions (5day vs 5min) */}
-      <section id="solutions" className="w-full pt-[80px] pb-[100px] bg-gradient-to-b from-[#f2f6ff] to-[#e6eeff] relative">
-        {/* Background circles */}
-        <div className="absolute top-[-248px] left-1/2 -translate-x-1/2 w-[422px] h-[422px] bg-[#e8e3fc] rounded-full blur-[100px] opacity-30" />
-        <div className="absolute bottom-[-211px] left-1/2 -translate-x-1/2 w-[422px] h-[422px] bg-[#e8e3fc] rounded-full blur-[100px] opacity-30" />
-
-        <div className="px-[220px] relative z-10">
+      {/* Section 2 - Reinvent Credit Reviews */}
+      <section
+        id="solutions"
+        className={cn(
+          'w-full pt-[80px] pb-[100px]',
+          'relative overflow-hidden'
+        )}
+        style={{
+          background: 'linear-gradient(180deg, #F2F6FF 0%, #E6EEFF 100%)',
+        }}
+        aria-labelledby="section2-title"
+      >
+        <div className="w-[420px] h-[420px] rounded-full blur-[100px] bg-[#C0DDFFCC] opacity-80 absolute top-[-211px] left-[50%] -translate-x-1/2"></div>
+        <div className="w-[420px] h-[420px] rounded-full blur-[100px] bg-[#DBDAFFCC] opacity-80 absolute bottom-[-211px] left-[50%] -translate-x-1/2"></div>
+        <div className={cn('flex flex-col', 'items-center relative z-10')}>
           {/* Title */}
-          <h2 className="text-[32px] font-medium text-[#363a5b] text-center leading-[1.3] tracking-[-0.48px] font-['Poppins',sans-serif] mb-[64px]">
-            Reinvent Credit Reviews<br />
-            with AI Automation
+          <h2
+            id="section2-title"
+            className={cn(
+              'text-[32px] font-medium text-[#363a5b] text-center',
+              'leading-[1.3] tracking-[-0.48px] font-poppins whitespace-pre-wrap'
+            )}
+          >
+            {dict.section2.title}
           </h2>
-
-          {/* Comparison Section */}
-          <div className="flex justify-between items-start">
-            {/* Manual Process - Left */}
-            <div className="flex flex-col items-center">
-              <p className="text-[18px] font-medium text-[#363a5b] tracking-[-0.27px] font-['Poppins',sans-serif] mb-[24px]">
-                {dict.section2.manual.label}
-              </p>
-              <div className="text-[#363a5b] font-['Poppins',sans-serif] text-center">
-                <span className="text-[124px] font-extrabold leading-[96px] tracking-[-1.62px]">5</span>
-                <span className="text-[56px] font-extrabold leading-[96px] tracking-[-1.62px]">day+</span>
-              </div>
-              <p className="text-[20px] font-semibold text-[#363a5b] tracking-[-0.3px] font-['Poppins',sans-serif] mt-[24px]">
-                {dict.section2.manual.note}
-              </p>
-
-              {/* Manual Process Card */}
-              <div className="w-[360px] bg-white rounded-[24px] p-[24px] mt-[100px]">
-                <ul className="text-[18px] font-medium text-[#7a7a7a] leading-[1.4] tracking-[-0.27px] font-['Poppins',sans-serif] space-y-[16px]">
-                  <li className="list-disc ml-[27px]">{dict.section2.manual.description}</li>
-                  <li className="list-disc ml-[27px]">{dict.section2.manual.additionalNote}</li>
-                </ul>
-              </div>
-            </div>
-
-            {/* FinSight AI Logo - Center */}
-            <div className="flex flex-col items-center mt-[60px]">
-              <div className="bg-white rounded-[18px] shadow-[0px_6px_12px_0px_rgba(62,20,180,0.08)] px-[24px] py-[18px]">
-                <div className="text-[24px] font-bold text-[#363a5b] font-['Poppins',sans-serif]">
-                  FinSight AI
-                </div>
-              </div>
-              {/* Arrow down */}
-              <div className="mt-[8px]">
-                <svg width="18" height="30" viewBox="0 0 18 30" fill="none">
-                  <path d="M9 0V26M9 26L1 18M9 26L17 18" stroke="#363a5b" strokeWidth="2"/>
-                </svg>
-              </div>
-            </div>
-
-            {/* AI Process - Right */}
-            <div className="flex flex-col items-center">
-              <p className="text-[18px] font-medium text-[#363a5b] tracking-[-0.27px] font-['Poppins',sans-serif] mb-[24px]">
-                {dict.section2.ai.label}
-              </p>
-              <div className="text-[#363a5b] font-['Poppins',sans-serif]">
-                <span className="text-[180px] font-extrabold leading-[160px] tracking-[-2.7px]">5</span>
-                <span className="text-[80px] font-extrabold leading-[160px] tracking-[-2.7px]">min</span>
-              </div>
-
-              {/* AI Process Card */}
-              <div className="w-[360px] bg-white rounded-[24px] p-[24px] mt-[100px]">
-                <ul className="text-[18px] font-medium text-[#7a7a7a] leading-[1.4] tracking-[-0.27px] font-['Poppins',sans-serif]">
-                  <li className="list-disc ml-[27px]">{dict.section2.ai.description}</li>
-                </ul>
-              </div>
+          {/* Spacer for background image height */}
+          <div
+            className={cn(
+              'w-full',
+              "before:content-[''] before:flex before:items-center before:justify-center  before:h-[573px] before:inset-0 before:ml-[-220px] before:mt-[-20px]",
+              "before:bg-[url('/images/Solutions.png')] before:bg-[length:1228px_573px] before:bg-center before:bg-no-repeat"
+            )}
+            aria-hidden="true"
+          >
+            <div>
+              <span className="text-[18px] font-bold text-[#363a5b] font-poppins">
+                {dict.section2.finsightAI} Per Loan Application 5day+ = 7,200min
+              </span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Section 3-6 - Feature Details */}
-      {[
-        { section: dict.section3, id: 'section3', badge: 'Context-Aware AI' },
-        { section: dict.section4, id: 'section4', badge: 'Pre-Verification AI' },
-        { section: dict.section5, id: 'section5', badge: 'Precision Beyond Human' },
-        { section: dict.section6, id: 'section6', badge: 'Country-Specific Financial AI' },
-      ].map((item, index) => (
-        <section
-          key={item.id}
-          className="w-full px-[220px] py-[80px] bg-white"
-        >
-          <div className="flex gap-[80px] items-center">
-            {/* Image - alternating sides */}
-            {index % 2 === 0 ? (
-              <>
-                <div className="w-[320px] h-[400px] bg-gradient-to-b from-[#7dabff] to-[#d4e2ff] rounded-[24px] flex items-center justify-center flex-shrink-0">
-                  <span className="text-[24px] text-[#363a5b] font-bold opacity-30">
-                    Image {index + 3}
-                  </span>
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-[8px] mb-[24px]">
-                    <div className="w-[24px] h-[24px] bg-[#3b3f61] rounded-[4px]" />
-                    <span className="text-[16px] font-medium text-[#363a5b] tracking-[-0.24px] font-['Poppins',sans-serif]">
-                      {item.badge}
-                    </span>
+      <div className="w-full px-[220px] bg-white">
+        <div className="w-[1000px] mx-auto">
+          {[
+            {
+              section: dict.section3,
+              id: 'section3',
+              image: '/images/ai-01.png',
+              imagePosition: 'left',
+            },
+            {
+              section: dict.section4,
+              id: 'section4',
+              image: '/images/ai-02.png',
+              imagePosition: 'right',
+            },
+            {
+              section: dict.section5,
+              id: 'section5',
+              image: '/images/ai-03.png',
+              imagePosition: 'left',
+            },
+            {
+              section: dict.section6,
+              id: 'section6',
+              image: '/images/ai-04.png',
+              imagePosition: 'right',
+            },
+          ].map((item) => (
+            <section
+              key={item.id}
+              id={item.id}
+              className="pt-[80px] pb-[100px] overflow-hidden"
+              aria-labelledby={`${item.id}-title`}
+            >
+              <div className="flex gap-[80px] items-center">
+                {/* Image - left side */}
+                {item.imagePosition === 'left' && (
+                  <figure
+                    className={cn(
+                      'w-[320px] h-[400px] flex-shrink-0',
+                      'overflow-hidden rounded-[24px] relative'
+                    )}
+                  >
+                    <Image
+                      src={item.image}
+                      alt={item.section.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </figure>
+                )}
+
+                {/* Content */}
+                <article className="flex-1 flex flex-col gap-[40px]">
+                  <div className="flex flex-col gap-[24px]">
+                    {/* Badge */}
+                    <div
+                      className={cn(
+                        'inline-flex items-center gap-[8px]',
+                        'bg-[#3e14b4] px-[16px] py-[8px] rounded-[8px] w-fit'
+                      )}
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z"
+                          fill="white"
+                        />
+                      </svg>
+                      <span
+                        className={cn(
+                          'text-[16px] font-medium text-white',
+                          'tracking-[-0.24px] font-poppins'
+                        )}
+                      >
+                        {item.section.badge}
+                      </span>
+                    </div>
+                    {/* Title */}
+                    <h3
+                      id={`${item.id}-title`}
+                      className={cn(
+                        'text-[40px] font-medium text-[#363a5b]',
+                        'leading-[1.3] tracking-[-0.6px] font-poppins whitespace-pre-wrap'
+                      )}
+                    >
+                      {item.section.title}
+                    </h3>
                   </div>
-                  <h3 className="text-[40px] font-medium text-[#363a5b] leading-[1.3] tracking-[-0.6px] font-['Poppins',sans-serif] mb-[40px]">
-                    {item.section.title}
-                  </h3>
-                  <p className="text-[18px] text-[#7a7a7a] leading-[1.4] tracking-[-0.27px] font-['Poppins',sans-serif]">
+                  {/* Description */}
+                  <p
+                    className={cn(
+                      'text-[18px] text-[#7a7a7a]',
+                      'leading-[1.4] tracking-[-0.27px] font-poppins'
+                    )}
+                  >
                     {item.section.description}
                   </p>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="flex-1">
-                  <div className="flex items-center gap-[8px] mb-[24px]">
-                    <div className="w-[24px] h-[24px] bg-[#3b3f61] rounded-[4px]" />
-                    <span className="text-[16px] font-medium text-[#363a5b] tracking-[-0.24px] font-['Poppins',sans-serif]">
-                      {item.badge}
-                    </span>
-                  </div>
-                  <h3 className="text-[40px] font-medium text-[#363a5b] leading-[1.3] tracking-[-0.6px] font-['Poppins',sans-serif] mb-[40px]">
-                    {item.section.title}
-                  </h3>
-                  <p className="text-[18px] text-[#7a7a7a] leading-[1.4] tracking-[-0.27px] font-['Poppins',sans-serif]">
-                    {item.section.description}
-                  </p>
-                </div>
-                <div className="w-[320px] h-[400px] bg-gradient-to-b from-[#7dabff] to-[#d4e2ff] rounded-[24px] flex items-center justify-center flex-shrink-0">
-                  <span className="text-[24px] text-[#363a5b] font-bold opacity-30">
-                    Image {index + 3}
-                  </span>
-                </div>
-              </>
-            )}
-          </div>
-        </section>
-      ))}
+                </article>
+
+                {/* Image - right side */}
+                {item.imagePosition === 'right' && (
+                  <figure
+                    className={cn(
+                      'w-[320px] h-[400px] flex-shrink-0',
+                      'overflow-hidden rounded-[24px] relative'
+                    )}
+                  >
+                    <Image
+                      src={item.image}
+                      alt={item.section.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </figure>
+                )}
+              </div>
+            </section>
+          ))}
+        </div>
+      </div>
     </>
   );
 }

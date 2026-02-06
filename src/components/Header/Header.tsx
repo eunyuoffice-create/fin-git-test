@@ -1,6 +1,8 @@
 'use client';
 
+import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 interface HeaderProps {
   dict: {
@@ -32,48 +34,110 @@ export default function Header({ dict }: HeaderProps) {
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent, sectionId: string) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      scrollToSection(sectionId);
+    }
+  };
+
+  const navButtonClass = cn(
+    'leading-[1.45] px-0.5 py-px rounded',
+    'hover:text-[#3b3f61] transition-colors',
+    'focus:outline-none focus:ring-2 focus:ring-[#3b3f61] focus:ring-offset-2'
+  );
+
   return (
-    <header className="sticky top-0 z-50 w-full min-w-[1000px] max-w-[1440px] mx-auto py-[24px]">
-      <div className="min-w[1000px] backdrop-blur-[35px] bg-white/90 rounded-[16px] shadow-[0px_4px_12px_0px_rgba(62,20,180,0.08)] px-[16px] py-[12px] flex items-center justify-between">
+    <header
+      className={cn(
+        'sticky top-0 z-50 w-full',
+        'flex items-center justify-center',
+        'px-[220px] py-6'
+      )}
+      role="banner"
+    >
+      <div
+        className={cn(
+          'flex-1 max-w-[1000px] h-12',
+          'backdrop-blur-[35px] bg-white/90',
+          'rounded-2xl shadow-[0px_4px_12px_0px_rgba(62,20,180,0.08)]',
+          'px-4 py-3 flex items-center justify-between'
+        )}
+      >
         {/* Logo */}
-        <button
-          onClick={() =>
-            router.push(pathname.split('/').slice(0, 2).join('/') || '/')
-          }
-          className="text-[20px] font-bold text-[#363a5b] hover:opacity-80 transition-opacity font-['Poppins',sans-serif]"
+        <a
+          href={pathname.split('/').slice(0, 2).join('/') || '/'}
+          onClick={(e) => {
+            e.preventDefault();
+            router.push(pathname.split('/').slice(0, 2).join('/') || '/');
+          }}
+          className={cn(
+            'flex items-center rounded',
+            'hover:opacity-80 transition-opacity',
+            'focus:outline-none focus:ring-2 focus:ring-[#3b3f61] focus:ring-offset-2'
+          )}
+          aria-label="FinProfile Home"
         >
-          FinProfile
-        </button>
+          <Image
+            src="/images/logos/logo.svg"
+            alt="FinProfile"
+            width={113}
+            height={24}
+            priority
+          />
+        </a>
 
         {/* Navigation */}
-        <nav className="flex items-center gap-[24px] text-[#363a5b] text-[16px] font-medium tracking-[-0.08px] font-['Poppins',sans-serif]">
+        <nav
+          className={cn(
+            'flex items-center gap-6',
+            'text-[#363a5b] text-base font-medium',
+            'tracking-[-0.08px] font-poppins'
+          )}
+          role="navigation"
+          aria-label="Main navigation"
+        >
           <button
             onClick={() => scrollToSection('why-finprofile')}
-            className="hover:text-[#3b3f61] transition-colors"
+            onKeyDown={(e) => handleKeyDown(e, 'why-finprofile')}
+            className={cn(
+              'leading-[1.45] px-0.5 py-px rounded',
+              'hover:text-[#3b3f61] transition-colors',
+              'focus:outline-none focus:ring-2 focus:ring-[#3b3f61] focus:ring-offset-2'
+            )}
+            type="button"
           >
             {dict.nav.whyFinProfile}
           </button>
           <button
             onClick={() => scrollToSection('solutions')}
-            className="hover:text-[#3b3f61] transition-colors"
+            onKeyDown={(e) => handleKeyDown(e, 'solutions')}
+            className={navButtonClass}
+            type="button"
           >
             {dict.nav.solutions}
           </button>
           <button
             onClick={() => scrollToSection('testimonial')}
-            className="hover:text-[#3b3f61] transition-colors"
+            onKeyDown={(e) => handleKeyDown(e, 'testimonial')}
+            className={navButtonClass}
+            type="button"
           >
             {dict.nav.testimonial}
           </button>
           <button
             onClick={() => scrollToSection('team')}
-            className="hover:text-[#3b3f61] transition-colors"
+            onKeyDown={(e) => handleKeyDown(e, 'team')}
+            className={navButtonClass}
+            type="button"
           >
             {dict.nav.team}
           </button>
           <button
             onClick={() => scrollToSection('contact')}
-            className="hover:text-[#3b3f61] transition-colors"
+            onKeyDown={(e) => handleKeyDown(e, 'contact')}
+            className={navButtonClass}
+            type="button"
           >
             {dict.nav.requestDemo}
           </button>

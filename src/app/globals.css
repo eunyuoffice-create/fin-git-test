@@ -2,6 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Poppins Font Face */
+@font-face {
+  font-family: 'Poppins';
+  src:
+    url('/fonts/poppins-light-webfont.woff2') format('woff2'),
+    url('/fonts/poppins-light-webfont.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src:
+    url('/fonts/poppins-regular-webfont.woff2') format('woff2'),
+    url('/fonts/poppins-regular-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src:
+    url('/fonts/poppins-medium-webfont.woff2') format('woff2'),
+    url('/fonts/poppins-medium-webfont.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src:
+    url('/fonts/poppins-semibold-webfont.woff2') format('woff2'),
+    url('/fonts/poppins-semibold-webfont.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src:
+    url('/fonts/poppins-bold-webfont.woff2') format('woff2'),
+    url('/fonts/poppins-bold-webfont.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -17,9 +68,12 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  /* Hero background image utility */
+  .hero-bg::before {
+    background-image: var(--hero-bg-image);
+  }
 }
-
-
 
 @layer base {
   :root {
@@ -48,6 +102,19 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+
+    /* FinProfile Design System Colors */
+    --fin-dark: #363a5b;
+    --fin-dark-hover: #2d3049;
+    --fin-navy: #3b3f61;
+    --fin-gray: #7a7a7a;
+    --fin-light-gray: #b0b0b0;
+    --fin-blue-light: #e7efff;
+    --fin-blue: #7dabff;
+    --fin-purple: #3e14b4;
+    --fin-purple-light: #e8e3fc;
+    --fin-green: #76f8b6;
+    --fin-red: #ff6b6b;
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -77,13 +144,56 @@
   }
 }
 
-
-
 @layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* Skip Link for Accessibility */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 16px;
+    z-index: 9999;
+    padding: 16px 24px;
+    background-color: var(--fin-dark);
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: top 0.2s ease-in-out;
+  }
+
+  .skip-link:focus {
+    top: 16px;
+    outline: 2px solid white;
+    outline-offset: 2px;
+  }
+
+  /* Focus visible styles for better keyboard navigation */
+  :focus-visible {
+    outline: 2px solid var(--fin-navy);
+    outline-offset: 2px;
+  }
+
+  /* Reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+.test {
+  overflow: visible !important;
+  div {
+    overflow: visible !important;
   }
 }

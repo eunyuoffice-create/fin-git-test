@@ -1,137 +1,175 @@
 {
   "meta": {
-    "title": "FinProfile - Infrastruktur Kredit Bertenaga AI",
-    "description": "Tutup kesenjangan data kredit dengan AI — dan dapatkan keunggulan kompetitif di pasar yang tidak terlihat kredit."
+    "title": "FinProfile - AI 기반 신용 인프라",
+    "description": "AI로 신용 데이터 격차를 해소하고 신용 사각지대 시장에서 경쟁 우위를 확보하세요."
   },
   "nav": {
-    "whyFinProfile": "Mengapa FinProfile",
-    "solutions": "Solusi",
-    "testimonial": "Testimoni",
-    "team": "Tim",
-    "requestDemo": "Minta Demo"
+    "whyFinProfile": "Why FinProfile",
+    "solutions": "Solutions",
+    "testimonial": "Testimonial",
+    "team": "Team",
+    "requestDemo": "Request Demo"
   },
   "hero": {
-    "title": "Fokus pada\nkeputusan kredit,\nBukan pemrosesan data",
-    "subtitle": "Tutup kesenjangan data kredit dengan AI — dan dapatkan keunggulan kompetitif di pasar yang tidak terlihat kredit.",
-    "cta": "Minta Demo"
+    "title": "Focus on\ncredit decisions,\nNot data processing",
+    "subtitle": "Close credit data gaps with AI — and gain a competitive edge in the credit-invisible market.",
+    "cta": "Request Demo",
+    "slides": [
+      {
+        "text": "Fraud & Submission requirement validation in 30 seconds.",
+        "alt": "FinProfile AI Credit Analysis - Fast Validation"
+      },
+      {
+        "text": "AI-powered transaction categorization with 95% accuracy.",
+        "alt": "FinProfile AI Credit Analysis - Transaction Categorization"
+      },
+      {
+        "text": "Detect hidden debt obligations that credit reports miss.",
+        "alt": "FinProfile AI Credit Analysis - Debt Detection"
+      }
+    ]
   },
   "section1": {
-    "title": "Perluas akses kredit dengan aman dengan infrastruktur kredit bertenaga AI.",
-    "challenges": [
-      "Memakan waktu dan mahal",
-      "Data kredit yang sedikit, tidak spesifik, dan ketinggalan zaman",
-      "Realitas Keuangan yang Tidak Dapat Diverifikasi"
-    ],
-    "badge": "Analisis Laporan Bank Terpercaya, HANYA FinSight AI"
+    "title": "Expand credit access safely\nwith AI-powered credit infrastructure.",
+    "point1": {
+      "title": "Scant, unspecific,\noutdated credit data"
+    },
+    "point2": {
+      "title": "Unverifiable\nFinancial Reality"
+    },
+    "bankStatement": {
+      "line1": "The only thing you can trust is",
+      "line2": "Bank Statement"
+    },
+    "timeConsuming": "Time-consuming and expensive",
+    "but": "But",
+    "experienceTitle": "Experience FinProfile"
   },
   "section2": {
-    "title": "Ciptakan Kembali Tinjauan Kredit dengan Otomasi AI",
+    "title": "Reinvent Credit Reviews\nwith AI Automation",
+    "finsightAI": "FinSight AI",
     "manual": {
-      "label": "Per Aplikasi Pinjaman",
-      "time": "7.200m",
-      "note": "= 5 hari+",
-      "description": "Memerlukan analisis 6.000 hingga 20.000 transaksi kasus dan klasifikasi atribut manual",
-      "additionalNote": "Tidak dapat mengamankan biaya manajemen"
+      "perLoan": "Per Loan Application",
+      "timeValue": "5",
+      "timeUnit": "day+",
+      "timeDetail": "= 7,200min",
+      "descriptions": [
+        "Requires analysis of 6,000 to 20,000 cases transactions and manual attribute classification",
+        "Unable to secure management cost"
+      ]
     },
     "ai": {
-      "label": "Per Aplikasi Pinjaman",
-      "time": "5m",
-      "description": "AI secara otomatis memverifikasi unggahan dan menyarankan persyaratan tinjauan"
+      "perLoan": "Per Loan Application",
+      "timeValue": "5",
+      "timeUnit": "min",
+      "description": "AI automatically verifies uploads and suggests review requirements"
     }
   },
   "section3": {
-    "badge": "AI Sadar Konteks",
-    "title": "Bukan Terikat Aturan, Analisis Sadar Transaksi",
-    "description": "Analisis akurat 95% didukung oleh pihak lawan dan kategorisasi transaksi otomatis"
+    "badge": "Context-Aware AI",
+    "title": "Not Rule-Bound, Transaction\nAware Analysis",
+    "description": "95% accurate analysis powered by counterparty and Auto transaction categorization"
   },
   "section4": {
-    "badge": "AI Pra-Verifikasi",
-    "title": "Tinjauan satu klik untuk pemeriksaan manual yang kompleks",
-    "description": "Tidak perlu memverifikasi setiap persyaratan satu per satu — AI mengonfirmasi kepatuhan pengiriman dalam hitungan detik."
+    "badge": "Pre-Verification AI",
+    "title": "One-click review\nfor complex manual checks",
+    "description": "No need to verify every requirement one by one — AI confirms submission compliance in seconds."
   },
   "section5": {
-    "badge": "Presisi Melampaui Manusia",
-    "title": "Deteksi Penipuan dan Manipulasi yang Tepat",
-    "description": "FinSight AI menghilangkan kebutuhan untuk tinjauan transaksi manual, sorotan demi sorotan dengan secara otomatis mendeteksi tanda-tanda penipuan dan manipulasi data dengan akurasi."
+    "badge": "Precision Beyond Human",
+    "title": "Pinpoint Fraud,\nManipulation Detection",
+    "description": "FinSight AI removes the need for manual, highlight-by-highlight transaction reviews by automatically detecting signs of fraud and data manipulation with accuracy."
   },
   "section6": {
-    "badge": "AI Keuangan Khusus Negara",
-    "title": "Memahami Indonesia, Satu Transaksi pada Satu Waktu",
-    "description": "Dilatih pada 600.000+ transaksi, FinSight AI memberikan wawasan transaksi khusus negara yang tepat."
+    "badge": "Country-Specific Financial AI",
+    "title": "understand indonesia,\nwith indonesia",
+    "description": "Trained on millions of transactions, FinSight AI delivers precise, country-specific transaction insights."
   },
   "testimonials": {
-    "title": "Bagaimana Perusahaan Mengubah Alur Kerja dengan FinSight AI",
+    "title": "How Companies Are\nTransforming Workflows\nwith FinSight AI",
     "items": [
       {
         "company": "Sinarmas Hana Finance",
-        "industry": "Multifinance Konglomerat Indonesia",
-        "quote": "Apa yang biasanya membutuhkan 3 hari bagi ahli kami, secara manual merekonsiliasi daftar piutang dengan laporan bank, FinSight Al menyelesaikannya dalam waktu kurang dari 1 menit dengan akurasi yang superior.\n\nIni bahkan mendeteksi transaksi yang sering terlewatkan oleh tinjauan manual. Pergeseran ini memungkinkan tim kami untuk fokus pada pengambilan keputusan bernilai tinggi daripada pemrosesan data, memberi kami kelincahan untuk secara agresif memperluas bisnis keuangan rantai pasokan kami."
+        "industry": "Indonesian conglomerate Multi-finance",
+        "quotes": [
+          "What used to take our expert 3 days, manually reconciling accounts receivable lists with bank statement, FinSight Al completes in under 1 minutes with superior accuracy.",
+          "It even detects transactions that manual reviews often miss. This shift allows our team to focus on high-value decision-making rather than data processing, giving us the agility to aggressively expand our supply chain finance business."
+        ]
       },
       {
-        "name": "Analis Kredit Z",
-        "company": "Penyedia Kredit UMKM SEA",
-        "quote": "Finsight Al telah menjadi pengubah permainan untuk alur kerja kami. Ini secara drastis mengurangi waktu analisis kami, memungkinkan keputusan kredit yang lebih cepat dan lebih akurat dan meningkatkan waktu penyelesaian.\n\nDengan kategorisasi transaksi khusus industri dan wawasan otomatis, ini adalah alat utama untuk memaksimalkan produktivitas dan efisiensi.\n\nSelain kecepatan, ini mendeteksi kewajiban utang tersembunyi yang tidak pernah muncul di laporan kredit standar. Kemampuan ini memungkinkan kami untuk menemukan dan mengurangi 'risiko tak terlihat' yang sering terlewatkan oleh laporan."
+        "name": "Credit Analyst Z",
+        "initial": "Z",
+        "company": "SEA MSME Credit Provider",
+        "quotes": [
+          "Finsight Al has been a game-changer for our workflow. It drastically reduced our analysis time, enabling faster and more accurate credit decisions and improved turnaround time.",
+          "With its industry-specific transaction categorization and automated insights, it is the ultimate tool for maximizing both productivity and efficiency.",
+          "Beyond speed, it detects hidden debt obligations that never appear on standard credit reports. This capability allows us to spot and mitigate 'invisible risks' that reports often miss."
+        ]
       },
       {
         "name": "CTO D",
-        "company": "Platform pinjaman p2p Indonesia",
-        "quote": "Finsight Al membuka peluang pasar pinjaman tiket kecil hingga menengah digital 30 menit untuk kami - segmen yang sebelumnya tidak dapat dijangkau karena biaya pemrosesan yang tinggi.\n\nTidak seperti solusi besar lainnya yang hanya berfungsi sebagai alat CR karena kurangnya konteks lokal, FinSight Al memberikan intelijen yang mendalam dan dapat ditindaklanjuti. Ini telah menjadi mesin inti kami untuk akuisisi pelanggan yang dapat diskalakan."
+        "initial": "D",
+        "company": "Indonesian p2p loan platform",
+        "quotes": [
+          "Finsight Al unlocked the '30-minute digital small to mid sized ticket loan market opportunity for us - a segment previously unreachable due to high processing costs.",
+          "Unlike other major solutions that function merely as CR tools due to a lack of local context, FinSight Al delivers deep, actionable intelligence. It has become our core engine for scalable customer acquisition."
+        ]
       }
     ]
   },
   "team": {
-    "title": "Temui Tim Kami",
+    "title": "FinProfile People",
     "members": [
       {
         "name": "Cruz Yoon",
-        "koreanName": "Jaeho Yoon",
+        "koreanName": "Jae Ho Yoon",
         "role": "CEO",
-        "description": "Pengalaman luas di pasar Asia Tenggara, khusus dalam pemecahan masalah industri berbasis AI.",
-        "tags": ["Konsultan Spesialis AI", "Pemimpin Bisnis Global", "Bisnis Baru & Investasi"]
+        "description": "Extensive experience in Southeast Asian markets, specializing in AI-driven industrial problem solving.",
+        "tags": ["AI Specialist Consultant", "Global Business Lead", "New Business & Investment"]
       },
       {
-        "name": "Changho Moon",
+        "name": "Chang ho Moon",
+        "koreanName": "Jae Ho Yoon",
         "role": "CTO",
-        "description": "Insinyur Full-stack dengan pengalaman 10 tahun. Peringkat ke-4 dalam Kompetisi Keterampilan TI Nasional",
-        "tags": ["Arsitektur Sistem", "Strategi Teknis", "Pengalaman 10+ Tahun"]
+        "description": "Full-stack Engineer with 10 years of experience. Ranked 4th in the National IT Skills Competition",
+        "tags": ["System Architecture", "Technical Strategy", "10+ Years Exp"]
       },
       {
         "name": "Jannele Shin",
-        "koreanName": "Eunjung Shin",
+        "koreanName": "Eun jung Shin",
         "role": "CXO",
-        "description": "Desainer Layanan dengan keahlian 15 tahun dalam konsultansi desain global. Memimpin perencanaan layanan digital untuk 20+ startup domestik dan internasional.",
-        "tags": ["Konsultan Desain Intl.", "Strategi Produk", "Spesialis Startup"]
+        "description": "Service Designer with 15 years of expertise in global design consultancy. Led digital service planning for 20+ domestic and international startups.",
+        "tags": ["Intl. Design Consultant", "Product Strategy", "Startup Specialist"]
       }
     ],
     "linkedIn": "LinkedIn"
   },
   "contactForm": {
-    "title": "Mulai dengan FinSight AI",
-    "subtitle": "Pesan demo",
-    "required": "* Permintaan",
+    "title": "Get Started with FinSight AI",
+    "subtitle": "Book a demo",
+    "required": "* Request",
     "fields": {
-      "name": "Nama",
-      "company": "Perusahaan",
-      "phone": "Nomor Telepon",
+      "name": "Name",
+      "company": "Company",
+      "phone": "Phone Number",
       "email": "Email"
     },
     "placeholders": {
       "name": "Hong gil dong",
-      "company": "Perusahaan",
-      "phone": "+62 812-3456-7890",
+      "company": "Company",
+      "phone": "+82 010-1234-5678",
       "email": "finprofile@gmail.com"
     },
-    "privacy": "Saya setuju dengan Kebijakan Privasi dan menyetujui pemrosesan data pribadi saya untuk tujuan demo produk dan komunikasi pemasaran.*",
-    "submit": "Minta Demo"
+    "privacy": "I agree to the Privacy Policy and consent to the processing of my personal data for the purpose of a product demo and marketing communications.",
+    "submit": "Request Demo"
   },
   "footer": {
-    "contact": "Kontak :",
+    "termsOfUse": "Terms of Use",
+    "privacyPolicy": "Privacy Policy",
+    "contact": "Contact",
     "email": "hello@finprofile.id",
-    "address": "503, 474 Gwangnaru-ro, Gwangjin-gu, Seoul, Republik Korea",
+    "address": "503, 474 Gwangnaru-ro, Gwangjin-gu, Seoul, Republic of Korea",
     "ceo": "CEO Cruz",
-    "copyright": "Hak Cipta©Finprofile Co., Ltd. Semua Hak Dilindungi.",
-    "explore": "JELAJAHI",
-    "privacy": "Kebijakan Privasi",
-    "terms": "Syarat dan Ketentuan"
+    "copyright": "Copyright©Finprofile Co., Ltd. All Rights Reserved."
   }
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
+import { cn } from '@/lib/utils';
 import {
   Carousel,
   CarouselContent,
@@ -16,7 +17,8 @@ interface TestimonialsProps {
         company: string;
         industry?: string;
         name?: string;
-        quote: string;
+        initial?: string;
+        quotes: string[];
       }>;
     };
   };
@@ -25,6 +27,8 @@ interface TestimonialsProps {
 export default function Testimonials({ dict }: TestimonialsProps) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
+
+  const items = dict?.testimonials?.items ?? [];
 
   const onSelect = useCallback(() => {
     if (!api) return;
@@ -51,77 +55,115 @@ export default function Testimonials({ dict }: TestimonialsProps) {
     [api]
   );
 
-  return (
-    <section id="testimonial" className="w-full py-[80px] bg-white relative">
-      {/* Background */}
-      <div className="absolute top-[-248px] left-1/2 -translate-x-1/2 w-[422px] h-[422px] bg-[#e8e3fc] rounded-full blur-[100px] opacity-30" />
+  if (items.length === 0) return null;
 
+  return (
+    <section
+      id="testimonial"
+      className={cn('w-full py-20 relative overflow-hidden')}
+    >
+      <div className="w-[420px] h-[420px] rounded-full blur-[100px] bg-[#D2F9EACC] opacity-80 absolute top-[-211px] left-[50%] -translate-x-1/2"></div>
       {/* Title */}
-      <div className="max-w-[1000px] mx-auto px-[220px] mb-[64px] relative z-10">
-        <h2 className="text-[40px] font-medium text-[#363a5b] text-center leading-[1.3] tracking-[-0.6px] font-['Poppins',sans-serif]">
-          How Companies Are Transforming Workflows with FinSight AI
+      <div className="max-w-[1440px] mx-auto px-[120px] mb-16 relative z-10">
+        <h2
+          className={cn(
+            'text-[40px] font-medium text-[#363a5b] text-center',
+            'leading-[1.3] tracking-[-0.6px] font-poppins whitespace-pre-line'
+          )}
+        >
+          {dict.testimonials.title}
         </h2>
       </div>
 
-      {/* Carousel Container - Full Width */}
-      <div className="relative z-10 w-full">
+      {/* Carousel Container */}
+      <div className="relative z-10 max-w-[1000px] mx-auto overflow-visible">
         <Carousel
           setApi={setApi}
           opts={{
             align: 'center',
-            loop: false,
-            containScroll: false,
+            slidesToScroll: 1,
+            containScroll: 'trimSnaps',
           }}
-          className="w-full"
+          className="w-[1440px] test"
         >
-          <CarouselContent className="-ml-[40px]" overflowVisible>
-            {dict.testimonials.items.map((item, index) => (
-              <CarouselItem
-                key={index}
-                className="p-[0] ml-[40px] :first:ml-0 basis-[480px]"
-              >
-                <div className="w-[480px] bg-[#f0f5ff] rounded-[24px] p-[40px] relative overflow-hidden flex flex-col">
+          <CarouselContent overflowVisible className="-ml-6">
+            {items.map((item, index) => (
+              <CarouselItem key={index} className="ml-6 basis-[480px]">
+                <div
+                  className={cn(
+                    'w-[480px] h-auto bg-white rounded-3xl p-10',
+                    'relative flex flex-col',
+                    'transition-all duration-300 cursor-pointer',
+                    'bg-[#F0F5FF]'
+                  )}
+                  onClick={() => scrollTo(index)}
+                >
                   {/* Header - Profile */}
-                  <div className="flex items-center gap-[8px] mb-[40px]">
-                    <div className="w-[64PX] h-[64PX] bg-gradient-to-br from-[#3b3f61] to-[#5a5e80] rounded-full flex items-center justify-center text-white text-[28px] font-medium flex-shrink-0">
-                      {item.name ? item.name.charAt(0) : item.company.charAt(0)}
+                  <div className="flex items-center gap-3 mb-8">
+                    <div
+                      className={cn(
+                        'w-12 h-12 bg-[#56C7B9] rounded-full flex-shrink-0',
+                        'flex items-center justify-center',
+                        'text-white text-xl font-semibold'
+                      )}
+                      aria-hidden="true"
+                    >
+                      {item.initial ||
+                        (item.name
+                          ? item.name.charAt(0)
+                          : item.company.charAt(0))}
                     </div>
-                    <h3 className="text-[20px] font-medium text-[#363a5b] leading-[1.3] tracking-[-0.3px]">
+                    <h3
+                      className={cn(
+                        'text-lg font-medium text-[#363a5b]',
+                        'leading-[1.3] tracking-[-0.27px] font-poppins'
+                      )}
+                    >
                       {item.name || item.company}
                     </h3>
                   </div>
 
                   {/* Content */}
-                  <div className="flex flex-col gap-[24px] flex-1">
+                  <div className="flex flex-col gap-5 flex-1">
                     {/* Industry / Company */}
-                    <p className="text-[28px] font-medium text-[#363a5b] leading-[1.3] tracking-[-0.42px]">
+                    <p
+                      className={cn(
+                        'text-2xl font-semibold text-[#363a5b]',
+                        'leading-[1.3] tracking-[-0.36px] font-poppins'
+                      )}
+                    >
                       {item.industry || item.company}
                     </p>
 
-                    {/* Quote */}
-                    <div className="border-l-[2px] border-[#3e14b4] pl-[24px] flex flex-col gap-[16px]">
-                      {item.quote.split('\n\n').map((paragraph, pIndex) => (
+                    {/* Quotes */}
+                    <blockquote
+                      className={cn(
+                        'border-l-[3px] border-[#363a5b] pl-5',
+                        'flex flex-col gap-3'
+                      )}
+                    >
+                      {(item.quotes ?? []).map((quote, qIndex) => (
                         <p
-                          key={pIndex}
-                          className="text-[18px] text-[#363a5b] leading-[1.4] tracking-[-0.27px]"
+                          key={qIndex}
+                          className="text-base text-[#363a5b] leading-[1.5] font-poppins"
                         >
-                          {paragraph}
+                          {quote}
                         </p>
                       ))}
-                    </div>
+                    </blockquote>
                   </div>
 
                   {/* Quote Icon */}
-                  <div className="absolute bottom-[40px] right-[24px]">
-                    <svg width="56" height="40" viewBox="0 0 56 40" fill="none">
+                  <div className="absolute bottom-8 right-6" aria-hidden="true">
+                    <svg width="48" height="36" viewBox="0 0 56 40" fill="none">
                       <path
                         d="M12 0C5.37258 0 0 5.37258 0 12v12c0 6.6274 5.37258 12 12 12h4V24H8c0-4.4183 3.58172-8 8-8V0zm32 0c-6.6274 0-12 5.37258-12 12v12c0 6.6274 5.3726 12 12 12h4V24h-8c0-4.4183 3.5817-8 8-8V0z"
-                        fill="#7DD3FC"
-                        fillOpacity="0.3"
+                        fill="#56C7B9"
+                        fillOpacity="0.4"
                       />
                       <path
                         d="M12 0C5.37258 0 0 5.37258 0 12v12c0 6.6274 5.37258 12 12 12h4V24H8c0-4.4183 3.58172-8 8-8V0zm32 0c-6.6274 0-12 5.37258-12 12v12c0 6.6274 5.3726 12 12 12h4V24h-8c0-4.4183 3.5817-8 8-8V0z"
-                        fill="#5EEAD4"
+                        fill="#7DD3FC"
                         fillOpacity="0.3"
                       />
                     </svg>
@@ -129,24 +171,10 @@ export default function Testimonials({ dict }: TestimonialsProps) {
                 </div>
               </CarouselItem>
             ))}
+            {/* Spacer to allow last card to scroll to center */}
+            <CarouselItem className="pl-6 basis-[504px]" aria-hidden="true" />
           </CarouselContent>
         </Carousel>
-
-        {/* Pagination Dots */}
-        <div className="flex justify-center gap-[8px] mt-[40px]">
-          {dict.testimonials.items.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => scrollTo(index)}
-              className={`h-[8px] rounded-full transition-all ${
-                current === index
-                  ? 'w-[40px] bg-[#3b3f61]'
-                  : 'w-[8px] bg-[#b9bfef]'
-              }`}
-              aria-label={`Go to testimonial ${index + 1}`}
-            />
-          ))}
-        </div>
       </div>
     </section>
   );
