@@ -300,10 +300,43 @@ export default function FeatureSections({ dict }: FeatureSectionsProps) {
             )}
             aria-hidden="true"
           >
-            <div>
-              <span className="text-[18px] font-bold text-[#363a5b] font-poppins">
-                {dict.section2.finsightAI} Per Loan Application 5day+ = 7,200min
-              </span>
+            {dict.section2.finsightAI}
+            <div className="w-[1000px] mx-auto flex justify-between">
+              <div>
+                <div>
+                  <span className="text-[18px] font-bold text-[#363a5b] font-poppins">
+                    Per Loan Application 5day+ = 7,200min
+                  </span>
+                </div>
+
+                <div className="bg-white rounded-[24px] p-6 flex flex-col gap-4 w-[360px]">
+                  <ul className="list-disc ml-[27px] text-[18px] font-medium text-[#7a7a7a] font-poppins leading-normal tracking-[-0.27px] break-words">
+                    <li>
+                      Requires analysis of 6,000 to 20,000 cases transactions
+                      and manual attribute classification
+                    </li>
+                  </ul>
+                  <ul className="list-disc ml-[27px] text-[18px] font-medium text-[#7a7a7a] font-poppins leading-normal tracking-[-0.27px] break-words">
+                    <li>Unable to secure management cost</li>
+                  </ul>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <span className="text-[18px] font-bold text-[#363a5b] font-poppins">
+                    Per Loan Application 5min
+                  </span>
+                </div>
+
+                <div className="bg-white rounded-[24px] p-6 flex flex-col gap-4 w-[360px]">
+                  <ul className="list-disc ml-[27px] text-[18px] font-medium text-[#7a7a7a] font-poppins leading-normal tracking-[-0.27px] break-words">
+                    <li>
+                      AI automatically verifies uploads and suggests review
+                      requirements
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>

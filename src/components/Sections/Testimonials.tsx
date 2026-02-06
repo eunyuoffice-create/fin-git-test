@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import {
   Carousel,
@@ -101,24 +102,34 @@ export default function Testimonials({ dict }: TestimonialsProps) {
                   onClick={() => scrollTo(index)}
                 >
                   {/* Header - Profile */}
-                  <div className="flex items-center gap-3 mb-8">
+                  <div className="flex items-center gap-2 mb-8">
                     <div
                       className={cn(
-                        'w-12 h-12 bg-[#56C7B9] rounded-full flex-shrink-0',
+                        'w-16 h-16 bg-[#56C7B9] rounded-full flex-shrink-0',
                         'flex items-center justify-center',
-                        'text-white text-xl font-semibold'
+                        'text-white text-[32px] font-semibold',
+                        index !== 0 && 'border-2 border-white'
                       )}
                       aria-hidden="true"
                     >
-                      {item.initial ||
+                      {index === 0 ? (
+                        <Image
+                          src="/images/icons/icon-hana.png"
+                          alt="Hana"
+                          width={64}
+                          height={64}
+                        />
+                      ) : (
+                        item.initial ||
                         (item.name
                           ? item.name.charAt(0)
-                          : item.company.charAt(0))}
+                          : item.company.charAt(0))
+                      )}
                     </div>
                     <h3
                       className={cn(
-                        'text-lg font-medium text-[#363a5b]',
-                        'leading-[1.3] tracking-[-0.27px] font-poppins'
+                        'text-[20px] font-medium text-[#363a5b]',
+                        'leading-[1.3] tracking-[-0.3px] font-poppins'
                       )}
                     >
                       {item.name || item.company}
@@ -151,7 +162,7 @@ export default function Testimonials({ dict }: TestimonialsProps) {
                       {(item.quotes ?? []).map((quote, qIndex) => (
                         <p
                           key={qIndex}
-                          className="text-base text-[#363a5b] leading-[1.5] font-poppins"
+                          className="text-[18px] text-[#363a5b] leading-[1.5] font-poppins line-height-[1.3]"
                         >
                           {quote}
                         </p>

@@ -163,33 +163,11 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
                   >
                     <Image
                       src={src}
-                      alt={
-                        dict.hero.slides[index]?.alt ||
-                        `FinProfile AI Feature ${index + 1}`
-                      }
+                      alt={`${dict.hero.slides[index]?.text}`}
                       fill
                       className="object-cover"
                       priority={index === 0}
                     />
-                    {/* Bottom Overlay - Slide Text */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
-                      <div
-                        className={cn(
-                          'backdrop-blur-[6px] bg-[rgba(72,70,214,0.8)]',
-                          'flex items-center justify-center',
-                          'px-6 py-4 rounded-2xl w-full'
-                        )}
-                      >
-                        <p
-                          className={cn(
-                            'font-poppins font-medium text-xl text-white',
-                            'leading-[1.3] text-center tracking-[-0.3px]'
-                          )}
-                        >
-                          {dict.hero.slides[index]?.text}
-                        </p>
-                      </div>
-                    </div>
                   </figure>
                 </CarouselItem>
               ))}

@@ -16,16 +16,13 @@
     "cta": "Request Demo",
     "slides": [
       {
-        "text": "Fraud & Submission requirement validation in 30 seconds.",
-        "alt": "FinProfile AI Credit Analysis - Fast Validation"
+        "text": "Fraud & Submission requirement validation in 30 seconds."
       },
       {
-        "text": "AI-powered transaction categorization with 95% accuracy.",
-        "alt": "FinProfile AI Credit Analysis - Transaction Categorization"
+        "text": "Income Statement Level Financial Report"
       },
       {
-        "text": "Detect hidden debt obligations that credit reports miss.",
-        "alt": "FinProfile AI Credit Analysis - Debt Detection"
+        "text": "Supply Chain Financing Evidence reconciliation in seconds."
       }
     ]
   },
@@ -125,7 +122,11 @@
         "koreanName": "Jae Ho Yoon",
         "role": "CEO",
         "description": "Extensive experience in Southeast Asian markets, specializing in AI-driven industrial problem solving.",
-        "tags": ["AI Specialist Consultant", "Global Business Lead", "New Business & Investment"]
+        "tags": [
+          "AI Specialist Consultant",
+          "Global Business Lead",
+          "New Business & Investment"
+        ]
       },
       {
         "name": "Chang ho\nMoon",
@@ -139,7 +140,11 @@
         "koreanName": "Eun jung Shin",
         "role": "CXO",
         "description": "Service Designer with 15 years of expertise in global design consultancy. Led digital service planning for 20+ domestic and international startups.",
-        "tags": ["Intl. Design Consultant", "Product Strategy", "Startup Specialist"]
+        "tags": [
+          "Intl. Design Consultant",
+          "Product Strategy",
+          "Startup Specialist"
+        ]
       }
     ],
     "linkedIn": "LinkedIn"
