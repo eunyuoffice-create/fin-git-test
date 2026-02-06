@@ -59,38 +59,41 @@ export default function Section2CreditReview({ dict }: Section2Props) {
         >
           {dict.section2.finsightAI}
           <div className="w-[1000px] mx-auto flex justify-between">
-            <div>
-              <div>
-                <span className="text-[18px] font-bold text-[#363a5b] font-poppins">
-                  Per Loan Application 5day+ = 7,200min
-                </span>
-              </div>
+            {/* Left - Manual (5day+) */}
+            <div className="flex flex-col items-center text-[#363a5b]">
+              <p className="text-[18px] font-medium font-poppins tracking-[-0.27px]">
+                {dict.section2.manual.perLoan}
+              </p>
+              <p className="font-extrabold font-poppins leading-[96px] tracking-[-1.62px]">
+                <span className="text-[124px]">{dict.section2.manual.timeValue}</span>
+                <span className="text-[56px]">{dict.section2.manual.timeUnit}</span>
+              </p>
+              <p className="text-[20px] font-semibold font-poppins tracking-[-0.3px]">
+                {dict.section2.manual.timeDetail}
+              </p>
 
-              <div className="bg-white rounded-[24px] p-6 flex flex-col gap-4 w-[360px]">
-                <ul className="list-disc ml-[27px] text-[18px] font-medium text-[#7a7a7a] font-poppins leading-normal tracking-[-0.27px] break-words">
-                  <li>
-                    Requires analysis of 6,000 to 20,000 cases transactions
-                    and manual attribute classification
-                  </li>
-                </ul>
-                <ul className="list-disc ml-[27px] text-[18px] font-medium text-[#7a7a7a] font-poppins leading-normal tracking-[-0.27px] break-words">
-                  <li>Unable to secure management cost</li>
-                </ul>
+              <div className="bg-white rounded-[24px] p-6 flex flex-col gap-4 w-[360px] mt-6">
+                {dict.section2.manual.descriptions.map((desc, i) => (
+                  <ul key={i} className="list-disc ml-[27px] text-[18px] font-medium text-[#7a7a7a] font-poppins leading-normal tracking-[-0.27px] break-words">
+                    <li>{desc}</li>
+                  </ul>
+                ))}
               </div>
             </div>
-            <div>
-              <div>
-                <span className="text-[18px] font-bold text-[#363a5b] font-poppins">
-                  Per Loan Application 5min
-                </span>
-              </div>
 
-              <div className="bg-white rounded-[24px] p-6 flex flex-col gap-4 w-[360px]">
+            {/* Right - AI (5min) */}
+            <div className="flex flex-col items-center text-[#363a5b]">
+              <p className="text-[18px] font-medium font-poppins tracking-[-0.27px]">
+                {dict.section2.ai.perLoan}
+              </p>
+              <p className="font-extrabold font-poppins leading-[160px] tracking-[-2.7px]">
+                <span className="text-[180px]">{dict.section2.ai.timeValue}</span>
+                <span className="text-[80px]">{dict.section2.ai.timeUnit}</span>
+              </p>
+
+              <div className="bg-white rounded-[24px] p-6 flex flex-col gap-4 w-[360px] mt-6">
                 <ul className="list-disc ml-[27px] text-[18px] font-medium text-[#7a7a7a] font-poppins leading-normal tracking-[-0.27px] break-words">
-                  <li>
-                    AI automatically verifies uploads and suggests review
-                    requirements
-                  </li>
+                  <li>{dict.section2.ai.description}</li>
                 </ul>
               </div>
             </div>
