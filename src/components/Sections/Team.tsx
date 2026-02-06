@@ -41,12 +41,16 @@ export default function Team({ dict }: TeamProps) {
       <div
         className={cn(
           'w-[1000px] mx-auto relative z-10',
-          'flex flex-col gap-16 items-center'
+          'flex flex-col gap-16 items-center',
+          'before:content-[""] before:w-[512px] before:h-[512px] before:rounded-full',
+          'before:blur-[200px] before:bg-[#C3C2FF] before:absolute',
+          'before:right-[-256px] before:top-[-256px]',
+          'after:content-[""] after:w-[512px] after:h-[512px] after:rounded-full',
+          'after:blur-[200px] after:bg-[#D2F9EA] after:absolute',
+          'after:left-[-256px] after:bottom-[-256px]'
         )}
       >
-        <div className="w-[512px] h-[512px] rounded-full blur-[200px] bg-[#C3C2FF] absolute right-[-256px] top-[-256px]" />
-        <div className="w-[512px] h-[512px] rounded-full blur-[200px] bg-[#D2F9EA] absolute left-[-256px] bottom-[-256px]" />
-        <div className="relative z-10">
+        <div className="relative z-10 w-full">
           {/* Title */}
           <h2
             id="team-title"
@@ -60,7 +64,7 @@ export default function Team({ dict }: TeamProps) {
 
           {/* Team Grid */}
           <div
-            className="flex gap-10 w-full justify-center"
+            className="flex w-full justify-between mt-[64px] "
             role="list"
             aria-label="Team members"
           >
@@ -68,7 +72,7 @@ export default function Team({ dict }: TeamProps) {
               <article
                 key={index}
                 className={cn(
-                  'flex-1 flex flex-col gap-10',
+                  'flex-1 flex flex-col gap-10 max-w-[307px]',
                   index < 2 && 'self-stretch'
                 )}
                 role="listitem"
@@ -180,28 +184,15 @@ export default function Team({ dict }: TeamProps) {
                     'shadow-[0px_8px_24px_0px_rgba(62,20,180,0.2)]',
                     'font-poppins font-bold text-[15px] leading-[1.4]',
                     'hover:bg-[#2d3049] transition-colors',
-                    'focus:outline-none focus:ring-2 focus:ring-[#3b3f61] focus:ring-offset-2'
+                    'focus:outline-none focus:ring-2 focus:ring-[#3b3f61] focus:ring-offset-2',
+                    'relative',
+                    'after:content-[""] after:w-6 after:h-6 after:ml-2',
+                    'after:bg-[url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M12.7505%206L18.7519%2012.0014L12.7505%2018.0028%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M18.7531%2011.9999L5.25%2012%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E")]',
+                    'after:bg-no-repeat after:bg-center after:bg-contain'
                   )}
                   aria-label={`View ${member.name}'s LinkedIn profile`}
                 >
                   {dict.team.linkedIn}
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    aria-hidden="true"
-                    focusable="false"
-                    className="rounded"
-                  >
-                    <path
-                      d="M7 17L17 7M17 7H7M17 7V17"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
                 </a>
               </article>
             ))}

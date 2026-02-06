@@ -449,7 +449,11 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                     'shadow-[0px_8px_24px_0px_rgba(62,20,180,0.2)]',
                     'hover:bg-[#2d3049] transition-colors',
                     'disabled:opacity-50 disabled:cursor-not-allowed',
-                    'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3e14b4] focus-visible:ring-offset-2'
+                    'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3e14b4] focus-visible:ring-offset-2',
+                    'relative',
+                    'after:content-[""] after:w-6 after:h-6 after:ml-2',
+                    'after:bg-[url("/images/icons/icon-arrow.svg")]',
+                    'after:bg-no-repeat after:bg-center after:bg-contain'
                   )}
                   aria-busy={isSubmitting}
                 >
@@ -461,23 +465,6 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                   ) : (
                     <>
                       <span>{dict.contactForm.submit}</span>
-                      <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        className="shrink-0"
-                        aria-hidden="true"
-                        focusable="false"
-                      >
-                        <path
-                          d="M7 17L17 7M17 7H7M17 7V17"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
                     </>
                   )}
                 </button>

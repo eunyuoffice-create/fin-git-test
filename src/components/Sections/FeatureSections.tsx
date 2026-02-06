@@ -49,7 +49,7 @@ export default function FeatureSections({ dict }: FeatureSectionsProps) {
       {/* Section 1 - Expand credit access safely */}
       <section
         id="why-finprofile"
-        className={cn('w-full pt-[80px]', 'relative')}
+        className={cn('w-full pt-[80px]', 'relative z-10')}
         aria-labelledby="section1-title"
       >
         <div
@@ -153,18 +153,22 @@ export default function FeatureSections({ dict }: FeatureSectionsProps) {
           <div
             className={cn(
               'w-[824px] h-[130px] rounded-[18px] overflow-hidden',
-              'relative flex items-center justify-center'
+              'relative flex items-center pl-[368px]',
+              'after:content-[""] after:w-[153px] after:h-[119px] after:rounded-[18px] after:absolute after:left-[166.5px] after:top-3',
+              'after:bg-[url("/images/icons/icon-bank.png")] after:bg-center after:bg-no-repeat',
+              'before:content-[""] before:w-full before:h-full before:rounded-[18px] before:absolute before:left-0 before:top-0',
+              'before:bg-[url("/images/bg-bank.png")] before:bg-center before:bg-no-repeat'
             )}
             style={{
               background:
-                'linear-gradient(132deg, rgb(208, 226, 255) 0%, rgb(223, 230, 244) 58%, rgb(164, 198, 255) 89%, rgb(118, 168, 255) 100%)',
+                'linear-gradient(132deg, rgb(208, 226, 255) 0%, rgb(223, 230, 244) 58%, rgb(164, 198, 255) 89%, rgb(118, 168, 255) 100%) ',
             }}
             role="region"
             aria-label="Bank Statement highlight"
           >
             <div
               className={cn(
-                'text-[#363a5b] text-center font-poppins font-medium',
+                'text-[#363a5b] poppins font-medium',
                 'leading-[1.4] tracking-[-0.38px]'
               )}
             >

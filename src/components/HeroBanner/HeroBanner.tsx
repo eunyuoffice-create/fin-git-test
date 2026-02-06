@@ -78,11 +78,15 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
       <div
         className={cn(
           'w-[1000px] mx-auto h-full',
-          'flex gap-20 items-center relative z-10'
+          'flex gap-20 items-center relative z-10',
+          'before:content-[""] before:w-[512px] before:h-[512px] before:rounded-full',
+          'before:blur-[200px] before:bg-[#D2F9EA] before:absolute',
+          'before:left-[-256px] before:top-[-256px]',
+          'after:content-[""] after:w-[512px] after:h-[512px] after:rounded-full',
+          'after:blur-[200px] after:bg-[#C3C2FF] after:absolute',
+          'after:right-[-374px] after:bottom-[-87px]'
         )}
       >
-        <div className="w-[512px] h-[512px] rounded-full blur-[200px] bg-[#D2F9EA] absolute left-[-256px] top-[-256px]"></div>
-        <div className="w-[512px] h-[512px] rounded-full blur-[200px] bg-[#C3C2FF] absolute right-[-256px] bottom-[-256px]"></div>
         {/* Left Content */}
         <article className="flex-1 flex flex-col gap-12 min-w-[460px] relative z-10">
           <h1
@@ -116,21 +120,18 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
               'w-fit flex items-center gap-2',
               'hover:bg-[#2d3049] transition-colors',
               'focus:outline-none focus:ring-2 focus:ring-[#3b3f61] focus:ring-offset-2',
-              'flex items-center justify-center'
+              'flex items-center justify-center',
+              'relative',
+              'after:content-[""] after:w-6 after:h-6 after:ml-2',
+              'after:bg-[url("/images/icons/icon-arrow.svg")]',
+              'after:bg-no-repeat after:bg-center after:bg-contain'
             )}
             type="button"
             aria-label="Go to demo request form"
           >
-            <span className="text-[15px] font-bold font-poppins whitespace-nowrap">
+            <span className="text-[15px] font-bold font-poppins whitespace-nowrap leading-[1.4] tracking-[-0.21px]">
               {dict.hero.cta}
             </span>
-            <Image
-              src="/images/icons/icon-arrow.svg"
-              alt="Arrow Right"
-              width={24}
-              height={24}
-              className="rounded"
-            />
           </button>
         </article>
 

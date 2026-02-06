@@ -91,10 +91,12 @@ export default function Testimonials({ dict }: TestimonialsProps) {
               <CarouselItem key={index} className="ml-6 basis-[480px]">
                 <div
                   className={cn(
-                    'w-[480px] h-auto bg-white rounded-3xl p-10',
+                    'w-[480px] h-auto bg-white rounded-3xl p-10 pb-[48px]',
                     'relative flex flex-col',
                     'transition-all duration-300 cursor-pointer',
-                    'bg-[#F0F5FF]'
+                    'bg-[#F0F5FF]',
+                    'before:content-[""] before:w-[56px] before:h-[36px] before:absolute before:right-[24px] before:bottom-0',
+                    'before:bg-[url("/images/icons/icon-quotes.png")] before:bg-center before:bg-no-repeat'
                   )}
                   onClick={() => scrollTo(index)}
                 >
@@ -129,7 +131,7 @@ export default function Testimonials({ dict }: TestimonialsProps) {
                     <p
                       className={cn(
                         'text-2xl font-semibold text-[#363a5b]',
-                        'leading-[1.3] tracking-[-0.36px] font-poppins'
+                        'leading-[1.3] tracking-[-0.36px] font-poppins break-normal'
                       )}
                     >
                       {item.industry || item.company}
@@ -138,8 +140,12 @@ export default function Testimonials({ dict }: TestimonialsProps) {
                     {/* Quotes */}
                     <blockquote
                       className={cn(
-                        'border-l-[3px] border-[#363a5b] pl-5',
-                        'flex flex-col gap-3'
+                        'relative pl-5',
+                        'flex flex-col gap-3',
+                        'before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[3px]',
+                        'before:bg-gradient-to-b before:from-[#3E14B4] before:to-[#77FFB5]',
+                        'before:rounded-full',
+                        'break-normal'
                       )}
                     >
                       {(item.quotes ?? []).map((quote, qIndex) => (
@@ -151,22 +157,6 @@ export default function Testimonials({ dict }: TestimonialsProps) {
                         </p>
                       ))}
                     </blockquote>
-                  </div>
-
-                  {/* Quote Icon */}
-                  <div className="absolute bottom-8 right-6" aria-hidden="true">
-                    <svg width="48" height="36" viewBox="0 0 56 40" fill="none">
-                      <path
-                        d="M12 0C5.37258 0 0 5.37258 0 12v12c0 6.6274 5.37258 12 12 12h4V24H8c0-4.4183 3.58172-8 8-8V0zm32 0c-6.6274 0-12 5.37258-12 12v12c0 6.6274 5.3726 12 12 12h4V24h-8c0-4.4183 3.5817-8 8-8V0z"
-                        fill="#56C7B9"
-                        fillOpacity="0.4"
-                      />
-                      <path
-                        d="M12 0C5.37258 0 0 5.37258 0 12v12c0 6.6274 5.37258 12 12 12h4V24H8c0-4.4183 3.58172-8 8-8V0zm32 0c-6.6274 0-12 5.37258-12 12v12c0 6.6274 5.3726 12 12 12h4V24h-8c0-4.4183 3.5817-8 8-8V0z"
-                        fill="#7DD3FC"
-                        fillOpacity="0.3"
-                      />
-                    </svg>
                   </div>
                 </div>
               </CarouselItem>
