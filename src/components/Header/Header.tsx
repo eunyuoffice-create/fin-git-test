@@ -79,7 +79,7 @@ export default function Header({ dict }: HeaderProps) {
           aria-label="FinProfile Home"
         >
           <Image
-            src="/images/logos/logo.svg"
+            src="/images/common/logos/logo.svg"
             alt="FinProfile"
             width={113}
             height={24}

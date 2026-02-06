@@ -1,10 +1,12 @@
 import { getDictionary, type Locale } from '@/lib/i18n';
 import Header from '@/components/Header/Header';
 import HeroBanner from '@/components/HeroBanner/HeroBanner';
-import FeatureSections from '@/components/Sections/FeatureSections';
-import Testimonials from '@/components/Sections/Testimonials';
-import Team from '@/components/Sections/Team';
-import ContactForm from '@/components/Sections/ContactForm';
+import Section1 from '@/components/Sections/Section1';
+import Section2 from '@/components/Sections/Section2';
+import Section3 from '@/components/Sections/Section3';
+import Section4 from '@/components/Sections/Section4';
+import Section5 from '@/components/Sections/Section5';
+import Section6 from '@/components/Sections/Section6';
 import Footer from '@/components/Footer/Footer';
 
 const baseUrl =
@@ -70,17 +72,23 @@ export default async function HomePage({
         {/* Hero Banner */}
         <HeroBanner dict={dict} />
 
-        {/* Feature Sections (1-6) */}
-        <FeatureSections dict={dict} />
+        {/* Section 1 - Why FinProfile */}
+        <Section1 dict={dict} />
 
-        {/* Testimonials */}
-        <Testimonials dict={dict} />
+        {/* Section 2 - Credit Reviews */}
+        <Section2 dict={dict} />
 
-        {/* Team */}
-        <Team dict={dict} />
+        {/* Section 3 - Feature Details */}
+        <Section3 dict={dict} />
 
-        {/* Contact Form */}
-        <ContactForm dict={dict} lang={lang} />
+        {/* Section 4 - Testimonials */}
+        <Section4 dict={dict} />
+
+        {/* Section 5 - Team */}
+        <Section5 dict={dict} />
+
+        {/* Section 6 - Contact Form */}
+        <Section6 dict={dict} lang={lang} />
 
         {/* Footer */}
         <Footer dict={dict} />

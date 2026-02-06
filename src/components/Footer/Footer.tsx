@@ -50,7 +50,7 @@ export default function Footer({ dict }: FooterProps) {
           aria-label="FinProfile - Go to homepage"
         >
           <Image
-            src="/images/logos/logo-white.svg"
+            src="/images/common/logos/logo-white.svg"
             alt=""
             width={170}
             height={36}

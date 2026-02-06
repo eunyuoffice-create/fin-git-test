@@ -123,7 +123,7 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
               'flex items-center justify-center',
               'relative',
               'after:content-[""] after:w-6 after:h-6 after:ml-2',
-              'after:bg-[url("/images/icons/icon-arrow.svg")]',
+              'after:bg-[url("/images/common/icons/icon-arrow.svg")]',
               'after:bg-no-repeat after:bg-center after:bg-contain'
             )}
             type="button"

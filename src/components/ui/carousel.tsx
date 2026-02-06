@@ -156,27 +156,8 @@ const CarouselContent = React.forwardRef<
 >(({ className, overflowVisible, ...props }, ref) => {
   const { carouselRef, orientation } = useCarousel()
 
-  // overflowVisible: outer wrapper gets overflow-visible, but Embla container stays overflow-hidden for drag to work
-  if (overflowVisible) {
-    return (
-      <div className="overflow-visible">
-        <div ref={carouselRef} className="overflow-hidden">
-          <div
-            ref={ref}
-            className={cn(
-              "flex",
-              orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
-              className
-            )}
-            {...props}
-          />
-        </div>
-      </div>
-    )
-  }
-
   return (
-    <div ref={carouselRef} className="overflow-hidden">
+    <div ref={carouselRef} className={overflowVisible ? "overflow-visible" : "overflow-hidden"}>
       <div
         ref={ref}
         className={cn(

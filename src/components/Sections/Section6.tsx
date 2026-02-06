@@ -159,7 +159,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
             >
               {/* Video Background Image */}
               <Image
-                src="/images/section1/bg.png"
+                src="/images/sections/section6/bg.png"
                 alt=""
                 fill
                 className="object-cover blur-[10px]"
@@ -452,7 +452,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                     'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3e14b4] focus-visible:ring-offset-2',
                     'relative',
                     'after:content-[""] after:w-6 after:h-6 after:ml-2',
-                    'after:bg-[url("/images/icons/icon-arrow.svg")]',
+                    'after:bg-[url("/images/common/icons/icon-arrow.svg")]',
                     'after:bg-no-repeat after:bg-center after:bg-contain'
                   )}
                   aria-busy={isSubmitting}

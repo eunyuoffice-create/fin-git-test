@@ -97,7 +97,7 @@ export default function Testimonials({ dict }: TestimonialsProps) {
                     'transition-all duration-300 cursor-pointer',
                     'bg-[#F0F5FF]',
                     'before:content-[""] before:w-[56px] before:h-[36px] before:absolute before:right-[24px] before:bottom-0',
-                    'before:bg-[url("/images/icons/icon-quotes.png")] before:bg-center before:bg-no-repeat'
+                    'before:bg-[url("/images/common/icons/icon-quotes.png")] before:bg-center before:bg-no-repeat'
                   )}
                   onClick={() => scrollTo(index)}
                 >
@@ -114,7 +114,7 @@ export default function Testimonials({ dict }: TestimonialsProps) {
                     >
                       {index === 0 ? (
                         <Image
-                          src="/images/icons/icon-hana.png"
+                          src="/images/common/icons/icon-hana.png"
                           alt="Hana"
                           width={64}
                           height={64}

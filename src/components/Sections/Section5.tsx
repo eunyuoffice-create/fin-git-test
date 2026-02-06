@@ -92,7 +92,7 @@ export default function Team({ dict }: TeamProps) {
                   <figure className="absolute left-[11px] top-[17px] w-[173px] bottom-0">
                     <Image
                       src={
-                        memberImages[index] || '/images/team/placeholder.png'
+                        memberImages[index] || '/images/team/people-01.png'
                       }
                       alt={member.name}
                       fill
@@ -105,7 +105,7 @@ export default function Team({ dict }: TeamProps) {
                     {/* Logo */}
                     <div className="h-4 mb-[49px]">
                       <Image
-                        src="/images/logos/logo.svg"
+                        src="/images/common/logos/logo.svg"
                         alt="FinProfile"
                         width={75}
                         height={16}
