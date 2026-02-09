@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, type ReactNode } from 'react';
 
-type Direction = 'up' | 'left' | 'right' | 'emphasis';
+type Direction = 'up' | 'left' | 'right';
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -15,7 +15,6 @@ const directionClass: Record<Direction, string> = {
   up: 'scroll-reveal-up',
   left: 'scroll-reveal-left',
   right: 'scroll-reveal-right',
-  emphasis: 'emphasis-5min',
 };
 
 export default function ScrollReveal({

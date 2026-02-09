@@ -348,39 +348,6 @@
   transform: translate(0, 0);
 }
 
-/* Section2 - 5min emphasis glow + pulse */
-@keyframes emphasis-glow {
-  0% {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  60% {
-    opacity: 1;
-    transform: scale(1.04);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes subtle-pulse {
-  0%, 100% {
-    text-shadow: 0 0 0 transparent;
-  }
-  50% {
-    text-shadow: 0 0 24px rgba(62, 78, 209, 0.3);
-  }
-}
-
-.emphasis-5min {
-  opacity: 0;
-  transition: none;
-}
-
-.emphasis-5min.scroll-revealed {
-  animation: emphasis-glow 0.8s ease-out forwards, subtle-pulse 2.5s ease-in-out 1s infinite;
-}
 
 .test {
   overflow: visible !important;

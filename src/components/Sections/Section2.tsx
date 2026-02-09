@@ -1,5 +1,93 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import ScrollReveal from '@/components/ScrollReveal';
+
+function CountUp({
+  target,
+  suffix,
+  delay = 0,
+  duration = 800,
+  numberClassName = '',
+  suffixClassName = '',
+}: {
+  target: number;
+  suffix: string;
+  delay?: number;
+  duration?: number;
+  numberClassName?: string;
+  suffixClassName?: string;
+}) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const [count, setCount] = useState(0);
+  const [showSuffix, setShowSuffix] = useState(false);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+    if (prefersReducedMotion) {
+      setCount(target);
+      setShowSuffix(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+        } else {
+          setVisible(false);
+          setCount(0);
+          setShowSuffix(false);
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [target]);
+
+  useEffect(() => {
+    if (!visible) return;
+
+    const step = duration / target;
+    const timeouts: ReturnType<typeof setTimeout>[] = [];
+
+    for (let i = 1; i <= target; i++) {
+      timeouts.push(setTimeout(() => setCount(i), delay + step * i));
+    }
+
+    timeouts.push(
+      setTimeout(() => setShowSuffix(true), delay + duration + 200)
+    );
+
+    return () => timeouts.forEach(clearTimeout);
+  }, [visible, delay, duration, target]);
+
+  return (
+    <span ref={ref} className="inline-flex items-baseline">
+      <span className={numberClassName}>{count > 0 ? count : '\u00A0'}</span>
+      <span
+        className={suffixClassName}
+        style={{
+          opacity: showSuffix ? 1 : 0,
+          transform: showSuffix ? 'translateY(0)' : 'translateY(8px)',
+          transition: 'opacity 0.4s ease-out, transform 0.4s ease-out',
+        }}
+      >
+        {suffix}
+      </span>
+    </span>
+  );
+}
 
 interface Section2Props {
   dict: {
@@ -101,31 +189,32 @@ export default function Section2CreditReview({ dict }: Section2Props) {
               </div>
             </ScrollReveal>
 
-            {/* Right - AI (5min) : 5day 뒤에 등장 */}
-            <ScrollReveal direction="right" delay={600}>
+            {/* Right - AI (5min) : 5day 다 나온 뒤 등장 */}
+            <ScrollReveal direction="right" delay={900}>
               <div className="flex flex-col text-[#363a5b] whitespace-pre-wrap">
                 <div className="relative h-[573px] w-full">
-                  <p className="absolute top-[315px] right-[53px] text-[18px] font-medium font-poppins tracking-[-0.27px]">
-                    {dict.section2.ai.perLoan}
-                  </p>
-                  {/* 5min - emphasis animation */}
                   <ScrollReveal
-                    direction="emphasis"
-                    delay={900}
-                    className="absolute top-[365px] right-[52px]"
+                    delay={2700}
+                    className="absolute top-[315px] right-[53px]"
                   >
-                    <p className="font-extrabold font-poppins leading-[160px] tracking-[-2.7px] text-[#363a5b]">
-                      <span className="text-[180px]">
-                        {dict.section2.ai.timeValue}
-                      </span>
-                      <span className="text-[80px]">
-                        {dict.section2.ai.timeUnit}
-                      </span>
+                    <p className="text-[18px] font-medium font-poppins tracking-[-0.27px]">
+                      {dict.section2.ai.perLoan}
                     </p>
                   </ScrollReveal>
+                  {/* 5min - 숫자 카운트업 → min 페이드인 */}
+                  <p className="absolute top-[365px] right-[52px] font-extrabold font-poppins leading-[160px] tracking-[-2.7px] text-[#363a5b]">
+                    <CountUp
+                      target={5}
+                      suffix={dict.section2.ai.timeUnit}
+                      delay={1000}
+                      duration={800}
+                      numberClassName="text-[180px]"
+                      suffixClassName="text-[80px]"
+                    />
+                  </p>
                 </div>
 
-                <ScrollReveal delay={1000}>
+                <ScrollReveal delay={2700}>
                   <div className="bg-white rounded-[24px] p-6 flex flex-col gap-4 w-[360px] mt-6">
                     <ul className="list-disc ml-[27px] text-[18px] font-medium text-[#7a7a7a] font-poppins leading-normal tracking-[-0.27px] break-words">
                       <li>{dict.section2.ai.description}</li>
