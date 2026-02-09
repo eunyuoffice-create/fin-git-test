@@ -20,7 +20,7 @@ interface FooterProps {
 
 export default function Footer({ dict }: FooterProps) {
   const linkClass = cn(
-    'font-bold px-1 rounded',
+    'font-lato font-bold px-1 rounded',
     'hover:text-white transition-colors duration-200',
     'focus:outline-none focus-visible:ring-2 focus-visible:ring-white',
     'focus-visible:ring-offset-2 focus-visible:ring-offset-[#363a5b]'
@@ -60,12 +60,12 @@ export default function Footer({ dict }: FooterProps) {
         </Link>
 
         {/* Right Section */}
-        <div className="flex flex-col gap-6 items-center md:items-end">
+        <div className="flex flex-col gap-6">
           {/* Navigation Links */}
-          <nav aria-label="Legal and contact links">
+          <nav aria-label="Legal and contact links font-lato font-bold">
             <ul
               className={cn(
-                'flex flex-wrap items-center justify-center gap-6',
+                'flex flex-wrap items-center gap-6',
                 'text-base text-white/65 font-poppins leading-[1.4]'
               )}
             >
@@ -85,12 +85,12 @@ export default function Footer({ dict }: FooterProps) {
               <li aria-hidden="true">
                 <span className="block w-px h-3.5 bg-white/65" />
               </li>
-              <li className="flex items-center gap-2">
-                <span className="font-bold">{dict.footer.contact}</span>
+              <li className="flex items-center gap-2 font-lato font-bold">
+                <span>{dict.footer.contact}</span>
                 <a
                   href={`mailto:${dict.footer.email}`}
                   className={cn(
-                    'underline font-medium px-1 rounded',
+                    'underline px-1 rounded',
                     'hover:text-white transition-colors duration-200',
                     'focus:outline-none focus-visible:ring-2 focus-visible:ring-white',
                     'focus-visible:ring-offset-2 focus-visible:ring-offset-[#363a5b]'
@@ -106,23 +106,19 @@ export default function Footer({ dict }: FooterProps) {
           {/* Company Information */}
           <div
             className={cn(
-              'flex flex-col gap-2 items-center md:items-end',
-              'text-base text-white/65 font-poppins leading-[1.4]'
+              'flex flex-col gap-2',
+              'text-base text-white/65 leading-[1.4] font-lato font-medium'
             )}
           >
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <address className="not-italic font-medium">
-                {dict.footer.address}
-              </address>
+              <address className="not-italic">{dict.footer.address}</address>
               <span
                 className="block w-px h-3.5 bg-white/65"
                 aria-hidden="true"
               />
               <span className="font-bold">{dict.footer.ceo}</span>
             </div>
-            <p className="text-sm font-medium">
-              <small>{dict.footer.copyright}</small>
-            </p>
+            <small className="text-[14px]">{dict.footer.copyright}</small>
           </div>
         </div>
       </div>
