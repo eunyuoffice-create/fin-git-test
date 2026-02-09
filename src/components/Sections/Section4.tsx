@@ -12,7 +12,7 @@ import {
 
 interface TestimonialsProps {
   dict: {
-    testimonials: {
+    section4: {
       title: string;
       items: Array<{
         company: string;
@@ -29,7 +29,7 @@ export default function Testimonials({ dict }: TestimonialsProps) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
 
-  const items = dict?.testimonials?.items ?? [];
+  const items = dict?.section4?.items ?? [];
 
   const onSelect = useCallback(() => {
     if (!api) return;
@@ -72,7 +72,7 @@ export default function Testimonials({ dict }: TestimonialsProps) {
             'leading-[1.3] tracking-[-0.6px] font-poppins whitespace-pre-line'
           )}
         >
-          {dict.testimonials.title}
+          {dict.section4.title}
         </h2>
       </div>
 
@@ -129,7 +129,7 @@ export default function Testimonials({ dict }: TestimonialsProps) {
                     <h3
                       className={cn(
                         'text-[20px] font-medium text-[#363a5b]',
-                        'leading-[1.3] tracking-[-0.3px] font-poppins'
+                        'leading-[1.3] tracking-[-0.3px] font-poppins whitespace-pre-line"'
                       )}
                     >
                       {item.name || item.company}
@@ -137,12 +137,12 @@ export default function Testimonials({ dict }: TestimonialsProps) {
                   </div>
 
                   {/* Content */}
-                  <div className="flex flex-col gap-5 flex-1">
+                  <div className="flex flex-col gap-5 flex-1 pre-wrap">
                     {/* Industry / Company */}
                     <p
                       className={cn(
                         'text-2xl font-semibold text-[#363a5b]',
-                        'leading-[1.3] tracking-[-0.36px] font-poppins break-normal'
+                        'leading-[1.3] tracking-[-0.36px] font-poppins break-normal whitespace-pre-line'
                       )}
                     >
                       {item.industry || item.company}
@@ -156,13 +156,13 @@ export default function Testimonials({ dict }: TestimonialsProps) {
                         'before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[3px]',
                         'before:bg-gradient-to-b before:from-[#3E14B4] before:to-[#77FFB5]',
                         'before:rounded-full',
-                        'break-normal'
+                        'break-normal '
                       )}
                     >
                       {(item.quotes ?? []).map((quote, qIndex) => (
                         <p
                           key={qIndex}
-                          className="text-[18px] text-[#363a5b] leading-[1.5] font-poppins line-height-[1.3]"
+                          className="text-[18px] text-[#363a5b] leading-[1.5] font-poppins line-height-[1.3] whitespace-pre-line"
                         >
                           {quote}
                         </p>

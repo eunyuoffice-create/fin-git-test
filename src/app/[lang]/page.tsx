@@ -15,7 +15,7 @@ const baseUrl =
 
 // 정적 생성할 언어 목록
 export async function generateStaticParams() {
-  return [{ lang: 'en' }, { lang: 'ko' }];
+  return [{ lang: 'en' }, { lang: 'ko' }, { lang: 'id' }];
 }
 
 // JSON-LD 구조화된 데이터
@@ -62,7 +62,7 @@ export default async function HomePage({
 
       {/* Skip Link for Accessibility */}
       <a href="#main-content" className="skip-link">
-        {lang === 'ko' ? '본문으로 바로가기' : 'Skip to main content'}
+        {lang === 'ko' ? '본문으로 바로가기' : lang === 'id' ? 'Langsung ke konten utama' : 'Skip to main content'}
       </a>
 
       <main id="main-content" className="min-h-screen bg-white min-w-[1440px]" role="main">

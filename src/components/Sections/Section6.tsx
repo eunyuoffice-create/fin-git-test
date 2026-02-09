@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 
 interface ContactFormProps {
   dict: {
-    contactForm: {
+    section6: {
       title: string;
       subtitle: string;
       required: string;
@@ -143,7 +143,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
             'mb-[54px] tracking-[-0.72px] leading-[1.4]'
           )}
         >
-          {dict.contactForm.title}
+          {dict.section6.title}
         </h2>
 
         <div className="flex flex-col items-center gap-[54px] rounded-3xl">
@@ -244,7 +244,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                     'tracking-[-0.42px] leading-[1.3]'
                   )}
                 >
-                  {dict.contactForm.subtitle}
+                  {dict.section6.subtitle}
                 </h3>
                 <span
                   className={cn(
@@ -253,7 +253,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                   )}
                   aria-hidden="true"
                 >
-                  {dict.contactForm.required}
+                  {dict.section6.required}
                 </span>
               </div>
 
@@ -270,7 +270,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                 {/* Name Field */}
                 <div className="flex flex-col gap-2">
                   <label htmlFor={`${formId}-name`} className={labelClass}>
-                    <span>{dict.contactForm.fields.name}</span>
+                    <span>{dict.section6.fields.name}</span>
                     <span className="text-[#3e14b4]" aria-hidden="true">
                       *
                     </span>
@@ -284,7 +284,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
-                    placeholder={dict.contactForm.placeholders.name}
+                    placeholder={dict.section6.placeholders.name}
                     className={inputClass}
                     aria-required="true"
                     aria-invalid={formData.name === '' ? undefined : false}
@@ -294,7 +294,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                 {/* Company Field */}
                 <div className="flex flex-col gap-2">
                   <label htmlFor={`${formId}-company`} className={labelClass}>
-                    <span>{dict.contactForm.fields.company}</span>
+                    <span>{dict.section6.fields.company}</span>
                     <span className="text-[#3e14b4]" aria-hidden="true">
                       *
                     </span>
@@ -308,7 +308,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                     onChange={(e) =>
                       setFormData({ ...formData, company: e.target.value })
                     }
-                    placeholder={dict.contactForm.placeholders.company}
+                    placeholder={dict.section6.placeholders.company}
                     className={inputClass}
                     aria-required="true"
                   />
@@ -317,7 +317,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                 {/* Phone Field */}
                 <div className="flex flex-col gap-2">
                   <label htmlFor={`${formId}-phone`} className={labelClass}>
-                    <span>{dict.contactForm.fields.phone}</span>
+                    <span>{dict.section6.fields.phone}</span>
                     <span className="text-[#3e14b4]" aria-hidden="true">
                       *
                     </span>
@@ -332,7 +332,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
                     }
-                    placeholder={dict.contactForm.placeholders.phone}
+                    placeholder={dict.section6.placeholders.phone}
                     className={inputClass}
                     aria-required="true"
                   />
@@ -341,7 +341,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                 {/* Email Field */}
                 <div className="flex flex-col gap-2">
                   <label htmlFor={`${formId}-email`} className={labelClass}>
-                    <span>{dict.contactForm.fields.email}</span>
+                    <span>{dict.section6.fields.email}</span>
                     <span className="text-[#3e14b4]" aria-hidden="true">
                       *
                     </span>
@@ -356,7 +356,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
-                    placeholder={dict.contactForm.placeholders.email}
+                    placeholder={dict.section6.placeholders.email}
                     className={inputClass}
                     aria-required="true"
                   />
@@ -415,7 +415,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                   >
                     <span>I agree to the </span>
                     <a
-                      href={dict.contactForm.privacyLink || '/privacy'}
+                      href={dict.section6.privacyLink || '/privacy'}
                       className={cn(
                         'underline decoration-solid',
                         'hover:text-[#3e14b4]',
@@ -464,7 +464,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                     </>
                   ) : (
                     <>
-                      <span>{dict.contactForm.submit}</span>
+                      <span>{dict.section6.submit}</span>
                     </>
                   )}
                 </button>

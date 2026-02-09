@@ -1,175 +1,184 @@
 {
   "meta": {
     "title": "FinProfile - AI 기반 신용 인프라",
-    "description": "AI로 신용 데이터 격차를 해소하고 신용 사각지대 시장에서 경쟁 우위를 확보하세요."
+    "description": "AI로 신용 데이터 격차를 해소하고, 신용 사각지대 시장에서 경쟁 우위를 확보하세요."
   },
   "nav": {
     "whyFinProfile": "Why FinProfile",
-    "solutions": "Solutions",
-    "testimonial": "Testimonial",
-    "team": "Team",
-    "requestDemo": "Request Demo"
+    "solutions": "솔루션",
+    "testimonial": "고객 사례",
+    "team": "팀",
+    "requestDemo": "데모 요청"
   },
   "hero": {
-    "title": "Focus on\ncredit decisions,\nNot data processing",
-    "subtitle": "Close credit data gaps with AI — and gain a competitive edge in the credit-invisible market.",
-    "cta": "Request Demo",
+    "title": "데이터 처리가 아닌,\n신용 판단에\n집중하세요",
+    "subtitle": "AI로 신용 데이터 격차를 해소하고, 신용 사각지대 시장에서 경쟁 우위를 확보하세요.",
+    "cta": "데모 요청",
     "slides": [
       {
-        "text": "Fraud & Submission requirement validation in 30 seconds.",
-        "alt": "FinProfile AI Credit Analysis - Fast Validation"
+        "text": "30초 만에 사기 탐지 및 제출 요건 검증 완료."
       },
       {
-        "text": "AI-powered transaction categorization with 95% accuracy.",
-        "alt": "FinProfile AI Credit Analysis - Transaction Categorization"
+        "text": "손익계산서 수준의 재무 보고서"
       },
       {
-        "text": "Detect hidden debt obligations that credit reports miss.",
-        "alt": "FinProfile AI Credit Analysis - Debt Detection"
+        "text": "공급망 금융 증빙 대사를 수 초 만에 완료."
       }
     ]
   },
   "section1": {
-    "title": "Expand credit access safely\nwith AI-powered credit infrastructure.",
+    "title": "AI 기반 신용 인프라로\n안전하게 신용 접근성을 확대하세요.",
     "point1": {
-      "title": "Scant, unspecific,\noutdated credit data"
+      "title": "부족하고 부정확하며\n오래된 신용 데이터"
     },
     "point2": {
-      "title": "Unverifiable\nFinancial Reality"
+      "title": "검증할 수 없는\n재무 실태"
     },
     "bankStatement": {
-      "line1": "The only thing you can trust is",
-      "line2": "Bank Statement"
+      "line1": "신뢰할 수 있는 유일한 것은",
+      "line2": "은행 거래 내역서"
     },
-    "timeConsuming": "Time-consuming and expensive",
-    "but": "But",
-    "experienceTitle": "Experience FinProfile"
+    "timeConsuming": "시간이 오래 걸리고 비용이 많이 듭니다",
+    "but": "하지만",
+    "experienceTitle": "FinProfile을 경험하세요"
   },
   "section2": {
-    "title": "Reinvent Credit Reviews\nwith AI Automation",
+    "title": "AI 자동화로\n신용 심사를 혁신하세요",
     "finsightAI": "FinSight AI",
     "manual": {
-      "perLoan": "Per Loan Application",
+      "perLoan": "대출 건당",
       "timeValue": "5",
-      "timeUnit": "day+",
-      "timeDetail": "= 7,200min",
+      "timeUnit": "일+",
+      "timeDetail": "= 7,200분",
       "descriptions": [
-        "Requires analysis of 6,000 to 20,000 cases transactions and manual attribute classification",
-        "Unable to secure management cost"
+        "6,000~20,000건의 거래 분석 및 수동 속성 분류 필요",
+        "관리 비용 확보 불가"
       ]
     },
     "ai": {
-      "perLoan": "Per Loan Application",
+      "perLoan": "대출 건당",
       "timeValue": "5",
-      "timeUnit": "min",
-      "description": "AI automatically verifies uploads and suggests review requirements"
+      "timeUnit": "분",
+      "description": "AI가 자동으로 업로드를 검증하고 심사 요건을 제안합니다"
     }
   },
   "section3": {
-    "badge": "Context-Aware AI",
-    "title": "Not Rule-Bound, Transaction\nAware Analysis",
-    "description": "95% accurate analysis powered by counterparty and Auto transaction categorization"
+    "items": [
+      {
+        "badge": "문맥 인식 AI",
+        "title": "규칙 기반이 아닌,\n거래 인식 분석",
+        "description": "거래 상대방 분석 및 자동 거래 분류를 통한 95% 정확도의 분석"
+      },
+      {
+        "badge": "사전 검증 AI",
+        "title": "복잡한 수동 검토를\n원클릭으로",
+        "description": "요건을 하나하나 확인할 필요 없이, AI가 수 초 만에 제출 적합성을 확인합니다."
+      },
+      {
+        "badge": "인간을 초월하는 정밀도",
+        "title": "사기 및 데이터\n조작 정밀 탐지",
+        "description": "FinSight AI는 거래 건별 수동 검토 없이도 사기 및 데이터 조작 징후를 정확하게 자동 탐지합니다."
+      },
+      {
+        "badge": "국가 특화 금융 AI",
+        "title": "인도네시아를\n인도네시아로 이해하다",
+        "description": "수백만 건의 거래 데이터를 학습한 FinSight AI가 국가별 맞춤 거래 인사이트를 제공합니다."
+      }
+    ]
   },
   "section4": {
-    "badge": "Pre-Verification AI",
-    "title": "One-click review\nfor complex manual checks",
-    "description": "No need to verify every requirement one by one — AI confirms submission compliance in seconds."
-  },
-  "section5": {
-    "badge": "Precision Beyond Human",
-    "title": "Pinpoint Fraud,\nManipulation Detection",
-    "description": "FinSight AI removes the need for manual, highlight-by-highlight transaction reviews by automatically detecting signs of fraud and data manipulation with accuracy."
-  },
-  "section6": {
-    "badge": "Country-Specific Financial AI",
-    "title": "understand indonesia,\nwith indonesia",
-    "description": "Trained on millions of transactions, FinSight AI delivers precise, country-specific transaction insights."
-  },
-  "testimonials": {
-    "title": "How Companies Are\nTransforming Workflows\nwith FinSight AI",
+    "title": "FinSight AI로\n업무를 혁신하고 있는\n기업들",
     "items": [
       {
         "company": "Sinarmas Hana Finance",
-        "industry": "Indonesian conglomerate Multi-finance",
+        "industry": "인도네시아 대기업 계열 종합금융사",
         "quotes": [
-          "What used to take our expert 3 days, manually reconciling accounts receivable lists with bank statement, FinSight Al completes in under 1 minutes with superior accuracy.",
-          "It even detects transactions that manual reviews often miss. This shift allows our team to focus on high-value decision-making rather than data processing, giving us the agility to aggressively expand our supply chain finance business."
+          "전문가가 3일 걸려 수동으로 매출채권 목록과 은행 거래 내역서를 대사하던 작업을, FinSight AI는 1분 이내에 더 높은 정확도로 완료합니다.",
+          "수동 검토에서 자주 놓치는 거래까지 감지합니다. 이 변화 덕분에 우리 팀은 데이터 처리 대신 고부가가치 의사결정에 집중할 수 있게 되었고, 공급망 금융 사업을 적극적으로 확장할 수 있는 민첩성을 갖추게 되었습니다."
         ]
       },
       {
-        "name": "Credit Analyst Z",
+        "name": "신용 분석가 Z",
         "initial": "Z",
-        "company": "SEA MSME Credit Provider",
+        "company": "동남아 MSME 신용 제공사",
         "quotes": [
-          "Finsight Al has been a game-changer for our workflow. It drastically reduced our analysis time, enabling faster and more accurate credit decisions and improved turnaround time.",
-          "With its industry-specific transaction categorization and automated insights, it is the ultimate tool for maximizing both productivity and efficiency.",
-          "Beyond speed, it detects hidden debt obligations that never appear on standard credit reports. This capability allows us to spot and mitigate 'invisible risks' that reports often miss."
+          "FinSight AI는 우리 워크플로우의 게임 체인저입니다. 분석 시간을 획기적으로 줄여, 더 빠르고 정확한 신용 판단과 처리 시간 개선을 가능하게 했습니다.",
+          "산업별 거래 분류와 자동화된 인사이트를 통해, 생산성과 효율성을 동시에 극대화하는 최고의 도구입니다.",
+          "속도뿐만 아니라, 일반 신용 보고서에 나타나지 않는 숨겨진 채무까지 감지합니다. 이 기능 덕분에 보고서에서 종종 놓치는 '보이지 않는 리스크'를 발견하고 완화할 수 있습니다."
         ]
       },
       {
         "name": "CTO D",
         "initial": "D",
-        "company": "Indonesian p2p loan platform",
+        "company": "인도네시아 P2P 대출 플랫폼",
         "quotes": [
-          "Finsight Al unlocked the '30-minute digital small to mid sized ticket loan market opportunity for us - a segment previously unreachable due to high processing costs.",
-          "Unlike other major solutions that function merely as CR tools due to a lack of local context, FinSight Al delivers deep, actionable intelligence. It has become our core engine for scalable customer acquisition."
+          "FinSight AI는 높은 처리 비용 때문에 접근 불가능했던 '30분 디지털 중소규모 대출' 시장 기회를 열어주었습니다.",
+          "현지 맥락 부족으로 단순 CR 도구에 그치는 다른 주요 솔루션과 달리, FinSight AI는 깊이 있는 실행 가능한 인텔리전스를 제공합니다. 확장 가능한 고객 확보를 위한 핵심 엔진이 되었습니다."
         ]
       }
     ]
   },
-  "team": {
+  "section5": {
     "title": "FinProfile People",
     "members": [
       {
         "name": "Cruz\nYoon",
-        "koreanName": "Jae Ho Yoon",
+        "koreanName": "윤재호",
         "role": "CEO",
-        "description": "Extensive experience in Southeast Asian markets, specializing in AI-driven industrial problem solving.",
-        "tags": ["AI Specialist Consultant", "Global Business Lead", "New Business & Investment"]
+        "description": "동남아 시장에서의 풍부한 경험을 바탕으로, AI 기반 산업 문제 해결을 전문으로 합니다.",
+        "tags": [
+          "AI 전문 컨설턴트",
+          "글로벌 사업 총괄",
+          "신사업 & 투자"
+        ]
       },
       {
         "name": "Chang ho\nMoon",
-        "koreanName": "Jae Ho Yoon",
+        "koreanName": "문창호",
         "role": "CTO",
-        "description": "Full-stack Engineer with 10 years of experience. Ranked 4th in the National IT Skills Competition",
-        "tags": ["System Architecture", "Technical Strategy", "10+ Years Exp"]
+        "description": "10년 경력의 풀스택 엔지니어. 전국 IT 기능 경진대회 4위.",
+        "tags": ["시스템 아키텍처", "기술 전략", "10년+ 경력"]
       },
       {
         "name": "Jannele\nShin",
-        "koreanName": "Eun jung Shin",
+        "koreanName": "신은정",
         "role": "CXO",
-        "description": "Service Designer with 15 years of expertise in global design consultancy. Led digital service planning for 20+ domestic and international startups.",
-        "tags": ["Intl. Design Consultant", "Product Strategy", "Startup Specialist"]
+        "description": "글로벌 디자인 컨설팅 분야 15년 경력의 서비스 디자이너. 국내외 20개 이상의 스타트업 디지털 서비스 기획을 리드.",
+        "tags": [
+          "국제 디자인 컨설턴트",
+          "프로덕트 전략",
+          "스타트업 전문가"
+        ]
       }
     ],
     "linkedIn": "LinkedIn"
   },
-  "contactForm": {
-    "title": "Get Started with FinSight AI",
-    "subtitle": "Book a demo",
-    "required": "* Request",
+  "section6": {
+    "title": "FinSight AI 시작하기",
+    "subtitle": "데모 예약",
+    "required": "* 필수",
     "fields": {
-      "name": "Name",
-      "company": "Company",
-      "phone": "Phone Number",
-      "email": "Email"
+      "name": "이름",
+      "company": "회사명",
+      "phone": "전화번호",
+      "email": "이메일"
     },
     "placeholders": {
-      "name": "Hong gil dong",
-      "company": "Company",
+      "name": "홍길동",
+      "company": "회사명",
       "phone": "+82 010-1234-5678",
       "email": "finprofile@gmail.com"
     },
-    "privacy": "I agree to the Privacy Policy and consent to the processing of my personal data for the purpose of a product demo and marketing communications.",
-    "submit": "Request Demo"
+    "privacy": "개인정보 처리방침에 동의하며, 제품 데모 및 마케팅 커뮤니케이션을 위한 개인 데이터 처리에 동의합니다.",
+    "submit": "데모 요청"
   },
   "footer": {
-    "termsOfUse": "Terms of Use",
-    "privacyPolicy": "Privacy Policy",
-    "contact": "Contact",
+    "termsOfUse": "이용약관",
+    "privacyPolicy": "개인정보 처리방침",
+    "contact": "문의",
     "email": "hello@finprofile.id",
-    "address": "503, 474 Gwangnaru-ro, Gwangjin-gu, Seoul, Republic of Korea",
-    "ceo": "CEO Cruz",
+    "address": "서울특별시 광진구 광나루로 474, 503호",
+    "ceo": "대표 Cruz",
     "copyright": "Copyright©Finprofile Co., Ltd. All Rights Reserved."
   }
 }

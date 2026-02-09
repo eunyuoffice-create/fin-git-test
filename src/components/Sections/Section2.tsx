@@ -57,7 +57,7 @@ export default function Section2CreditReview({ dict }: Section2Props) {
         >
           <div className={cn('flex justify-between relative z-10')}>
             {/* Left - Manual (5day+) */}
-            <div className="flex flex-col text-[#363a5b]">
+            <div className="flex flex-col text-[#363a5b] whitespace-pre-wrap">
               <div className="relative h-[573px]">
                 <p className="absolute top-[181px] left-[62px] text-[18px] font-medium font-poppins tracking-[-0.27px]">
                   {dict.section2.manual.perLoan}
@@ -88,7 +88,7 @@ export default function Section2CreditReview({ dict }: Section2Props) {
             </div>
 
             {/* Right - AI (5min) */}
-            <div className="flex flex-col text-[#363a5b]">
+            <div className="flex flex-col text-[#363a5b] whitespace-pre-wrap">
               <div className="relative h-[573px] w-full">
                 <p className="absolute top-[315px] right-[53px] text-[18px] font-medium font-poppins tracking-[-0.27px]">
                   {dict.section2.ai.perLoan}

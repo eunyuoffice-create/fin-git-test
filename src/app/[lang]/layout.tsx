@@ -28,6 +28,7 @@ export async function generateMetadata({
       languages: {
         'en': `${baseUrl}/en`,
         'ko': `${baseUrl}/ko`,
+        'id': `${baseUrl}/id`,
       },
     },
 
@@ -37,7 +38,7 @@ export async function generateMetadata({
       description: dict.meta.description,
       url: url,
       siteName: 'FinProfile',
-      locale: lang === 'ko' ? 'ko_KR' : 'en_US',
+      locale: lang === 'ko' ? 'ko_KR' : lang === 'id' ? 'id_ID' : 'en_US',
       type: 'website',
       images: [
         {

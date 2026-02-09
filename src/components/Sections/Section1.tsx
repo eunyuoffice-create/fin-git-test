@@ -41,10 +41,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
 
         {/* Two Point Boxes */}
         <div
-          className={cn(
-            'flex gap-[24px] items-start',
-            'justify-center w-full'
-          )}
+          className={cn('flex gap-[24px] items-start', 'justify-center w-full')}
           role="list"
         >
           {/* Point 1 */}
@@ -142,8 +139,12 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
               'leading-[1.4] tracking-[-0.38px]'
             )}
           >
-            <p className="text-[20px]">{dict.section1.bankStatement.line1}</p>
-            <p className="text-[28px]">{dict.section1.bankStatement.line2}</p>
+            <p className="text-[20px] whitespace-pre-wrap">
+              {dict.section1.bankStatement.line1}
+            </p>
+            <p className="text-[28px] whitespace-pre-wrap">
+              {dict.section1.bankStatement.line2}
+            </p>
           </div>
         </div>
 
@@ -168,7 +169,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
             className={cn(
               'absolute left-[-39px] top-1/2 -translate-y-1/2 -rotate-[16deg]',
               'bg-[#76f8b6] px-[16px] py-[4px] rounded-[4px]',
-              'text-[24px] font-medium italic text-[#4e4bfb] font-poppins'
+              'text-[24px] font-medium italic text-[#4e4bfb] font-poppins whitespace-pre-wrap'
             )}
             aria-hidden="true"
           >
@@ -177,7 +178,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
           <p
             className={cn(
               'text-[28px] font-medium text-[#3e4ed1] text-center',
-              'tracking-[-0.42px] font-poppins relative z-10'
+              'tracking-[-0.42px] font-poppins relative z-10 whitespace-pre-wrap'
             )}
           >
             {dict.section1.timeConsuming}
@@ -218,7 +219,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
             id="experience-title"
             className={cn(
               'text-[40px] font-medium text-[#363a5b] text-center',
-              'leading-[1.4] tracking-[-0.6px] font-poppins'
+              'leading-[1.4] tracking-[-0.6px] font-poppins whitespace-pre-wrap'
             )}
           >
             {dict.section1.experienceTitle}

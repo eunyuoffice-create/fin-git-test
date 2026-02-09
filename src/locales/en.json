@@ -51,7 +51,7 @@
       "timeUnit": "day+",
       "timeDetail": "= 7,200min",
       "descriptions": [
-        "Requires analysis of 6,000 to 20,000 cases transactions and manual attribute classification",
+        "Requires analysis of 6,000 to 20,000 cases transactions and \nmanual attribute classification",
         "Unable to secure management cost"
       ]
     },
@@ -63,34 +63,38 @@
     }
   },
   "section3": {
-    "badge": "Context-Aware AI",
-    "title": "Not Rule-Bound, Transaction\nAware Analysis",
-    "description": "95% accurate analysis powered by counterparty and Auto transaction categorization"
+    "items": [
+      {
+        "badge": "Context-Aware AI",
+        "title": "Not Rule-Bound, Transaction\nAware Analysis",
+        "description": "95% accurate analysis powered by counterparty and Auto transaction categorization"
+      },
+      {
+        "badge": "Pre-Verification AI",
+        "title": "One-click review\nfor complex manual checks",
+        "description": "No need to verify every requirement one by one — AI confirms submission compliance in seconds."
+      },
+      {
+        "badge": "Precision Beyond Human",
+        "title": "Pinpoint Fraud,\nManipulation Detection",
+        "description": "FinSight AI removes the need for manual, highlight-by-highlight transaction reviews \nby automatically detecting signs of fraud and data manipulation with accuracy."
+      },
+      {
+        "badge": "Country-Specific Financial AI",
+        "title": "understand indonesia,\nwith indonesia",
+        "description": "Trained on millions of transactions, FinSight AI delivers precise, country-specific transaction insights."
+      }
+    ]
   },
   "section4": {
-    "badge": "Pre-Verification AI",
-    "title": "One-click review\nfor complex manual checks",
-    "description": "No need to verify every requirement one by one — AI confirms submission compliance in seconds."
-  },
-  "section5": {
-    "badge": "Precision Beyond Human",
-    "title": "Pinpoint Fraud,\nManipulation Detection",
-    "description": "FinSight AI removes the need for manual, highlight-by-highlight transaction reviews by automatically detecting signs of fraud and data manipulation with accuracy."
-  },
-  "section6": {
-    "badge": "Country-Specific Financial AI",
-    "title": "understand indonesia,\nwith indonesia",
-    "description": "Trained on millions of transactions, FinSight AI delivers precise, country-specific transaction insights."
-  },
-  "testimonials": {
     "title": "How Companies Are\nTransforming Workflows\nwith FinSight AI",
     "items": [
       {
         "company": "Sinarmas Hana Finance",
-        "industry": "Indonesian conglomerate Multi-finance",
+        "industry": "Indonesian conglomerate \n Multi-finance",
         "quotes": [
-          "What used to take our expert 3 days, manually reconciling accounts receivable lists with bank statement, FinSight Al completes in under 1 minutes with superior accuracy.",
-          "It even detects transactions that manual reviews often miss. This shift allows our team to focus on high-value decision-making rather than data processing, giving us the agility to aggressively expand our supply chain finance business."
+          "What used to take our expert 3 days,\n manually reconciling accounts\n receivable lists with bank statement,\n FinSight Al completes in under 1 minutes\n with superior accuracy.",
+          "It even detects transactions that\n manual reviews often miss. This shift\n allows our team to focus on high-value\n decision-making rather than data\n processing, giving us the agility to\n aggressively expand our supply chain\n finance business."
         ]
       },
       {
@@ -98,9 +102,9 @@
         "initial": "Z",
         "company": "SEA MSME Credit Provider",
         "quotes": [
-          "Finsight Al has been a game-changer for our workflow. It drastically reduced our analysis time, enabling faster and more accurate credit decisions and improved turnaround time.",
-          "With its industry-specific transaction categorization and automated insights, it is the ultimate tool for maximizing both productivity and efficiency.",
-          "Beyond speed, it detects hidden debt obligations that never appear on standard credit reports. This capability allows us to spot and mitigate 'invisible risks' that reports often miss."
+          "Finsight Al has been a game-changer\n for our workflow. It drastically reduced\n our analysis time, enabling faster and\n more accurate credit decisions and\n improved turnaround time.",
+          "With its industry-specific transaction\n categorization and automated insights,\n it is the ultimate tool for maximizing\n both productivity and efficiency.",
+          "Beyond speed, it detects hidden debt\n obligations that never appear on\n standard credit reports. This capability\n allows us to spot and mitigate 'invisible\n risks' that reports often miss."
         ]
       },
       {
@@ -108,13 +112,13 @@
         "initial": "D",
         "company": "Indonesian p2p loan platform",
         "quotes": [
-          "Finsight Al unlocked the '30-minute digital small to mid sized ticket loan market opportunity for us - a segment previously unreachable due to high processing costs.",
-          "Unlike other major solutions that function merely as CR tools due to a lack of local context, FinSight Al delivers deep, actionable intelligence. It has become our core engine for scalable customer acquisition."
+          "Finsight Al unlocked the '30-minute\n digital small to mid sized ticket loan\n market opportunity for us - a segment\n previously unreachable due to high\n processing costs.",
+          "Unlike other major solutions that \nunction merely as CR tools due to a \n lack of local context, FinSight Al delivers\n deep, actionable intelligence. It has \n become our core engine for scalable\n customer acquisition."
         ]
       }
     ]
   },
-  "team": {
+  "section5": {
     "title": "FinProfile People",
     "members": [
       {
@@ -132,7 +136,7 @@
         "name": "Chang ho\nMoon",
         "koreanName": "Jae Ho Yoon",
         "role": "CTO",
-        "description": "Full-stack Engineer with 10 years of experience. Ranked 4th in the National IT Skills Competition",
+        "description": "Full-stack Engineer with \n10 years of experience. \nRanked 4th in the National IT Skills \nCompetition",
         "tags": ["System Architecture", "Technical Strategy", "10+ Years Exp"]
       },
       {
@@ -149,7 +153,7 @@
     ],
     "linkedIn": "LinkedIn"
   },
-  "contactForm": {
+  "section6": {
     "title": "Get Started with FinSight AI",
     "subtitle": "Book a demo",
     "required": "* Request",

@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 
 interface TeamProps {
   dict: {
-    team: {
+    section5: {
       title: string;
       linkedIn: string;
       members: Array<{
@@ -56,19 +56,19 @@ export default function Team({ dict }: TeamProps) {
             id="team-title"
             className={cn(
               'text-[40px] font-medium text-[#363a5b] text-center w-full',
-              'leading-[1.3] tracking-[-0.6px] font-poppins'
+              'leading-[1.3] tracking-[-0.6px] font-poppins whitespace-pre-wrap'
             )}
           >
-            {dict.team.title}
+            {dict.section5.title}
           </h2>
 
           {/* Team Grid */}
           <div
-            className="flex w-full justify-between mt-[64px] "
+            className="flex w-full justify-between mt-[64px] whitespace-pre-wrap"
             role="list"
             aria-label="Team members"
           >
-            {dict.team.members.map((member, index) => (
+            {dict.section5.members.map((member, index) => (
               <article
                 key={index}
                 className={cn(
@@ -91,9 +91,7 @@ export default function Team({ dict }: TeamProps) {
                   {/* Profile Image */}
                   <figure className="absolute left-[11px] top-[17px] w-[173px] bottom-0">
                     <Image
-                      src={
-                        memberImages[index] || '/images/team/people-01.png'
-                      }
+                      src={memberImages[index] || '/images/team/people-01.png'}
                       alt={member.name}
                       fill
                       className="object-cover"
@@ -192,7 +190,7 @@ export default function Team({ dict }: TeamProps) {
                   )}
                   aria-label={`View ${member.name}'s LinkedIn profile`}
                 >
-                  {dict.team.linkedIn}
+                  {dict.section5.linkedIn}
                 </a>
               </article>
             ))}

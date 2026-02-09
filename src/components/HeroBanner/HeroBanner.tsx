@@ -97,17 +97,12 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
               'font-poppins whitespace-pre-wrap'
             )}
           >
-            {dict.hero.title.split('\n').map((line, i) => (
-              <span key={i}>
-                {line}
-                {i < dict.hero.title.split('\n').length - 1 && <br />}
-              </span>
-            ))}
+            {dict.hero.title}
           </h1>
           <p
             className={cn(
               'text-lg text-[#7a7a7a]',
-              'leading-[1.4] tracking-[-0.27px] font-poppins font-normal'
+              'leading-[1.4] tracking-[-0.27px] font-poppins font-normal whitespace-pre-wrap'
             )}
           >
             {dict.hero.subtitle}

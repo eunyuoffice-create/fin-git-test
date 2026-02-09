@@ -3,10 +3,9 @@ import { cn } from '@/lib/utils';
 
 interface Section3to6Props {
   dict: {
-    section3: { badge: string; title: string; description: string };
-    section4: { badge: string; title: string; description: string };
-    section5: { badge: string; title: string; description: string };
-    section6: { badge: string; title: string; description: string };
+    section3: {
+      items: Array<{ badge: string; title: string; description: string }>;
+    };
   };
 }
 
@@ -16,26 +15,26 @@ export default function Section3to6Features({ dict }: Section3to6Props) {
       <div className="w-[1000px] mx-auto">
         {[
           {
-            section: dict.section3,
-            id: 'section3',
+            section: dict.section3.items[0],
+            id: 'section3-0',
             image: '/images/sections/section3/ai-01.png',
             imagePosition: 'left',
           },
           {
-            section: dict.section4,
-            id: 'section4',
+            section: dict.section3.items[1],
+            id: 'section3-1',
             image: '/images/sections/section3/ai-02.png',
             imagePosition: 'right',
           },
           {
-            section: dict.section5,
-            id: 'section5',
+            section: dict.section3.items[2],
+            id: 'section3-2',
             image: '/images/sections/section3/ai-03.png',
             imagePosition: 'left',
           },
           {
-            section: dict.section6,
-            id: 'section6',
+            section: dict.section3.items[3],
+            id: 'section3-3',
             image: '/images/sections/section3/ai-04.png',
             imagePosition: 'right',
           },
@@ -89,7 +88,7 @@ export default function Section3to6Features({ dict }: Section3to6Props) {
                     <span
                       className={cn(
                         'text-[16px] font-medium text-white',
-                        'tracking-[-0.24px] font-poppins'
+                        'tracking-[-0.24px] font-poppins whitespace-pre-wrap'
                       )}
                     >
                       {item.section.badge}
@@ -110,7 +109,7 @@ export default function Section3to6Features({ dict }: Section3to6Props) {
                 <p
                   className={cn(
                     'text-[18px] text-[#7a7a7a]',
-                    'leading-[1.4] tracking-[-0.27px] font-poppins'
+                    'leading-[1.4] tracking-[-0.27px] font-poppin whitespace-pre-wrap'
                   )}
                 >
                   {item.section.description}
