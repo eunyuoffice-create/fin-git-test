@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import Image from 'next/image';
 import Autoplay from 'embla-carousel-autoplay';
 import { cn } from '@/lib/utils';
 import {
@@ -10,6 +9,7 @@ import {
   CarouselItem,
   type CarouselApi,
 } from '@/components/ui/carousel';
+import { HeroSlide1, HeroSlide2, HeroSlide3 } from './HeroSlides';
 
 interface HeroBannerProps {
   dict: {
@@ -26,11 +26,7 @@ interface HeroBannerProps {
 }
 
 const SLIDE_COUNT = 3;
-const SLIDE_IMAGES = [
-  '/images/hero/hero-slide-1.webp',
-  '/images/hero/hero-slide-2.webp',
-  '/images/hero/hero-slide-3.webp',
-];
+const SLIDE_COMPONENTS = [HeroSlide1, HeroSlide2, HeroSlide3];
 
 export default function HeroBanner({ dict }: HeroBannerProps) {
   const [api, setApi] = useState<CarouselApi>();
@@ -159,27 +155,44 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
             className="w-[460px]"
           >
             <CarouselContent className="-ml-0">
-              {dict.hero.slides.map((src, index) => (
-                <CarouselItem key={index} className="pl-0">
-                  <figure
-                    className={cn(
-                      'w-[460px] h-[500px] rounded-3xl overflow-hidden relative',
-                      'bg-gradient-to-b from-[#7dabff] to-[#d4e2ff]'
-                    )}
-                  >
-                    <Image
-                      src={SLIDE_IMAGES[index]}
-                      alt={`${src.text}`}
-                      width={460}
-                      height={500}
-                      sizes="460px"
-                      quality={80}
-                      className="object-cover w-full h-full"
-                      priority={index === 0}
-                    />
-                  </figure>
-                </CarouselItem>
-              ))}
+              {dict.hero.slides.map((slide, index) => {
+                const SlideComponent = SLIDE_COMPONENTS[index];
+                return (
+                  <CarouselItem key={index} className="pl-0">
+                    <figure
+                      className="w-[460px] h-[500px] rounded-3xl overflow-hidden relative"
+                      aria-label={slide.alt}
+                    >
+                      <SlideComponent active={currentSlide === index} />
+                      {/* Bottom text overlay */}
+                      <div
+                        className={cn(
+                          'absolute bottom-0 left-0 right-0 p-6 z-10',
+                          currentSlide === index
+                            ? 'slide-text-active'
+                            : 'opacity-0'
+                        )}
+                      >
+                        <div
+                          className={cn(
+                            'backdrop-blur-[6px] bg-[rgba(72,70,214,0.8)]',
+                            'rounded-2xl px-6 py-4'
+                          )}
+                        >
+                          <p
+                            className={cn(
+                              'text-xl font-medium text-white text-center',
+                              'leading-[1.3] tracking-[-0.3px] font-poppins'
+                            )}
+                          >
+                            {slide.text}
+                          </p>
+                        </div>
+                      </div>
+                    </figure>
+                  </CarouselItem>
+                );
+              })}
             </CarouselContent>
           </Carousel>
 

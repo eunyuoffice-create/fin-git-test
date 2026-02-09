@@ -178,6 +178,45 @@
 .hero-delay-3 { animation-delay: 400ms; }
 .hero-delay-4 { animation-delay: 200ms; }
 
+/* Slide element gathering animation - each element moves from scattered position to final */
+@keyframes slide-el-gather {
+  0% {
+    opacity: 0;
+    transform: translate(var(--gx, 0px), var(--gy, 0px)) rotate(var(--gr, 0deg)) scale(0.6);
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+}
+
+/* Slide text slides up from bottom */
+@keyframes slide-text-up {
+  0% {
+    transform: translateY(32px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-el {
+  opacity: 0;
+}
+
+.slide-el-active {
+  animation: slide-el-gather 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms) both;
+}
+
+.slide-text-active {
+  animation: slide-text-up 0.5s ease-out 0.8s both;
+}
+
 /* Scroll Reveal Animations - GPU accelerated, no layout/paint cost */
 .scroll-reveal-up,
 .scroll-reveal-left,
