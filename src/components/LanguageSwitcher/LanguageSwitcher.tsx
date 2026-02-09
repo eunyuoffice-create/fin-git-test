@@ -6,6 +6,7 @@ import { locales, type Locale } from '@/lib/i18n';
 const languageNames: Record<Locale, string> = {
   en: 'English',
   ko: '한국어',
+  id: 'Bahasa',
 };
 
 export default function LanguageSwitcher() {

@@ -26,6 +26,11 @@ interface HeroBannerProps {
 }
 
 const SLIDE_COUNT = 3;
+const SLIDE_IMAGES = [
+  '/images/hero/hero-slide-1.png',
+  '/images/hero/hero-slide-2.png',
+  '/images/hero/hero-slide-3.png',
+];
 
 export default function HeroBanner({ dict }: HeroBannerProps) {
   const [api, setApi] = useState<CarouselApi>();
@@ -158,7 +163,7 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
                     )}
                   >
                     <Image
-                      src={src.image}
+                      src={SLIDE_IMAGES[index]}
                       alt={`${src.text}`}
                       fill
                       className="object-cover"

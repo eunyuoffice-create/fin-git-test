@@ -29,7 +29,7 @@ interface TestimonialsProps {
 
 export default function Testimonials({ dict }: TestimonialsProps) {
   const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
+  const [, setCurrent] = useState(0);
 
   const items = dict?.section4?.items ?? [];
 
