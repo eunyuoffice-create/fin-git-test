@@ -16,15 +16,12 @@
     "cta": "Minta Demo",
     "slides": [
       {
-        "image": "/images/hero/hero-slide-1.webp",
         "text": "Validasi penipuan & persyaratan pengajuan dalam 30 detik."
       },
       {
-        "image": "/images/hero/hero-slide-2.webp",
         "text": "Laporan keuangan setara laporan laba rugi"
       },
       {
-        "image": "/images/hero/hero-slide-3.webp",
         "text": "Rekonsiliasi bukti pembiayaan rantai pasok dalam hitungan detik."
       }
     ]
@@ -125,7 +122,6 @@
     "title": "FinProfile People",
     "members": [
       {
-        "image": "/images/team/people-01.webp",
         "name": "Cruz\nYoon",
         "koreanName": "Jae Ho Yoon",
         "role": "CEO",
@@ -137,7 +133,6 @@
         ]
       },
       {
-        "image": "/images/team/people-02.webp",
         "name": "Chang ho\nMoon",
         "koreanName": "Jae Ho Yoon",
         "role": "CTO",
@@ -145,7 +140,6 @@
         "tags": ["Arsitektur Sistem", "Strategi Teknis", "Pengalaman 10+ Tahun"]
       },
       {
-        "image": "/images/team/people-03.webp",
         "name": "Jannele\nShin",
         "koreanName": "Eun jung Shin",
         "role": "CXO",
