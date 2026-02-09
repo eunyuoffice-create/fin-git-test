@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import ScrollReveal from '@/components/ScrollReveal';
 
 interface TeamProps {
   dict: {
@@ -52,15 +53,17 @@ export default function Team({ dict }: TeamProps) {
       >
         <div className="relative z-10 w-full">
           {/* Title */}
-          <h2
-            id="team-title"
-            className={cn(
-              'text-[40px] font-medium text-[#363a5b] text-center w-full',
-              'leading-[1.3] tracking-[-0.6px] font-poppins whitespace-pre-wrap'
-            )}
-          >
-            {dict.section5.title}
-          </h2>
+          <ScrollReveal>
+            <h2
+              id="team-title"
+              className={cn(
+                'text-[40px] font-medium text-[#363a5b] text-center w-full',
+                'leading-[1.3] tracking-[-0.6px] font-poppins whitespace-pre-wrap'
+              )}
+            >
+              {dict.section5.title}
+            </h2>
+          </ScrollReveal>
 
           {/* Team Grid */}
           <div
@@ -69,10 +72,10 @@ export default function Team({ dict }: TeamProps) {
             aria-label="Team members"
           >
             {dict.section5.members.map((member, index) => (
+              <ScrollReveal key={index} delay={index * 150} className="flex-1 max-w-[307px]">
               <article
-                key={index}
                 className={cn(
-                  'flex-1 flex flex-col gap-10 max-w-[307px]',
+                  'flex flex-col gap-10 h-full',
                   index < 2 && 'self-stretch'
                 )}
                 role="listitem"
@@ -195,6 +198,7 @@ export default function Team({ dict }: TeamProps) {
                   {dict.section5.linkedIn}
                 </a>
               </article>
+              </ScrollReveal>
             ))}
           </div>
         </div>

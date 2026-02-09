@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils';
+import ScrollReveal from '@/components/ScrollReveal';
 
 interface Section2Props {
   dict: {
@@ -43,15 +44,17 @@ export default function Section2CreditReview({ dict }: Section2Props) {
     >
       <div className={cn('flex flex-col', 'items-center relative z-10')}>
         {/* Title */}
-        <h2
-          id="section2-title"
-          className={cn(
-            'text-[32px] font-medium text-[#363a5b] text-center',
-            'leading-[1.3] tracking-[-0.48px] font-poppins whitespace-pre-wrap'
-          )}
-        >
-          {dict.section2.title}
-        </h2>
+        <ScrollReveal>
+          <h2
+            id="section2-title"
+            className={cn(
+              'text-[32px] font-medium text-[#363a5b] text-center',
+              'leading-[1.3] tracking-[-0.48px] font-poppins whitespace-pre-wrap'
+            )}
+          >
+            {dict.section2.title}
+          </h2>
+        </ScrollReveal>
         {/* Spacer for background image height */}
         <div
           className={cn(
@@ -63,59 +66,74 @@ export default function Section2CreditReview({ dict }: Section2Props) {
           aria-hidden="true"
         >
           <div className={cn('flex justify-between relative z-10')}>
-            {/* Left - Manual (5day+) */}
-            <div className="flex flex-col text-[#363a5b] whitespace-pre-wrap">
-              <div className="relative h-[573px]">
-                <p className="absolute top-[181px] left-[62px] text-[18px] font-medium font-poppins tracking-[-0.27px]">
-                  {dict.section2.manual.perLoan}
-                </p>
-                <p className="absolute top-[240px] left-[54px] font-extrabold font-poppins leading-[96px] tracking-[-1.62px]">
-                  <span className="text-[124px]">
-                    {dict.section2.manual.timeValue}
-                  </span>
-                  <span className="text-[56px]">
-                    {dict.section2.manual.timeUnit}
-                  </span>
-                </p>
-                <p className="absolute top-[342px] left-[62px] text-[20px] font-semibold font-poppins tracking-[-0.3px]">
-                  {dict.section2.manual.timeDetail}
-                </p>
-              </div>
+            {/* Left - Manual (5day+) : 먼저 등장 */}
+            <ScrollReveal direction="left" delay={100}>
+              <div className="flex flex-col text-[#363a5b] whitespace-pre-wrap">
+                <div className="relative h-[573px]">
+                  <p className="absolute top-[181px] left-[62px] text-[18px] font-medium font-poppins tracking-[-0.27px]">
+                    {dict.section2.manual.perLoan}
+                  </p>
+                  <p className="absolute top-[240px] left-[54px] font-extrabold font-poppins leading-[96px] tracking-[-1.62px]">
+                    <span className="text-[124px]">
+                      {dict.section2.manual.timeValue}
+                    </span>
+                    <span className="text-[56px]">
+                      {dict.section2.manual.timeUnit}
+                    </span>
+                  </p>
+                  <p className="absolute top-[342px] left-[62px] text-[20px] font-semibold font-poppins tracking-[-0.3px]">
+                    {dict.section2.manual.timeDetail}
+                  </p>
+                </div>
 
-              <div className="bg-white rounded-[24px] p-6 flex flex-col gap-4 w-[360px] mt-6">
-                {dict.section2.manual.descriptions.map((desc, i) => (
-                  <ul
-                    key={i}
-                    className="list-disc ml-[27px] text-[18px] font-medium text-[#7a7a7a] font-poppins leading-normal tracking-[-0.27px] break-words"
+                <ScrollReveal delay={400}>
+                  <div className="bg-white rounded-[24px] p-6 flex flex-col gap-4 w-[360px] mt-6">
+                    {dict.section2.manual.descriptions.map((desc, i) => (
+                      <ul
+                        key={i}
+                        className="list-disc ml-[27px] text-[18px] font-medium text-[#7a7a7a] font-poppins leading-normal tracking-[-0.27px] break-words"
+                      >
+                        <li>{desc}</li>
+                      </ul>
+                    ))}
+                  </div>
+                </ScrollReveal>
+              </div>
+            </ScrollReveal>
+
+            {/* Right - AI (5min) : 5day 뒤에 등장 */}
+            <ScrollReveal direction="right" delay={600}>
+              <div className="flex flex-col text-[#363a5b] whitespace-pre-wrap">
+                <div className="relative h-[573px] w-full">
+                  <p className="absolute top-[315px] right-[53px] text-[18px] font-medium font-poppins tracking-[-0.27px]">
+                    {dict.section2.ai.perLoan}
+                  </p>
+                  {/* 5min - emphasis animation */}
+                  <ScrollReveal
+                    direction="emphasis"
+                    delay={900}
+                    className="absolute top-[365px] right-[52px]"
                   >
-                    <li>{desc}</li>
-                  </ul>
-                ))}
-              </div>
-            </div>
+                    <p className="font-extrabold font-poppins leading-[160px] tracking-[-2.7px] text-[#363a5b]">
+                      <span className="text-[180px]">
+                        {dict.section2.ai.timeValue}
+                      </span>
+                      <span className="text-[80px]">
+                        {dict.section2.ai.timeUnit}
+                      </span>
+                    </p>
+                  </ScrollReveal>
+                </div>
 
-            {/* Right - AI (5min) */}
-            <div className="flex flex-col text-[#363a5b] whitespace-pre-wrap">
-              <div className="relative h-[573px] w-full">
-                <p className="absolute top-[315px] right-[53px] text-[18px] font-medium font-poppins tracking-[-0.27px]">
-                  {dict.section2.ai.perLoan}
-                </p>
-                <p className="absolute top-[365px] right-[52px] font-extrabold font-poppins leading-[160px] tracking-[-2.7px]">
-                  <span className="text-[180px]">
-                    {dict.section2.ai.timeValue}
-                  </span>
-                  <span className="text-[80px]">
-                    {dict.section2.ai.timeUnit}
-                  </span>
-                </p>
+                <ScrollReveal delay={1000}>
+                  <div className="bg-white rounded-[24px] p-6 flex flex-col gap-4 w-[360px] mt-6">
+                    <ul className="list-disc ml-[27px] text-[18px] font-medium text-[#7a7a7a] font-poppins leading-normal tracking-[-0.27px] break-words">
+                      <li>{dict.section2.ai.description}</li>
+                    </ul>
+                  </div>
+                </ScrollReveal>
               </div>
-
-              <div className="bg-white rounded-[24px] p-6 flex flex-col gap-4 w-[360px] mt-6">
-                <ul className="list-disc ml-[27px] text-[18px] font-medium text-[#7a7a7a] font-poppins leading-normal tracking-[-0.27px] break-words">
-                  <li>{dict.section2.ai.description}</li>
-                </ul>
-              </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import ScrollReveal from '@/components/ScrollReveal';
 
 interface Section3to6Props {
   dict: {
@@ -48,92 +49,101 @@ export default function Section3to6Features({ dict }: Section3to6Props) {
             <div className="flex gap-[80px] items-center">
               {/* Image - left side */}
               {item.imagePosition === 'left' && (
-                <figure
-                  className={cn(
-                    'w-[320px] h-[400px] flex-shrink-0',
-                    'overflow-hidden rounded-[24px] relative'
-                  )}
-                >
-                  <Image
-                    src={item.image}
-                    alt={item.section.title}
-                    width={320}
-                    height={400}
-                    quality={90}
-                    className="object-cover w-full h-full"
-                  />
-                </figure>
+                <ScrollReveal direction="left" delay={100}>
+                  <figure
+                    className={cn(
+                      'w-[320px] h-[400px] flex-shrink-0',
+                      'overflow-hidden rounded-[24px] relative'
+                    )}
+                  >
+                    <Image
+                      src={item.image}
+                      alt={item.section.title}
+                      width={320}
+                      height={400}
+                      quality={90}
+                      className="object-cover w-full h-full"
+                    />
+                  </figure>
+                </ScrollReveal>
               )}
 
               {/* Content */}
-              <article className="flex-1 flex flex-col gap-[40px]">
-                <div className="flex flex-col gap-[24px]">
-                  {/* Badge */}
-                  <div
-                    className={cn(
-                      'inline-flex items-center gap-[8px]',
-                      'bg-[#3e14b4] px-[16px] py-[8px] rounded-[8px] w-fit'
-                    )}
-                  >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z"
-                        fill="white"
-                      />
-                    </svg>
-                    <span
+              <ScrollReveal
+                direction={item.imagePosition === 'left' ? 'right' : 'left'}
+                delay={250}
+              >
+                <article className="flex-1 flex flex-col gap-[40px]">
+                  <div className="flex flex-col gap-[24px]">
+                    {/* Badge */}
+                    <div
                       className={cn(
-                        'text-[16px] font-medium text-white',
-                        'tracking-[-0.24px] font-poppins whitespace-pre-wrap'
+                        'inline-flex items-center gap-[8px]',
+                        'bg-[#3e14b4] px-[16px] py-[8px] rounded-[8px] w-fit'
                       )}
                     >
-                      {item.section.badge}
-                    </span>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z"
+                          fill="white"
+                        />
+                      </svg>
+                      <span
+                        className={cn(
+                          'text-[16px] font-medium text-white',
+                          'tracking-[-0.24px] font-poppins whitespace-pre-wrap'
+                        )}
+                      >
+                        {item.section.badge}
+                      </span>
+                    </div>
+                    {/* Title */}
+                    <h3
+                      id={`${item.id}-title`}
+                      className={cn(
+                        'text-[40px] font-medium text-[#363a5b]',
+                        'leading-[1.3] tracking-[-0.6px] font-poppins whitespace-pre-wrap'
+                      )}
+                    >
+                      {item.section.title}
+                    </h3>
                   </div>
-                  {/* Title */}
-                  <h3
-                    id={`${item.id}-title`}
+                  {/* Description */}
+                  <p
                     className={cn(
-                      'text-[40px] font-medium text-[#363a5b]',
-                      'leading-[1.3] tracking-[-0.6px] font-poppins whitespace-pre-wrap'
+                      'text-[18px] text-[#7a7a7a]',
+                      'leading-[1.4] tracking-[-0.27px] font-poppin whitespace-pre-wrap'
                     )}
                   >
-                    {item.section.title}
-                  </h3>
-                </div>
-                {/* Description */}
-                <p
-                  className={cn(
-                    'text-[18px] text-[#7a7a7a]',
-                    'leading-[1.4] tracking-[-0.27px] font-poppin whitespace-pre-wrap'
-                  )}
-                >
-                  {item.section.description}
-                </p>
-              </article>
+                    {item.section.description}
+                  </p>
+                </article>
+              </ScrollReveal>
 
               {/* Image - right side */}
               {item.imagePosition === 'right' && (
-                <figure
-                  className={cn(
-                    'w-[320px] h-[400px] flex-shrink-0',
-                    'overflow-hidden rounded-[24px] relative'
-                  )}
-                >
-                  <Image
-                    src={item.image}
-                    alt={item.section.title}
-                    width={320}
-                    height={400}
-                    className="object-cover"
-                  />
-                </figure>
+                <ScrollReveal direction="right" delay={100}>
+                  <figure
+                    className={cn(
+                      'w-[320px] h-[400px] flex-shrink-0',
+                      'overflow-hidden rounded-[24px] relative'
+                    )}
+                  >
+                    <Image
+                      src={item.image}
+                      alt={item.section.title}
+                      width={320}
+                      height={400}
+                      className="object-cover"
+                    />
+                  </figure>
+                </ScrollReveal>
               )}
             </div>
           </section>

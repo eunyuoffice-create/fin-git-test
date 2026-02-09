@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import ScrollReveal from '@/components/ScrollReveal';
 import {
   Carousel,
   CarouselContent,
@@ -67,7 +68,7 @@ export default function Testimonials({ dict }: TestimonialsProps) {
     >
       <div className="w-[420px] h-[420px] rounded-full blur-[100px] bg-[#D2F9EACC] opacity-80 absolute top-[-211px] left-[50%] -translate-x-1/2"></div>
       {/* Title */}
-      <div className="max-w-[1440px] mx-auto px-[120px] mb-[84px] relative z-10">
+      <ScrollReveal className="max-w-[1440px] mx-auto px-[120px] mb-[84px] relative z-10">
         <h2
           className={cn(
             'text-[40px] font-medium text-[#363a5b] text-center',
@@ -76,10 +77,10 @@ export default function Testimonials({ dict }: TestimonialsProps) {
         >
           {dict.section4.title}
         </h2>
-      </div>
+      </ScrollReveal>
 
       {/* Carousel Container */}
-      <div className="relative z-10 max-w-[1000px] mx-auto overflow-visible">
+      <ScrollReveal delay={200} className="relative z-10 max-w-[1000px] mx-auto overflow-visible">
         <Carousel
           setApi={setApi}
           opts={{
@@ -185,7 +186,7 @@ export default function Testimonials({ dict }: TestimonialsProps) {
             <CarouselItem className="pl-6 basis-[504px]" aria-hidden="true" />
           </CarouselContent>
         </Carousel>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

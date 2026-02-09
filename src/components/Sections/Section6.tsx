@@ -3,6 +3,7 @@
 import { useState, useId, useRef } from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import ScrollReveal from '@/components/ScrollReveal';
 
 interface ContactFormProps {
   dict: {
@@ -135,20 +136,25 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
     >
       <div className="relative max-w-[1000px] mx-auto">
         {/* Title */}
-        <h2
-          id="contact-title"
-          className={cn(
-            'text-[32px] sm:text-[40px] lg:text-5xl',
-            'font-medium text-[#363a5b] text-center',
-            'mb-[54px] tracking-[-0.72px] leading-[1.4]'
-          )}
-        >
-          {dict.section6.title}
-        </h2>
+        <ScrollReveal>
+          <h2
+            id="contact-title"
+            className={cn(
+              'text-[32px] sm:text-[40px] lg:text-5xl',
+              'font-medium text-[#363a5b] text-center',
+              'mb-[54px] tracking-[-0.72px] leading-[1.4]'
+            )}
+          >
+            {dict.section6.title}
+          </h2>
+        </ScrollReveal>
 
         <div className="flex flex-col items-center gap-[54px] rounded-3xl">
           {/* Video Section */}
-          <div className="w-full px-0 sm:px-[50px] lg:px-[100px]">
+          <ScrollReveal
+            delay={150}
+            className="w-full px-0 sm:px-[50px] lg:px-[100px]"
+          >
             <figure
               className={cn(
                 'relative w-full aspect-[4/3]',
@@ -236,10 +242,13 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                 </div>
               </button>
             </figure>
-          </div>
+          </ScrollReveal>
 
           {/* Form Section */}
-          <div className="w-full px-0 sm:px-[50px] lg:px-[100px]">
+          <ScrollReveal
+            delay={300}
+            className="w-full px-0 sm:px-[50px] lg:px-[100px]"
+          >
             <div className="bg-[#f0f5ff] rounded-3xl p-6 sm:p-8 lg:p-10">
               {/* Form Header */}
               <div className="flex items-center justify-between gap-4 mb-10">
@@ -481,7 +490,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                 </div>
               </form>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

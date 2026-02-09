@@ -100,7 +100,8 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
             className={cn(
               'text-5xl font-medium text-[#363a5b]',
               'leading-[1.2] tracking-[-0.96px]',
-              'font-poppins whitespace-pre-wrap'
+              'font-poppins whitespace-pre-wrap',
+              'hero-animate hero-delay-1'
             )}
           >
             {dict.hero.title}
@@ -108,7 +109,8 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
           <p
             className={cn(
               'text-lg text-[#7a7a7a]',
-              'leading-[1.4] tracking-[-0.27px] font-poppins font-normal whitespace-pre-wrap'
+              'leading-[1.4] tracking-[-0.27px] font-poppins font-normal whitespace-pre-wrap',
+              'hero-animate hero-delay-2'
             )}
           >
             {dict.hero.subtitle}
@@ -119,13 +121,16 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
               'bg-[#363a5b] text-white h-14 pl-8 pr-6 rounded-full',
               'font-bold shadow-[0px_8px_24px_0px_rgba(62,20,180,0.2)]',
               'w-fit flex items-center gap-2',
-              'hover:bg-[#2d3049] transition-colors',
+              'hover:bg-[#2d3049] hover:shadow-[0px_12px_32px_0px_rgba(62,20,180,0.3)]',
+              'active:scale-[0.97]',
+              'transition-all duration-200',
               'focus:outline-none focus:ring-2 focus:ring-[#3b3f61] focus:ring-offset-2',
               'flex items-center justify-center',
               'relative',
               'after:content-[""] after:w-6 after:h-6 after:ml-2',
               'after:bg-[url("/images/common/icons/icon-arrow.svg")]',
-              'after:bg-no-repeat after:bg-center after:bg-contain'
+              'after:bg-no-repeat after:bg-center after:bg-contain',
+              'hero-animate hero-delay-3'
             )}
             type="button"
             aria-label="Go to demo request form"
@@ -137,7 +142,7 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
         </article>
 
         {/* Right Content - Hero Carousel */}
-        <div className="flex-1 flex flex-col gap-6 items-center min-w-[460px]">
+        <div className="flex-1 flex flex-col gap-6 items-center min-w-[460px] hero-animate-carousel hero-delay-4">
           <Carousel
             setApi={setApi}
             opts={{
