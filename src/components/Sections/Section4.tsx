@@ -63,11 +63,11 @@ export default function Testimonials({ dict }: TestimonialsProps) {
   return (
     <section
       id="testimonial"
-      className={cn('w-full py-20 relative overflow-hidden')}
+      className={cn('w-full pt-20 pb-[100px] relative overflow-hidden')}
     >
       <div className="w-[420px] h-[420px] rounded-full blur-[100px] bg-[#D2F9EACC] opacity-80 absolute top-[-211px] left-[50%] -translate-x-1/2"></div>
       {/* Title */}
-      <div className="max-w-[1440px] mx-auto px-[120px] mb-16 relative z-10">
+      <div className="max-w-[1440px] mx-auto px-[120px] mb-[84px] relative z-10">
         <h2
           className={cn(
             'text-[40px] font-medium text-[#363a5b] text-center',

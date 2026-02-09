@@ -57,10 +57,8 @@ export default function Section3to6Features({ dict }: Section3to6Props) {
                   <Image
                     src={item.image}
                     alt={item.section.title}
-                    width={320}
-                    height={400}
-                    quality={90}
-                    className="object-cover w-full h-full"
+                    fill
+                    className="object-cover"
                   />
                 </figure>
               )}
@@ -131,8 +129,7 @@ export default function Section3to6Features({ dict }: Section3to6Props) {
                     alt={item.section.title}
                     width={320}
                     height={400}
-                    quality={90}
-                    className="object-cover w-full h-full"
+                    className="object-cover"
                   />
                 </figure>
               )}
