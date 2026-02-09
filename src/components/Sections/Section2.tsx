@@ -70,7 +70,7 @@ export default function Section2CreditReview({ dict }: Section2Props) {
                     {dict.section2.manual.timeUnit}
                   </span>
                 </p>
-                <p className="absolute bottom-[342px] left-[62px] text-[20px] font-semibold font-poppins tracking-[-0.3px]">
+                <p className="absolute top-[342px] left-[62px] text-[20px] font-semibold font-poppins tracking-[-0.3px]">
                   {dict.section2.manual.timeDetail}
                 </p>
               </div>
