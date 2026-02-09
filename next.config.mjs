@@ -1,3 +1,5 @@
+const isDev = process.env.NODE_ENV === 'development';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // ===========================================
@@ -30,10 +32,11 @@ const nextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            // public: CDN 캐싱 허용
-            // max-age=31536000: 1년 동안 캐싱
-            // immutable: 절대 변경되지 않음 (재검증 불필요)
-            value: 'public, max-age=31536000, immutable',
+            // 개발: 캐시 없음
+            // 배포: 1일 캐시 + 백그라운드 갱신 (이미지 교체 시 최대 1일 내 반영)
+            value: isDev
+              ? 'no-cache, no-store, must-revalidate'
+              : 'public, max-age=86400, stale-while-revalidate=86400',
           },
         ],
       },
