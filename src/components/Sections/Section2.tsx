@@ -26,14 +26,21 @@ export default function Section2CreditReview({ dict }: Section2Props) {
   return (
     <section
       id="solutions"
-      className={cn('w-full pt-[80px] pb-[100px]', 'relative overflow-hidden')}
+      className={cn(
+        'w-full pt-[80px] pb-[100px]',
+        'relative overflow-hidden',
+        'before:content-[""] before:w-[420px] before:h-[420px] before:rounded-full',
+        'before:blur-[100px] before:bg-[#C0DDFFCC] before:opacity-80',
+        'before:absolute before:top-[-211px] before:left-1/2 before:-translate-x-1/2',
+        'after:content-[""] after:w-[420px] after:h-[420px] after:rounded-full',
+        'after:blur-[100px] after:bg-[#DBDAFFCC] after:opacity-80',
+        'after:absolute after:bottom-[-211px] after:left-1/2 after:-translate-x-1/2'
+      )}
       style={{
         background: 'linear-gradient(180deg, #F2F6FF 0%, #E6EEFF 100%)',
       }}
       aria-labelledby="section2-title"
     >
-      <div className="w-[420px] h-[420px] rounded-full blur-[100px] bg-[#C0DDFFCC] opacity-80 absolute top-[-211px] left-[50%] -translate-x-1/2"></div>
-      <div className="w-[420px] h-[420px] rounded-full blur-[100px] bg-[#DBDAFFCC] opacity-80 absolute bottom-[-211px] left-[50%] -translate-x-1/2"></div>
       <div className={cn('flex flex-col', 'items-center relative z-10')}>
         {/* Title */}
         <h2
