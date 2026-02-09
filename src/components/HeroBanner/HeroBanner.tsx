@@ -63,12 +63,6 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
     api?.scrollTo(index);
   };
 
-  const slideImages = [
-    '/images/hero/hero-slide-1.png',
-    '/images/hero/hero-slide-2.png',
-    '/images/hero/hero-slide-3.png',
-  ];
-
   return (
     <section
       id="hero"
@@ -148,7 +142,7 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
             className="w-[460px]"
           >
             <CarouselContent className="-ml-0">
-              {slideImages.map((src, index) => (
+              {dict.hero.slides.map((src, index) => (
                 <CarouselItem key={index} className="pl-0">
                   <figure
                     className={cn(
@@ -157,8 +151,8 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
                     )}
                   >
                     <Image
-                      src={src}
-                      alt={`${dict.hero.slides[index]?.text}`}
+                      src={src.image}
+                      alt={`${src.text}`}
                       fill
                       className="object-cover"
                       priority={index === 0}

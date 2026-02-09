@@ -16,12 +16,15 @@
     "cta": "데모 요청",
     "slides": [
       {
+        "image": "/images/hero/hero-slide-1.png",
         "text": "30초 만에 사기 탐지 및 제출 요건 검증 완료."
       },
       {
+        "image": "/images/hero/hero-slide-2.png",
         "text": "손익계산서 수준의 재무 보고서"
       },
       {
+        "image": "/images/hero/hero-slide-3.png",
         "text": "공급망 금융 증빙 대사를 수 초 만에 완료."
       }
     ]
@@ -122,17 +125,15 @@
     "title": "FinProfile People",
     "members": [
       {
+        "image": "/images/team/people-01.png",
         "name": "Cruz\nYoon",
         "koreanName": "윤재호",
         "role": "CEO",
         "description": "동남아 시장에서의 풍부한 경험을 바탕으로, AI 기반 산업 문제 해결을 전문으로 합니다.",
-        "tags": [
-          "AI 전문 컨설턴트",
-          "글로벌 사업 총괄",
-          "신사업 & 투자"
-        ]
+        "tags": ["AI 전문 컨설턴트", "글로벌 사업 총괄", "신사업 & 투자"]
       },
       {
+        "image": "/images/team/people-02.png",
         "name": "Chang ho\nMoon",
         "koreanName": "문창호",
         "role": "CTO",
@@ -140,15 +141,12 @@
         "tags": ["시스템 아키텍처", "기술 전략", "10년+ 경력"]
       },
       {
+        "image": "/images/team/people-03.png",
         "name": "Jannele\nShin",
         "koreanName": "신은정",
         "role": "CXO",
         "description": "글로벌 디자인 컨설팅 분야 15년 경력의 서비스 디자이너. 국내외 20개 이상의 스타트업 디지털 서비스 기획을 리드.",
-        "tags": [
-          "국제 디자인 컨설턴트",
-          "프로덕트 전략",
-          "스타트업 전문가"
-        ]
+        "tags": ["국제 디자인 컨설턴트", "프로덕트 전략", "스타트업 전문가"]
       }
     ],
     "linkedIn": "LinkedIn"

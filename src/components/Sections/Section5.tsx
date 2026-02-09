@@ -23,12 +23,6 @@ const GRADIENT_RADIAL =
 const GRADIENT_DUAL = `${GRADIENT_RADIAL}, linear-gradient(135deg, rgba(114,71,234,1) 0%, rgba(87,45,207,1) 50%, rgba(61,18,180,1) 100%)`;
 
 export default function Team({ dict }: TeamProps) {
-  const memberImages = [
-    '/images/team/people-01.png',
-    '/images/team/people-02.png',
-    '/images/team/people-03.png',
-  ];
-
   return (
     <section
       id="team"
@@ -91,7 +85,7 @@ export default function Team({ dict }: TeamProps) {
                   {/* Profile Image */}
                   <figure className="absolute left-[11px] top-[17px] w-[173px] bottom-0">
                     <Image
-                      src={memberImages[index] || '/images/team/people-01.png'}
+                      src={member.image || '/images/team/people-01.png'}
                       alt={member.name}
                       fill
                       className="object-cover"
