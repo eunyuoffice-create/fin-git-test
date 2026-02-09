@@ -89,7 +89,7 @@ export default function Testimonials({ dict }: TestimonialsProps) {
           }}
           className="w-[1440px] test"
         >
-          <CarouselContent overflowVisible className="-ml-6">
+          <CarouselContent overflowVisible className="-ml-6 select-none">
             {items.map((item, index) => (
               <CarouselItem key={index} className="ml-6 basis-[480px]">
                 <div

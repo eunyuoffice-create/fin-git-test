@@ -188,7 +188,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                 <p>Your browser does not support video playback.</p>
               </video>
 
-              {/* Play Button */}
+              {/* Play/Pause Button */}
               <button
                 type="button"
                 onClick={handlePlayVideo}
@@ -202,7 +202,10 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                   className={cn(
                     'w-20 h-20 bg-white rounded-full',
                     'flex items-center justify-center shadow-lg',
-                    'group-hover:scale-105 transition-transform'
+                    'transition-all duration-300',
+                    isPlaying
+                      ? 'opacity-0 pointer-events-none'
+                      : 'opacity-100 group-hover:scale-105'
                   )}
                 >
                   {isPlaying ? (
@@ -429,7 +432,6 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                       Privacy Policy
                     </a>
                     <span>
-                      {' '}
                       and consent to the processing of my personal data for the
                       purpose of a product demo and marketing communications.
                     </span>
