@@ -98,7 +98,7 @@ export default function Team({ dict }: TeamProps) {
                       alt={member.name}
                       fill
                       sizes="173px"
-                      quality={90}
+                      quality={80}
                       className="object-cover"
                     />
                   </figure>

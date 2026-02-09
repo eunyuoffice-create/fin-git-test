@@ -91,7 +91,10 @@ export default function Section3Features({ dict }: Section3Props) {
                 {dict.section3.items.map((item, index) => (
                   <article
                     key={index}
-                    className="py-[40vh] flex flex-col gap-[40px]"
+                    className={cn(
+                      'pb-[40vh] flex flex-col gap-[40px]',
+                      index !== 0 ? 'pt-[40vh]' : ''
+                    )}
                   >
                     <div className="flex flex-col gap-[24px]">
                       <div
@@ -152,7 +155,7 @@ export default function Section3Features({ dict }: Section3Props) {
                   alt={dict.section3.items[index]?.title || ''}
                   width={320}
                   height={400}
-                  quality={90}
+                  quality={80}
                   className="absolute inset-0 object-cover w-full h-full"
                   style={{
                     opacity: activeIndex === index ? 1 : 0,

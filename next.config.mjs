@@ -23,84 +23,96 @@ const nextConfig = {
   async headers() {
     return [
       // -----------------------------------------------
-      // 1. 정적 에셋 - 장기 캐싱 (1년)
+      // 1. Next.js 빌드 에셋 - 영구 캐싱 (1년, immutable)
       // -----------------------------------------------
-      // 대상: 이미지, 폰트 등 변경되지 않는 파일
-      // Next.js가 자동으로 파일명에 해시 추가 (예: main.abc123.js)
+      // 대상: _next/static/ 내 JS, CSS, 미디어 (파일명에 해시 포함)
       {
-        source: '/:all*(svg|jpg|jpeg|png|webp|gif|woff|woff2|ttf|otf)',
+        source: '/_next/static/:path*',
         headers: [
           {
             key: 'Cache-Control',
-            // 개발: 캐시 없음
-            // 배포: 1일 캐시 + 백그라운드 갱신 (이미지 교체 시 최대 1일 내 반영)
-            value: isDev
-              ? 'no-cache, no-store, must-revalidate'
-              : 'public, max-age=86400, stale-while-revalidate=86400',
+            value: 'public, max-age=31536000, immutable',
           },
         ],
       },
 
       // -----------------------------------------------
-      // 2. 영상 파일 - 중간 캐싱 (30일)
+      // 2. 폰트 파일 - 장기 캐싱 (1년)
       // -----------------------------------------------
-      // 대상: MP4, WebM 영상 파일
+      // 대상: woff, woff2 폰트 파일 (변경 거의 없음)
+      {
+        source: '/:all*(woff|woff2|ttf|otf)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: isDev
+              ? 'no-cache, no-store, must-revalidate'
+              : 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+
+      // -----------------------------------------------
+      // 3. 이미지 - 장기 캐싱 (30일 + SWR)
+      // -----------------------------------------------
+      // 대상: 이미지 파일
+      {
+        source: '/:all*(svg|jpg|jpeg|png|webp|gif|ico)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: isDev
+              ? 'no-cache, no-store, must-revalidate'
+              : 'public, max-age=2592000, stale-while-revalidate=86400',
+          },
+        ],
+      },
+
+      // -----------------------------------------------
+      // 4. 영상 파일 - 중간 캐싱 (30일)
+      // -----------------------------------------------
       {
         source: '/:all*(mp4|webm)',
         headers: [
           {
             key: 'Cache-Control',
-            // max-age=2592000: 30일 동안 캐싱
             value: 'public, max-age=2592000',
           },
           {
             key: 'Accept-Ranges',
-            // 스트리밍 지원 (부분 다운로드 가능)
             value: 'bytes',
           },
         ],
       },
 
       // -----------------------------------------------
-      // 3. HTML 페이지 - 짧은 캐싱 (1시간) + 보안 헤더
+      // 5. HTML 페이지 - 짧은 캐싱 (1시간) + 보안 헤더
       // -----------------------------------------------
-      // 대상: 모든 HTML 페이지
       {
         source: '/:path*',
         headers: [
-          // 캐싱 설정
           {
             key: 'Cache-Control',
-            // public: CDN 캐싱 허용
-            // max-age=3600: 1시간 동안 fresh
-            // stale-while-revalidate=86400: 24시간 동안 stale 컨텐츠 제공하며 백그라운드 갱신
             value: 'public, max-age=3600, stale-while-revalidate=86400',
           },
-
-          // 보안 헤더
           {
             key: 'X-Frame-Options',
-            // DENY: iframe 삽입 완전 차단 (클릭재킹 방지)
             value: 'DENY',
           },
           {
             key: 'X-Content-Type-Options',
-            // nosniff: MIME 타입 추측 차단 (XSS 방지)
             value: 'nosniff',
           },
           {
             key: 'Referrer-Policy',
-            // 다른 origin으로 이동 시 origin만 전송
             value: 'strict-origin-when-cross-origin',
           },
           {
             key: 'Permissions-Policy',
-            // 불필요한 브라우저 API 차단
             value: 'camera=(), microphone=(), geolocation=()',
           },
           {
             key: 'X-XSS-Protection',
-            // 브라우저 XSS 필터 활성화
             value: '1; mode=block',
           },
         ],

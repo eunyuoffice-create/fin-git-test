@@ -127,7 +127,7 @@ export default function Testimonials({ dict }: TestimonialsProps) {
                           alt="Hana"
                           width={64}
                           height={64}
-                          quality={90}
+                          quality={80}
                         />
                       ) : (
                         item.initial ||

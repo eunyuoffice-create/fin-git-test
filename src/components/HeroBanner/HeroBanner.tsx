@@ -172,7 +172,8 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
                       alt={`${src.text}`}
                       width={460}
                       height={500}
-                      quality={90}
+                      sizes="460px"
+                      quality={80}
                       className="object-cover w-full h-full"
                       priority={index === 0}
                     />

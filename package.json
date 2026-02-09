@@ -38,5 +38,14 @@
   },
   "engines": {
     "node": ">=20"
-  }
+  },
+  "browserslist": [
+    "Chrome >= 80",
+    "Safari >= 14",
+    "Firefox >= 80",
+    "Edge >= 80",
+    "ChromeAndroid >= 80",
+    "iOS >= 14",
+    "Samsung >= 13"
+  ]
 }

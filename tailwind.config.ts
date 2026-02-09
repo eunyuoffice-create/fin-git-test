@@ -10,8 +10,8 @@ const config: Config = {
   theme: {
   	extend: {
   		fontFamily: {
-  			poppins: ['Poppins', 'sans-serif'],
-  			lato: ['Lato', 'sans-serif'],
+  			poppins: ['var(--font-poppins)', 'sans-serif'],
+  			lato: ['var(--font-lato)', 'sans-serif'],
   		},
   		colors: {
   			background: 'hsl(var(--background))',
