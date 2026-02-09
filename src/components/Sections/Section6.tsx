@@ -162,6 +162,8 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                 src="/images/sections/section6/bg.webp"
                 alt=""
                 fill
+                sizes="100vw"
+                quality={90}
                 className="object-cover blur-[10px]"
                 aria-hidden="true"
               />

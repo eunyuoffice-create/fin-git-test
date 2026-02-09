@@ -75,6 +75,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
                 alt=""
                 width={64}
                 height={64}
+                quality={90}
                 className="object-contain"
               />
             </div>
@@ -111,6 +112,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
                 alt=""
                 width={64}
                 height={64}
+                quality={90}
               />
             </div>
           </article>
@@ -209,6 +211,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
             alt=""
             width={128}
             height={128}
+            quality={90}
             className="object-contain"
           />
         </div>
@@ -230,6 +233,8 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
               src="/images/sections/section1/experience.webp"
               alt=""
               fill
+              sizes="1000px"
+              quality={90}
               className="object-contain"
             />
           </div>

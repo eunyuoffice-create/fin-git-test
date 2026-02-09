@@ -165,8 +165,10 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
                     <Image
                       src={SLIDE_IMAGES[index]}
                       alt={`${src.text}`}
-                      fill
-                      className="object-cover"
+                      width={460}
+                      height={500}
+                      quality={90}
+                      className="object-cover w-full h-full"
                       priority={index === 0}
                     />
                   </figure>

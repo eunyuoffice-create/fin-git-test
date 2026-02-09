@@ -94,6 +94,8 @@ export default function Team({ dict }: TeamProps) {
                       src={memberImages[index] || '/images/team/people-01.webp'}
                       alt={member.name}
                       fill
+                      sizes="173px"
+                      quality={90}
                       className="object-cover"
                     />
                   </figure>
