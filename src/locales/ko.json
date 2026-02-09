@@ -16,15 +16,15 @@
     "cta": "데모 요청",
     "slides": [
       {
-        "image": "/images/hero/hero-slide-1.png",
+        "image": "/images/hero/hero-slide-1.webp",
         "text": "30초 만에 사기 탐지 및 제출 요건 검증 완료."
       },
       {
-        "image": "/images/hero/hero-slide-2.png",
+        "image": "/images/hero/hero-slide-2.webp",
         "text": "손익계산서 수준의 재무 보고서"
       },
       {
-        "image": "/images/hero/hero-slide-3.png",
+        "image": "/images/hero/hero-slide-3.webp",
         "text": "공급망 금융 증빙 대사를 수 초 만에 완료."
       }
     ]
@@ -125,7 +125,7 @@
     "title": "FinProfile People",
     "members": [
       {
-        "image": "/images/team/people-01.png",
+        "image": "/images/team/people-01.webp",
         "name": "Cruz\nYoon",
         "koreanName": "윤재호",
         "role": "CEO",
@@ -133,7 +133,7 @@
         "tags": ["AI 전문 컨설턴트", "글로벌 사업 총괄", "신사업 & 투자"]
       },
       {
-        "image": "/images/team/people-02.png",
+ "image": "/images/team/people-02.webp",
         "name": "Chang ho\nMoon",
         "koreanName": "문창호",
         "role": "CTO",
@@ -141,7 +141,7 @@
         "tags": ["시스템 아키텍처", "기술 전략", "10년+ 경력"]
       },
       {
-        "image": "/images/team/people-03.png",
+        "image": "/images/team/people-03.webp",
         "name": "Jannele\nShin",
         "koreanName": "신은정",
         "role": "CXO",

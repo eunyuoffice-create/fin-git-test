@@ -24,9 +24,9 @@ const GRADIENT_DUAL = `${GRADIENT_RADIAL}, linear-gradient(135deg, rgba(114,71,2
 
 export default function Team({ dict }: TeamProps) {
   const memberImages = [
-    '/images/team/people-01.png',
-    '/images/team/people-02.png',
-    '/images/team/people-03.png',
+    '/images/team/people-01.webp',
+    '/images/team/people-02.webp',
+    '/images/team/people-03.webp',
   ];
 
   return (
@@ -91,7 +91,7 @@ export default function Team({ dict }: TeamProps) {
                   {/* Profile Image */}
                   <figure className="absolute left-[11px] top-[17px] w-[173px] bottom-0">
                     <Image
-                      src={memberImages[index] || '/images/team/people-01.png'}
+                      src={memberImages[index] || '/images/team/people-01.webp'}
                       alt={member.name}
                       fill
                       className="object-cover"

@@ -50,7 +50,7 @@ export default function Section2CreditReview({ dict }: Section2Props) {
           className={cn(
             'w-[1000px] mx-auto relative',
             "before:content-[''] before:flex before:items-center before:justify-center  before:h-[573px] before:inset-0 before:ml-[-220px] before:mt-[-20px]",
-            "before:bg-[url('/images/sections/section2/bg_solutions.png')] before:bg-[length:1228px_573px] before:bg-center before:bg-no-repeat",
+            "before:bg-[url('/images/sections/section2/bg_solutions.webp')] before:bg-[length:1228px_573px] before:bg-center before:bg-no-repeat",
             'before:absolute before:top-0 before:left-0'
           )}
           aria-hidden="true"

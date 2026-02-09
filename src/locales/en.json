@@ -16,15 +16,15 @@
     "cta": "Request Demo",
     "slides": [
       {
-        "image": "/images/hero/hero-slide-1.png",
+        "image": "/images/hero/hero-slide-1.webp",
         "text": "Fraud & Submission requirement validation in 30 seconds."
       },
       {
-        "image": "/images/hero/hero-slide-2.png",
+        "image": "/images/hero/hero-slide-2.webp",
         "text": "Income Statement Level Financial Report"
       },
       {
-        "image": "/images/hero/hero-slide-3.png",
+        "image": "/images/hero/hero-slide-3.webp",
         "text": "Supply Chain Financing Evidence reconciliation in seconds."
       }
     ]
@@ -93,7 +93,7 @@
     "title": "How Companies Are\nTransforming Workflows\nwith FinSight AI",
     "items": [
       {
-        "icon": "/images/common/icons/icon-hana.png",
+        "icon": "/images/common/icons/icon-hana.webp",
         "color": "",
         "company": "Sinarmas Hana Finance",
         "industry": "Indonesian conglomerate \n Multi-finance",
@@ -130,7 +130,7 @@
     "title": "FinProfile People",
     "members": [
       {
-        "image": "/images/team/people-01.png",
+        "image": "/images/team/people-01.webp",
         "name": "Cruz\nYoon",
         "koreanName": "Jae Ho Yoon",
         "role": "CEO",
@@ -142,7 +142,7 @@
         ]
       },
       {
-        "image": "/images/team/people-02.png",
+        "image": "/images/team/people-02.webp",
         "name": "Chang ho\nMoon",
         "koreanName": "Jae Ho Yoon",
         "role": "CTO",
@@ -150,7 +150,7 @@
         "tags": ["System Architecture", "Technical Strategy", "10+ Years Exp"]
       },
       {
-        "image": "/images/team/people-03.png",
+        "image": "/images/team/people-03.webp",
         "name": "Jannele\nShin",
         "koreanName": "Eun jung Shin",
         "role": "CXO",

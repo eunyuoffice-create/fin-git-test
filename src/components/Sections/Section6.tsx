@@ -159,7 +159,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
             >
               {/* Video Background Image */}
               <Image
-                src="/images/sections/section6/bg.png"
+                src="/images/sections/section6/bg.webp"
                 alt=""
                 fill
                 className="object-cover blur-[10px]"

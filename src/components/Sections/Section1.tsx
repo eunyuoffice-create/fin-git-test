@@ -71,7 +71,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
               )}
             >
               <Image
-                src="/images/common/icons/icon-arrow-sm.png"
+                src="/images/common/icons/icon-arrow-sm.webp"
                 alt=""
                 width={64}
                 height={64}
@@ -107,7 +107,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
               )}
             >
               <Image
-                src="/images/common/icons/icon-arrow-sm.png"
+                src="/images/common/icons/icon-arrow-sm.webp"
                 alt=""
                 width={64}
                 height={64}
@@ -122,9 +122,9 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
             'w-[824px] h-[130px] rounded-[18px] overflow-hidden',
             'relative flex items-center pl-[368px]',
             'after:content-[""] after:w-[153px] after:h-[119px] after:rounded-[18px] after:absolute after:left-[166.5px] after:top-3',
-            'after:bg-[url("/images/common/icons/icon-bank.png")] after:bg-center after:bg-no-repeat',
+            'after:bg-[url("/images/common/icons/icon-bank.webp")] after:bg-center after:bg-no-repeat',
             'before:content-[""] before:w-full before:h-full before:rounded-[18px] before:absolute before:left-0 before:top-0',
-            'before:bg-[url("/images/sections/section1/bg-bank.png")] before:bg-center before:bg-no-repeat'
+            'before:bg-[url("/images/sections/section1/bg-bank.webp")] before:bg-center before:bg-no-repeat'
           )}
           style={{
             background:
@@ -205,7 +205,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
           )}
         >
           <Image
-            src="/images/common/icons/icon-arrow.png"
+            src="/images/common/icons/icon-arrow.webp"
             alt=""
             width={128}
             height={128}
@@ -227,7 +227,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
 
           <div className="w-full h-[420px] relative overflow-hidden mt-6">
             <Image
-              src="/images/sections/section1/experience.png"
+              src="/images/sections/section1/experience.webp"
               alt=""
               fill
               className="object-contain"

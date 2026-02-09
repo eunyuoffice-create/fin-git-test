@@ -27,9 +27,9 @@ interface HeroBannerProps {
 
 const SLIDE_COUNT = 3;
 const SLIDE_IMAGES = [
-  '/images/hero/hero-slide-1.png',
-  '/images/hero/hero-slide-2.png',
-  '/images/hero/hero-slide-3.png',
+  '/images/hero/hero-slide-1.webp',
+  '/images/hero/hero-slide-2.webp',
+  '/images/hero/hero-slide-3.webp',
 ];
 
 export default function HeroBanner({ dict }: HeroBannerProps) {

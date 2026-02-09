@@ -17,25 +17,25 @@ export default function Section3to6Features({ dict }: Section3to6Props) {
           {
             section: dict.section3.items[0],
             id: 'section3-0',
-            image: '/images/sections/section3/ai-01.png',
+            image: '/images/sections/section3/ai-01.webp',
             imagePosition: 'left',
           },
           {
             section: dict.section3.items[1],
             id: 'section3-1',
-            image: '/images/sections/section3/ai-02.png',
+            image: '/images/sections/section3/ai-02.webp',
             imagePosition: 'right',
           },
           {
             section: dict.section3.items[2],
             id: 'section3-2',
-            image: '/images/sections/section3/ai-03.png',
+            image: '/images/sections/section3/ai-03.webp',
             imagePosition: 'left',
           },
           {
             section: dict.section3.items[3],
             id: 'section3-3',
-            image: '/images/sections/section3/ai-04.png',
+            image: '/images/sections/section3/ai-04.webp',
             imagePosition: 'right',
           },
         ].map((item) => (
