@@ -93,6 +93,8 @@
     "title": "How Companies Are\nTransforming Workflows\nwith FinSight AI",
     "items": [
       {
+        "icon": "/images/common/icons/icon-hana.png",
+        "color": "",
         "company": "Sinarmas Hana Finance",
         "industry": "Indonesian conglomerate \n Multi-finance",
         "quotes": [
@@ -103,6 +105,8 @@
       {
         "name": "Credit Analyst Z",
         "initial": "Z",
+
+        "color": "#5864B1",
         "company": "SEA MSME Credit Provider",
         "quotes": [
           "Finsight Al has been a game-changer\n for our workflow. It drastically reduced\n our analysis time, enabling faster and\n more accurate credit decisions and\n improved turnaround time.",
@@ -113,6 +117,7 @@
       {
         "name": "CTO D",
         "initial": "D",
+        "color": "#58B195",
         "company": "Indonesian p2p loan platform",
         "quotes": [
           "Finsight Al unlocked the '30-minute\n digital small to mid sized ticket loan\n market opportunity for us - a segment\n previously unreachable due to high\n processing costs.",

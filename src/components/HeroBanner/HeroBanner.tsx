@@ -69,16 +69,23 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
       className="w-full h-[580px] py-6 relative"
       aria-labelledby="hero-title"
     >
+      {/* Background blur elements - positioned to prevent horizontal scroll */}
       <div
         className={cn(
-          'w-[1000px] mx-auto h-full',
-          'flex gap-20 items-center relative z-10',
+          'absolute inset-0 pointer-events-none',
           'before:content-[""] before:w-[512px] before:h-[512px] before:rounded-full',
           'before:blur-[200px] before:bg-[#D2F9EA] before:absolute',
           'before:left-[-256px] before:top-[-256px]',
           'after:content-[""] after:w-[512px] after:h-[512px] after:rounded-full',
           'after:blur-[200px] after:bg-[#C3C2FF] after:absolute',
-          'after:right-[-374px] after:bottom-[-87px]'
+          'after:right-0 after:bottom-[-87px]'
+        )}
+        aria-hidden="true"
+      />
+      <div
+        className={cn(
+          'w-[1000px] mx-auto h-full relative z-10',
+          'flex gap-20 items-center'
         )}
       >
         {/* Left Content */}

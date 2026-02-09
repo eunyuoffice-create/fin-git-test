@@ -19,6 +19,8 @@ interface TestimonialsProps {
         industry?: string;
         name?: string;
         initial?: string;
+        icon?: string;
+        color?: string;
         quotes: string[];
       }>;
     };
@@ -105,16 +107,22 @@ export default function Testimonials({ dict }: TestimonialsProps) {
                   <div className="flex items-center gap-2 mb-8">
                     <div
                       className={cn(
-                        'w-16 h-16 bg-[#56C7B9] rounded-full flex-shrink-0',
+                        'w-16 h-16 rounded-full flex-shrink-0',
                         'flex items-center justify-center',
                         'text-white text-[32px] font-semibold',
-                        index !== 0 && 'border-2 border-white'
+                        !item?.icon && !item?.color && 'bg-[#56C7B9]',
+                        !item?.icon && 'border-2 border-white'
                       )}
+                      style={
+                        item?.color
+                          ? { backgroundColor: item.color }
+                          : undefined
+                      }
                       aria-hidden="true"
                     >
-                      {index === 0 ? (
+                      {item?.icon ? (
                         <Image
-                          src="/images/common/icons/icon-hana.png"
+                          src={item?.icon}
                           alt="Hana"
                           width={64}
                           height={64}
