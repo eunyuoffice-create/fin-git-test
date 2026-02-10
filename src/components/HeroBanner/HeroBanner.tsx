@@ -1,8 +1,15 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { HeroSlide1, HeroSlide2, HeroSlide3 } from './HeroSlides';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  type CarouselApi,
+} from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 
 interface HeroBannerProps {
   dict: {
@@ -18,11 +25,10 @@ interface HeroBannerProps {
   };
 }
 
-const SLIDE_COUNT = 3;
 const SLIDE_COMPONENTS = [HeroSlide1, HeroSlide2, HeroSlide3];
-const AUTO_PLAY_DELAY = 4000; // 4초
 
 export default function HeroBanner({ dict }: HeroBannerProps) {
+  const [api, setApi] = useState<CarouselApi>();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const scrollToSection = (sectionId: string) => {
@@ -35,18 +41,26 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
     }
   };
 
-  // 자동 슬라이드 전환
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % SLIDE_COUNT);
-    }, AUTO_PLAY_DELAY);
+    if (!api) return;
 
-    return () => clearInterval(interval);
-  }, []);
+    const onSelect = () => {
+      setCurrentSlide(api.selectedScrollSnap());
+    };
 
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-  };
+    onSelect();
+    api.on('select', onSelect);
+    return () => {
+      api.off('select', onSelect);
+    };
+  }, [api]);
+
+  const goToSlide = useCallback(
+    (index: number) => {
+      api?.scrollTo(index);
+    },
+    [api]
+  );
 
   return (
     <section
@@ -54,7 +68,7 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
       className="w-full h-[580px] py-6 relative"
       aria-labelledby="hero-title"
     >
-      {/* Background blur elements - positioned to prevent horizontal scroll */}
+      {/* Background blur elements */}
       <div
         className={cn(
           'absolute inset-0 pointer-events-none',
@@ -121,54 +135,57 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
           </button>
         </article>
 
-        {/* Right Content - Hero Fade Carousel */}
+        {/* Right Content - shadcn/ui Carousel */}
         <div className="flex-1 flex flex-col gap-6 items-center min-w-[460px] hero-animate-carousel hero-delay-4">
-          <div className="relative w-[460px] h-[500px]">
-            {dict.hero.slides.map((slide, index) => {
-              const SlideComponent = SLIDE_COMPONENTS[index];
-              const isActive = currentSlide === index;
+          <Carousel
+            setApi={setApi}
+            // opts={{ loop: true }}
+            // plugins={[
+            //   Autoplay({ delay: 4000, stopOnInteraction: false }),
+            // ]}
+            className="w-[460px]"
+          >
+            <CarouselContent className="-ml-0">
+              {dict.hero.slides.map((slide, index) => {
+                const SlideComponent = SLIDE_COMPONENTS[index];
+                const isActive = currentSlide === index;
 
-              return (
-                <figure
-                  key={index}
-                  className={cn(
-                    'absolute inset-0 w-[460px] h-[500px] rounded-3xl overflow-hidden',
-                    'transition-opacity duration-1000 ease-in-out',
-                    isActive
-                      ? 'opacity-100 z-10'
-                      : 'opacity-0 z-0 pointer-events-none'
-                  )}
-                  aria-label={slide.alt}
-                  aria-hidden={!isActive}
-                >
-                  <SlideComponent active={isActive} />
-                  {/* Bottom text overlay */}
-                  <div
-                    className={cn(
-                      'absolute bottom-0 left-0 right-0 p-6 z-10',
-                      isActive ? 'slide-text-active' : 'opacity-0'
-                    )}
-                  >
-                    <div
-                      className={cn(
-                        'backdrop-blur-[6px] bg-[rgba(72,70,214,0.8)]',
-                        'rounded-2xl px-6 py-4'
-                      )}
+                return (
+                  <CarouselItem key={index} className="pl-0">
+                    <figure
+                      className="w-[460px] h-[500px] rounded-3xl overflow-hidden relative pointer-events-none"
+                      aria-label={slide.alt}
                     >
-                      <p
+                      <SlideComponent active={isActive} />
+                      {/* Bottom text overlay */}
+                      <div
                         className={cn(
-                          'text-xl font-medium text-white text-center',
-                          'leading-[1.3] tracking-[-0.3px] font-poppins'
+                          'absolute bottom-0 left-0 right-0 p-6 z-10',
+                          isActive ? 'slide-text-active' : 'opacity-0'
                         )}
                       >
-                        {slide.text}
-                      </p>
-                    </div>
-                  </div>
-                </figure>
-              );
-            })}
-          </div>
+                        <div
+                          className={cn(
+                            'backdrop-blur-[6px] bg-[rgba(72,70,214,0.8)]',
+                            'rounded-2xl px-6 py-4'
+                          )}
+                        >
+                          <p
+                            className={cn(
+                              'text-xl font-medium text-white text-center',
+                              'leading-[1.3] tracking-[-0.3px] font-poppins'
+                            )}
+                          >
+                            {slide.text}
+                          </p>
+                        </div>
+                      </div>
+                    </figure>
+                  </CarouselItem>
+                );
+              })}
+            </CarouselContent>
+          </Carousel>
 
           {/* Pagination Dots */}
           <nav
@@ -176,7 +193,7 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
             role="tablist"
             aria-label="Slide navigation"
           >
-            {Array.from({ length: SLIDE_COUNT }).map((_, index) => (
+            {SLIDE_COMPONENTS.map((_, index) => (
               <button
                 key={index}
                 type="button"

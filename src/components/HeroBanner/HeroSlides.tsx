@@ -227,8 +227,25 @@ export function HeroSlide2({ active }: SlideProps) {
           className="w-full h-full object-cover"
         />
       </El>
-
       {/* Decorative circles (top-left) */}
+      <El
+        active={active}
+        className="right-[-120px] top-[-54px]"
+        gx={-80}
+        gy={-60}
+        gr={-15}
+        delay={100}
+      >
+        <Image
+          src={`${s2}/paper-doc.webp`}
+          alt=""
+          width={546}
+          height={680}
+          loading="lazy"
+          quality={90}
+          className="w-[546px]"
+        />
+      </El>
       <El
         active={active}
         className="left-[-12%] top-[-4%]"
@@ -247,7 +264,6 @@ export function HeroSlide2({ active }: SlideProps) {
           className="w-[233px]"
         />
       </El>
-
       {/* Line chart (bottom-left) */}
       <El
         active={active}
@@ -266,11 +282,11 @@ export function HeroSlide2({ active }: SlideProps) {
           className="w-[157px]"
         />
       </El>
-
+      ``
       {/* Main phone with 00:05 (center, frame + content combined) */}
       <El
         active={active}
-        className="left-[12%] top-[56px]"
+        className="left-[12%] top-[30px]"
         gx={-50}
         gy={-40}
         delay={250}
@@ -284,7 +300,6 @@ export function HeroSlide2({ active }: SlideProps) {
           quality={80}
         />
       </El>
-
       {/* Calculator (bottom-right) */}
       <El
         active={active}

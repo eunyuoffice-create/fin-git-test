@@ -134,7 +134,7 @@ export default function Section3Features({ dict }: Section3Props) {
                   alt={dict.section3.items[index]?.title || ''}
                   width={320}
                   height={400}
-                  quality={80}
+                  quality={90}
                   className="absolute inset-0 object-cover w-full h-full"
                   style={{
                     opacity: activeIndex === index ? 1 : 0,
@@ -204,25 +204,6 @@ export default function Section3Features({ dict }: Section3Props) {
               </div>
             </div>
           </div>
-
-          {/* Progress dots */}
-          <nav
-            className="absolute right-[calc(50%-560px)] top-1/2 -translate-y-1/2 flex flex-col gap-3"
-            aria-label="Feature navigation"
-          >
-            {IMAGES.map((_, index) => (
-              <div
-                key={index}
-                className={cn(
-                  'w-2 h-2 rounded-full transition-all duration-300',
-                  activeIndex === index
-                    ? 'bg-[#3e14b4] scale-150'
-                    : 'bg-[#b9bfef]'
-                )}
-                aria-hidden="true"
-              />
-            ))}
-          </nav>
         </div>
       </div>
     </div>
