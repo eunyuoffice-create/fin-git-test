@@ -8,6 +8,7 @@ const nextConfig = {
   // AWS Amplify SSR 호스팅에서 Next.js 이미지 최적화 활성화
   images: {
     unoptimized: false,
+    qualities: [75, 80, 90],
   },
 
   // ===========================================
