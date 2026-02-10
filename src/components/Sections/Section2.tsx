@@ -272,7 +272,7 @@ export default function Section2CreditReview({ dict }: Section2Props) {
                       className="object-contain"
                     />
                   </i>
-                  <i className="absolute top-[359px] right-[157px]">
+                  <i className="absolute top-[359px] right-[150px]">
                     <Image
                       src="/images/sections/section2/icon-pencil.webp"
                       alt=""
@@ -281,7 +281,7 @@ export default function Section2CreditReview({ dict }: Section2Props) {
                       className="object-contain"
                     />
                   </i>
-                  <i className="absolute top-[365px] right-[40px]">
+                  <i className="absolute top-[365px] right-[35px] z-8">
                     <Image
                       src="/images/sections/section2/icon-calculator.webp"
                       alt=""
@@ -290,7 +290,7 @@ export default function Section2CreditReview({ dict }: Section2Props) {
                       className="object-contain"
                     />
                   </i>
-                  <i className="absolute top-[316px] right-[11px]">
+                  <i className="absolute top-[316px] right-[0]">
                     <Image
                       src="/images/sections/section2/icon-chart.webp"
                       alt=""

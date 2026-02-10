@@ -164,21 +164,14 @@ export default function Section3Features({ dict }: Section3Props) {
                         <div
                           className={cn(
                             'inline-flex items-center gap-[8px]',
-                            'bg-[#3e14b4] px-[16px] py-[8px] rounded-[8px] w-fit'
+                            'bg-[#3e14b4] px-[16px] py-[8px] rounded-[8px] w-fit',
+                            'before:content-[""] before:w-6 before:h-6 before:flex-shrink-0',
+                            'before:bg-no-repeat before:bg-center before:bg-contain',
+                            index === 0 || index === 2
+                              ? "before:bg-[url('/images/sections/section3/icon-badge_1.webp')]"
+                              : "before:bg-[url('/images/sections/section3/icon-badge_2.webp')]"
                           )}
                         >
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z"
-                              fill="white"
-                            />
-                          </svg>
                           <span
                             className={cn(
                               'text-[16px] font-medium text-white',

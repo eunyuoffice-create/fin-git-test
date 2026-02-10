@@ -179,8 +179,8 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
           <div
             className={cn(
               'w-[824px] h-[130px] rounded-[18px] overflow-hidden',
-              'relative flex items-center pl-[368px]',
-              'after:content-[""] after:w-[153px] after:h-[119px] after:rounded-[18px] after:absolute after:left-[166.5px] after:top-3',
+              'relative flex items-center pl-[209px]',
+              'after:content-[""] after:w-[153px] after:h-[119px] after:rounded-[18px] after:absolute after:left-[56px] after:bottom-[0]',
               'after:bg-[url("/images/common/icons/icon-bank.webp")] after:bg-center after:bg-no-repeat',
               'before:content-[""] before:w-full before:h-full before:rounded-[18px] before:absolute before:left-0 before:top-0',
               'before:bg-[url("/images/sections/section1/bg-bank.webp")] before:bg-center before:bg-no-repeat'
@@ -194,7 +194,8 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
           >
             <div
               className={cn(
-                'text-[#363a5b] poppins font-medium',
+                'w-[540px] ml-5',
+                'text-[#363a5b] poppins font-medium text-center',
                 'leading-[1.4] tracking-[-0.38px]'
               )}
             >
@@ -219,7 +220,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
             aria-label="Time consuming note"
           >
             <div
-              className="rounded-[8px] w-[635px] h-[84px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+              className="rounded-[8px] min-w-[635px] h-[84px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
               style={{
                 background:
                   'radial-gradient(50% 50% at 50% 50%, #C3FFE2 0%, rgba(195, 255, 226, 0.00) 100%)',
@@ -228,7 +229,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
             {/* But Badge */}
             <span
               className={cn(
-                'absolute left-[-39px] top-1/2 -translate-y-1/2 -rotate-[16deg]',
+                '-rotate-[16deg]',
                 'bg-[#76f8b6] px-[16px] py-[4px] rounded-[4px]',
                 'text-[24px] font-medium italic text-[#4e4bfb] font-poppins whitespace-pre-wrap'
               )}
@@ -238,6 +239,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
             </span>
             <p
               className={cn(
+                'px-1',
                 'text-[28px] font-medium text-[#3e4ed1] text-center',
                 'tracking-[-0.42px] font-poppins relative z-10 whitespace-pre-wrap'
               )}
