@@ -169,7 +169,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                 alt=""
                 fill
                 sizes="800px"
-                quality={80}
+                quality={90}
                 className="object-cover blur-[10px]"
                 aria-hidden="true"
               />
