@@ -180,10 +180,7 @@ export default function Section2CreditReview({ dict }: Section2Props) {
     <section
       ref={sectionRef}
       id="solutions"
-      className={cn(
-        'w-full pt-[80px] pb-[100px]',
-        'relative overflow-hidden'
-      )}
+      className={cn('w-full pt-[80px] pb-[100px]', 'relative overflow-hidden')}
       style={{
         background: 'linear-gradient(180deg, #F2F6FF 0%, #E6EEFF 100%)',
       }}
@@ -197,7 +194,8 @@ export default function Section2CreditReview({ dict }: Section2Props) {
             width: '620px',
             height: '620px',
             top: '-521px',
-            background: 'radial-gradient(circle, rgba(192,221,255,0.8) 0%, transparent 70%)',
+            background:
+              'radial-gradient(circle, rgba(192,221,255,0.8) 0%, transparent 70%)',
           }}
         />
         <div
@@ -206,7 +204,8 @@ export default function Section2CreditReview({ dict }: Section2Props) {
             width: '620px',
             height: '620px',
             bottom: '-521px',
-            background: 'radial-gradient(circle, rgba(219,218,255,0.8) 0%, transparent 70%)',
+            background:
+              'radial-gradient(circle, rgba(219,218,255,0.8) 0%, transparent 70%)',
           }}
         />
       </div>
@@ -304,33 +303,37 @@ export default function Section2CreditReview({ dict }: Section2Props) {
                       alt=""
                       width={45}
                       height={32}
+                      quality={90}
                       className="object-contain"
                     />
                   </i>
-                  <i className="absolute top-[359px] right-[150px]">
+                  <i className="absolute top-[359px] right-[157px]">
                     <Image
                       src="/images/sections/section2/icon-pencil.webp"
                       alt=""
                       width={38}
                       height={47}
+                      quality={90}
                       className="object-contain"
                     />
                   </i>
-                  <i className="absolute top-[365px] right-[35px] z-8">
+                  <i className="absolute top-[365px] right-[40px]">
                     <Image
                       src="/images/sections/section2/icon-calculator.webp"
                       alt=""
                       width={86}
                       height={110}
+                      quality={90}
                       className="object-contain"
                     />
                   </i>
-                  <i className="absolute top-[316px] right-[0]">
+                  <i className="absolute top-[316px] right-[11px]">
                     <Image
                       src="/images/sections/section2/icon-chart.webp"
                       alt=""
                       width={63}
                       height={63}
+                      quality={90}
                       className="object-contain"
                     />
                   </i>

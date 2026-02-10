@@ -115,7 +115,7 @@ export default function Team({ dict }: TeamProps) {
                       alt={member.name}
                       fill
                       sizes="173px"
-                      quality={80}
+                      quality={90}
                       className="object-cover"
                     />
                   </figure>
@@ -129,6 +129,7 @@ export default function Team({ dict }: TeamProps) {
                         alt="FinProfile"
                         width={75}
                         height={16}
+                        quality={90}
                       />
                     </div>
 

@@ -54,6 +54,7 @@ export default function Footer({ dict }: FooterProps) {
             alt=""
             width={170}
             height={36}
+            quality={90}
             className="h-9 w-auto"
             aria-hidden="true"
           />

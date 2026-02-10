@@ -85,7 +85,7 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
           }}
         />
         <div
-          className="absolute right-0 bottom-0"
+          className="absolute  bottom-0"
           style={{
             width: '912px',
             height: '912px',
@@ -147,7 +147,7 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
             setApi={setApi}
             opts={{ loop: true }}
             plugins={[Autoplay({ delay: 4000, stopOnInteraction: false })]}
-            className="w-[460px]"
+            className="w-[460px] rounded-3xl overflow-hidden"
           >
             <CarouselContent className="-ml-0">
               {dict.hero.slides.map((slide, index) => {
@@ -157,7 +157,7 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
                 return (
                   <CarouselItem key={index} className="pl-0">
                     <figure
-                      className="w-[460px] h-[500px] rounded-3xl overflow-hidden relative pointer-events-none"
+                      className="w-[460px] h-[500px] overflow-hidden relative pointer-events-none"
                       aria-label={slide.alt}
                     >
                       <SlideComponent active={isActive} />

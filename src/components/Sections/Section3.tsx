@@ -140,7 +140,7 @@ export default function Section3Features({ dict }: Section3Props) {
                   alt={dict.section3.items[index]?.title || ''}
                   width={320}
                   height={400}
-                  quality={75}
+                  quality={90}
                   sizes="320px"
                   className="absolute inset-0 object-cover w-full h-full"
                   style={{
