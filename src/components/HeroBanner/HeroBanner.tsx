@@ -65,38 +65,34 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
   return (
     <section
       id="hero"
-      className="w-full h-[580px] py-6 relative"
+      className="w-full h-[580px] py-6 relative overflow-x-clip"
       aria-labelledby="hero-title"
     >
-      {/* Background gradient elements (replaces expensive blur filter) */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div
-          className="absolute"
-          style={{
-            width: '912px',
-            height: '912px',
-            left: '-456px',
-            top: '-456px',
-            background: 'radial-gradient(circle, #D2F9EA 0%, transparent 70%)',
-          }}
-        />
-        <div
-          className="absolute"
-          style={{
-            width: '912px',
-            height: '912px',
-            right: '-200px',
-            bottom: '-287px',
-            background: 'radial-gradient(circle, #C3C2FF 0%, transparent 70%)',
-          }}
-        />
-      </div>
       <div
         className={cn(
           'w-[1000px] mx-auto h-full relative z-10',
           'flex gap-20 items-center'
         )}
       >
+        {/* Background gradient elements */}
+        <div
+          className="absolute left-0 top-0"
+          style={{
+            width: '912px',
+            height: '912px',
+            transform: 'translate(-510px, -425px)',
+            background: 'radial-gradient(circle, #D2F9EA 0%, transparent 70%)',
+          }}
+        />
+        <div
+          className="absolute right-0 bottom-0"
+          style={{
+            width: '912px',
+            height: '912px',
+            transform: 'translate(574px, 287px)',
+            background: 'radial-gradient(circle, #C3C2FF 0%, transparent 70%)',
+          }}
+        />
         {/* Left Content */}
         <article className="flex-1 flex flex-col gap-12 min-w-[460px] relative z-10">
           <h1
