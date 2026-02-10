@@ -42,7 +42,7 @@ export default function Header({ dict }: HeaderProps) {
   };
 
   const navButtonClass = cn(
-    'leading-[1.45] px-0.5 py-px rounded',
+    'leading-[23px] rounded',
     'hover:text-[#3b3f61] transition-colors',
     'focus:outline-none focus:ring-2 focus:ring-[#3b3f61] focus:ring-offset-2'
   );
@@ -100,11 +100,7 @@ export default function Header({ dict }: HeaderProps) {
           <button
             onClick={() => scrollToSection('why-finprofile')}
             onKeyDown={(e) => handleKeyDown(e, 'why-finprofile')}
-            className={cn(
-              'leading-[1.45] px-0.5 py-px rounded',
-              'hover:text-[#3b3f61] transition-colors',
-              'focus:outline-none focus:ring-2 focus:ring-[#3b3f61] focus:ring-offset-2'
-            )}
+            className={navButtonClass}
             type="button"
           >
             {dict.nav.whyFinProfile}
