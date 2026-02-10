@@ -139,10 +139,8 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
         <div className="flex-1 flex flex-col gap-6 items-center min-w-[460px] hero-animate-carousel hero-delay-4">
           <Carousel
             setApi={setApi}
-            // opts={{ loop: true }}
-            // plugins={[
-            //   Autoplay({ delay: 4000, stopOnInteraction: false }),
-            // ]}
+            opts={{ loop: true }}
+            plugins={[Autoplay({ delay: 4000, stopOnInteraction: false })]}
             className="w-[460px]"
           >
             <CarouselContent className="-ml-0">
