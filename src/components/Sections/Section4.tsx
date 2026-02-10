@@ -66,7 +66,16 @@ export default function Testimonials({ dict }: TestimonialsProps) {
       id="testimonial"
       className={cn('w-full pt-20 pb-[100px] relative overflow-hidden')}
     >
-      <div className="w-[420px] h-[420px] rounded-full blur-[100px] bg-[#D2F9EACC] opacity-80 absolute top-[-211px] left-[50%] -translate-x-1/2"></div>
+      <div
+        className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
+        style={{
+          width: '620px',
+          height: '620px',
+          top: '-521px',
+          background: 'radial-gradient(circle, rgba(210,249,234,0.8) 0%, transparent 70%)',
+        }}
+        aria-hidden="true"
+      />
       {/* Title */}
       <ScrollReveal className="max-w-[1440px] mx-auto px-[120px] mb-[84px] relative z-10">
         <h2

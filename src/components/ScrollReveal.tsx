@@ -47,12 +47,17 @@ export default function ScrollReveal({
           el.style.transitionDelay = `${delay}ms`;
           el.classList.add('scroll-revealed');
         } else {
-          // Instant reset: disable transition → remove class → force reflow → re-enable
+          // Instant reset: disable transition → remove class → double-rAF re-enable
           el.style.transition = 'none';
           el.classList.remove('scroll-revealed');
           el.style.transitionDelay = '0ms';
-          void el.offsetHeight; // force reflow
-          el.style.transition = '';
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              if (ref.current) {
+                el.style.transition = '';
+              }
+            });
+          });
         }
       },
       { threshold }
@@ -63,7 +68,7 @@ export default function ScrollReveal({
   }, [delay, threshold]);
 
   return (
-    <div ref={ref} className={`${directionClass[direction]} ${className}`}>
+    <div ref={ref} className={`${directionClass[direction]}${className ? ` ${className}` : ''}`}>
       {children}
     </div>
   );

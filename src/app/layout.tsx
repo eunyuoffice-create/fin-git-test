@@ -21,7 +21,7 @@ const lato = localFont({
     { path: '../../public/fonts/Lato-Bold.woff2', weight: '700', style: 'normal' },
   ],
   variable: '--font-lato',
-  display: 'swap',
+  display: 'optional',
   preload: false,
 });
 

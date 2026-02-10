@@ -42,15 +42,32 @@ export default function Team({ dict }: TeamProps) {
       <div
         className={cn(
           'w-[1000px] mx-auto relative z-10',
-          'flex flex-col gap-16 items-center',
-          'before:content-[""] before:w-[512px] before:h-[512px] before:rounded-full',
-          'before:blur-[200px] before:bg-[#C3C2FF] before:absolute',
-          'before:right-[-256px] before:top-[-256px]',
-          'after:content-[""] after:w-[512px] after:h-[512px] after:rounded-full',
-          'after:blur-[200px] after:bg-[#D2F9EA] after:absolute',
-          'after:left-[-256px] after:bottom-[-256px]'
+          'flex flex-col gap-16 items-center'
         )}
       >
+        {/* Decorative gradient orbs (replaces expensive blur filter) */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <div
+            className="absolute"
+            style={{
+              width: '912px',
+              height: '912px',
+              right: '-456px',
+              top: '-456px',
+              background: 'radial-gradient(circle, #C3C2FF 0%, transparent 70%)',
+            }}
+          />
+          <div
+            className="absolute"
+            style={{
+              width: '912px',
+              height: '912px',
+              left: '-456px',
+              bottom: '-456px',
+              background: 'radial-gradient(circle, #D2F9EA 0%, transparent 70%)',
+            }}
+          />
+        </div>
         <div className="relative z-10 w-full">
           {/* Title */}
           <ScrollReveal>

@@ -298,11 +298,11 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
               style={{ contain: 'layout style paint' }}
             >
               <Image
-                src="/images/sections/section1/bg_00.png"
+                src="/images/sections/section1/bg_00.webp"
                 alt=""
                 width={1000}
                 height={420}
-                quality={75}
+                quality={60}
                 sizes="1000px"
                 className="w-full h-full object-cover"
               />
@@ -313,11 +313,11 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
                   style={{ '--s1-delay': '0ms' } as React.CSSProperties}
                 >
                   <Image
-                    src="/images/sections/section1/chip.png"
+                    src="/images/sections/section1/chip.webp"
                     alt=""
                     width={480}
                     height={382}
-                    quality={75}
+                    quality={60}
                     sizes="480px"
                     className="object-contain"
                   />
@@ -329,7 +329,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
                 style={{ '--s1-delay': '400ms' } as React.CSSProperties}
               >
                 <Image
-                  src="/images/sections/section1/icon2.png"
+                  src="/images/sections/section1/icon2.webp"
                   alt=""
                   width={191}
                   height={274}
@@ -343,7 +343,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
                 style={{ '--s1-delay': '800ms' } as React.CSSProperties}
               >
                 <Image
-                  src="/images/sections/section1/icon3.png"
+                  src="/images/sections/section1/icon3.webp"
                   alt=""
                   width={171}
                   height={220}
@@ -357,7 +357,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
                 style={{ '--s1-delay': '1200ms' } as React.CSSProperties}
               >
                 <Image
-                  src="/images/sections/section1/icon1.png"
+                  src="/images/sections/section1/icon1.webp"
                   alt=""
                   width={144}
                   height={80}

@@ -68,19 +68,29 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
       className="w-full h-[580px] py-6 relative"
       aria-labelledby="hero-title"
     >
-      {/* Background blur elements */}
-      <div
-        className={cn(
-          'absolute inset-0 pointer-events-none',
-          'before:content-[""] before:w-[512px] before:h-[512px] before:rounded-full',
-          'before:blur-[200px] before:bg-[#D2F9EA] before:absolute',
-          'before:left-[-256px] before:top-[-256px]',
-          'after:content-[""] after:w-[512px] after:h-[512px] after:rounded-full',
-          'after:blur-[200px] after:bg-[#C3C2FF] after:absolute',
-          'after:right-0 after:bottom-[-87px]'
-        )}
-        aria-hidden="true"
-      />
+      {/* Background gradient elements (replaces expensive blur filter) */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div
+          className="absolute"
+          style={{
+            width: '912px',
+            height: '912px',
+            left: '-456px',
+            top: '-456px',
+            background: 'radial-gradient(circle, #D2F9EA 0%, transparent 70%)',
+          }}
+        />
+        <div
+          className="absolute"
+          style={{
+            width: '912px',
+            height: '912px',
+            right: '-200px',
+            bottom: '-287px',
+            background: 'radial-gradient(circle, #C3C2FF 0%, transparent 70%)',
+          }}
+        />
+      </div>
       <div
         className={cn(
           'w-[1000px] mx-auto h-full relative z-10',
@@ -139,10 +149,8 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
         <div className="flex-1 flex flex-col gap-6 items-center min-w-[460px] hero-animate-carousel hero-delay-4">
           <Carousel
             setApi={setApi}
-            // opts={{ loop: true }}
-            // plugins={[
-            //   Autoplay({ delay: 4000, stopOnInteraction: false }),
-            // ]}
+            opts={{ loop: true }}
+            plugins={[Autoplay({ delay: 4000, stopOnInteraction: false })]}
             className="w-[460px]"
           >
             <CarouselContent className="-ml-0">

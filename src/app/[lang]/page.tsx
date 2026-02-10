@@ -1,13 +1,16 @@
 import { getDictionary, type Locale } from '@/lib/i18n';
+import dynamic from 'next/dynamic';
 import Header from '@/components/Header/Header';
 import HeroBanner from '@/components/HeroBanner/HeroBanner';
 import Section1 from '@/components/Sections/Section1';
-import Section2 from '@/components/Sections/Section2';
-import Section3 from '@/components/Sections/Section3';
-import Section4 from '@/components/Sections/Section4';
-import Section5 from '@/components/Sections/Section5';
-import Section6 from '@/components/Sections/Section6';
-import Footer from '@/components/Footer/Footer';
+
+// Below-fold: 동적 임포트 (초기 번들 크기 절감)
+const Section2 = dynamic(() => import('@/components/Sections/Section2'));
+const Section3 = dynamic(() => import('@/components/Sections/Section3'));
+const Section4 = dynamic(() => import('@/components/Sections/Section4'));
+const Section5 = dynamic(() => import('@/components/Sections/Section5'));
+const Section6 = dynamic(() => import('@/components/Sections/Section6'));
+const Footer = dynamic(() => import('@/components/Footer/Footer'));
 
 const baseUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||

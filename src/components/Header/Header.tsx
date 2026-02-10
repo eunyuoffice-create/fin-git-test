@@ -58,10 +58,10 @@ export default function Header({ dict }: HeaderProps) {
     >
       <div
         className={cn(
-          'flex-1 max-w-[1000px] h-12',
+          'flex-1 max-w-[1000px]',
           'backdrop-blur-[35px] bg-white/90',
           'rounded-2xl shadow-[0px_4px_12px_0px_rgba(62,20,180,0.08)]',
-          'px-4 py-3 flex items-center justify-between'
+          'px-10 py-6 flex items-center justify-between'
         )}
       >
         {/* Logo */}

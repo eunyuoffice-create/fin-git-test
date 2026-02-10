@@ -58,18 +58,31 @@ function CountUp({
   useEffect(() => {
     if (!visible) return;
 
-    const step = duration / target;
-    const timeouts: ReturnType<typeof setTimeout>[] = [];
+    let rafId: number;
+    let startTime: number | null = null;
 
-    for (let i = 1; i <= target; i++) {
-      timeouts.push(setTimeout(() => setCount(i), delay + step * i));
-    }
+    const delayTimeout = setTimeout(() => {
+      const tick = (now: number) => {
+        if (startTime === null) startTime = now;
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        // easeOutQuart for smooth deceleration
+        const eased = 1 - Math.pow(1 - progress, 4);
+        setCount(Math.round(target * eased));
 
-    timeouts.push(
-      setTimeout(() => setShowSuffix(true), delay + duration + 200)
-    );
+        if (progress < 1) {
+          rafId = requestAnimationFrame(tick);
+        } else {
+          setTimeout(() => setShowSuffix(true), 200);
+        }
+      };
+      rafId = requestAnimationFrame(tick);
+    }, delay);
 
-    return () => timeouts.forEach(clearTimeout);
+    return () => {
+      clearTimeout(delayTimeout);
+      cancelAnimationFrame(rafId);
+    };
   }, [visible, delay, duration, target]);
 
   return (
@@ -136,16 +149,23 @@ export default function Section2CreditReview({ dict }: Section2Props) {
         if (entry.isIntersecting) {
           leftEl.style.transitionDelay = '0ms';
           leftEl.classList.add('scroll-revealed');
-          rightEl.style.transitionDelay = '400ms';
+          rightEl.style.transitionDelay = '270ms';
           rightEl.classList.add('scroll-revealed');
         } else {
-          // Instant reset: disable transition → remove class → force reflow → re-enable
+          // Instant reset: disable transition → remove class → double-rAF re-enable
           [leftEl, rightEl].forEach((panel) => {
             panel.style.transition = 'none';
             panel.classList.remove('scroll-revealed');
             panel.style.transitionDelay = '0ms';
-            void panel.offsetHeight;
-            panel.style.transition = '';
+          });
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              if (sectionRef.current) {
+                [leftEl, rightEl].forEach((panel) => {
+                  panel.style.transition = '';
+                });
+              }
+            });
           });
         }
       },
@@ -162,19 +182,34 @@ export default function Section2CreditReview({ dict }: Section2Props) {
       id="solutions"
       className={cn(
         'w-full pt-[80px] pb-[100px]',
-        'relative overflow-hidden',
-        'before:content-[""] before:w-[420px] before:h-[420px] before:rounded-full',
-        'before:blur-[100px] before:bg-[#C0DDFFCC] before:opacity-80',
-        'before:absolute before:top-[-211px] before:left-1/2 before:-translate-x-1/2',
-        'after:content-[""] after:w-[420px] after:h-[420px] after:rounded-full',
-        'after:blur-[100px] after:bg-[#DBDAFFCC] after:opacity-80',
-        'after:absolute after:bottom-[-211px] after:left-1/2 after:-translate-x-1/2'
+        'relative overflow-hidden'
       )}
       style={{
         background: 'linear-gradient(180deg, #F2F6FF 0%, #E6EEFF 100%)',
       }}
       aria-labelledby="section2-title"
     >
+      {/* Decorative gradient orbs (replaces expensive blur filter) */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div
+          className="absolute left-1/2 -translate-x-1/2"
+          style={{
+            width: '620px',
+            height: '620px',
+            top: '-521px',
+            background: 'radial-gradient(circle, rgba(192,221,255,0.8) 0%, transparent 70%)',
+          }}
+        />
+        <div
+          className="absolute left-1/2 -translate-x-1/2"
+          style={{
+            width: '620px',
+            height: '620px',
+            bottom: '-521px',
+            background: 'radial-gradient(circle, rgba(219,218,255,0.8) 0%, transparent 70%)',
+          }}
+        />
+      </div>
       <div className={cn('flex flex-col', 'items-center relative z-10')}>
         {/* Title */}
         <ScrollReveal>

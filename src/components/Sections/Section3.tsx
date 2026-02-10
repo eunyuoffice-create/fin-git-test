@@ -27,11 +27,17 @@ export default function Section3Features({ dict }: Section3Props) {
 
   // Measured translate values to center each article in viewport
   const centersRef = useRef<number[]>([]);
+  // Cached wrapper height to avoid forced reflow on every scroll
+  const wrapperHeightRef = useRef(0);
 
   // Measure article positions once (mount + resize)
   const measure = useCallback(() => {
+    const wrapper = wrapperRef.current;
     const text = textRef.current;
-    if (!text) return;
+    if (!wrapper || !text) return;
+
+    // Cache offsetHeight here (read phase) to avoid reflow in scroll handler
+    wrapperHeightRef.current = wrapper.offsetHeight;
 
     const vh = window.innerHeight;
     const textRect = text.getBoundingClientRect();
@@ -57,7 +63,7 @@ export default function Section3Features({ dict }: Section3Props) {
 
     const rect = wrapper.getBoundingClientRect();
     const vh = window.innerHeight;
-    const scrollable = wrapper.offsetHeight - vh;
+    const scrollable = wrapperHeightRef.current - vh;
     const progress = Math.max(0, Math.min(1, -rect.top / scrollable));
 
     const count = centers.length;
@@ -134,7 +140,8 @@ export default function Section3Features({ dict }: Section3Props) {
                   alt={dict.section3.items[index]?.title || ''}
                   width={320}
                   height={400}
-                  quality={90}
+                  quality={75}
+                  sizes="320px"
                   className="absolute inset-0 object-cover w-full h-full"
                   style={{
                     opacity: activeIndex === index ? 1 : 0,
