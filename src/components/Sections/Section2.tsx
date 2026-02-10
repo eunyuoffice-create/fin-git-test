@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import ScrollReveal from '@/components/ScrollReveal';
-
+import Image from 'next/image';
 function CountUp({
   target,
   suffix,
@@ -48,7 +48,7 @@ function CountUp({
           setShowSuffix(false);
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.3 }
     );
 
     observer.observe(el);
@@ -112,8 +112,53 @@ interface Section2Props {
 }
 
 export default function Section2CreditReview({ dict }: Section2Props) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const leftRef = useRef<HTMLDivElement>(null);
+  const rightRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    const leftEl = leftRef.current;
+    const rightEl = rightRef.current;
+    if (!el || !leftEl || !rightEl) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+    if (prefersReducedMotion) {
+      leftEl.classList.add('scroll-revealed');
+      rightEl.classList.add('scroll-revealed');
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          leftEl.style.transitionDelay = '0ms';
+          leftEl.classList.add('scroll-revealed');
+          rightEl.style.transitionDelay = '400ms';
+          rightEl.classList.add('scroll-revealed');
+        } else {
+          // Instant reset: disable transition → remove class → force reflow → re-enable
+          [leftEl, rightEl].forEach((panel) => {
+            panel.style.transition = 'none';
+            panel.classList.remove('scroll-revealed');
+            panel.style.transitionDelay = '0ms';
+            void panel.offsetHeight;
+            panel.style.transition = '';
+          });
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       id="solutions"
       className={cn(
         'w-full pt-[80px] pb-[100px]',
@@ -154,27 +199,27 @@ export default function Section2CreditReview({ dict }: Section2Props) {
           aria-hidden="true"
         >
           <div className={cn('flex justify-between relative z-10')}>
-            {/* Left - Manual (5day+) : 먼저 등장 */}
-            <ScrollReveal direction="left" delay={100}>
+            {/* Left - Manual (5day+) : 섹션 90% 보일 때 등장 */}
+            <div ref={leftRef} className="scroll-reveal-left w-[360px]">
               <div className="flex flex-col text-[#363a5b] whitespace-pre-wrap">
-                <div className="relative h-[573px]">
-                  <p className="absolute top-[181px] left-[62px] text-[18px] font-medium font-poppins tracking-[-0.27px]">
+                <div className="relative h-[573px] pt-[190px] border-box">
+                  <p className="text-center text-[18px] font-medium font-poppins tracking-[-0.27px]">
                     {dict.section2.manual.perLoan}
                   </p>
-                  <p className="absolute top-[240px] left-[54px] font-extrabold font-poppins leading-[96px] tracking-[-1.62px]">
-                    <span className="text-[124px]">
+                  <p className="mt-[30px] flex items-end justify-center text-center font-extrabold font-poppins tracking-[-1.62px]">
+                    <span className="block text-[124px] leading-[96px]">
                       {dict.section2.manual.timeValue}
                     </span>
-                    <span className="text-[56px]">
+                    <span className="block text-[56px] leading-[96px]">
                       {dict.section2.manual.timeUnit}
                     </span>
                   </p>
-                  <p className="absolute top-[342px] left-[62px] text-[20px] font-semibold font-poppins tracking-[-0.3px]">
+                  <p className="text-center text-[20px] font-semibold font-poppins tracking-[-0.3px]">
                     {dict.section2.manual.timeDetail}
                   </p>
                 </div>
 
-                <ScrollReveal delay={400}>
+                <ScrollReveal delay={200}>
                   <div className="bg-white rounded-[24px] p-6 flex flex-col gap-4 w-[360px] mt-6">
                     {dict.section2.manual.descriptions.map((desc, i) => (
                       <ul
@@ -187,34 +232,76 @@ export default function Section2CreditReview({ dict }: Section2Props) {
                   </div>
                 </ScrollReveal>
               </div>
-            </ScrollReveal>
+            </div>
 
-            {/* Right - AI (5min) : 5day 다 나온 뒤 등장 */}
-            <ScrollReveal direction="right" delay={900}>
+            {/* Right - AI (5min) : 5day 등장 후 등장 */}
+            <div ref={rightRef} className="scroll-reveal-right w-[360px]">
               <div className="flex flex-col text-[#363a5b] whitespace-pre-wrap">
-                <div className="relative h-[573px] w-full">
+                <div className="relative h-[573px] pt-[310px] w-full border-box z-10">
                   <ScrollReveal
-                    delay={2700}
-                    className="absolute top-[315px] right-[53px]"
+                    delay={600}
+                    className="z-10 w-full relative z-10"
                   >
-                    <p className="text-[18px] font-medium font-poppins tracking-[-0.27px]">
+                    <p className="text-[18px] font-medium font-poppins tracking-[-0.27px] text-center">
                       {dict.section2.ai.perLoan}
                     </p>
                   </ScrollReveal>
                   {/* 5min - 숫자 카운트업 → min 페이드인 */}
-                  <p className="absolute top-[365px] right-[52px] font-extrabold font-poppins leading-[160px] tracking-[-2.7px] text-[#363a5b]">
+                  <p className="relative z-10 mt-[33px] font-extrabold font-poppins leading-[160px] tracking-[-2.7px] text-[#363a5b] z-10 text-center">
                     <CountUp
                       target={5}
                       suffix={dict.section2.ai.timeUnit}
-                      delay={1000}
-                      duration={800}
+                      delay={500}
+                      duration={600}
                       numberClassName="text-[180px]"
                       suffixClassName="text-[80px]"
                     />
                   </p>
+
+                  <i
+                    className="absolute top-[282px] right-[285px] s2-icon-rise"
+                    style={
+                      { '--s2-icon-delay': '800ms' } as React.CSSProperties
+                    }
+                  >
+                    <Image
+                      src="/images/sections/section2/icon-arrow-up.webp"
+                      alt=""
+                      width={45}
+                      height={32}
+                      className="object-contain"
+                    />
+                  </i>
+                  <i className="absolute top-[359px] right-[157px]">
+                    <Image
+                      src="/images/sections/section2/icon-pencil.webp"
+                      alt=""
+                      width={38}
+                      height={47}
+                      className="object-contain"
+                    />
+                  </i>
+                  <i className="absolute top-[365px] right-[40px]">
+                    <Image
+                      src="/images/sections/section2/icon-calculator.webp"
+                      alt=""
+                      width={86}
+                      height={110}
+                      className="object-contain"
+                    />
+                  </i>
+                  <i className="absolute top-[316px] right-[11px]">
+                    <Image
+                      src="/images/sections/section2/icon-chart.webp"
+                      alt=""
+                      width={63}
+                      height={63}
+                      className="object-contain"
+                    />
+                  </i>
                 </div>
 
-                <ScrollReveal delay={2700}>
+                <ScrollReveal delay={800}>
                   <div className="bg-white rounded-[24px] p-6 flex flex-col gap-4 w-[360px] mt-6">
                     <ul className="list-disc ml-[27px] text-[18px] font-medium text-[#7a7a7a] font-poppins leading-normal tracking-[-0.27px] break-words">
                       <li>{dict.section2.ai.description}</li>
@@ -222,7 +309,7 @@ export default function Section2CreditReview({ dict }: Section2Props) {
                   </div>
                 </ScrollReveal>
               </div>
-            </ScrollReveal>
+            </div>
           </div>
         </div>
       </div>

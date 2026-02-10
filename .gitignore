@@ -20,6 +20,9 @@
 .DS_Store
 *.pem
 
+# claude code
+.claude/
+
 # IDE
 .idea/
 .vscode/

@@ -9,6 +9,7 @@ interface ScrollRevealProps {
   className?: string;
   delay?: number;
   direction?: Direction;
+  threshold?: number;
 }
 
 const directionClass: Record<Direction, string> = {
@@ -22,6 +23,7 @@ export default function ScrollReveal({
   className = '',
   delay = 0,
   direction = 'up',
+  threshold = 0.15,
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -45,16 +47,20 @@ export default function ScrollReveal({
           el.style.transitionDelay = `${delay}ms`;
           el.classList.add('scroll-revealed');
         } else {
+          // Instant reset: disable transition → remove class → force reflow → re-enable
+          el.style.transition = 'none';
           el.classList.remove('scroll-revealed');
           el.style.transitionDelay = '0ms';
+          void el.offsetHeight; // force reflow
+          el.style.transition = '';
         }
       },
-      { threshold: 0.15 }
+      { threshold }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [delay]);
+  }, [delay, threshold]);
 
   return (
     <div ref={ref} className={`${directionClass[direction]} ${className}`}>

@@ -246,6 +246,51 @@
 }
 
 
+/* Section1 image rise animation - GPU accelerated for low-end devices */
+@keyframes s1-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 80px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Section2 icon bottom-to-top entrance animation */
+@keyframes s2-icon-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.s2-icon-rise {
+  opacity: 0;
+}
+
+.scroll-revealed .s2-icon-rise {
+  animation: s2-icon-rise 0.6s ease-out var(--s2-icon-delay, 0ms) both;
+}
+
+.s1-Image {
+  opacity: 0;
+}
+
+.s1-Image-active {
+  will-change: transform, opacity;
+  animation: s1-rise 1s ease-out var(--s1-delay, 0ms) both;
+}
+
+.s1-done {
+  will-change: auto;
+}
+
 .test {
   overflow: visible !important;
   div {

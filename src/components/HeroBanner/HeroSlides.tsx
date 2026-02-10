@@ -1,12 +1,11 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 interface SlideProps {
   active: boolean;
 }
-
-const BG_PATTERN = '/images/hero/elements/bg-pattern.png';
 
 /** Reusable element wrapper with gather animation */
 function El({
@@ -65,12 +64,12 @@ export function HeroSlide1({ active }: SlideProps) {
     <div className="w-full h-full relative bg-gradient-to-b from-[#7dabff] to-[#d4e2ff] overflow-hidden">
       {/* Background dot pattern */}
       <El active={active} className="inset-0 opacity-30" delay={0}>
-        <img
-          src={BG_PATTERN}
+        <Image
+          src="/images/hero/elements/s1/bg-pattern.webp"
           alt=""
           width={2878}
           height={1920}
-          decoding="async"
+          quality={75}
           className="w-full h-full object-cover"
         />
       </El>
@@ -84,7 +83,14 @@ export function HeroSlide1({ active }: SlideProps) {
         gr={-8}
         delay={150}
       >
-        <img src={`${s1}/doc-card.webp`} alt="" width={122} height={166} decoding="async" className="w-[120px]" />
+        <Image
+          src={`${s1}/doc-card.webp`}
+          alt=""
+          width={152}
+          height={189}
+          quality={80}
+          className="w-[152px]"
+        />
       </El>
 
       {/* Dark blue card (behind center cards) */}
@@ -95,7 +101,14 @@ export function HeroSlide1({ active }: SlideProps) {
         gy={40}
         delay={100}
       >
-        <img src={`${s1}/dark-card.webp`} alt="" width={172} height={221} decoding="async" className="w-[172px]" />
+        <Image
+          src={`${s1}/dark-card.webp`}
+          alt=""
+          width={172}
+          height={221}
+          quality={80}
+          className="w-[172px]"
+        />
       </El>
 
       {/* Light gradient card (center, behind bar chart card) */}
@@ -106,7 +119,14 @@ export function HeroSlide1({ active }: SlideProps) {
         gy={30}
         delay={60}
       >
-        <img src={`${s1}/light-card.webp`} alt="" width={166} height={217} decoding="async" className="w-[166px]" />
+        <Image
+          src={`${s1}/light-card.webp`}
+          alt=""
+          width={166}
+          height={217}
+          quality={80}
+          className="w-[166px]"
+        />
       </El>
 
       {/* Line chart card (top-right) */}
@@ -118,47 +138,17 @@ export function HeroSlide1({ active }: SlideProps) {
         gr={8}
         delay={180}
       >
-        <img src={`${s1}/line-chart-card.webp`} alt="" width={152} height={189} decoding="async" className="w-[152px]" />
-      </El>
-      {/* Confetti dots */}
-      <El
-        active={active}
-        className="left-[28%] top-[27%]"
-        gx={-25}
-        gy={-20}
-        delay={350}
-      >
-        <div className="w-[6px] h-[13px] bg-[#d0dffe] rounded-full -rotate-15" />
-      </El>
-      <El
-        active={active}
-        className="left-[42%] top-[35%]"
-        gx={20}
-        gy={-30}
-        delay={380}
-      >
-        <div className="w-[13px] h-[6px] bg-[#d0dffe] rounded-full" />
-      </El>
-      <El
-        active={active}
-        className="left-[19%] top-[41%]"
-        gx={-30}
-        gy={15}
-        delay={360}
-      >
-        <div className="w-[13px] h-[6px] bg-[#d0dffe] rounded-full" />
-      </El>
-      <El
-        active={active}
-        className="left-[34%] top-[49%]"
-        gx={15}
-        gy={25}
-        delay={370}
-      >
-        <div className="w-[6px] h-[13px] bg-[#d0dffe] rounded-full -rotate-15" />
+        <Image
+          src={`${s1}/line-chart-card.webp`}
+          alt=""
+          width={152}
+          height={189}
+          quality={80}
+          className="w-[152px]"
+        />
       </El>
 
-      {/* Stopwatch 30" (main hero element) */}
+      {/* Stopwatch 30" with confetti dots (main hero element) */}
       <El
         active={active}
         className="left-[13px] top-[45px]"
@@ -166,7 +156,14 @@ export function HeroSlide1({ active }: SlideProps) {
         gy={-45}
         delay={250}
       >
-        <img src={`${s1}/stopwatch.webp`} alt="" width={273} height={310} decoding="async" className="w-[273px]" />
+        <Image
+          src={`${s1}/stopwatch.webp`}
+          alt=""
+          width={273}
+          height={310}
+          quality={80}
+          className="w-[273px]"
+        />
       </El>
 
       {/* Bar chart card (center-right, in front of stopwatch) */}
@@ -177,7 +174,14 @@ export function HeroSlide1({ active }: SlideProps) {
         gy={-25}
         delay={200}
       >
-        <img src={`${s1}/bar-chart-card.webp`} alt="" width={172} height={221} decoding="async" className="w-[172px]" />
+        <Image
+          src={`${s1}/bar-chart-card.webp`}
+          alt=""
+          width={172}
+          height={221}
+          quality={80}
+          className="w-[172px]"
+        />
       </El>
 
       {/* Shield (bottom-right) */}
@@ -189,7 +193,14 @@ export function HeroSlide1({ active }: SlideProps) {
         gr={12}
         delay={300}
       >
-        <img src={`${s1}/shield.webp`} alt="" width={162} height={162} decoding="async" className="w-[172px]" />
+        <Image
+          src={`${s1}/shield.webp`}
+          alt=""
+          width={162}
+          height={162}
+          quality={80}
+          className="w-[172px]"
+        />
       </El>
     </div>
   );
@@ -206,26 +217,15 @@ export function HeroSlide2({ active }: SlideProps) {
     <div className="w-full h-full relative bg-gradient-to-b from-[#d4e2ff] to-[#b1cdff] overflow-hidden">
       {/* Background dot pattern */}
       <El active={active} className="inset-0 opacity-30" delay={0}>
-        <img
-          src={BG_PATTERN}
+        <Image
+          src="/images/hero/elements/s2/bg-pattern.webp"
           alt=""
           width={2878}
           height={1920}
           loading="lazy"
-          decoding="async"
+          quality={75}
           className="w-full h-full object-cover"
         />
-      </El>
-
-      {/* Phone frame (background layer) */}
-      <El
-        active={active}
-        className="left-[25%] top-[0]"
-        gx={80}
-        gy={-40}
-        delay={80}
-      >
-        <img src={`${s2}/phone-frame.webp`} alt="" width={433} height={500} loading="lazy" decoding="async" className="w-[433px]" />
       </El>
 
       {/* Decorative circles (top-left) */}
@@ -237,7 +237,15 @@ export function HeroSlide2({ active }: SlideProps) {
         gr={-15}
         delay={100}
       >
-        <img src={`${s2}/circles-decorative.webp`} alt="" width={177} height={214} loading="lazy" decoding="async" className="w-[180px]" />
+        <Image
+          src={`${s2}/circles-decorative.webp`}
+          alt=""
+          width={233}
+          height={233}
+          loading="lazy"
+          quality={80}
+          className="w-[233px]"
+        />
       </El>
 
       {/* Line chart (bottom-left) */}
@@ -248,18 +256,33 @@ export function HeroSlide2({ active }: SlideProps) {
         gy={50}
         delay={200}
       >
-        <img src={`${s2}/line-chart.webp`} alt="" width={134} height={73} loading="lazy" decoding="async" className="w-[130px]" />
+        <Image
+          src={`${s2}/line-chart.webp`}
+          alt=""
+          width={157}
+          height={73}
+          loading="lazy"
+          quality={80}
+          className="w-[157px]"
+        />
       </El>
 
-      {/* Main phone with 00:05 (center) */}
+      {/* Main phone with 00:05 (center, frame + content combined) */}
       <El
         active={active}
-        className="left-[12%] top-[61px]"
+        className="left-[12%] top-[56px]"
         gx={-50}
         gy={-40}
         delay={250}
       >
-        <img src={`${s2}/phone-main.webp`} alt="" width={448} height={479} loading="lazy" decoding="async" className="w-[310px]" />
+        <Image
+          src={`${s2}/phone-main.webp`}
+          alt=""
+          width={464}
+          height={715}
+          loading="lazy"
+          quality={80}
+        />
       </El>
 
       {/* Calculator (bottom-right) */}
@@ -271,7 +294,15 @@ export function HeroSlide2({ active }: SlideProps) {
         gr={10}
         delay={280}
       >
-        <img src={`${s2}/calculator.webp`} alt="" width={119} height={133} loading="lazy" decoding="async" className="w-[95px]" />
+        <Image
+          src={`${s2}/calculator.webp`}
+          alt=""
+          width={119}
+          height={133}
+          loading="lazy"
+          quality={80}
+          className="w-[119px]"
+        />
       </El>
     </div>
   );
@@ -288,13 +319,13 @@ export function HeroSlide3({ active }: SlideProps) {
     <div className="w-full h-full relative bg-gradient-to-b from-[#7dabff] to-[#d4e2ff] overflow-hidden">
       {/* Background dot pattern */}
       <El active={active} className="inset-0 opacity-30" delay={0}>
-        <img
-          src={BG_PATTERN}
+        <Image
+          src="/images/hero/elements/s3/bg-pattern.webp"
           alt=""
           width={2878}
           height={1920}
           loading="lazy"
-          decoding="async"
+          quality={75}
           className="w-full h-full object-cover"
         />
       </El>
@@ -308,7 +339,15 @@ export function HeroSlide3({ active }: SlideProps) {
         gr={-15}
         delay={220}
       >
-        <img src={`${s3}/coin-1.webp`} alt="" width={45} height={56} loading="lazy" decoding="async" className="w-[45px]" />
+        <Image
+          src={`${s3}/coin-1.webp`}
+          alt=""
+          width={45}
+          height={56}
+          loading="lazy"
+          quality={80}
+          className="w-[45px]"
+        />
       </El>
 
       {/* Coin 2 (top area) */}
@@ -320,18 +359,34 @@ export function HeroSlide3({ active }: SlideProps) {
         gr={10}
         delay={260}
       >
-        <img src={`${s3}/coin-2.webp`} alt="" width={40} height={25} loading="lazy" decoding="async" className="w-[40px]" />
+        <Image
+          src={`${s3}/coin-2.webp`}
+          alt=""
+          width={40}
+          height={25}
+          loading="lazy"
+          quality={80}
+          className="w-[40px]"
+        />
       </El>
 
       {/* Folder with Transaction statement (main left element) */}
       <El
         active={active}
-        className="left-[-5%] top-[18%]"
+        className="left-[-21%] top-[8%]"
         gx={-70}
         gy={-30}
         delay={180}
       >
-        <img src={`${s3}/folder.webp`} alt="" width={451} height={460} loading="lazy" decoding="async" className="w-[320px]" />
+        <Image
+          src={`${s3}/folder.webp`}
+          alt=""
+          width={548}
+          height={489}
+          loading="lazy"
+          quality={80}
+          className="w-[548px]"
+        />
       </El>
 
       {/* Laptop with invoice (top-right) */}
@@ -343,7 +398,15 @@ export function HeroSlide3({ active }: SlideProps) {
         gr={8}
         delay={150}
       >
-        <img src={`${s3}/laptop.webp`} alt="" width={233} height={204} loading="lazy" decoding="async" className="w-[200px]" />
+        <Image
+          src={`${s3}/laptop.webp`}
+          alt=""
+          width={233}
+          height={204}
+          loading="lazy"
+          quality={80}
+          className="w-[233px]"
+        />
       </El>
 
       {/* Magnifying glass (bottom-right) */}
@@ -355,7 +418,15 @@ export function HeroSlide3({ active }: SlideProps) {
         gr={12}
         delay={300}
       >
-        <img src={`${s3}/magnifier.webp`} alt="" width={126} height={126} loading="lazy" decoding="async" className="w-[110px]" />
+        <Image
+          src={`${s3}/magnifier.webp`}
+          alt=""
+          width={126}
+          height={126}
+          loading="lazy"
+          quality={80}
+          className="w-[126px]"
+        />
       </El>
     </div>
   );

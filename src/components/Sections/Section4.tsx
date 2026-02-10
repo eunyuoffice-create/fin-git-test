@@ -80,7 +80,10 @@ export default function Testimonials({ dict }: TestimonialsProps) {
       </ScrollReveal>
 
       {/* Carousel Container */}
-      <ScrollReveal delay={200} className="relative z-10 max-w-[1000px] mx-auto overflow-visible">
+      <ScrollReveal
+        delay={200}
+        className="relative z-10 max-w-[1000px] mx-auto overflow-visible"
+      >
         <Carousel
           setApi={setApi}
           opts={{
@@ -127,7 +130,7 @@ export default function Testimonials({ dict }: TestimonialsProps) {
                           alt="Hana"
                           width={64}
                           height={64}
-                          quality={80}
+                          quality={90}
                         />
                       ) : (
                         item.initial ||

@@ -1,4 +1,7 @@
+'use client';
+
 import Image from 'next/image';
+import { useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import ScrollReveal from '@/components/ScrollReveal';
 
@@ -17,6 +20,52 @@ interface Section1Props {
 }
 
 export default function Section1CreditAccess({ dict }: Section1Props) {
+  const imageContainerRef = useRef<HTMLDivElement>(null);
+  const imageEls = useRef<HTMLElement[]>([]);
+
+  useEffect(() => {
+    const container = imageContainerRef.current;
+    if (!container) return;
+
+    // Cache DOM query once
+    imageEls.current = Array.from(
+      container.querySelectorAll<HTMLElement>('.s1-Image')
+    );
+
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+    if (prefersReducedMotion) {
+      imageEls.current.forEach((el) => (el.style.opacity = '1'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          imageEls.current.forEach((el) => {
+            el.classList.remove('s1-done');
+            el.classList.add('s1-Image-active');
+            el.addEventListener(
+              'animationend',
+              () => el.classList.add('s1-done'),
+              { once: true }
+            );
+          });
+        } else {
+          imageEls.current.forEach((el) => {
+            el.classList.remove('s1-Image-active', 's1-done');
+          });
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
       id="why-finprofile"
@@ -48,7 +97,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
           role="list"
         >
           {/* Point 1 */}
-          <ScrollReveal delay={100}>
+          <ScrollReveal delay={50}>
             <article
               className="flex flex-col gap-[16px] items-center"
               role="listitem"
@@ -87,7 +136,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
           </ScrollReveal>
 
           {/* Point 2 */}
-          <ScrollReveal delay={200}>
+          <ScrollReveal delay={100}>
             <article
               className="flex flex-col gap-[16px] items-center"
               role="listitem"
@@ -126,7 +175,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
         </div>
 
         {/* Bank Statement Box */}
-        <ScrollReveal delay={300}>
+        <ScrollReveal delay={150}>
           <div
             className={cn(
               'w-[824px] h-[130px] rounded-[18px] overflow-hidden',
@@ -160,7 +209,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
         </ScrollReveal>
 
         {/* Time consuming with But label */}
-        <ScrollReveal delay={400}>
+        <ScrollReveal delay={200}>
           <div
             className={cn(
               'relative flex gap-[16px] items-center justify-center',
@@ -211,7 +260,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
         </ScrollReveal>
 
         {/* Large Chevron Down Arrow */}
-        <ScrollReveal delay={500}>
+        <ScrollReveal delay={250}>
           <div
             className={cn(
               'w-[128px] h-[128px] flex items-center',
@@ -229,9 +278,8 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal delay={600}>
+        <ScrollReveal delay={300}>
           <div className="w-full relative overflow-hidden">
-            {/* Experience FinProfile Title */}
             <h3
               id="experience-title"
               className={cn(
@@ -242,15 +290,79 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
               {dict.section1.experienceTitle}
             </h3>
 
-            <div className="w-[1000px] h-[420px] relative overflow-hidden mt-6">
+            <div
+              ref={imageContainerRef}
+              className="w-[1000px] h-[420px] relative overflow-hidden mt-6"
+              style={{ contain: 'layout style paint' }}
+            >
               <Image
-                src="/images/sections/section1/experience.webp"
+                src="/images/sections/section1/bg_00.png"
                 alt=""
-                fill
+                width={1000}
+                height={420}
+                quality={75}
                 sizes="1000px"
-                quality={80}
-                className="object-contain"
+                className="w-full h-full object-cover"
               />
+              {/* chip: 1st (0ms) */}
+              <div className="absolute left-[50%] bottom-[0] translate-x-[-50%] z-10">
+                <div
+                  className="s1-Image"
+                  style={{ '--s1-delay': '0ms' } as React.CSSProperties}
+                >
+                  <Image
+                    src="/images/sections/section1/chip.png"
+                    alt=""
+                    width={480}
+                    height={382}
+                    quality={75}
+                    sizes="480px"
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+              {/* icon2: 2nd (400ms) */}
+              <div
+                className="s1-Image absolute left-[191px] bottom-[274px]"
+                style={{ '--s1-delay': '400ms' } as React.CSSProperties}
+              >
+                <Image
+                  src="/images/sections/section1/icon2.png"
+                  alt=""
+                  width={191}
+                  height={274}
+                  quality={75}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              {/* icon3: 3rd (800ms) */}
+              <div
+                className="s1-Image absolute right-[171px] bottom-[220px]"
+                style={{ '--s1-delay': '800ms' } as React.CSSProperties}
+              >
+                <Image
+                  src="/images/sections/section1/icon3.png"
+                  alt=""
+                  width={171}
+                  height={220}
+                  quality={75}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              {/* icon1: 4th (1200ms) */}
+              <div
+                className="s1-Image absolute left-[144px] bottom-[80px]"
+                style={{ '--s1-delay': '1200ms' } as React.CSSProperties}
+              >
+                <Image
+                  src="/images/sections/section1/icon1.png"
+                  alt=""
+                  width={144}
+                  height={80}
+                  quality={75}
+                  className="w-full h-full object-contain"
+                />
+              </div>
             </div>
           </div>
         </ScrollReveal>

@@ -1,14 +1,7 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
-import Autoplay from 'embla-carousel-autoplay';
+import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  type CarouselApi,
-} from '@/components/ui/carousel';
 import { HeroSlide1, HeroSlide2, HeroSlide3 } from './HeroSlides';
 
 interface HeroBannerProps {
@@ -27,9 +20,9 @@ interface HeroBannerProps {
 
 const SLIDE_COUNT = 3;
 const SLIDE_COMPONENTS = [HeroSlide1, HeroSlide2, HeroSlide3];
+const AUTO_PLAY_DELAY = 4000; // 4초
 
 export default function HeroBanner({ dict }: HeroBannerProps) {
-  const [api, setApi] = useState<CarouselApi>();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const scrollToSection = (sectionId: string) => {
@@ -42,26 +35,17 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
     }
   };
 
-  const onSelect = useCallback(() => {
-    if (!api) return;
-    setCurrentSlide(api.selectedScrollSnap());
-  }, [api]);
-
+  // 자동 슬라이드 전환
   useEffect(() => {
-    if (!api) return;
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % SLIDE_COUNT);
+    }, AUTO_PLAY_DELAY);
 
-    onSelect();
-    api.on('select', onSelect);
-    api.on('reInit', onSelect);
-
-    return () => {
-      api.off('select', onSelect);
-      api.off('reInit', onSelect);
-    };
-  }, [api, onSelect]);
+    return () => clearInterval(interval);
+  }, []);
 
   const goToSlide = (index: number) => {
-    api?.scrollTo(index);
+    setCurrentSlide(index);
   };
 
   return (
@@ -137,64 +121,54 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
           </button>
         </article>
 
-        {/* Right Content - Hero Carousel */}
+        {/* Right Content - Hero Fade Carousel */}
         <div className="flex-1 flex flex-col gap-6 items-center min-w-[460px] hero-animate-carousel hero-delay-4">
-          <Carousel
-            setApi={setApi}
-            opts={{
-              align: 'start',
-              loop: true,
-            }}
-            plugins={[
-              Autoplay({
-                delay: 4000,
-                stopOnInteraction: false,
-                stopOnMouseEnter: true,
-              }),
-            ]}
-            className="w-[460px]"
-          >
-            <CarouselContent className="-ml-0">
-              {dict.hero.slides.map((slide, index) => {
-                const SlideComponent = SLIDE_COMPONENTS[index];
-                return (
-                  <CarouselItem key={index} className="pl-0">
-                    <figure
-                      className="w-[460px] h-[500px] rounded-3xl overflow-hidden relative"
-                      aria-label={slide.alt}
+          <div className="relative w-[460px] h-[500px]">
+            {dict.hero.slides.map((slide, index) => {
+              const SlideComponent = SLIDE_COMPONENTS[index];
+              const isActive = currentSlide === index;
+
+              return (
+                <figure
+                  key={index}
+                  className={cn(
+                    'absolute inset-0 w-[460px] h-[500px] rounded-3xl overflow-hidden',
+                    'transition-opacity duration-1000 ease-in-out',
+                    isActive
+                      ? 'opacity-100 z-10'
+                      : 'opacity-0 z-0 pointer-events-none'
+                  )}
+                  aria-label={slide.alt}
+                  aria-hidden={!isActive}
+                >
+                  <SlideComponent active={isActive} />
+                  {/* Bottom text overlay */}
+                  <div
+                    className={cn(
+                      'absolute bottom-0 left-0 right-0 p-6 z-10',
+                      isActive ? 'slide-text-active' : 'opacity-0'
+                    )}
+                  >
+                    <div
+                      className={cn(
+                        'backdrop-blur-[6px] bg-[rgba(72,70,214,0.8)]',
+                        'rounded-2xl px-6 py-4'
+                      )}
                     >
-                      <SlideComponent active={currentSlide === index} />
-                      {/* Bottom text overlay */}
-                      <div
+                      <p
                         className={cn(
-                          'absolute bottom-0 left-0 right-0 p-6 z-10',
-                          currentSlide === index
-                            ? 'slide-text-active'
-                            : 'opacity-0'
+                          'text-xl font-medium text-white text-center',
+                          'leading-[1.3] tracking-[-0.3px] font-poppins'
                         )}
                       >
-                        <div
-                          className={cn(
-                            'backdrop-blur-[6px] bg-[rgba(72,70,214,0.8)]',
-                            'rounded-2xl px-6 py-4'
-                          )}
-                        >
-                          <p
-                            className={cn(
-                              'text-xl font-medium text-white text-center',
-                              'leading-[1.3] tracking-[-0.3px] font-poppins'
-                            )}
-                          >
-                            {slide.text}
-                          </p>
-                        </div>
-                      </div>
-                    </figure>
-                  </CarouselItem>
-                );
-              })}
-            </CarouselContent>
-          </Carousel>
+                        {slide.text}
+                      </p>
+                    </div>
+                  </div>
+                </figure>
+              );
+            })}
+          </div>
 
           {/* Pagination Dots */}
           <nav

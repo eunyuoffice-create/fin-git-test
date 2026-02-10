@@ -25,25 +25,59 @@ export default function Section3Features({ dict }: Section3Props) {
   const activeRef = useRef(0);
   const [activeIndex, setActiveIndex] = useState(0);
 
+  // Measured translate values to center each article in viewport
+  const centersRef = useRef<number[]>([]);
+
+  // Measure article positions once (mount + resize)
+  const measure = useCallback(() => {
+    const text = textRef.current;
+    if (!text) return;
+
+    const vh = window.innerHeight;
+    const textRect = text.getBoundingClientRect();
+    const contentEls = text.querySelectorAll('[data-content]');
+    const centers: number[] = [];
+
+    contentEls.forEach((el) => {
+      const elRect = el.getBoundingClientRect();
+      // Position of content center relative to text container top
+      const relCenter = elRect.top - textRect.top + elRect.height / 2;
+      // Translate needed to put this center at viewport center
+      centers.push(relCenter - vh / 2);
+    });
+
+    centersRef.current = centers;
+  }, []);
+
   const onScroll = useCallback(() => {
     const wrapper = wrapperRef.current;
     const text = textRef.current;
-    if (!wrapper || !text) return;
+    const centers = centersRef.current;
+    if (!wrapper || !text || centers.length === 0) return;
 
     const rect = wrapper.getBoundingClientRect();
     const vh = window.innerHeight;
     const scrollable = wrapper.offsetHeight - vh;
     const progress = Math.max(0, Math.min(1, -rect.top / scrollable));
 
-    // Text scrolls up
-    const maxTranslate = text.scrollHeight - vh;
-    text.style.transform = `translate3d(0,${-progress * maxTranslate}px,0)`;
+    const count = centers.length;
 
-    // Active image
-    const idx = Math.min(
-      IMAGES.length - 1,
-      Math.floor(progress * IMAGES.length)
-    );
+    // Stepped progress with smootherstep (Perlin)
+    // → zero 1st & 2nd derivative at endpoints → strong pause at each item
+    const expanded = progress * (count - 1);
+    const seg = Math.min(Math.floor(expanded), count - 2);
+    const f = Math.min(expanded - seg, 1);
+    const eased = f * f * f * (f * (f * 6 - 15) + 10);
+
+    // Interpolate between measured center positions
+    const from = centers[seg];
+    const to = centers[Math.min(seg + 1, count - 1)];
+    const translate = from + (to - from) * eased;
+
+    text.style.transform = `translate3d(0,${-translate}px,0)`;
+
+    // Active image (snap to nearest item)
+    const idx = Math.min(count - 1, Math.round(seg + eased));
     if (idx !== activeRef.current) {
       activeRef.current = idx;
       setActiveIndex(idx);
@@ -56,96 +90,41 @@ export default function Section3Features({ dict }: Section3Props) {
     ).matches;
     if (prefersReducedMotion) return;
 
+    // Measure on mount and apply initial position immediately (no rAF delay)
+    measure();
+    onScroll();
+
     let rafId: number;
     const handleScroll = () => {
       cancelAnimationFrame(rafId);
       rafId = requestAnimationFrame(onScroll);
     };
 
+    const handleResize = () => {
+      measure();
+      onScroll();
+    };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
+    window.addEventListener('resize', handleResize, { passive: true });
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(rafId);
     };
-  }, [onScroll]);
+  }, [onScroll, measure]);
 
   return (
     <div className="w-full px-[220px]">
       <div
         ref={wrapperRef}
         className="relative"
-        style={{ height: `${IMAGES.length * 100}vh` }}
+        style={{ height: `${(IMAGES.length + 1) * 100}vh` }}
       >
         {/* Sticky viewport */}
         <div className="sticky top-0 h-screen overflow-hidden flex items-center">
           <div className="w-[1000px] mx-auto flex gap-[80px] items-center">
-            {/* Left - scrolling text */}
-            <div className="flex-1 overflow-hidden h-screen">
-              <div
-                ref={textRef}
-                className="will-change-transform"
-                style={{ paddingTop: '30vh', paddingBottom: '30vh' }}
-              >
-                {dict.section3.items.map((item, index) => (
-                  <article
-                    key={index}
-                    className={cn(
-                      'pb-[40vh] flex flex-col gap-[40px]',
-                      index !== 0 ? 'pt-[40vh]' : ''
-                    )}
-                  >
-                    <div className="flex flex-col gap-[24px]">
-                      <div
-                        className={cn(
-                          'inline-flex items-center gap-[8px]',
-                          'bg-[#3e14b4] px-[16px] py-[8px] rounded-[8px] w-fit'
-                        )}
-                      >
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          aria-hidden="true"
-                        >
-                          <path
-                            d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z"
-                            fill="white"
-                          />
-                        </svg>
-                        <span
-                          className={cn(
-                            'text-[16px] font-medium text-white',
-                            'tracking-[-0.24px] font-poppins whitespace-pre-wrap'
-                          )}
-                        >
-                          {item.badge}
-                        </span>
-                      </div>
-                      <h3
-                        className={cn(
-                          'text-[40px] font-medium text-[#363a5b]',
-                          'leading-[1.3] tracking-[-0.6px] font-poppins whitespace-pre-wrap'
-                        )}
-                      >
-                        {item.title}
-                      </h3>
-                    </div>
-                    <p
-                      className={cn(
-                        'text-[18px] text-[#7a7a7a]',
-                        'leading-[1.4] tracking-[-0.27px] font-poppins whitespace-pre-wrap'
-                      )}
-                    >
-                      {item.description}
-                    </p>
-                  </article>
-                ))}
-              </div>
-            </div>
-
             {/* Right - fixed image with cross-fade */}
             <div className="w-[320px] h-[400px] flex-shrink-0 relative rounded-[24px] overflow-hidden">
               {IMAGES.map((src, index) => (
@@ -164,6 +143,72 @@ export default function Section3Features({ dict }: Section3Props) {
                   priority={index === 0}
                 />
               ))}
+            </div>
+            {/* Left - scrolling text */}
+            <div className="flex-1 overflow-hidden h-screen">
+              <div
+                ref={textRef}
+                className="will-change-transform"
+                style={{
+                  paddingTop: 'calc(50vh - 120px)',
+                  paddingBottom: 'calc(50vh - 120px)',
+                }}
+              >
+                {dict.section3.items.map((item, index) => (
+                  <article
+                    key={index}
+                    className={cn('pb-[40vh]', index !== 0 ? 'pt-[40vh]' : '')}
+                  >
+                    <div data-content className="flex flex-col gap-[40px]">
+                      <div className="flex flex-col gap-[24px]">
+                        <div
+                          className={cn(
+                            'inline-flex items-center gap-[8px]',
+                            'bg-[#3e14b4] px-[16px] py-[8px] rounded-[8px] w-fit'
+                          )}
+                        >
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            aria-hidden="true"
+                          >
+                            <path
+                              d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z"
+                              fill="white"
+                            />
+                          </svg>
+                          <span
+                            className={cn(
+                              'text-[16px] font-medium text-white',
+                              'tracking-[-0.24px] font-poppins whitespace-pre-wrap'
+                            )}
+                          >
+                            {item.badge}
+                          </span>
+                        </div>
+                        <h3
+                          className={cn(
+                            'text-[40px] font-medium text-[#363a5b]',
+                            'leading-[1.3] tracking-[-0.6px] font-poppins whitespace-pre-wrap'
+                          )}
+                        >
+                          {item.title}
+                        </h3>
+                      </div>
+                      <p
+                        className={cn(
+                          'text-[18px] text-[#7a7a7a]',
+                          'leading-[1.4] tracking-[-0.27px] font-poppins whitespace-pre-wrap'
+                        )}
+                      >
+                        {item.description}
+                      </p>
+                    </div>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
 
