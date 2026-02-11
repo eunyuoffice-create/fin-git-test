@@ -1,6 +1,7 @@
 # Phase 3: UI 컴포넌트 개발
 
 ## 목표
+
 Hero 섹션, 회사 소개, 예약/문의 폼을 포함한 UI 컴포넌트를 개발합니다.
 
 ---
@@ -8,6 +9,7 @@ Hero 섹션, 회사 소개, 예약/문의 폼을 포함한 UI 컴포넌트를 �
 ## 1. Hero Section 컴포넌트
 
 ### `src/components/HeroSection/HeroSection.tsx`
+
 ```typescript
 import { Dictionary } from '@/types/i18n';
 
@@ -19,10 +21,10 @@ export default function HeroSection({ dict }: HeroSectionProps) {
   return (
     <section className="relative bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20 px-6">
       <div className="max-w-4xl mx-auto text-center">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6">
+        <h1 className="text-6xl font-bold mb-6">
           {dict.hero.title}
         </h1>
-        <p className="text-xl md:text-2xl mb-8 opacity-90">
+        <p className="text-2xl mb-8 opacity-90">
           {dict.hero.subtitle}
         </p>
         <a
@@ -42,6 +44,7 @@ export default function HeroSection({ dict }: HeroSectionProps) {
 ## 2. About Section 컴포넌트
 
 ### `src/components/AboutSection/AboutSection.tsx`
+
 ```typescript
 import { Dictionary } from '@/types/i18n';
 
@@ -53,7 +56,7 @@ export default function AboutSection({ dict }: AboutSectionProps) {
   return (
     <section className="py-16 px-6 bg-gray-50">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+        <h2 className="text-4xl font-bold mb-6 text-gray-900">
           {dict.about.title}
         </h2>
         <p className="text-lg text-gray-700 leading-relaxed">
@@ -70,6 +73,7 @@ export default function AboutSection({ dict }: AboutSectionProps) {
 ## 3. Contact Form 컴포넌트
 
 ### 3.1 Validation 스키마: `src/lib/validation.ts`
+
 ```typescript
 import { z } from 'zod';
 
@@ -80,10 +84,7 @@ export const contactFormSchema = z.object({
     .string()
     .min(1, 'phoneRequired')
     .regex(/^[+]?[\d\s-()]+$/, 'phoneInvalid'),
-  email: z
-    .string()
-    .min(1, 'emailRequired')
-    .email('emailInvalid'),
+  email: z.string().min(1, 'emailRequired').email('emailInvalid'),
   needs: z.string().optional(),
 });
 
@@ -91,6 +92,7 @@ export type ContactFormData = z.infer<typeof contactFormSchema>;
 ```
 
 ### 3.2 Form 컴포넌트: `src/components/ContactForm/ContactForm.tsx`
+
 ```typescript
 'use client';
 
@@ -170,7 +172,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
   return (
     <section id="contact" className="py-16 px-6">
       <div className="max-w-2xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900">
+        <h2 className="text-4xl font-bold mb-8 text-gray-900">
           {dict.contact.title}
         </h2>
 
@@ -323,6 +325,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
 ## 4. 메인 페이지에 컴포넌트 통합
 
 ### `src/app/[lang]/page.tsx` 업데이트
+
 ```typescript
 import { getDictionary, type Locale } from '@/lib/i18n';
 import HeroSection from '@/components/HeroSection/HeroSection';
@@ -367,11 +370,13 @@ export default async function HomePage({
 ## 5. 테스트
 
 ### 5.1 개발 서버 실행
+
 ```bash
 npm run dev
 ```
 
 ### 5.2 확인 사항
+
 - [ ] Hero 섹션이 표시되는가?
 - [ ] 언어 전환 버튼이 동작하는가?
 - [ ] About 섹션 텍스트가 각 언어로 표시되는가?

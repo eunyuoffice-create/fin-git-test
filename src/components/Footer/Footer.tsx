@@ -28,15 +28,15 @@ export default function Footer({ dict }: FooterProps) {
 
   return (
     <footer
-      className="w-full bg-[#363a5b] px-5 md:px-[220px] py-10"
+      className="w-full bg-[#363a5b] px-[220px] py-10"
       role="contentinfo"
       aria-label="Site footer"
     >
       <div
         className={cn(
           'max-w-[1440px] mx-auto',
-          'flex flex-col md:flex-row items-center md:items-start',
-          'justify-between gap-8 md:gap-0'
+          'flex flex-row items-start',
+          'justify-between gap-0'
         )}
       >
         {/* Logo */}
@@ -54,7 +54,6 @@ export default function Footer({ dict }: FooterProps) {
             alt=""
             width={170}
             height={36}
-
             className="h-9 w-auto"
             aria-hidden="true"
           />

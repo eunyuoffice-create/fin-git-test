@@ -1,6 +1,7 @@
 # Phase 5: 성능 & SEO 최적화
 
 ## 목표
+
 인도네시아 인터넷 환경을 고려한 성능 최적화 및 Google Lighthouse 90점 이상 달성을 목표로 합니다.
 
 ---
@@ -8,9 +9,11 @@
 ## 1. 이미지 최적화
 
 ### 1.1 WebP 이미지 준비
+
 모든 이미지를 WebP 포맷으로 변환하여 `public/images/` 폴더에 저장합니다.
 
 **이미지 변환 (예시)**
+
 ```bash
 # ImageMagick 사용
 convert original.png -quality 85 public/images/hero-bg.webp
@@ -21,6 +24,7 @@ convert original.png -quality 85 public/images/hero-bg.webp
 ### 1.2 Next/Image 컴포넌트 사용
 
 #### `src/components/HeroSection/HeroSection.tsx` 업데이트
+
 ```typescript
 import Image from 'next/image';
 import { Dictionary } from '@/types/i18n';
@@ -45,10 +49,10 @@ export default function HeroSection({ dict }: HeroSectionProps) {
       </div>
 
       <div className="relative max-w-4xl mx-auto text-center z-10">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6">
+        <h1 className="text-6xl font-bold mb-6">
           {dict.hero.title}
         </h1>
-        <p className="text-xl md:text-2xl mb-8 opacity-90">
+        <p className="text-2xl mb-8 opacity-90">
           {dict.hero.subtitle}
         </p>
         <a
@@ -64,6 +68,7 @@ export default function HeroSection({ dict }: HeroSectionProps) {
 ```
 
 ### 1.3 Lazy Loading 적용
+
 Hero 섹션 외의 이미지는 `priority={false}` (기본값) 사용으로 자동 lazy loading 적용됩니다.
 
 ---
@@ -73,6 +78,7 @@ Hero 섹션 외의 이미지는 `priority={false}` (기본값) 사용으로 자�
 ### 2.1 Layout Metadata 강화
 
 #### `src/app/[lang]/layout.tsx` 업데이트
+
 ```typescript
 import { Inter } from 'next/font/google';
 import { locales, isValidLocale, type Locale, getDictionary } from '@/lib/i18n';
@@ -185,6 +191,7 @@ export default function LangLayout({
 ### 2.2 JSON-LD 구조화 데이터 추가
 
 #### `src/components/JsonLd/JsonLd.tsx`
+
 ```typescript
 import { Locale } from '@/lib/i18n';
 
@@ -223,6 +230,7 @@ export default function JsonLd({ lang }: JsonLdProps) {
 ```
 
 #### 메인 페이지에 추가: `src/app/[lang]/page.tsx`
+
 ```typescript
 import JsonLd from '@/components/JsonLd/JsonLd';
 
@@ -245,6 +253,7 @@ export default async function HomePage({ params }: { params: { lang: string } })
 ## 3. Core Web Vitals 최적화
 
 ### 3.1 Font 최적화 (이미 적용됨)
+
 ```typescript
 // src/app/[lang]/layout.tsx
 const inter = Inter({
@@ -256,6 +265,7 @@ const inter = Inter({
 ### 3.2 CSS 최적화
 
 #### Tailwind CSS 설정: `tailwind.config.ts`
+
 ```typescript
 import type { Config } from 'tailwindcss';
 
@@ -298,29 +308,34 @@ const ContactForm = dynamic(() => import('@/components/ContactForm/ContactForm')
 ## 4. 성능 측정 및 검증
 
 ### 4.1 로컬 빌드 테스트
+
 ```bash
 npm run build
 npm start
 ```
 
 ### 4.2 Lighthouse 실행
+
 1. Chrome DevTools 열기 (F12)
 2. Lighthouse 탭 선택
 3. Categories: Performance, Accessibility, Best Practices, SEO 모두 선택
 4. "Analyze page load" 클릭
 
 **목표 점수:**
+
 - Performance: 90+
 - Accessibility: 90+
 - Best Practices: 90+
 - SEO: 90+
 
 ### 4.3 Core Web Vitals 확인
+
 - **LCP** (Largest Contentful Paint): < 2.5s
 - **INP** (Interaction to Next Paint): < 200ms
 - **CLS** (Cumulative Layout Shift): < 0.1
 
 ### 4.4 WebPageTest (실제 인도네시아 네트워크 시뮬레이션)
+
 1. https://www.webpagetest.org/ 접속
 2. Test Location: Jakarta, Indonesia 선택
 3. Connection: 3G/4G 선택
@@ -331,20 +346,24 @@ npm start
 ## 5. 접근성 (Accessibility) 검증
 
 ### 5.1 키보드 네비게이션 테스트
+
 - Tab 키로 모든 폼 필드 접근 가능
 - Enter 키로 폼 제출 가능
 - 언어 전환 버튼 Tab으로 접근 가능
 
 ### 5.2 스크린 리더 테스트
+
 - macOS VoiceOver (Cmd + F5) 또는
 - NVDA (Windows 무료) 사용
 
 ### 5.3 WAVE 도구
+
 1. https://wave.webaim.org/ 접속
 2. URL 입력 후 분석
 3. 에러 0개 목표
 
 ### 5.4 Contrast Checker
+
 - 텍스트와 배경 색상 대비 4.5:1 이상 (WCAG AA 기준)
 - https://webaim.org/resources/contrastchecker/
 
@@ -353,6 +372,7 @@ npm start
 ## 6. robots.txt 및 sitemap.xml
 
 ### 6.1 `public/robots.txt`
+
 ```txt
 User-agent: *
 Allow: /
@@ -361,6 +381,7 @@ Sitemap: https://yoursite.com/sitemap.xml
 ```
 
 ### 6.2 `src/app/sitemap.ts`
+
 ```typescript
 import { MetadataRoute } from 'next';
 import { locales } from '@/lib/i18n';
@@ -401,15 +422,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
 ## 성능 최적화 체크리스트 요약
 
 ### LCP (Largest Contentful Paint) 개선
+
 - ✅ Hero 이미지 priority 설정
 - ✅ WebP 이미지 사용
 - ✅ Font display: swap
 
 ### INP (Interaction to Next Paint) 개선
+
 - ✅ 불필요한 JavaScript 제거
 - ✅ Dynamic Import로 코드 분할
 
 ### CLS (Cumulative Layout Shift) 개선
+
 - ✅ 이미지 width/height 명시 (Next/Image 자동)
 - ✅ Font display: swap
 
