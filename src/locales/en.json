@@ -1,7 +1,10 @@
 {
   "meta": {
-    "title": "FinProfile - AI-Powered Credit Infrastructure",
-    "description": "Close credit data gaps with AI — and gain a competitive edge in the credit-invisible market."
+    "title": "FinSight AI: Agentic AI for Precise MSME Credit Underwriting",
+    "description": "Beyond OCR. FinSight AI uses Agentic AI to deliver autonomous bank statement analysis and forgery detection for MSMEs and thin-filers in just 5 minutes.",
+    "ogTitle": "FinSight AI: The Autonomous Underwriting Partner for SE Asia",
+    "ogDescription": "Stop manual checks. Our AI agent infers transaction context, detects forgeries, and generates financial statement-level intelligence instantly. Decide with confidence in 5 minutes.",
+    "keywords": "Autonomous Credit Underwriting AI Agent, Agentic AI fintech, bank statement analysis automation, MSME credit scoring, thin-file lending SE Asia, fraud detection AI, financial profiling Indonesia"
   },
   "nav": {
     "whyFinProfile": "Why FinProfile",
@@ -135,14 +138,16 @@
           "AI Specialist Consultant",
           "Global Business Lead",
           "New Business & Investment"
-        ]
+        ],
+        "linkedInUrl": "https://www.linkedin.com/in/cruzyoon"
       },
       {
         "name": "Chang ho\nMoon",
         "koreanName": "Jae Ho Yoon",
         "role": "CTO",
         "description": "Full-stack Engineer with \n10 years of experience. \nRanked 4th in the National IT Skills \nCompetition",
-        "tags": ["System Architecture", "Technical Strategy", "10+ Years Exp"]
+        "tags": ["System Architecture", "Technical Strategy", "10+ Years Exp"],
+        "linkedInUrl": "https://www.linkedin.com/in/ggochang"
       },
       {
         "name": "Jannele\nShin",
@@ -153,7 +158,8 @@
           "Intl. Design Consultant",
           "Product Strategy",
           "Startup Specialist"
-        ]
+        ],
+        "linkedInUrl": "https://www.linkedin.com/in/eunjung-shin-8075a129"
       }
     ],
     "linkedIn": "LinkedIn"

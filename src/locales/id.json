@@ -1,7 +1,10 @@
 {
   "meta": {
-    "title": "FinProfile - Infrastruktur Kredit Berbasis AI",
-    "description": "Tutup kesenjangan data kredit dengan AI — dan raih keunggulan kompetitif di pasar kredit tak terlihat."
+    "title": "FinSight AI: Analisa Rekening Koran Cerdas & Otomatis UMKM",
+    "description": "Transformasi underwriting UMKM dengan Agentic AI. Dapatkan analisa rekening koran & deteksi fraud otomatis dalam 5 menit dengan akurasi level laporan keuangan.",
+    "ogTitle": "FinSight AI: Solusi Underwriting Pintar untuk Thin-File & UMKM",
+    "ogDescription": "Bukan sekadar OCR. AI Agent kami memahami konteks transaksi dan mendeteksi transaksi 'mustahil' secara instan. Hemat biaya hingga 95% dan putuskan kredit dalam 5 menit.",
+    "keywords": "Analisa Rekening Koran Otomatis, Kredit UMKM, skor kredit AI, cek mutasi bank otomatis, anti-fraud perbankan, underwriting otomatis Indonesia, solusi thin-file"
   },
   "nav": {
     "whyFinProfile": "Why FinProfile",
@@ -130,14 +133,16 @@
           "Konsultan Spesialis AI",
           "Pimpinan Bisnis Global",
           "Bisnis Baru & Investasi"
-        ]
+        ],
+        "linkedInUrl": "https://www.linkedin.com/in/cruzyoon"
       },
       {
         "name": "Chang ho\nMoon",
         "koreanName": "Jae Ho Yoon",
         "role": "CTO",
         "description": "Full-stack Engineer dengan pengalaman 10 tahun. Peringkat ke-4 dalam Kompetisi Keterampilan IT Nasional.",
-        "tags": ["Arsitektur Sistem", "Strategi Teknis", "Pengalaman 10+ Tahun"]
+        "tags": ["Arsitektur Sistem", "Strategi Teknis", "Pengalaman 10+ Tahun"],
+        "linkedInUrl": "https://www.linkedin.com/in/ggochang"
       },
       {
         "name": "Jannele\nShin",
@@ -148,7 +153,8 @@
           "Konsultan Desain Internasional",
           "Strategi Produk",
           "Spesialis Startup"
-        ]
+        ],
+        "linkedInUrl": "https://www.linkedin.com/in/eunjung-shin-8075a129"
       }
     ],
     "linkedIn": "LinkedIn"

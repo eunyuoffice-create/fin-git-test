@@ -23,14 +23,19 @@ export async function generateStaticParams() {
 
 // JSON-LD 구조화된 데이터
 function generateJsonLd(lang: string) {
+  const descriptions: Record<string, string> = {
+    en: 'Beyond OCR. FinSight AI uses Agentic AI to deliver autonomous bank statement analysis and forgery detection for MSMEs and thin-filers in just 5 minutes.',
+    id: 'Transformasi underwriting UMKM dengan Agentic AI. Dapatkan analisa rekening koran & deteksi fraud otomatis dalam 5 menit dengan akurasi level laporan keuangan.',
+    ko: 'OCR을 넘어서. FinSight AI는 에이전틱 AI로 은행 거래내역 분석과 위변조 탐지를 5분 만에 자율적으로 수행합니다.',
+  };
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'FinProfile',
     url: `${baseUrl}/${lang}`,
     logo: `${baseUrl}/favicon.ico`,
-    description:
-      'AI-Powered Credit Infrastructure - Close credit data gaps with AI',
+    description: descriptions[lang] || descriptions.en,
     address: {
       '@type': 'PostalAddress',
       streetAddress: '503, 474 Gwangnaru-ro, Gwangjin-gu',

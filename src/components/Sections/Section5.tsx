@@ -13,6 +13,7 @@ interface TeamProps {
         role: string;
         description: string;
         tags: string[];
+        linkedInUrl: string;
       }>;
     };
   };
@@ -198,7 +199,9 @@ export default function Team({ dict }: TeamProps) {
 
                 {/* LinkedIn Button */}
                 <a
-                  href="#"
+                  href={member.linkedInUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={cn(
                     'h-14 w-fit flex items-center gap-2 pl-8 pr-6',
                     'bg-[#363a5b] text-white rounded-full',

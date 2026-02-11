@@ -26,8 +26,8 @@ const lato = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'FinProfile - Financial Profile Management',
-  description: 'Professional financial profile management solution',
+  title: 'FinSight AI: Agentic AI for Precise MSME Credit Underwriting',
+  description: 'Beyond OCR. FinSight AI uses Agentic AI to deliver autonomous bank statement analysis and forgery detection for MSMEs and thin-filers in just 5 minutes.',
 };
 
 export default function RootLayout({

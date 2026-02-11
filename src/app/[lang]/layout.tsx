@@ -18,6 +18,12 @@ export async function generateMetadata({
   const dict = await getDictionary(lang);
   const url = `${baseUrl}/${lang}`;
 
+  const ogTitle = dict.meta.ogTitle || dict.meta.title;
+  const ogDescription = dict.meta.ogDescription || dict.meta.description;
+  const keywords = dict.meta.keywords
+    ? dict.meta.keywords.split(', ').map((k: string) => k.trim())
+    : ['FinSight AI', 'Credit', 'Finance', 'Bank Statement Analysis', 'FinTech'];
+
   return {
     title: dict.meta.title,
     description: dict.meta.description,
@@ -34,10 +40,10 @@ export async function generateMetadata({
 
     // Open Graph - 소셜 미디어 공유
     openGraph: {
-      title: dict.meta.title,
-      description: dict.meta.description,
+      title: ogTitle,
+      description: ogDescription,
       url: url,
-      siteName: 'FinProfile',
+      siteName: 'FinSight AI',
       locale: lang === 'ko' ? 'ko_KR' : lang === 'id' ? 'id_ID' : 'en_US',
       type: 'website',
       images: [
@@ -45,7 +51,7 @@ export async function generateMetadata({
           url: `${baseUrl}/og-image.png`,
           width: 1200,
           height: 630,
-          alt: 'FinProfile - AI-Powered Credit Infrastructure',
+          alt: 'FinSight AI - Autonomous Credit Underwriting',
         },
       ],
     },
@@ -53,13 +59,13 @@ export async function generateMetadata({
     // Twitter Card
     twitter: {
       card: 'summary_large_image',
-      title: dict.meta.title,
-      description: dict.meta.description,
+      title: ogTitle,
+      description: ogDescription,
       images: [`${baseUrl}/og-image.png`],
     },
 
     // 추가 메타태그
-    keywords: ['FinProfile', 'AI', 'Credit', 'Finance', 'Bank Statement Analysis', 'FinTech'],
+    keywords,
     authors: [{ name: 'FinProfile' }],
     creator: 'FinProfile',
     publisher: 'FinProfile',

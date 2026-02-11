@@ -1,7 +1,10 @@
 {
   "meta": {
-    "title": "FinProfile - AI 기반 신용 인프라",
-    "description": "AI로 신용 데이터 격차를 해소하고, 신용 사각지대 시장에서 경쟁 우위를 확보하세요."
+    "title": "FinSight AI: MSME 신용 심사를 위한 에이전틱 AI",
+    "description": "OCR을 넘어서. FinSight AI는 에이전틱 AI로 은행 거래내역 분석과 위변조 탐지를 5분 만에 자율적으로 수행합니다.",
+    "ogTitle": "FinSight AI: 동남아시아를 위한 자율 심사 파트너",
+    "ogDescription": "수동 검토를 멈추세요. AI 에이전트가 거래 맥락을 추론하고, 위변조를 탐지하며, 재무제표 수준의 인텔리전스를 즉시 생성합니다. 5분 안에 확신을 가지고 결정하세요.",
+    "keywords": "자율 신용 심사 AI, 에이전틱 AI 핀테크, 은행 거래내역 분석 자동화, MSME 신용 평가, 씬파일 대출, 사기 탐지 AI, 인도네시아 금융 프로파일링"
   },
   "nav": {
     "whyFinProfile": "Why FinProfile",
@@ -126,21 +129,24 @@
         "koreanName": "윤재호",
         "role": "CEO",
         "description": "동남아 시장에서의 풍부한 경험을 바탕으로, AI 기반 산업 문제 해결을 전문으로 합니다.",
-        "tags": ["AI 전문 컨설턴트", "글로벌 사업 총괄", "신사업 & 투자"]
+        "tags": ["AI 전문 컨설턴트", "글로벌 사업 총괄", "신사업 & 투자"],
+        "linkedInUrl": "https://www.linkedin.com/in/cruzyoon"
       },
       {
         "name": "Chang ho\nMoon",
         "koreanName": "문창호",
         "role": "CTO",
         "description": "10년 경력의 풀스택 엔지니어. 전국 IT 기능 경진대회 4위.",
-        "tags": ["시스템 아키텍처", "기술 전략", "10년+ 경력"]
+        "tags": ["시스템 아키텍처", "기술 전략", "10년+ 경력"],
+        "linkedInUrl": "https://www.linkedin.com/in/ggochang"
       },
       {
         "name": "Jannele\nShin",
         "koreanName": "신은정",
         "role": "CXO",
         "description": "글로벌 디자인 컨설팅 분야 15년 경력의 서비스 디자이너. 국내외 20개 이상의 스타트업 디지털 서비스 기획을 리드.",
-        "tags": ["국제 디자인 컨설턴트", "프로덕트 전략", "스타트업 전문가"]
+        "tags": ["국제 디자인 컨설턴트", "프로덕트 전략", "스타트업 전문가"],
+        "linkedInUrl": "https://www.linkedin.com/in/eunjung-shin-8075a129"
       }
     ],
     "linkedIn": "LinkedIn"
