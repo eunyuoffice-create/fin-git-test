@@ -34,7 +34,7 @@ function generateJsonLd(lang: string) {
     '@type': 'Organization',
     name: 'FinProfile',
     url: `${baseUrl}/${lang}`,
-    logo: `${baseUrl}/favicon.ico`,
+    logo: `${baseUrl}/icon.png`,
     description: descriptions[lang] || descriptions.en,
     address: {
       '@type': 'PostalAddress',
