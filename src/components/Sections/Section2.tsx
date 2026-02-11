@@ -305,6 +305,7 @@ export default function Section2CreditReview({ dict }: Section2Props) {
                       height={32}
 
                       className="object-contain"
+                    quality={100}
                     />
                   </i>
                   <i className="absolute top-[359px] right-[157px]">
@@ -315,6 +316,7 @@ export default function Section2CreditReview({ dict }: Section2Props) {
                       height={47}
 
                       className="object-contain"
+                    quality={100}
                     />
                   </i>
                   <i className="absolute top-[365px] right-[40px]">
@@ -325,6 +327,7 @@ export default function Section2CreditReview({ dict }: Section2Props) {
                       height={110}
 
                       className="object-contain"
+                    quality={100}
                     />
                   </i>
                   <i className="absolute top-[316px] right-[11px]">
@@ -335,6 +338,7 @@ export default function Section2CreditReview({ dict }: Section2Props) {
                       height={63}
 
                       className="object-contain"
+                    quality={100}
                     />
                   </i>
                 </div>

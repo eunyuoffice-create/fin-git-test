@@ -130,6 +130,7 @@ export default function Team({ dict }: TeamProps) {
                         sizes="173px"
 
                         className="object-cover"
+                      quality={100}
                       />
                     </figure>
 
@@ -144,6 +145,7 @@ export default function Team({ dict }: TeamProps) {
                           height={16}
   
                           className="h-[16px] w-auto"
+                        quality={100}
                         />
                       </div>
 

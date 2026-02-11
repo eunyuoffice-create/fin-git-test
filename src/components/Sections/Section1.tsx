@@ -130,6 +130,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
                   height={64}
   
                   className="object-contain"
+                quality={100}
                 />
               </div>
             </article>
@@ -167,6 +168,8 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
                   alt=""
                   width={64}
                   height={64}
+  
+                quality={100}
   
                 />
               </div>
@@ -257,6 +260,8 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
                 width={74}
                 height={35}
 
+              quality={100}
+
               />
             </div>
           </div>
@@ -276,6 +281,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
               width={128}
               height={128}
               className="object-contain"
+            quality={100}
             />
           </div>
         </ScrollReveal>
@@ -305,6 +311,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
 
                 sizes="1000px"
                 className="w-full h-full object-cover"
+              quality={100}
               />
               {/* chip: 1st (0ms) */}
               <div className="absolute left-[50%] bottom-[0] translate-x-[-50%] z-10">
@@ -320,6 +327,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
     
                     sizes="480px"
                     className="object-contain"
+                  quality={100}
                   />
                 </div>
               </div>
@@ -335,6 +343,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
                   height={274}
   
                   className="w-full h-full object-contain"
+                quality={100}
                 />
               </div>
               {/* icon3: 3rd (800ms) */}
@@ -349,6 +358,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
                   height={220}
   
                   className="w-full h-full object-contain"
+                quality={100}
                 />
               </div>
               {/* icon1: 4th (1200ms) */}
@@ -363,6 +373,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
                   height={80}
   
                   className="w-full h-full object-contain"
+                quality={100}
                 />
               </div>
             </div>

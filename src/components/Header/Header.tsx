@@ -84,6 +84,7 @@ export default function Header({ dict }: HeaderProps) {
             width={113}
             height={24}
             priority
+          quality={100}
           />
         </a>
 

@@ -148,6 +148,7 @@ export default function Section3Features({ dict }: Section3Props) {
                     transition: 'opacity 0.5s ease-out',
                   }}
                   priority={index === 0}
+                quality={100}
                 />
               ))}
             </div>

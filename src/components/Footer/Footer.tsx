@@ -56,6 +56,7 @@ export default function Footer({ dict }: FooterProps) {
             height={36}
             className="h-9 w-auto"
             aria-hidden="true"
+          quality={100}
           />
         </Link>
 

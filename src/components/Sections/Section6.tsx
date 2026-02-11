@@ -213,6 +213,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
 
                 className="object-cover blur-[10px]"
                 aria-hidden="true"
+              quality={100}
               />
 
               {/* Video Overlay */}

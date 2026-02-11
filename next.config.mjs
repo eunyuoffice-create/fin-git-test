@@ -8,7 +8,6 @@ const nextConfig = {
   // AWS Amplify SSR 호스팅에서 Next.js 이미지 최적화 활성화
   images: {
     unoptimized: false,
-    quality: 100,
     minimumCacheTTL: 2592000, // 30일 (/_next/image/ 응답 캐시)
   },
 

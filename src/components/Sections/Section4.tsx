@@ -140,6 +140,8 @@ export default function Testimonials({ dict }: TestimonialsProps) {
                           width={64}
                           height={64}
 
+                        quality={100}
+
                         />
                       ) : (
                         item.initial ||

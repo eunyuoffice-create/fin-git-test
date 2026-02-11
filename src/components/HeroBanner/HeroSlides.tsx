@@ -72,6 +72,7 @@ export function HeroSlide1({ active }: SlideProps) {
 
           priority
           className="w-full h-full object-cover"
+        quality={100}
         />
       </El>
 
@@ -91,6 +92,7 @@ export function HeroSlide1({ active }: SlideProps) {
           height={189}
 
           className="w-[152px]"
+        quality={100}
         />
       </El>
 
@@ -109,6 +111,7 @@ export function HeroSlide1({ active }: SlideProps) {
           height={221}
 
           className="w-[172px]"
+        quality={100}
         />
       </El>
 
@@ -127,6 +130,7 @@ export function HeroSlide1({ active }: SlideProps) {
           height={217}
 
           className="w-[166px]"
+        quality={100}
         />
       </El>
 
@@ -146,6 +150,7 @@ export function HeroSlide1({ active }: SlideProps) {
           height={189}
 
           className="w-[152px]"
+        quality={100}
         />
       </El>
 
@@ -165,6 +170,7 @@ export function HeroSlide1({ active }: SlideProps) {
 
           priority
           className="w-[273px]"
+        quality={100}
         />
       </El>
 
@@ -183,6 +189,7 @@ export function HeroSlide1({ active }: SlideProps) {
           height={221}
 
           className="w-[172px]"
+        quality={100}
         />
       </El>
 
@@ -202,6 +209,7 @@ export function HeroSlide1({ active }: SlideProps) {
           height={162}
 
           className="w-[172px]"
+        quality={100}
         />
       </El>
     </div>
@@ -227,6 +235,7 @@ export function HeroSlide2({ active }: SlideProps) {
 
           loading="lazy"
           className="w-full h-full object-cover"
+        quality={100}
         />
       </El>
       {/* Decorative circles (top-left) */}
@@ -246,6 +255,7 @@ export function HeroSlide2({ active }: SlideProps) {
 
           loading="lazy"
           className="w-[546px]"
+        quality={100}
         />
       </El>
       <El
@@ -264,6 +274,7 @@ export function HeroSlide2({ active }: SlideProps) {
 
           loading="lazy"
           className="w-[233px]"
+        quality={100}
         />
       </El>
       {/* Line chart (bottom-left) */}
@@ -282,6 +293,7 @@ export function HeroSlide2({ active }: SlideProps) {
 
           loading="lazy"
           className="w-[157px]"
+        quality={100}
         />
       </El>
       {/* Main phone with 00:05 (center, frame + content combined) */}
@@ -300,6 +312,7 @@ export function HeroSlide2({ active }: SlideProps) {
 
           loading="lazy"
           sizes="405px"
+        quality={100}
         />
       </El>
       {/* Calculator (bottom-right) */}
@@ -319,6 +332,7 @@ export function HeroSlide2({ active }: SlideProps) {
 
           loading="lazy"
           sizes="119px"
+        quality={100}
         />
       </El>
     </div>
@@ -344,6 +358,7 @@ export function HeroSlide3({ active }: SlideProps) {
 
           loading="lazy"
           className="w-full h-full object-cover"
+        quality={100}
         />
       </El>
 
@@ -364,6 +379,7 @@ export function HeroSlide3({ active }: SlideProps) {
 
           loading="lazy"
           className="w-[45px]"
+        quality={100}
         />
       </El>
 
@@ -384,6 +400,7 @@ export function HeroSlide3({ active }: SlideProps) {
 
           loading="lazy"
           className="w-[40px]"
+        quality={100}
         />
       </El>
 
@@ -404,6 +421,7 @@ export function HeroSlide3({ active }: SlideProps) {
 
           loading="lazy"
           className="w-[233px]"
+        quality={100}
         />
       </El>
       {/* Folder with Transaction statement (main left element) */}
@@ -422,6 +440,7 @@ export function HeroSlide3({ active }: SlideProps) {
 
           loading="lazy"
           className="w-[548px]"
+        quality={100}
         />
       </El>
       {/* Magnifying glass (bottom-right) */}
@@ -441,6 +460,7 @@ export function HeroSlide3({ active }: SlideProps) {
 
           loading="lazy"
           className="w-[126px]"
+        quality={100}
         />
       </El>
     </div>
