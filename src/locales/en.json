@@ -181,6 +181,14 @@
       "email": "finprofile@gmail.com"
     },
     "privacy": "I agree to the Privacy Policy and consent to the processing of my personal data for the purpose of a product demo and marketing communications.",
+    "errors": {
+      "name": "Please enter your name.",
+      "company": "Please enter your company name.",
+      "phone": "Please enter your phone number.",
+      "email": "Please enter your email.",
+      "emailInvalid": "Please enter a valid email address.",
+      "privacy": "Please agree to the Privacy Policy."
+    },
     "submit": "Request Demo"
   },
   "footer": {

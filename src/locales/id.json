@@ -176,6 +176,14 @@
       "email": "finprofile@gmail.com"
     },
     "privacy": "Saya menyetujui Kebijakan Privasi dan memberikan persetujuan untuk pemrosesan data pribadi saya untuk tujuan demo produk dan komunikasi pemasaran.",
+    "errors": {
+      "name": "Silakan masukkan nama Anda.",
+      "company": "Silakan masukkan nama perusahaan Anda.",
+      "phone": "Silakan masukkan nomor telepon Anda.",
+      "email": "Silakan masukkan email Anda.",
+      "emailInvalid": "Silakan masukkan alamat email yang valid.",
+      "privacy": "Silakan setujui Kebijakan Privasi."
+    },
     "submit": "Minta Demo"
   },
   "footer": {

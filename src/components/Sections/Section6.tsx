@@ -23,6 +23,14 @@ interface ContactFormProps {
         phone: string;
         email: string;
       };
+      errors: {
+        name: string;
+        company: string;
+        phone: string;
+        email: string;
+        emailInvalid: string;
+        privacy: string;
+      };
       privacy: string;
       privacyLink?: string;
       submit: string;
@@ -30,6 +38,8 @@ interface ContactFormProps {
   };
   lang: string;
 }
+
+type FormErrors = Partial<Record<'name' | 'company' | 'phone' | 'email' | 'privacy', string>>;
 
 export default function ContactForm({ dict, lang }: ContactFormProps) {
   const formId = useId();
@@ -42,6 +52,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
     email: '',
     privacy: false,
   });
+  const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
     'idle' | 'success' | 'error'
@@ -59,13 +70,39 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
     }
   };
 
+  const validate = (): FormErrors => {
+    const newErrors: FormErrors = {};
+    const { errors: errMsg } = dict.section6;
+
+    if (!formData.name.trim()) newErrors.name = errMsg.name;
+    if (!formData.company.trim()) newErrors.company = errMsg.company;
+    if (!formData.phone.trim()) newErrors.phone = errMsg.phone;
+    if (!formData.email.trim()) {
+      newErrors.email = errMsg.email;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = errMsg.emailInvalid;
+    }
+    if (!formData.privacy) newErrors.privacy = errMsg.privacy;
+
+    return newErrors;
+  };
+
+  const clearError = (field: keyof FormErrors) => {
+    if (errors[field]) {
+      setErrors((prev) => {
+        const next = { ...prev };
+        delete next[field];
+        return next;
+      });
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.privacy) {
-      alert('Please agree to the privacy policy');
-      return;
-    }
+    const validationErrors = validate();
+    setErrors(validationErrors);
+    if (Object.keys(validationErrors).length > 0) return;
 
     setIsSubmitting(true);
     setSubmitStatus('idle');
@@ -112,12 +149,16 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
     }
   };
 
-  const inputClass = cn(
-    'w-full px-4 py-3 bg-white rounded-2xl',
-    'text-xl text-[#363a5b] placeholder:text-[#bdbdbd]',
-    'tracking-[-0.3px] leading-[1.4]',
-    'focus:outline-none focus:ring-2 focus:ring-[#3e14b4]/30 transition-shadow'
-  );
+  const inputClass = (field: keyof FormErrors) =>
+    cn(
+      'w-full px-4 py-3 bg-white rounded-2xl',
+      'text-xl text-[#363a5b] placeholder:text-[#bdbdbd]',
+      'tracking-[-0.3px] leading-[1.4]',
+      'focus:outline-none focus:ring-2 transition-shadow',
+      errors[field]
+        ? 'ring-2 ring-red-400 focus:ring-red-400'
+        : 'focus:ring-[#3e14b4]/30'
+    );
 
   const labelClass = cn(
     'flex items-center gap-1 px-2',
@@ -186,11 +227,13 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                 muted
                 loop
                 playsInline
+                preload="none"
+                poster="/videos/demoVideo-poster.webp"
                 className="absolute inset-0 w-full h-full object-cover"
                 aria-label="FinProfile service introduction video"
                 onEnded={() => setIsPlaying(false)}
               >
-                <source src="/videos/test-video.mp4" type="video/mp4" />
+                <source src="/videos/demoVideo-optimized.mp4" type="video/mp4" />
                 <p>Your browser does not support video playback.</p>
               </video>
 
@@ -295,14 +338,21 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                     required
                     autoComplete="name"
                     value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
+                    onChange={(e) => {
+                      setFormData({ ...formData, name: e.target.value });
+                      clearError('name');
+                    }}
                     placeholder={dict.section6.placeholders.name}
-                    className={inputClass}
+                    className={inputClass('name')}
                     aria-required="true"
-                    aria-invalid={formData.name === '' ? undefined : false}
+                    aria-invalid={!!errors.name}
+                    aria-describedby={errors.name ? `${formId}-name-error` : undefined}
                   />
+                  {errors.name && (
+                    <p id={`${formId}-name-error`} className="text-sm text-red-500 px-2" role="alert">
+                      {errors.name}
+                    </p>
+                  )}
                 </div>
 
                 {/* Company Field */}
@@ -319,13 +369,21 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                     required
                     autoComplete="organization"
                     value={formData.company}
-                    onChange={(e) =>
-                      setFormData({ ...formData, company: e.target.value })
-                    }
+                    onChange={(e) => {
+                      setFormData({ ...formData, company: e.target.value });
+                      clearError('company');
+                    }}
                     placeholder={dict.section6.placeholders.company}
-                    className={inputClass}
+                    className={inputClass('company')}
                     aria-required="true"
+                    aria-invalid={!!errors.company}
+                    aria-describedby={errors.company ? `${formId}-company-error` : undefined}
                   />
+                  {errors.company && (
+                    <p id={`${formId}-company-error`} className="text-sm text-red-500 px-2" role="alert">
+                      {errors.company}
+                    </p>
+                  )}
                 </div>
 
                 {/* Phone Field */}
@@ -343,13 +401,21 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                     autoComplete="tel"
                     inputMode="tel"
                     value={formData.phone}
-                    onChange={(e) =>
-                      setFormData({ ...formData, phone: e.target.value })
-                    }
+                    onChange={(e) => {
+                      setFormData({ ...formData, phone: e.target.value });
+                      clearError('phone');
+                    }}
                     placeholder={dict.section6.placeholders.phone}
-                    className={inputClass}
+                    className={inputClass('phone')}
                     aria-required="true"
+                    aria-invalid={!!errors.phone}
+                    aria-describedby={errors.phone ? `${formId}-phone-error` : undefined}
                   />
+                  {errors.phone && (
+                    <p id={`${formId}-phone-error`} className="text-sm text-red-500 px-2" role="alert">
+                      {errors.phone}
+                    </p>
+                  )}
                 </div>
 
                 {/* Email Field */}
@@ -367,29 +433,40 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                     autoComplete="email"
                     inputMode="email"
                     value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
+                    onChange={(e) => {
+                      setFormData({ ...formData, email: e.target.value });
+                      clearError('email');
+                    }}
                     placeholder={dict.section6.placeholders.email}
-                    className={inputClass}
+                    className={inputClass('email')}
                     aria-required="true"
+                    aria-invalid={!!errors.email}
+                    aria-describedby={errors.email ? `${formId}-email-error` : undefined}
                   />
+                  {errors.email && (
+                    <p id={`${formId}-email-error`} className="text-sm text-red-500 px-2" role="alert">
+                      {errors.email}
+                    </p>
+                  )}
                 </div>
 
                 {/* Privacy Checkbox */}
-                <div className="flex items-start gap-1">
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-start gap-1">
                   <div className="relative shrink-0 w-6 h-6">
                     <input
                       type="checkbox"
                       id={`${formId}-privacy`}
                       required
                       checked={formData.privacy}
-                      onChange={(e) =>
-                        setFormData({ ...formData, privacy: e.target.checked })
-                      }
+                      onChange={(e) => {
+                        setFormData({ ...formData, privacy: e.target.checked });
+                        clearError('privacy');
+                      }}
                       className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10 peer"
                       aria-required="true"
-                      aria-describedby={`${formId}-privacy-desc`}
+                      aria-invalid={!!errors.privacy}
+                      aria-describedby={`${formId}-privacy-desc${errors.privacy ? ` ${formId}-privacy-error` : ''}`}
                     />
                     <div
                       className={cn(
@@ -448,6 +525,12 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                       *
                     </span>
                   </label>
+                  </div>
+                  {errors.privacy && (
+                    <p id={`${formId}-privacy-error`} className="text-sm text-red-500 px-2" role="alert">
+                      {errors.privacy}
+                    </p>
+                  )}
                 </div>
 
                 {/* Submit Button */}
