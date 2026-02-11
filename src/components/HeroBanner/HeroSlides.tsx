@@ -69,7 +69,7 @@ export function HeroSlide1({ active }: SlideProps) {
           alt=""
           width={2878}
           height={1920}
-          quality={90}
+
           priority
           className="w-full h-full object-cover"
         />
@@ -89,7 +89,7 @@ export function HeroSlide1({ active }: SlideProps) {
           alt=""
           width={152}
           height={189}
-          quality={90}
+
           className="w-[152px]"
         />
       </El>
@@ -107,7 +107,7 @@ export function HeroSlide1({ active }: SlideProps) {
           alt=""
           width={172}
           height={221}
-          quality={90}
+
           className="w-[172px]"
         />
       </El>
@@ -125,7 +125,7 @@ export function HeroSlide1({ active }: SlideProps) {
           alt=""
           width={166}
           height={217}
-          quality={90}
+
           className="w-[166px]"
         />
       </El>
@@ -144,7 +144,7 @@ export function HeroSlide1({ active }: SlideProps) {
           alt=""
           width={152}
           height={189}
-          quality={90}
+
           className="w-[152px]"
         />
       </El>
@@ -162,7 +162,7 @@ export function HeroSlide1({ active }: SlideProps) {
           alt=""
           width={273}
           height={310}
-          quality={90}
+
           priority
           className="w-[273px]"
         />
@@ -181,7 +181,7 @@ export function HeroSlide1({ active }: SlideProps) {
           alt=""
           width={172}
           height={221}
-          quality={90}
+
           className="w-[172px]"
         />
       </El>
@@ -200,7 +200,7 @@ export function HeroSlide1({ active }: SlideProps) {
           alt=""
           width={162}
           height={162}
-          quality={90}
+
           className="w-[172px]"
         />
       </El>
@@ -224,7 +224,7 @@ export function HeroSlide2({ active }: SlideProps) {
           alt=""
           width={2878}
           height={1920}
-          quality={90}
+
           loading="lazy"
           className="w-full h-full object-cover"
         />
@@ -243,7 +243,7 @@ export function HeroSlide2({ active }: SlideProps) {
           alt=""
           width={546}
           height={680}
-          quality={90}
+
           loading="lazy"
           className="w-[546px]"
         />
@@ -261,7 +261,7 @@ export function HeroSlide2({ active }: SlideProps) {
           alt=""
           width={233}
           height={233}
-          quality={90}
+
           loading="lazy"
           className="w-[233px]"
         />
@@ -279,7 +279,7 @@ export function HeroSlide2({ active }: SlideProps) {
           alt=""
           width={157}
           height={73}
-          quality={90}
+
           loading="lazy"
           className="w-[157px]"
         />
@@ -297,7 +297,7 @@ export function HeroSlide2({ active }: SlideProps) {
           alt=""
           width={405}
           height={624}
-          quality={90}
+
           loading="lazy"
           sizes="405px"
         />
@@ -316,7 +316,7 @@ export function HeroSlide2({ active }: SlideProps) {
           alt=""
           width={119}
           height={133}
-          quality={90}
+
           loading="lazy"
           sizes="119px"
         />
@@ -341,7 +341,7 @@ export function HeroSlide3({ active }: SlideProps) {
           alt=""
           width={2878}
           height={1920}
-          quality={90}
+
           loading="lazy"
           className="w-full h-full object-cover"
         />
@@ -361,7 +361,7 @@ export function HeroSlide3({ active }: SlideProps) {
           alt=""
           width={45}
           height={56}
-          quality={90}
+
           loading="lazy"
           className="w-[45px]"
         />
@@ -381,7 +381,7 @@ export function HeroSlide3({ active }: SlideProps) {
           alt=""
           width={40}
           height={25}
-          quality={90}
+
           loading="lazy"
           className="w-[40px]"
         />
@@ -401,7 +401,7 @@ export function HeroSlide3({ active }: SlideProps) {
           alt=""
           width={233}
           height={204}
-          quality={90}
+
           loading="lazy"
           className="w-[233px]"
         />
@@ -419,7 +419,7 @@ export function HeroSlide3({ active }: SlideProps) {
           alt=""
           width={548}
           height={489}
-          quality={90}
+
           loading="lazy"
           className="w-[548px]"
         />
@@ -438,7 +438,7 @@ export function HeroSlide3({ active }: SlideProps) {
           alt=""
           width={126}
           height={126}
-          quality={90}
+
           loading="lazy"
           className="w-[126px]"
         />

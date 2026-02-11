@@ -83,7 +83,6 @@ export default function Header({ dict }: HeaderProps) {
             alt="FinProfile"
             width={113}
             height={24}
-            quality={90}
             priority
           />
         </a>

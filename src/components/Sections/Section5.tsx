@@ -47,7 +47,10 @@ export default function Team({ dict }: TeamProps) {
         )}
       >
         {/* Decorative gradient orbs (replaces expensive blur filter) */}
-        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div
+          className="absolute inset-0 pointer-events-none"
+          aria-hidden="true"
+        >
           <div
             className="absolute"
             style={{
@@ -55,7 +58,8 @@ export default function Team({ dict }: TeamProps) {
               height: '912px',
               right: '-456px',
               top: '-456px',
-              background: 'radial-gradient(circle, #C3C2FF 0%, transparent 70%)',
+              background:
+                'radial-gradient(circle, #C3C2FF 0%, transparent 70%)',
             }}
           />
           <div
@@ -65,7 +69,8 @@ export default function Team({ dict }: TeamProps) {
               height: '912px',
               left: '-456px',
               bottom: '-456px',
-              background: 'radial-gradient(circle, #D2F9EA 0%, transparent 70%)',
+              background:
+                'radial-gradient(circle, #D2F9EA 0%, transparent 70%)',
             }}
           />
         </div>
@@ -90,135 +95,143 @@ export default function Team({ dict }: TeamProps) {
             aria-label="Team members"
           >
             {dict.section5.members.map((member, index) => (
-              <ScrollReveal key={index} delay={index * 150} className="flex-1 max-w-[307px]">
-              <article
-                className={cn(
-                  'flex flex-col gap-10 h-full',
-                  index < 2 && 'self-stretch'
-                )}
-                role="listitem"
+              <ScrollReveal
+                key={index}
+                delay={index * 150}
+                className="flex-1 max-w-[307px]"
               >
-                {/* Profile Card */}
-                <div className="h-[260px] relative overflow-hidden">
-                  {/* Purple Gradient Bar */}
-                  <div
-                    className="absolute left-0 top-0 bottom-0 w-[140px] rounded-2xl"
-                    style={{
-                      background: index === 0 ? GRADIENT_RADIAL : GRADIENT_DUAL,
-                    }}
-                    aria-hidden="true"
-                  />
-
-                  {/* Profile Image */}
-                  <figure className="absolute left-[11px] top-[17px] w-[173px] bottom-0">
-                    <Image
-                      src={memberImages[index] || '/images/team/people-01.webp'}
-                      alt={member.name}
-                      fill
-                      sizes="173px"
-                      quality={90}
-                      className="object-cover"
+                <article
+                  className={cn(
+                    'flex flex-col gap-10 h-full',
+                    index < 2 && 'self-stretch'
+                  )}
+                  role="listitem"
+                >
+                  {/* Profile Card */}
+                  <div className="h-[260px] relative overflow-hidden">
+                    {/* Purple Gradient Bar */}
+                    <div
+                      className="absolute left-0 top-0 bottom-0 w-[140px] rounded-2xl"
+                      style={{
+                        background:
+                          index === 0 ? GRADIENT_RADIAL : GRADIENT_DUAL,
+                      }}
+                      aria-hidden="true"
                     />
-                  </figure>
 
-                  {/* Logo & Info */}
-                  <div className="absolute left-[188px] top-0 flex flex-col">
-                    {/* Logo */}
-                    <div className="h-4 mb-[49px]">
+                    {/* Profile Image */}
+                    <figure className="absolute left-[11px] top-[17px] w-[173px] bottom-0">
                       <Image
-                        src="/images/common/logos/logo.svg"
-                        alt="FinProfile"
-                        width={75}
-                        height={16}
-                        quality={90}
-                      />
-                    </div>
+                        src={
+                          memberImages[index] || '/images/team/people-01.webp'
+                        }
+                        alt={member.name}
+                        fill
+                        sizes="173px"
 
-                    {/* Role & Name */}
-                    <div className="flex flex-col gap-1">
-                      <p
-                        className={cn(
-                          'text-base text-[#363a5b] font-medium font-poppins',
-                          'leading-[1.4] tracking-[-0.24px]'
-                        )}
-                      >
-                        {member.role}
-                      </p>
-                      <h3
-                        className={cn(
-                          'text-2xl font-medium text-[#363a5b] font-poppins',
-                          'leading-[1.2] tracking-[-0.36px] whitespace-pre-line'
-                        )}
-                      >
-                        {member.name}
-                      </h3>
-                      {member.koreanName && (
+                        className="object-cover"
+                      />
+                    </figure>
+
+                    {/* Logo & Info */}
+                    <div className="absolute left-[188px] top-0 flex flex-col">
+                      {/* Logo */}
+                      <div className="h-[16px] mb-[49px]">
+                        <Image
+                          src="/images/common/logos/logo.svg"
+                          alt="FinProfile"
+                          width={75}
+                          height={16}
+  
+                          className="h-[16px] w-auto"
+                        />
+                      </div>
+
+                      {/* Role & Name */}
+                      <div className="flex flex-col gap-1">
                         <p
                           className={cn(
-                            'text-sm text-[#7a7a7a] font-medium font-poppins',
-                            'leading-[1.4] tracking-[-0.21px]'
+                            'text-base text-[#363a5b] font-medium font-poppins',
+                            'leading-[1.4] tracking-[-0.24px]'
                           )}
                         >
-                          ({member.koreanName})
+                          {member.role}
                         </p>
-                      )}
+                        <h3
+                          className={cn(
+                            'text-2xl font-medium text-[#363a5b] font-poppins',
+                            'leading-[1.2] tracking-[-0.36px] whitespace-pre-line'
+                          )}
+                        >
+                          {member.name}
+                        </h3>
+                        {member.koreanName && (
+                          <p
+                            className={cn(
+                              'text-sm text-[#7a7a7a] font-medium font-poppins',
+                              'leading-[1.4] tracking-[-0.21px]'
+                            )}
+                          >
+                            ({member.koreanName})
+                          </p>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Description */}
-                <p
-                  className={cn(
-                    'flex-1 text-lg text-[#363a5b] font-poppins',
-                    'leading-[1.3] tracking-[-0.27px]'
-                  )}
-                >
-                  {member.description}
-                </p>
+                  {/* Description */}
+                  <p
+                    className={cn(
+                      'flex-1 text-lg text-[#363a5b] font-poppins',
+                      'leading-[1.3] tracking-[-0.27px]'
+                    )}
+                  >
+                    {member.description}
+                  </p>
 
-                {/* Tags */}
-                <div
-                  className="flex flex-wrap gap-3"
-                  role="list"
-                  aria-label={`${member.name}'s expertise`}
-                >
-                  {member.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className={cn(
-                        'px-4 py-1.5 bg-[#f0f5ff] rounded-lg',
-                        'text-base text-[#363a5b] font-medium font-poppins',
-                        'leading-[1.3] tracking-[-0.24px]'
-                      )}
-                      role="listitem"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                  {/* Tags */}
+                  <div
+                    className="flex flex-wrap gap-3"
+                    role="list"
+                    aria-label={`${member.name}'s expertise`}
+                  >
+                    {member.tags.map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                        className={cn(
+                          'px-4 py-1.5 bg-[#f0f5ff] rounded-lg',
+                          'text-base text-[#363a5b] font-medium font-poppins',
+                          'leading-[1.3] tracking-[-0.24px]'
+                        )}
+                        role="listitem"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
 
-                {/* LinkedIn Button */}
-                <a
-                  href={member.linkedInUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cn(
-                    'h-14 w-fit flex items-center gap-2 pl-8 pr-6',
-                    'bg-[#363a5b] text-white rounded-full',
-                    'shadow-[0px_8px_24px_0px_rgba(62,20,180,0.2)]',
-                    'font-poppins font-bold text-[15px] leading-[1.4]',
-                    'hover:bg-[#2d3049] transition-colors',
-                    'focus:outline-none focus:ring-2 focus:ring-[#3b3f61] focus:ring-offset-2',
-                    'relative',
-                    'after:content-[""] after:w-6 after:h-6 after:ml-2',
-                    'after:bg-[url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M12.7505%206L18.7519%2012.0014L12.7505%2018.0028%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M18.7531%2011.9999L5.25%2012%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E")]',
-                    'after:bg-no-repeat after:bg-center after:bg-contain'
-                  )}
-                  aria-label={`View ${member.name}'s LinkedIn profile`}
-                >
-                  {dict.section5.linkedIn}
-                </a>
-              </article>
+                  {/* LinkedIn Button */}
+                  <a
+                    href={member.linkedInUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(
+                      'h-14 w-fit flex items-center gap-2 pl-8 pr-6',
+                      'bg-[#363a5b] text-white rounded-full',
+                      'shadow-[0px_8px_24px_0px_rgba(62,20,180,0.2)]',
+                      'font-poppins font-bold text-[15px] leading-[1.4]',
+                      'hover:bg-[#2d3049] transition-colors',
+                      'focus:outline-none focus:ring-2 focus:ring-[#3b3f61] focus:ring-offset-2',
+                      'relative',
+                      'after:content-[""] after:w-6 after:h-6 after:ml-2',
+                      'after:bg-[url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M12.7505%206L18.7519%2012.0014L12.7505%2018.0028%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M18.7531%2011.9999L5.25%2012%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E")]',
+                      'after:bg-no-repeat after:bg-center after:bg-contain'
+                    )}
+                    aria-label={`View ${member.name}'s LinkedIn profile`}
+                  >
+                    {dict.section5.linkedIn}
+                  </a>
+                </article>
               </ScrollReveal>
             ))}
           </div>

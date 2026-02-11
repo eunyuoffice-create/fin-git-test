@@ -303,7 +303,7 @@ export default function Section2CreditReview({ dict }: Section2Props) {
                       alt=""
                       width={45}
                       height={32}
-                      quality={90}
+
                       className="object-contain"
                     />
                   </i>
@@ -313,7 +313,7 @@ export default function Section2CreditReview({ dict }: Section2Props) {
                       alt=""
                       width={38}
                       height={47}
-                      quality={90}
+
                       className="object-contain"
                     />
                   </i>
@@ -323,7 +323,7 @@ export default function Section2CreditReview({ dict }: Section2Props) {
                       alt=""
                       width={86}
                       height={110}
-                      quality={90}
+
                       className="object-contain"
                     />
                   </i>
@@ -333,7 +333,7 @@ export default function Section2CreditReview({ dict }: Section2Props) {
                       alt=""
                       width={63}
                       height={63}
-                      quality={90}
+
                       className="object-contain"
                     />
                   </i>
