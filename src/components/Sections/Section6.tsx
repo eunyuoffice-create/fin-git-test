@@ -198,7 +198,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
           >
             <figure
               className={cn(
-                'relative w-full aspect-[4/3]',
+                'relative w-full aspect-video',
                 'bg-[#d9d9d9] rounded-3xl overflow-hidden'
               )}
               role="group"
