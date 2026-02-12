@@ -19,13 +19,13 @@
     "cta": "Minta Demo",
     "slides": [
       {
-        "text": "Validasi pemalsuan rekening koran & persyaratan pengajuan dalam 30 detik."
+        "text": "Validasi Pemalsuan & Persyaratan\nPengajuan Rekening Koran dalam 30 detik."
       },
       {
-        "text": "Laporan keuangan setara laporan laba rugi"
+        "text": "Inteligensi Setara Laporan Laba Rugi dalam 5\nMenit: Dari Data Rekening Koran Mentah\nke Insight Siap Keputusan."
       },
       {
-        "text": "Rekonsiliasi bukti pembiayaan rantai pasok dalam hitungan detik."
+        "text": "Due Diligence Pembiayaan\nRantai Pasok (SCF) Otonom:\nRekonsiliasi Bukti dalam Hitungan Detik"
       }
     ]
   },
@@ -38,61 +38,67 @@
       "title": "Realitas keuangan\nyang tidak dapat diverifikasi"
     },
     "bankStatement": {
-      "line1": "Satu-satunya yang bisa dipercaya adalah",
-      "line2": "Rekening Koran"
+      "line1": "Satu-satunya data yang bisa dipercaya adalah",
+      "line2": " \"Rekening Koran\" yang menunjukkan status keuangan sebenarnya"
     },
     "timeConsuming": "Memakan waktu dan mahal",
     "but": "Namun",
-    "experienceTitle": "Rasakan FinProfile"
+    "experienceTitle": "Rasakan FinSight AI"
   },
   "section2": {
-    "title": "Revolusi Tinjauan Kredit\ndengan Otomatisasi AI",
+    "title": "Dapatkan Visibilitas Kredit Penuh Hanya dengan Rekening Koran\ndalam 5 Menit dengan Kecepatan AI Agentik",
     "finsightAI": "FinSight AI",
     "manual": {
       "perLoan": "Per Pengajuan Pinjaman",
       "timeValue": "5",
       "timeUnit": "hari+",
-      "timeDetail": "= 7.200 menit",
+      "timeDetail": "kerja manual",
+      "descriptionTitle": "Pemrosesan manual 1.000+ halaman per pinjaman yang melibatkan",
       "descriptions": [
-        "Memerlukan analisis 6.000 hingga 20.000 transaksi dan klasifikasi atribut secara manual",
-        "Tidak mampu menjamin biaya pengelolaan"
+        "pelabelan berulang",
+        "risiko kesalahan tinggi",
+        "biaya operasional\nyang signifikan"
       ]
     },
     "ai": {
       "perLoan": "Per Pengajuan Pinjaman",
       "timeValue": "5",
       "timeUnit": "menit",
-      "description": "AI secara otomatis memverifikasi unggahan dan menyarankan persyaratan tinjauan"
+      "timeDetail": "Presisi Agentik",
+      "descriptionTitle": "Alur kerja otonom end-to-end yang menguasai rekening koran berbulan-bulan",
+      "descriptions": ["dalam waktu kurang dari 5 menit", "dengan akurasi tanpa kompromi"]
     }
   },
   "section3": {
     "items": [
       {
         "badge": "AI Sadar Konteks",
-        "title": "Analisis Berbasis Transaksi,\nBukan Berbasis Aturan",
-        "description": "Analisis dengan akurasi 95% didukung oleh kategorisasi transaksi otomatis dan analisis pihak lawan"
+        "title": "Melampaui Berbasis Aturan: AI Agent Penalaran Sadar Konteks",
+        "description": "Melampaui sistem berbasis aturan yang kaku untuk memahami \"mengapa\" suatu transaksi terjadi:\nmembedakan inventaris bisnis dari pengeluaran pribadi."
       },
       {
         "badge": "AI Pra-Verifikasi",
-        "title": "Tinjauan satu klik\nuntuk pemeriksaan manual yang rumit",
-        "description": "Tidak perlu memverifikasi setiap persyaratan satu per satu — AI mengonfirmasi kepatuhan pengajuan dalam hitungan detik."
+        "title": "Validasi Pengajuan Satu Klik: Tanpa Upaya Manual untuk Validasi Kompleks",
+        "description": "Berhenti membuka file satu per satu; AI agent kami langsung mengaudit setiap pengajuan untuk keaslian dan kepatuhan, memberikan umpan balik real-time untuk menunjukkan persyaratan yang hilang dan mengurangi churn pemohon."
       },
       {
         "badge": "Presisi Melampaui Manusia",
-        "title": "Deteksi Penipuan dan\nManipulasi secara Presisi",
-        "description": "FinSight AI menghilangkan kebutuhan tinjauan transaksi manual satu per satu dengan mendeteksi tanda-tanda penipuan dan manipulasi data secara otomatis dan akurat."
+        "title": "Inteligensi Fraud Adversarial: Menguasai 'DNA' Rekening Koran Asli",
+        "description": "AI agent kami mengidentifikasi transaksi 'mustahil' yang halus dan cacat logika yang bahkan pemalsuan paling sempurna pun tidak bisa sembunyikan.\n\nMelampaui Pengawasan Manusia: Sementara mata manusia melihat dokumen, agent kami melihat inkonsistensi struktural yang mengungkap bahwa file telah dimanipulasi."
       },
       {
         "badge": "AI Keuangan Spesifik Negara",
-        "title": "Memahami Indonesia,\ndengan Indonesia",
-        "description": "Dilatih dengan jutaan transaksi, FinSight AI memberikan wawasan transaksi yang presisi dan spesifik untuk setiap negara."
+        "title": "AI Agent Hyper-Lokal: Menguasai Konteks Keuangan Indonesia",
+        "description": "Didukung oleh database pengetahuan proprietari yang menguasai nuansa unik dari setiap kata kunci rahasia institusi keuangan Indonesia."
       }
     ]
   },
   "section4": {
-    "title": "Bagaimana Perusahaan\nMentransformasi Alur Kerja\ndengan FinSight AI",
+    "title": "Transformasi Agentik:\nKisah Sukses dalam Pembiayaan Berbasis AI",
     "items": [
       {
+        "icon": "/images/common/icons/icon-hana.webp",
+        "color": "",
         "company": "Sinarmas Hana Finance",
         "industry": "Multi-finance konglomerat Indonesia",
         "quotes": [
@@ -103,6 +109,7 @@
       {
         "name": "Analis Kredit Z",
         "initial": "Z",
+        "color": "#5864B1",
         "company": "Penyedia Kredit UMKM Asia Tenggara",
         "quotes": [
           "FinSight AI telah menjadi pengubah permainan untuk alur kerja kami. Secara drastis mengurangi waktu analisis, memungkinkan keputusan kredit yang lebih cepat dan akurat serta peningkatan waktu penyelesaian.",
@@ -113,6 +120,7 @@
       {
         "name": "CTO D",
         "initial": "D",
+        "color": "#58B195",
         "company": "Platform pinjaman P2P Indonesia",
         "quotes": [
           "FinSight AI membuka peluang pasar 'pinjaman digital tiket kecil hingga menengah 30 menit' untuk kami — segmen yang sebelumnya tidak terjangkau karena tingginya biaya pemrosesan.",
@@ -122,7 +130,7 @@
     ]
   },
   "section5": {
-    "title": "FinProfile People",
+    "title": "Para Visioner\nyang Menggerakkan Revolusi Kredit AI",
     "members": [
       {
         "name": "Cruz\nYoon",
@@ -134,15 +142,22 @@
           "Pimpinan Bisnis Global",
           "Bisnis Baru & Investasi"
         ],
-        "linkedInUrl": "https://www.linkedin.com/in/cruzyoon"
+        "linkedInUrl": "https://www.linkedin.com/in/cruzyoon",
+        "imgsize": {
+          "width": 193,
+          "height": 249
+        }
       },
       {
         "name": "Chang ho\nMoon",
-        "koreanName": "Jae Ho Yoon",
         "role": "CTO",
-        "description": "Full-stack Engineer dengan pengalaman 10 tahun. Peringkat ke-4 dalam Kompetisi Keterampilan IT Nasional.",
+        "description": "Full-stack Engineer dengan\npengalaman 10 tahun.\nPeringkat ke-4 dalam Kompetisi Keterampilan IT Nasional",
         "tags": ["Arsitektur Sistem", "Strategi Teknis", "Pengalaman 10+ Tahun"],
-        "linkedInUrl": "https://www.linkedin.com/in/ggochang"
+        "linkedInUrl": "https://www.linkedin.com/in/ggochang",
+        "imgsize": {
+          "width": 205,
+          "height": 258
+        }
       },
       {
         "name": "Jannele\nShin",
@@ -154,26 +169,40 @@
           "Strategi Produk",
           "Spesialis Startup"
         ],
-        "linkedInUrl": "https://www.linkedin.com/in/eunjung-shin-8075a129"
+        "linkedInUrl": "https://www.linkedin.com/in/eunjung-shin-8075a129",
+        "imgsize": {
+          "width": 186,
+          "height": 243
+        }
       }
     ],
     "linkedIn": "LinkedIn"
   },
   "section6": {
-    "title": "Mulai dengan FinSight AI",
-    "subtitle": "Pesan demo",
+    "title": "Siap Menerapkan AI Underwriting\nAgent Anda?",
+    "subtitle": "Minta Demo",
     "required": "* Wajib",
     "fields": {
       "name": "Nama",
       "company": "Perusahaan",
-      "phone": "Nomor Telepon",
-      "email": "Email"
+      "phone": "Whatsapp atau Nomor Telepon",
+      "email": "Email kerja"
     },
     "placeholders": {
       "name": "Budi Santoso",
-      "company": "Perusahaan",
+      "company": "Nama Perusahaan",
       "phone": "+62 812-3456-7890",
       "email": "finprofile@gmail.com"
+    },
+    "lookingFor": {
+      "label": "Saya mencari",
+      "options": [
+        "Analisis Rekening Koran untuk Individu",
+        "Analisis Rekening Koran untuk UMKM & Perusahaan",
+        "Pengenalan Dokumen Bisnis",
+        "Lainnya"
+      ],
+      "othersPlaceholder": "Tulis di sini..."
     },
     "privacy": "Saya menyetujui Kebijakan Privasi dan memberikan persetujuan untuk pemrosesan data pribadi saya untuk tujuan demo produk dan komunikasi pemasaran.",
     "errors": {
@@ -181,10 +210,72 @@
       "company": "Silakan masukkan nama perusahaan Anda.",
       "phone": "Silakan masukkan nomor telepon Anda.",
       "email": "Silakan masukkan email Anda.",
-      "emailInvalid": "Silakan masukkan alamat email yang valid.",
+      "emailInvalid": "Format email salah. example@yourdomain.com",
       "privacy": "Silakan setujui Kebijakan Privasi."
     },
     "submit": "Minta Demo"
+  },
+  "terms": {
+    "privacyNotice": {
+      "title": "Pemberitahuan Privasi",
+      "intro": {
+        "subtitle": "Pemberitahuan Privasi untuk Permintaan Demo",
+        "lastUpdated": "Terakhir Diperbarui: 1 Februari 2026",
+        "description": "Untuk memberikan pengalaman demo terbaik, FinProfile Co., Ltd. (\"kami\") mengumpulkan dan memproses data pribadi Anda sesuai dengan undang-undang perlindungan data global."
+      },
+      "sections": [
+        {
+          "title": "Data yang Kami Kumpulkan",
+          "items": [
+            "Info Kontak: Nama, alamat email, nomor telepon.",
+            "Info Profesional: Nama perusahaan, jabatan, industri.",
+            "Minat: Solusi atau fitur spesifik yang Anda minati."
+          ]
+        },
+        {
+          "title": "Tujuan Pengumpulan",
+          "items": [
+            "Untuk menjadwalkan dan melaksanakan demo produk yang diminta.",
+            "Untuk memberikan informasi yang dipersonalisasi tentang layanan kami.",
+            "Untuk menindaklanjuti dengan komunikasi pemasaran dan penjualan yang relevan. (Anda dapat berhenti berlangganan kapan saja)"
+          ]
+        },
+        {
+          "title": "Dasar Hukum",
+          "items": [
+            "Kami memproses data Anda berdasarkan persetujuan eksplisit Anda dan kepentingan sah kami dalam menyediakan layanan yang Anda minta."
+          ]
+        },
+        {
+          "title": "Penyimpanan & Pembagian Data",
+          "items": [
+            "Penyimpanan: Kami menyimpan data Anda hanya selama diperlukan untuk memenuhi tujuan yang disebutkan di atas atau sebagaimana diwajibkan oleh hukum.",
+            "Pembagian: Kami tidak menjual data Anda. Kami tidak membagikan data dan menggunakannya semata-mata untuk tujuan yang dinyatakan di atas."
+          ]
+        },
+        {
+          "title": "Hak Anda",
+          "description": "Terlepas dari lokasi Anda, Anda memiliki hak untuk:",
+          "items": [
+            "Mengakses, memperbaiki, atau menghapus data pribadi Anda.",
+            "Menarik persetujuan kapan saja.",
+            "Membatasi atau menolak pemrosesan data."
+          ]
+        },
+        {
+          "title": "Transfer Internasional",
+          "items": [
+            "Karena kami beroperasi secara global, data Anda mungkin ditransfer ke dan diproses di negara-negara di luar tempat tinggal Anda. Kami memastikan semua transfer mematuhi standar perlindungan yang berlaku."
+          ]
+        },
+        {
+          "title": "Hubungi Kami",
+          "items": [
+            "Untuk pertanyaan terkait privasi, silakan hubungi kami di: hello@finprofile.id"
+          ]
+        }
+      ]
+    }
   },
   "footer": {
     "termsOfUse": "Ketentuan Penggunaan",

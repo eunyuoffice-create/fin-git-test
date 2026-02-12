@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import ScrollReveal from '@/components/ScrollReveal';
+import SectionTitle from '@/components/common/SectionTitle';
 import Image from 'next/image';
 function CountUp({
   target,
@@ -215,15 +216,9 @@ export default function Section2CreditReview({ dict }: Section2Props) {
       <div className={cn('flex flex-col', 'items-center relative z-10')}>
         {/* Title */}
         <ScrollReveal>
-          <h2
-            id="section2-title"
-            className={cn(
-              'text-[32px] font-medium text-[#363a5b] text-center',
-              'leading-[1.3] tracking-[-0.48px] font-poppins whitespace-pre-wrap'
-            )}
-          >
+          <SectionTitle id="section2-title" size="sm">
             {dict.section2.title}
-          </h2>
+          </SectionTitle>
         </ScrollReveal>
         {/* Spacer for background image height */}
         <div

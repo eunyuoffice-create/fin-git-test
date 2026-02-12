@@ -1,6 +1,7 @@
 import { cn } from '@/lib/utils';
 import ScrollReveal from '@/components/ScrollReveal';
-import TeamMemberCard, { type TeamMember } from './TeamMemberCard';
+import SectionTitle from '@/components/common/SectionTitle';
+import TeamMemberCard, { type TeamMember } from '../team/TeamMemberCard';
 
 interface TeamProps {
   dict: {
@@ -65,15 +66,9 @@ export default function Team({ dict }: TeamProps) {
 
         <div className="relative z-10 w-full">
           <ScrollReveal>
-            <h2
-              id="team-title"
-              className={cn(
-                'text-[40px] font-medium text-[#363a5b] text-center w-full',
-                'leading-[1.3] tracking-[-0.6px] font-poppins whitespace-pre-wrap'
-              )}
-            >
+            <SectionTitle id="team-title" className="w-full">
               {dict.section5.title}
-            </h2>
+            </SectionTitle>
           </ScrollReveal>
 
           <div

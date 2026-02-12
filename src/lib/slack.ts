@@ -59,6 +59,17 @@ export async function sendSlackNotification(data: ContactFormRequest): Promise<v
     ],
   };
 
+  // Add Looking For if provided
+  if (data.lookingFor && data.lookingFor.length > 0) {
+    message.blocks.push({
+      type: 'section',
+      text: {
+        type: 'mrkdwn',
+        text: `*Looking For:*\n${data.lookingFor.map((item) => `• ${item}`).join('\n')}`,
+      },
+    });
+  }
+
   // Add Business Needs if provided
   if (data.needs) {
     message.blocks.push({

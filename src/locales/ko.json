@@ -19,13 +19,13 @@
     "cta": "데모 요청",
     "slides": [
       {
-        "text": "30초 만에 은행 거래내역 위변조 탐지 및 제출 요건 검증 완료."
+        "text": "30초 만에 은행 거래내역 위변조 탐지 및\n제출 요건 검증 완료."
       },
       {
-        "text": "손익계산서 수준의 재무 보고서"
+        "text": "5분 만에 손익계산서 수준의 인텔리전스:\n원시 은행 거래내역 데이터에서\n의사결정 가능한 인사이트로."
       },
       {
-        "text": "공급망 금융 증빙 대사를 수 초 만에 완료."
+        "text": "자율 공급망 금융(SCF)\n실사: 수 초 만에\n증빙 대사 완료"
       }
     ]
   },
@@ -38,71 +38,78 @@
       "title": "검증할 수 없는\n재무 실태"
     },
     "bankStatement": {
-      "line1": "신뢰할 수 있는 유일한 것은",
-      "line2": "은행 거래 내역서"
+      "line1": "신뢰할 수 있는 유일한 데이터는",
+      "line2": " 진정한 재무 상태를 알려주는 \"은행 거래내역서\""
     },
     "timeConsuming": "시간이 오래 걸리고 비용이 많이 듭니다",
     "but": "하지만",
-    "experienceTitle": "FinProfile을 경험하세요"
+    "experienceTitle": "FinSight AI를 경험하세요"
   },
   "section2": {
-    "title": "AI 자동화로\n신용 심사를 혁신하세요",
+    "title": "은행 거래내역서 하나로 5분 만에\n에이전틱 AI 속도로 완전한 신용 가시성 확보",
     "finsightAI": "FinSight AI",
     "manual": {
       "perLoan": "대출 건당",
       "timeValue": "5",
       "timeUnit": "일+",
-      "timeDetail": "= 7,200분",
+      "timeDetail": "수작업 소요",
+      "descriptionTitle": "대출 건당 1,000페이지 이상의 수동 처리 과정",
       "descriptions": [
-        "6,000~20,000건의 거래 분석 및 수동 속성 분류 필요",
-        "관리 비용 확보 불가"
+        "반복적인 라벨링",
+        "높은 오류 위험",
+        "상당한 운영\n오버헤드"
       ]
     },
     "ai": {
       "perLoan": "대출 건당",
       "timeValue": "5",
       "timeUnit": "분",
-      "description": "AI가 자동으로 업로드를 검증하고 심사 요건을 제안합니다"
+      "timeDetail": "에이전틱 정밀도",
+      "descriptionTitle": "수개월치 은행 거래내역을 마스터하는 엔드투엔드 자율 워크플로우",
+      "descriptions": ["5분 이내 완료", "타협 없는 정확도"]
     }
   },
   "section3": {
     "items": [
       {
         "badge": "문맥 인식 AI",
-        "title": "규칙 기반이 아닌,\n거래 인식 분석",
-        "description": "거래 상대방 분석 및 자동 거래 분류를 통한 95% 정확도의 분석"
+        "title": "규칙 기반을 넘어서: 문맥 인식 추론 AI 에이전트",
+        "description": "경직된 규칙 기반 시스템을 넘어 거래가 \"왜\" 발생했는지 이해합니다:\n사업 재고와 개인 지출을 구분합니다."
       },
       {
         "badge": "사전 검증 AI",
-        "title": "복잡한 수동 검토를\n원클릭으로",
-        "description": "요건을 하나하나 확인할 필요 없이, AI가 수 초 만에 제출 적합성을 확인합니다."
+        "title": "원클릭 제출 검증: 복잡한 검증에 수동 노력 제로",
+        "description": "파일을 하나하나 열어볼 필요 없이, AI 에이전트가 모든 제출물의 진위성과 적합성을 즉시 감사하여 누락된 요건을 실시간으로 정확히 짚어내고 신청자 이탈을 줄입니다."
       },
       {
         "badge": "인간을 초월하는 정밀도",
-        "title": "사기 및 데이터\n조작 정밀 탐지",
-        "description": "FinSight AI는 거래 건별 수동 검토 없이도 사기 및 데이터 조작 징후를 정확하게 자동 탐지합니다."
+        "title": "적대적 사기 인텔리전스: 진본 거래내역서의 'DNA'를 마스터",
+        "description": "AI 에이전트가 가장 완벽한 위조 문서도 숨길 수 없는 미묘한 '불가능한' 거래와 논리적 결함을 식별합니다.\n\n인간 감독을 넘어서: 사람의 눈에는 문서로 보이지만, AI 에이전트는 파일이 변조되었음을 드러내는 구조적 불일치를 봅니다."
       },
       {
         "badge": "국가 특화 금융 AI",
-        "title": "인도네시아를\n인도네시아로 이해하다",
-        "description": "수백만 건의 거래 데이터를 학습한 FinSight AI가 국가별 맞춤 거래 인사이트를 제공합니다."
+        "title": "하이퍼로컬 AI 에이전트: 인도네시아 금융의 맥락을 마스터",
+        "description": "인도네시아 모든 금융기관의 고유한 뉘앙스를 마스터한 독자적 지식 데이터베이스로 구동됩니다."
       }
     ]
   },
   "section4": {
-    "title": "FinSight AI로\n업무를 혁신하고 있는\n기업들",
+    "title": "에이전틱 트랜스포메이션:\nAI 기반 금융의 성공 사례",
     "items": [
       {
+        "icon": "/images/common/icons/icon-hana.webp",
+        "color": "",
         "company": "Sinarmas Hana Finance",
         "industry": "인도네시아 대기업 계열 종합금융사",
         "quotes": [
-          "전문가가 3일 걸려 수동으로 매출채권 목록과 은행 거래 내역서를 대사하던 작업을, FinSight AI는 1분 이내에 더 높은 정확도로 완료합니다.",
+          "전문가가 3일 걸려 수동으로 매출채권 목록과 은행 거래내역서를 대사하던 작업을, FinSight AI는 1분 이내에 더 높은 정확도로 완료합니다.",
           "수동 검토에서 자주 놓치는 거래까지 감지합니다. 이 변화 덕분에 우리 팀은 데이터 처리 대신 고부가가치 의사결정에 집중할 수 있게 되었고, 공급망 금융 사업을 적극적으로 확장할 수 있는 민첩성을 갖추게 되었습니다."
         ]
       },
       {
         "name": "신용 분석가 Z",
         "initial": "Z",
+        "color": "#5864B1",
         "company": "동남아 MSME 신용 제공사",
         "quotes": [
           "FinSight AI는 우리 워크플로우의 게임 체인저입니다. 분석 시간을 획기적으로 줄여, 더 빠르고 정확한 신용 판단과 처리 시간 개선을 가능하게 했습니다.",
@@ -113,6 +120,7 @@
       {
         "name": "CTO D",
         "initial": "D",
+        "color": "#58B195",
         "company": "인도네시아 P2P 대출 플랫폼",
         "quotes": [
           "FinSight AI는 높은 처리 비용 때문에 접근 불가능했던 '30분 디지털 중소규모 대출' 시장 기회를 열어주었습니다.",
@@ -122,7 +130,7 @@
     ]
   },
   "section5": {
-    "title": "FinProfile People",
+    "title": "AI 신용 혁명을 이끄는\n비전의 리더들",
     "members": [
       {
         "name": "Cruz\nYoon",
@@ -130,15 +138,23 @@
         "role": "CEO",
         "description": "동남아 시장에서의 풍부한 경험을 바탕으로, AI 기반 산업 문제 해결을 전문으로 합니다.",
         "tags": ["AI 전문 컨설턴트", "글로벌 사업 총괄", "신사업 & 투자"],
-        "linkedInUrl": "https://www.linkedin.com/in/cruzyoon"
+        "linkedInUrl": "https://www.linkedin.com/in/cruzyoon",
+        "imgsize": {
+          "width": 193,
+          "height": 249
+        }
       },
       {
         "name": "Chang ho\nMoon",
         "koreanName": "문창호",
         "role": "CTO",
-        "description": "10년 경력의 풀스택 엔지니어. 전국 IT 기능 경진대회 4위.",
+        "description": "10년 경력의 풀스택 엔지니어.\n전국 IT 기능 경진대회 4위.",
         "tags": ["시스템 아키텍처", "기술 전략", "10년+ 경력"],
-        "linkedInUrl": "https://www.linkedin.com/in/ggochang"
+        "linkedInUrl": "https://www.linkedin.com/in/ggochang",
+        "imgsize": {
+          "width": 205,
+          "height": 258
+        }
       },
       {
         "name": "Jannele\nShin",
@@ -146,20 +162,24 @@
         "role": "CXO",
         "description": "글로벌 디자인 컨설팅 분야 15년 경력의 서비스 디자이너. 국내외 20개 이상의 스타트업 디지털 서비스 기획을 리드.",
         "tags": ["국제 디자인 컨설턴트", "프로덕트 전략", "스타트업 전문가"],
-        "linkedInUrl": "https://www.linkedin.com/in/eunjung-shin-8075a129"
+        "linkedInUrl": "https://www.linkedin.com/in/eunjung-shin-8075a129",
+        "imgsize": {
+          "width": 186,
+          "height": 243
+        }
       }
     ],
     "linkedIn": "LinkedIn"
   },
   "section6": {
-    "title": "FinSight AI 시작하기",
-    "subtitle": "데모 예약",
+    "title": "AI 언더라이팅 에이전트를\n도입할 준비가 되셨나요?",
+    "subtitle": "데모 요청",
     "required": "* 필수",
     "fields": {
       "name": "이름",
       "company": "회사명",
-      "phone": "전화번호",
-      "email": "이메일"
+      "phone": "Whatsapp 또는 전화번호",
+      "email": "업무용 이메일"
     },
     "placeholders": {
       "name": "홍길동",
@@ -167,16 +187,88 @@
       "phone": "+82 010-1234-5678",
       "email": "finprofile@gmail.com"
     },
+    "lookingFor": {
+      "label": "찾고 있는 서비스",
+      "options": [
+        "개인 은행 거래내역 분석",
+        "MSME 및 기업 은행 거래내역 분석",
+        "사업자 서류 인식",
+        "기타"
+      ],
+      "othersPlaceholder": "여기에 입력하세요..."
+    },
     "privacy": "개인정보 처리방침에 동의하며, 제품 데모 및 마케팅 커뮤니케이션을 위한 개인 데이터 처리에 동의합니다.",
     "errors": {
       "name": "이름을 입력해주세요.",
       "company": "회사명을 입력해주세요.",
       "phone": "전화번호를 입력해주세요.",
       "email": "이메일을 입력해주세요.",
-      "emailInvalid": "올바른 이메일 형식을 입력해주세요.",
+      "emailInvalid": "이메일 형식이 올바르지 않습니다. example@yourdomain.com",
       "privacy": "개인정보 처리방침에 동의해주세요."
     },
     "submit": "데모 요청"
+  },
+  "terms": {
+    "privacyNotice": {
+      "title": "개인정보 처리방침",
+      "intro": {
+        "subtitle": "데모 요청을 위한 개인정보 처리방침",
+        "lastUpdated": "최종 업데이트: 2026년 2월 1일",
+        "description": "최상의 데모 경험을 제공하기 위해 FinProfile Co., Ltd.(이하 \"회사\")는 글로벌 데이터 보호법을 준수하여 귀하의 개인정보를 수집 및 처리합니다."
+      },
+      "sections": [
+        {
+          "title": "수집하는 데이터",
+          "items": [
+            "연락처 정보: 이름, 이메일 주소, 전화번호.",
+            "직업 정보: 회사명, 직책, 산업 분야.",
+            "관심 사항: 관심 있는 특정 솔루션 또는 기능."
+          ]
+        },
+        {
+          "title": "수집 목적",
+          "items": [
+            "요청하신 제품 데모를 일정 조율 및 진행하기 위해.",
+            "당사 서비스에 대한 맞춤형 정보를 제공하기 위해.",
+            "관련 마케팅 및 영업 커뮤니케이션을 후속 진행하기 위해. (언제든지 수신 거부 가능)"
+          ]
+        },
+        {
+          "title": "법적 근거",
+          "items": [
+            "당사는 귀하의 명시적 동의와 귀하가 요청한 서비스를 제공하기 위한 정당한 이익에 근거하여 데이터를 처리합니다."
+          ]
+        },
+        {
+          "title": "데이터 보유 및 공유",
+          "items": [
+            "보유: 상기 목적을 달성하는 데 필요한 기간 또는 법률에서 요구하는 기간 동안만 데이터를 보유합니다.",
+            "공유: 당사는 귀하의 데이터를 판매하지 않습니다. 데이터를 공유하지 않으며 상기 목적으로만 사용합니다."
+          ]
+        },
+        {
+          "title": "귀하의 권리",
+          "description": "거주 지역에 관계없이 귀하는 다음의 권리를 가집니다:",
+          "items": [
+            "개인정보에 대한 접근, 수정 또는 삭제.",
+            "언제든지 동의 철회.",
+            "데이터 처리의 제한 또는 거부."
+          ]
+        },
+        {
+          "title": "국제 전송",
+          "items": [
+            "당사는 글로벌하게 운영되므로, 귀하의 데이터가 거주 국가 이외의 국가로 전송 및 처리될 수 있습니다. 당사는 모든 전송이 관련 보호 기준을 준수하도록 보장합니다."
+          ]
+        },
+        {
+          "title": "문의하기",
+          "items": [
+            "개인정보 관련 문의 사항은 다음으로 연락해 주세요: hello@finprofile.id"
+          ]
+        }
+      ]
+    }
   },
   "footer": {
     "termsOfUse": "이용약관",

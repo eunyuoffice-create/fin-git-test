@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import TeamProfileCard from './TeamProfileCard';
+import TeamProfileCard from '@/components/team/TeamProfileCard';
 
 export interface TeamMember {
   name: string;

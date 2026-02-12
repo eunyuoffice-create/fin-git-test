@@ -180,20 +180,30 @@
     "linkedIn": "LinkedIn"
   },
   "section6": {
-    "title": "Get Started with FinSight AI",
-    "subtitle": "Book a demo",
-    "required": "* Request",
+    "title": "Ready to Deploy Your AI Underwriting \nAgent?",
+    "subtitle": "Request Demo",
+    "required": "* Required",
     "fields": {
       "name": "Name",
       "company": "Company",
-      "phone": "Phone Number",
-      "email": "Email"
+      "phone": "Whatsapp or Phone Number",
+      "email": "Work e-mail"
     },
     "placeholders": {
       "name": "Hong gil dong",
-      "company": "Company",
+      "company": "Company Title",
       "phone": "+82 010-1234-5678",
       "email": "finprofile@gmail.com"
+    },
+    "lookingFor": {
+      "label": "I am looking for",
+      "options": [
+        "Bank Statement Analysis for Individual",
+        "Bank Statement Analysis for MSMEs & Enterprise",
+        "Business Document recognition",
+        "Others"
+      ],
+      "othersPlaceholder": "Write here..."
     },
     "privacy": "I agree to the Privacy Policy and consent to the processing of my personal data for the purpose of a product demo and marketing communications.",
     "errors": {
@@ -201,10 +211,72 @@
       "company": "Please enter your company name.",
       "phone": "Please enter your phone number.",
       "email": "Please enter your email.",
-      "emailInvalid": "Please enter a valid email address.",
+      "emailInvalid": "The email format is incorrect. example@yourdomain.com",
       "privacy": "Please agree to the Privacy Policy."
     },
     "submit": "Request Demo"
+  },
+  "terms": {
+    "privacyNotice": {
+      "title": "Privacy Notice",
+      "intro": {
+        "subtitle": "Privacy Notice for Demo Request",
+        "lastUpdated": "Last Updated: 1st Feb. 2026",
+        "description": "To provide you with the best demo experience, FinProfile Co., Ltd. (\"we\", \"us\") collects and processes your personal data in compliance with global data protection laws."
+      },
+      "sections": [
+        {
+          "title": "Data We Collect",
+          "items": [
+            "Contact Info: Name, email address, phone number.",
+            "Professional Info: Company name, job title, industry.",
+            "Interests: Specific solutions or features you are interested in."
+          ]
+        },
+        {
+          "title": "Purpose of Collection",
+          "items": [
+            "To schedule and conduct the requested product demo.",
+            "To provide personalized information about our services.",
+            "To follow up with relevant marketing and sales communications. (you may opt-out at any time)"
+          ]
+        },
+        {
+          "title": "Legal Basis",
+          "items": [
+            "We process your data based on your explicit consent and our legitimate interest in providing the services you requested."
+          ]
+        },
+        {
+          "title": "Data Retention & Sharing",
+          "items": [
+            "Retention: We keep your data only as long as necessary to fulfill the purposes mentioned above or as required by law.",
+            "Sharing: We do not sell your data. We do not share the data and use it solely for the purposes stated above."
+          ]
+        },
+        {
+          "title": "Your Rights",
+          "description": "Regardless of your location, you have the right to:",
+          "items": [
+            "Access, correct, or delete your personal data.",
+            "Withdraw consent at any time.",
+            "Restrict or object to data processing."
+          ]
+        },
+        {
+          "title": "International Transfers",
+          "items": [
+            "As we operate globally, your data may be transferred to and processed in countries outside of your residence. We ensure all transfers comply with applicable protection standards."
+          ]
+        },
+        {
+          "title": "Contact Us",
+          "items": [
+            "For any privacy-related inquiries, please contact us at: hello@finprofile.id"
+          ]
+        }
+      ]
+    }
   },
   "footer": {
     "termsOfUse": "Terms of Use",

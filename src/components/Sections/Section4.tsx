@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import ScrollReveal from '@/components/ScrollReveal';
+import SectionTitle from '@/components/common/SectionTitle';
 import {
   Carousel,
   CarouselContent,
@@ -78,14 +79,9 @@ export default function Testimonials({ dict }: TestimonialsProps) {
       />
       {/* Title */}
       <ScrollReveal className="max-w-[1440px] mx-auto px-[120px] mb-[84px] relative z-10">
-        <h2
-          className={cn(
-            'text-[40px] font-medium text-[#363a5b] text-center',
-            'leading-[1.3] tracking-[-0.6px] font-poppins whitespace-pre-line'
-          )}
-        >
+        <SectionTitle className="whitespace-pre-line">
           {dict.section4.title}
-        </h2>
+        </SectionTitle>
       </ScrollReveal>
 
       {/* Carousel Container */}

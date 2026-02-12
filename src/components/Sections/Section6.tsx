@@ -4,9 +4,27 @@ import { useState, useId, useRef } from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import ScrollReveal from '@/components/ScrollReveal';
+import SectionTitle from '@/components/common/SectionTitle';
+import DemoResultPopup from '@/components/modal/DemoResultPopup';
+import PrivacyNoticePopup from '@/components/modal/PrivacyNoticePopup';
 
 interface ContactFormProps {
   dict: {
+    terms: {
+      privacyNotice: {
+        title: string;
+        intro: {
+          subtitle: string;
+          lastUpdated: string;
+          description: string;
+        };
+        sections: {
+          title: string;
+          description?: string;
+          items: string[];
+        }[];
+      };
+    };
     section6: {
       title: string;
       subtitle: string;
@@ -22,6 +40,11 @@ interface ContactFormProps {
         company: string;
         phone: string;
         email: string;
+      };
+      lookingFor: {
+        label: string;
+        options: string[];
+        othersPlaceholder: string;
       };
       errors: {
         name: string;
@@ -39,7 +62,9 @@ interface ContactFormProps {
   lang: string;
 }
 
-type FormErrors = Partial<Record<'name' | 'company' | 'phone' | 'email' | 'privacy', string>>;
+type FormErrors = Partial<
+  Record<'name' | 'company' | 'phone' | 'email' | 'privacy', string>
+>;
 
 export default function ContactForm({ dict, lang }: ContactFormProps) {
   const formId = useId();
@@ -52,11 +77,20 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
     email: '',
     privacy: false,
   });
+  const [lookingFor, setLookingFor] = useState<boolean[]>([
+    false,
+    false,
+    false,
+    false,
+  ]);
+  const [othersText, setOthersText] = useState('');
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
     'idle' | 'success' | 'error'
   >('idle');
+  const [resultPopupOpen, setResultPopupOpen] = useState(false);
+  const [privacyOpen, setPrivacyOpen] = useState(false);
 
   const handlePlayVideo = () => {
     if (videoRef.current) {
@@ -97,6 +131,18 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
     }
   };
 
+  const handleLookingForToggle = (index: number) => {
+    setLookingFor((prev) => {
+      const next = [...prev];
+      next[index] = !next[index];
+      // Clear others text when unchecking "Others"
+      if (index === 3 && next[index] === false) {
+        setOthersText('');
+      }
+      return next;
+    });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -106,6 +152,17 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
 
     setIsSubmitting(true);
     setSubmitStatus('idle');
+
+    // Build lookingFor selections
+    const selectedOptions = dict.section6.lookingFor.options
+      .filter((_, i) => lookingFor[i])
+      .map((opt, _, arr) => {
+        // If "Others" is selected and text provided, append it
+        if (opt === arr[arr.length - 1] && othersText.trim()) {
+          return `${opt}: ${othersText.trim()}`;
+        }
+        return opt;
+      });
 
     try {
       const response = await fetch('/api/contact', {
@@ -118,6 +175,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
           name: formData.name,
           phone: formData.phone,
           email: formData.email,
+          lookingFor: selectedOptions,
           lang: lang,
         }),
       });
@@ -129,7 +187,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
       }
 
       setSubmitStatus('success');
-      alert("Form submitted successfully! We'll contact you soon.");
+      setResultPopupOpen(true);
 
       setFormData({
         name: '',
@@ -138,12 +196,12 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
         email: '',
         privacy: false,
       });
+      setLookingFor([false, false, false, false]);
+      setOthersText('');
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
-      const message =
-        error instanceof Error ? error.message : 'An error occurred';
-      alert('Failed to submit form: ' + message);
+      setResultPopupOpen(true);
     } finally {
       setIsSubmitting(false);
     }
@@ -152,8 +210,8 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
   const inputClass = (field: keyof FormErrors) =>
     cn(
       'w-full px-4 py-3 bg-white rounded-2xl',
-      'text-xl text-[#363a5b] placeholder:text-[#bdbdbd]',
-      'tracking-[-0.3px] leading-[1.4]',
+      'text-lg text-[#363a5b] placeholder:text-[#bdbdbd]',
+      'tracking-[-0.27px] leading-[1.4]',
       'focus:outline-none focus:ring-2 transition-shadow',
       errors[field]
         ? 'ring-2 ring-red-400 focus:ring-red-400'
@@ -178,19 +236,12 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
       <div className="relative max-w-[1000px] mx-auto">
         {/* Title */}
         <ScrollReveal>
-          <h2
-            id="contact-title"
-            className={cn(
-              'text-[32px] sm:text-[40px] lg:text-5xl',
-              'font-medium text-[#363a5b] text-center',
-              'mb-[54px] tracking-[-0.72px] leading-[1.4]'
-            )}
-          >
+          <SectionTitle id="contact-title" className="w-full" size="lg">
             {dict.section6.title}
-          </h2>
+          </SectionTitle>
         </ScrollReveal>
 
-        <div className="flex flex-col items-center gap-[54px] rounded-3xl">
+        <div className="flex flex-col items-center gap-[54px] rounded-3xl mt-[54px]">
           {/* Video Section */}
           <ScrollReveal
             delay={150}
@@ -210,10 +261,9 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                 alt=""
                 fill
                 sizes="800px"
-
                 className="object-cover blur-[10px]"
                 aria-hidden="true"
-              quality={100}
+                quality={100}
               />
 
               {/* Video Overlay */}
@@ -234,7 +284,10 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                 aria-label="FinProfile service introduction video"
                 onEnded={() => setIsPlaying(false)}
               >
-                <source src="/videos/demoVideo-optimized.mp4" type="video/mp4" />
+                <source
+                  src="/videos/demoVideo-optimized.mp4"
+                  type="video/mp4"
+                />
                 <p>Your browser does not support video playback.</p>
               </video>
 
@@ -317,7 +370,7 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
 
               <form
                 onSubmit={handleSubmit}
-                className="flex flex-col gap-10"
+                className="flex flex-col gap-6"
                 aria-describedby={`${formId}-required`}
                 noValidate
               >
@@ -325,212 +378,449 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
                   Fields marked with * are required.
                 </p>
 
-                {/* Name Field */}
-                <div className="flex flex-col gap-2">
-                  <label htmlFor={`${formId}-name`} className={labelClass}>
-                    <span>{dict.section6.fields.name}</span>
-                    <span className="text-[#3e14b4]" aria-hidden="true">
-                      *
-                    </span>
-                  </label>
-                  <input
-                    id={`${formId}-name`}
-                    type="text"
-                    required
-                    autoComplete="name"
-                    value={formData.name}
-                    onChange={(e) => {
-                      setFormData({ ...formData, name: e.target.value });
-                      clearError('name');
-                    }}
-                    placeholder={dict.section6.placeholders.name}
-                    className={inputClass('name')}
-                    aria-required="true"
-                    aria-invalid={!!errors.name}
-                    aria-describedby={errors.name ? `${formId}-name-error` : undefined}
-                  />
-                  {errors.name && (
-                    <p id={`${formId}-name-error`} className="text-sm text-red-500 px-2" role="alert">
-                      {errors.name}
-                    </p>
-                  )}
+                {/* Text Fields */}
+                <div className="flex flex-col gap-6">
+                  {/* Name Field */}
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor={`${formId}-name`} className={labelClass}>
+                      <span>{dict.section6.fields.name}</span>
+                      <span className="text-[#3e14b4]" aria-hidden="true">
+                        *
+                      </span>
+                    </label>
+                    <input
+                      id={`${formId}-name`}
+                      type="text"
+                      required
+                      autoComplete="name"
+                      value={formData.name}
+                      onChange={(e) => {
+                        setFormData({ ...formData, name: e.target.value });
+                        clearError('name');
+                      }}
+                      placeholder={dict.section6.placeholders.name}
+                      className={inputClass('name')}
+                      aria-required="true"
+                      aria-invalid={!!errors.name}
+                      aria-describedby={
+                        errors.name ? `${formId}-name-error` : undefined
+                      }
+                    />
+                    {errors.name && (
+                      <div
+                        className="flex items-center gap-1 px-2"
+                        role="alert"
+                      >
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          className="shrink-0"
+                          aria-hidden="true"
+                        >
+                          <circle cx="12" cy="12" r="10" fill="#d51737" />
+                          <text
+                            x="12"
+                            y="16"
+                            textAnchor="middle"
+                            fill="white"
+                            fontSize="14"
+                            fontWeight="bold"
+                          >
+                            !
+                          </text>
+                        </svg>
+                        <p
+                          id={`${formId}-name-error`}
+                          className="text-base text-[#d51737] tracking-[-0.24px] leading-[1.4]"
+                        >
+                          {errors.name}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Company Field */}
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor={`${formId}-company`} className={labelClass}>
+                      <span>{dict.section6.fields.company}</span>
+                      <span className="text-[#3e14b4]" aria-hidden="true">
+                        *
+                      </span>
+                    </label>
+                    <input
+                      id={`${formId}-company`}
+                      type="text"
+                      required
+                      autoComplete="organization"
+                      value={formData.company}
+                      onChange={(e) => {
+                        setFormData({ ...formData, company: e.target.value });
+                        clearError('company');
+                      }}
+                      placeholder={dict.section6.placeholders.company}
+                      className={inputClass('company')}
+                      aria-required="true"
+                      aria-invalid={!!errors.company}
+                      aria-describedby={
+                        errors.company ? `${formId}-company-error` : undefined
+                      }
+                    />
+                    {errors.company && (
+                      <div
+                        className="flex items-center gap-1 px-2"
+                        role="alert"
+                      >
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          className="shrink-0"
+                          aria-hidden="true"
+                        >
+                          <circle cx="12" cy="12" r="10" fill="#d51737" />
+                          <text
+                            x="12"
+                            y="16"
+                            textAnchor="middle"
+                            fill="white"
+                            fontSize="14"
+                            fontWeight="bold"
+                          >
+                            !
+                          </text>
+                        </svg>
+                        <p
+                          id={`${formId}-company-error`}
+                          className="text-base text-[#d51737] tracking-[-0.24px] leading-[1.4]"
+                        >
+                          {errors.company}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Phone Field */}
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor={`${formId}-phone`} className={labelClass}>
+                      <span>{dict.section6.fields.phone}</span>
+                      <span className="text-[#3e14b4]" aria-hidden="true">
+                        *
+                      </span>
+                    </label>
+                    <input
+                      id={`${formId}-phone`}
+                      type="tel"
+                      required
+                      autoComplete="tel"
+                      inputMode="tel"
+                      value={formData.phone}
+                      onChange={(e) => {
+                        setFormData({ ...formData, phone: e.target.value });
+                        clearError('phone');
+                      }}
+                      placeholder={dict.section6.placeholders.phone}
+                      className={inputClass('phone')}
+                      aria-required="true"
+                      aria-invalid={!!errors.phone}
+                      aria-describedby={
+                        errors.phone ? `${formId}-phone-error` : undefined
+                      }
+                    />
+                    {errors.phone && (
+                      <div
+                        className="flex items-center gap-1 px-2"
+                        role="alert"
+                      >
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          className="shrink-0"
+                          aria-hidden="true"
+                        >
+                          <circle cx="12" cy="12" r="10" fill="#d51737" />
+                          <text
+                            x="12"
+                            y="16"
+                            textAnchor="middle"
+                            fill="white"
+                            fontSize="14"
+                            fontWeight="bold"
+                          >
+                            !
+                          </text>
+                        </svg>
+                        <p
+                          id={`${formId}-phone-error`}
+                          className="text-base text-[#d51737] tracking-[-0.24px] leading-[1.4]"
+                        >
+                          {errors.phone}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Email Field */}
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor={`${formId}-email`} className={labelClass}>
+                      <span>{dict.section6.fields.email}</span>
+                      <span className="text-[#3e14b4]" aria-hidden="true">
+                        *
+                      </span>
+                    </label>
+                    <input
+                      id={`${formId}-email`}
+                      type="email"
+                      required
+                      autoComplete="email"
+                      inputMode="email"
+                      value={formData.email}
+                      onChange={(e) => {
+                        setFormData({ ...formData, email: e.target.value });
+                        clearError('email');
+                      }}
+                      placeholder={dict.section6.placeholders.email}
+                      className={inputClass('email')}
+                      aria-required="true"
+                      aria-invalid={!!errors.email}
+                      aria-describedby={
+                        errors.email ? `${formId}-email-error` : undefined
+                      }
+                    />
+                    {errors.email && (
+                      <div
+                        className="flex items-center gap-1 px-2"
+                        role="alert"
+                      >
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          className="shrink-0"
+                          aria-hidden="true"
+                        >
+                          <circle cx="12" cy="12" r="10" fill="#d51737" />
+                          <text
+                            x="12"
+                            y="16"
+                            textAnchor="middle"
+                            fill="white"
+                            fontSize="14"
+                            fontWeight="bold"
+                          >
+                            !
+                          </text>
+                        </svg>
+                        <p
+                          id={`${formId}-email-error`}
+                          className="text-base text-[#d51737] tracking-[-0.24px] leading-[1.4]"
+                        >
+                          {errors.email}
+                        </p>
+                      </div>
+                    )}
+                  </div>
                 </div>
 
-                {/* Company Field */}
+                {/* I am looking for - Checkbox Section */}
                 <div className="flex flex-col gap-2">
-                  <label htmlFor={`${formId}-company`} className={labelClass}>
-                    <span>{dict.section6.fields.company}</span>
-                    <span className="text-[#3e14b4]" aria-hidden="true">
-                      *
+                  <div className="flex items-center gap-1 px-2">
+                    <span className="text-base font-medium text-black tracking-[-0.24px] leading-[1.4]">
+                      {dict.section6.lookingFor.label}
                     </span>
-                  </label>
-                  <input
-                    id={`${formId}-company`}
-                    type="text"
-                    required
-                    autoComplete="organization"
-                    value={formData.company}
-                    onChange={(e) => {
-                      setFormData({ ...formData, company: e.target.value });
-                      clearError('company');
-                    }}
-                    placeholder={dict.section6.placeholders.company}
-                    className={inputClass('company')}
-                    aria-required="true"
-                    aria-invalid={!!errors.company}
-                    aria-describedby={errors.company ? `${formId}-company-error` : undefined}
-                  />
-                  {errors.company && (
-                    <p id={`${formId}-company-error`} className="text-sm text-red-500 px-2" role="alert">
-                      {errors.company}
-                    </p>
-                  )}
-                </div>
-
-                {/* Phone Field */}
-                <div className="flex flex-col gap-2">
-                  <label htmlFor={`${formId}-phone`} className={labelClass}>
-                    <span>{dict.section6.fields.phone}</span>
-                    <span className="text-[#3e14b4]" aria-hidden="true">
-                      *
-                    </span>
-                  </label>
-                  <input
-                    id={`${formId}-phone`}
-                    type="tel"
-                    required
-                    autoComplete="tel"
-                    inputMode="tel"
-                    value={formData.phone}
-                    onChange={(e) => {
-                      setFormData({ ...formData, phone: e.target.value });
-                      clearError('phone');
-                    }}
-                    placeholder={dict.section6.placeholders.phone}
-                    className={inputClass('phone')}
-                    aria-required="true"
-                    aria-invalid={!!errors.phone}
-                    aria-describedby={errors.phone ? `${formId}-phone-error` : undefined}
-                  />
-                  {errors.phone && (
-                    <p id={`${formId}-phone-error`} className="text-sm text-red-500 px-2" role="alert">
-                      {errors.phone}
-                    </p>
-                  )}
-                </div>
-
-                {/* Email Field */}
-                <div className="flex flex-col gap-2">
-                  <label htmlFor={`${formId}-email`} className={labelClass}>
-                    <span>{dict.section6.fields.email}</span>
-                    <span className="text-[#3e14b4]" aria-hidden="true">
-                      *
-                    </span>
-                  </label>
-                  <input
-                    id={`${formId}-email`}
-                    type="email"
-                    required
-                    autoComplete="email"
-                    inputMode="email"
-                    value={formData.email}
-                    onChange={(e) => {
-                      setFormData({ ...formData, email: e.target.value });
-                      clearError('email');
-                    }}
-                    placeholder={dict.section6.placeholders.email}
-                    className={inputClass('email')}
-                    aria-required="true"
-                    aria-invalid={!!errors.email}
-                    aria-describedby={errors.email ? `${formId}-email-error` : undefined}
-                  />
-                  {errors.email && (
-                    <p id={`${formId}-email-error`} className="text-sm text-red-500 px-2" role="alert">
-                      {errors.email}
-                    </p>
-                  )}
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    {dict.section6.lookingFor.options.map((option, index) => {
+                      const isOthers =
+                        index === dict.section6.lookingFor.options.length - 1;
+                      const isChecked = lookingFor[index];
+                      return (
+                        <div
+                          key={index}
+                          className={cn(
+                            'bg-white rounded-2xl px-4 py-3',
+                            'flex flex-col gap-2'
+                          )}
+                        >
+                          <label className="flex items-center gap-2 cursor-pointer">
+                            <div className="relative shrink-0 w-6 h-6">
+                              <input
+                                type="checkbox"
+                                checked={isChecked}
+                                onChange={() => handleLookingForToggle(index)}
+                                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10 peer"
+                                aria-label={option}
+                              />
+                              <div
+                                className={cn(
+                                  'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
+                                  'w-4 h-4 border border-[#363a5b] rounded-sm',
+                                  'peer-checked:bg-[#3e14b4] peer-checked:border-[#3e14b4]',
+                                  'peer-focus-visible:ring-2 peer-focus-visible:ring-[#3e14b4]/50',
+                                  'transition-colors'
+                                )}
+                                aria-hidden="true"
+                              >
+                                {isChecked && (
+                                  <svg
+                                    className="w-full h-full text-white"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    aria-hidden="true"
+                                  >
+                                    <path
+                                      d="M13 4L6 11L3 8"
+                                      stroke="currentColor"
+                                      strokeWidth="2"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                )}
+                              </div>
+                            </div>
+                            <span className="flex-1 text-lg text-[#363a5b] tracking-[-0.27px] leading-[1.4]">
+                              {option}
+                            </span>
+                          </label>
+                          {/* Others text input */}
+                          {isOthers && isChecked && (
+                            <div className="bg-[#f7f7f7] rounded-xl px-4 py-3">
+                              <input
+                                type="text"
+                                value={othersText}
+                                onChange={(e) => setOthersText(e.target.value)}
+                                placeholder={
+                                  dict.section6.lookingFor.othersPlaceholder
+                                }
+                                className="w-full bg-transparent text-lg text-[#363a5b] placeholder:text-[#bdbdbd] tracking-[-0.27px] leading-[1.4] focus:outline-none"
+                                aria-label={`${option} details`}
+                              />
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
 
                 {/* Privacy Checkbox */}
                 <div className="flex flex-col gap-2">
                   <div className="flex items-start gap-1">
-                  <div className="relative shrink-0 w-6 h-6">
-                    <input
-                      type="checkbox"
-                      id={`${formId}-privacy`}
-                      required
-                      checked={formData.privacy}
-                      onChange={(e) => {
-                        setFormData({ ...formData, privacy: e.target.checked });
-                        clearError('privacy');
-                      }}
-                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10 peer"
-                      aria-required="true"
-                      aria-invalid={!!errors.privacy}
-                      aria-describedby={`${formId}-privacy-desc${errors.privacy ? ` ${formId}-privacy-error` : ''}`}
-                    />
-                    <div
-                      className={cn(
-                        'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
-                        'w-4 h-4 border border-[#363a5b] rounded-sm',
-                        'peer-checked:bg-[#3e14b4] peer-checked:border-[#3e14b4]',
-                        'peer-focus-visible:ring-2 peer-focus-visible:ring-[#3e14b4]/50',
-                        'transition-colors'
-                      )}
-                      aria-hidden="true"
-                    >
-                      {formData.privacy && (
-                        <svg
-                          className="w-full h-full text-white"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                          aria-hidden="true"
-                        >
-                          <path
-                            d="M13 4L6 11L3 8"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      )}
+                    <div className="relative shrink-0 w-6 h-6">
+                      <input
+                        type="checkbox"
+                        id={`${formId}-privacy`}
+                        required
+                        checked={formData.privacy}
+                        onChange={(e) => {
+                          setFormData({
+                            ...formData,
+                            privacy: e.target.checked,
+                          });
+                          clearError('privacy');
+                        }}
+                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10 peer"
+                        aria-required="true"
+                        aria-invalid={!!errors.privacy}
+                        aria-describedby={`${formId}-privacy-desc${errors.privacy ? ` ${formId}-privacy-error` : ''}`}
+                      />
+                      <div
+                        className={cn(
+                          'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
+                          'w-4 h-4 border border-[#363a5b] rounded-sm',
+                          'peer-checked:bg-[#3e14b4] peer-checked:border-[#3e14b4]',
+                          'peer-focus-visible:ring-2 peer-focus-visible:ring-[#3e14b4]/50',
+                          'transition-colors'
+                        )}
+                        aria-hidden="true"
+                      >
+                        {formData.privacy && (
+                          <svg
+                            className="w-full h-full text-white"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            aria-hidden="true"
+                          >
+                            <path
+                              d="M13 4L6 11L3 8"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                  <label
-                    id={`${formId}-privacy-desc`}
-                    htmlFor={`${formId}-privacy`}
-                    className={cn(
-                      'flex-1 text-base text-[#363a5b] cursor-pointer',
-                      'tracking-[-0.24px] leading-[1.4]'
-                    )}
-                  >
-                    <span>I agree to the </span>
-                    <a
-                      href={dict.section6.privacyLink || '/privacy'}
+                    <label
+                      id={`${formId}-privacy-desc`}
+                      htmlFor={`${formId}-privacy`}
                       className={cn(
-                        'underline decoration-solid',
-                        'hover:text-[#3e14b4]',
-                        'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3e14b4]'
+                        'flex-1 text-base text-[#363a5b] cursor-pointer',
+                        'tracking-[-0.24px] leading-[1.4]'
                       )}
-                      target="_blank"
-                      rel="noopener noreferrer"
                     >
-                      Privacy Policy
-                    </a>
-                    <span>
-                      and consent to the processing of my personal data for the
-                      purpose of a product demo and marketing communications.
-                    </span>
-                    <span className="text-[#3e14b4]" aria-hidden="true">
-                      *
-                    </span>
-                  </label>
+                      <span>I agree to the </span>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setPrivacyOpen(true);
+                        }}
+                        className={cn(
+                          'underline decoration-solid',
+                          'hover:text-[#3e14b4]',
+                          'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3e14b4]'
+                        )}
+                      >
+                        Privacy Policy
+                      </button>
+                      <span>
+                        {' '}
+                        and consent to the processing of my personal data for
+                        the purpose of a product demo and marketing
+                        communications.
+                      </span>
+                      <span className="text-[#3e14b4]" aria-hidden="true">
+                        *
+                      </span>
+                    </label>
                   </div>
                   {errors.privacy && (
-                    <p id={`${formId}-privacy-error`} className="text-sm text-red-500 px-2" role="alert">
-                      {errors.privacy}
-                    </p>
+                    <div className="flex items-center gap-1 px-2" role="alert">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        className="shrink-0"
+                        aria-hidden="true"
+                      >
+                        <circle cx="12" cy="12" r="10" fill="#d51737" />
+                        <text
+                          x="12"
+                          y="16"
+                          textAnchor="middle"
+                          fill="white"
+                          fontSize="14"
+                          fontWeight="bold"
+                        >
+                          !
+                        </text>
+                      </svg>
+                      <p
+                        id={`${formId}-privacy-error`}
+                        className="text-base text-[#d51737] tracking-[-0.24px] leading-[1.4]"
+                      >
+                        {errors.privacy}
+                      </p>
+                    </div>
                   )}
                 </div>
 
@@ -577,6 +867,20 @@ export default function ContactForm({ dict, lang }: ContactFormProps) {
           </ScrollReveal>
         </div>
       </div>
+
+      {submitStatus !== 'idle' && (
+        <DemoResultPopup
+          open={resultPopupOpen}
+          onOpenChange={setResultPopupOpen}
+          status={submitStatus}
+        />
+      )}
+
+      <PrivacyNoticePopup
+        open={privacyOpen}
+        onOpenChange={setPrivacyOpen}
+        dict={dict.terms.privacyNotice}
+      />
     </section>
   );
 }

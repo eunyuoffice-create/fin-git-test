@@ -18,5 +18,6 @@ export interface ContactFormRequest {
   phone: string;
   email: string;
   needs?: string;
+  lookingFor?: string[];
   lang: string;
 }

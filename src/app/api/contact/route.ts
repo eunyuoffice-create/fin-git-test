@@ -116,6 +116,7 @@ export async function POST(request: NextRequest) {
           .regex(/^[+]?[\d\s-()]+$/, 'phoneInvalid'),
         email: z.string().min(1, 'emailRequired').email('emailInvalid'),
         needs: z.string().optional(),
+        lookingFor: z.array(z.string()).optional(),
         lang: z.string().optional(),
       })
       .safeParse(body);
@@ -144,6 +145,7 @@ export async function POST(request: NextRequest) {
       needs: validationResult.data.needs
         ? sanitizeInput(validationResult.data.needs)
         : undefined,
+      lookingFor: validationResult.data.lookingFor?.map(sanitizeInput),
       lang: validationResult.data.lang || 'en',
     };
 

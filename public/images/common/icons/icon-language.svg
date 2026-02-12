@@ -1,7 +1,5 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="12" cy="12" r="9.5" stroke="#363a5b" stroke-width="1.5"/>
-  <ellipse cx="12" cy="12" rx="4" ry="9.5" stroke="#363a5b" stroke-width="1.5"/>
-  <path d="M3 12H21" stroke="#363a5b" stroke-width="1.5" stroke-linecap="round"/>
-  <path d="M4.5 7.5H19.5" stroke="#363a5b" stroke-width="1.5" stroke-linecap="round"/>
-  <path d="M4.5 16.5H19.5" stroke="#363a5b" stroke-width="1.5" stroke-linecap="round"/>
+<circle cx="12" cy="12" r="9.5" stroke="#363A5B" stroke-width="2"/>
+<path d="M12 2.5C12.1093 2.5 12.3482 2.55962 12.6953 2.9707C13.0385 3.37715 13.393 4.02463 13.71 4.91211C14.3407 6.67848 14.75 9.18429 14.75 12C14.75 14.8157 14.3407 17.3215 13.71 19.0879C13.393 19.9754 13.0385 20.6228 12.6953 21.0293C12.3482 21.4404 12.1093 21.5 12 21.5C11.8907 21.5 11.6518 21.4404 11.3047 21.0293C10.9615 20.6228 10.607 19.9754 10.29 19.0879C9.65926 17.3215 9.25 14.8157 9.25 12C9.25 9.18429 9.65926 6.67848 10.29 4.91211C10.607 4.02463 10.9615 3.37715 11.3047 2.9707C11.6518 2.55962 11.8907 2.5 12 2.5Z" stroke="#363A5B" stroke-width="2"/>
+<path d="M2.25 12H21.75" stroke="#363A5B" stroke-width="2"/>
 </svg>

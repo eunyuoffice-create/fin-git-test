@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import ScrollReveal from '@/components/ScrollReveal';
+import SectionTitle from '@/components/common/SectionTitle';
 
 interface Section1Props {
   dict: {
@@ -80,15 +81,9 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
       >
         {/* Title */}
         <ScrollReveal>
-          <h2
-            id="section1-title"
-            className={cn(
-              'text-[32px] font-medium text-[#363a5b] text-center',
-              'leading-[1.4] tracking-[-0.48px] font-poppins whitespace-pre-wrap'
-            )}
-          >
+          <SectionTitle id="section1-title" size="sm">
             {dict.section1.title}
-          </h2>
+          </SectionTitle>
         </ScrollReveal>
 
         {/* Two Point Boxes */}
