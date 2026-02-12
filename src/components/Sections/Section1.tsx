@@ -175,7 +175,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
             className={cn(
               'w-[824px] h-[130px] rounded-[18px] overflow-hidden',
               'relative flex items-center pl-[209px]',
-              'after:content-[""] after:w-[153px] after:h-[119px] after:rounded-[18px] after:absolute after:left-[56px] after:bottom-[0]',
+              'after:content-[""] after:w-[153px] after:h-[119px] after:rounded-[18px] after:absolute after:left-[56px] after:bottom-[-5px]',
               'after:bg-[url("/images/sections/section1/icon_bank.webp")] after:bg-center after:bg-no-repeat',
               'before:content-[""] before:w-full before:h-full before:rounded-[18px] before:absolute before:left-0 before:top-0',
               'before:bg-[url("/images/sections/section1/bg-bank.webp")] before:bg-center before:bg-no-repeat'
