@@ -68,12 +68,11 @@ export default async function HomePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Skip Link for Accessibility */}
-      <a href="#main-content" className="skip-link">
-        {lang === 'ko' ? '본문으로 바로가기' : lang === 'id' ? 'Langsung ke konten utama' : 'Skip to main content'}
-      </a>
-
-      <main id="main-content" className="min-h-screen bg-white min-w-[1440px]" role="main">
+      <main
+        id="main-content"
+        className="min-h-screen bg-white min-w-[1440px]"
+        role="main"
+      >
         {/* Header - Sticky Navigation */}
         <Header dict={dict} lang={lang} />
 
