@@ -66,7 +66,10 @@
       "timeUnit": "menit",
       "timeDetail": "Presisi Agentik",
       "descriptionTitle": "Alur kerja otonom end-to-end yang menguasai rekening koran berbulan-bulan",
-      "descriptions": ["dalam waktu kurang dari 5 menit", "dengan akurasi tanpa kompromi"]
+      "descriptions": [
+        "dalam waktu kurang dari 5 menit",
+        "dengan akurasi tanpa kompromi"
+      ]
     }
   },
   "section3": {
@@ -152,7 +155,11 @@
         "name": "Chang ho\nMoon",
         "role": "CTO",
         "description": "Full-stack Engineer dengan\npengalaman 10 tahun.\nPeringkat ke-4 dalam Kompetisi Keterampilan IT Nasional",
-        "tags": ["Arsitektur Sistem", "Strategi Teknis", "Pengalaman 10+ Tahun"],
+        "tags": [
+          "Arsitektur Sistem",
+          "Strategi Teknis",
+          "Pengalaman 10+ Tahun"
+        ],
         "linkedInUrl": "https://www.linkedin.com/in/ggochang",
         "imgsize": {
           "width": 205,
@@ -275,6 +282,14 @@
           ]
         }
       ]
+    },
+    "termsOfUse": {
+      "title": "Ketentuan Penggunaan",
+      "intro": {
+        "subtitle": "Ketentuan Penggunaan untuk Permintaan Demo",
+        "lastUpdated": "Terakhir Diperbarui: 1 Februari 2026",
+        "description": "Untuk memberikan pengalaman demo terbaik, FinProfile Co., Ltd. (\"kami\") mengumpulkan dan memproses data pribadi Anda sesuai dengan undang-undang perlindungan data global."
+      }
     }
   },
   "footer": {

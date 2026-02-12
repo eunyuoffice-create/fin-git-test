@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import PrivacyNoticePopup from '@/components/modal/PrivacyNoticePopup';
-
+import TermsOfUsePopup from '@/components/modal/TermsOfUsePopup';
 interface FooterProps {
   dict: {
     terms: {
@@ -22,6 +22,12 @@ interface FooterProps {
           items: string[];
         }[];
       };
+      termsOfUse: {
+        title: string;
+        intro: {
+          subtitle: string;
+        };
+      };
     };
     footer: {
       termsOfUse: string;
@@ -37,6 +43,7 @@ interface FooterProps {
 
 export default function Footer({ dict }: FooterProps) {
   const [privacyOpen, setPrivacyOpen] = useState(false);
+  const [termsOfUseOpen, setTermsOfUseOpen] = useState(false);
   const linkClass = cn(
     'font-lato font-bold px-1 rounded',
     'hover:text-white transition-colors duration-200',
@@ -90,9 +97,13 @@ export default function Footer({ dict }: FooterProps) {
                 )}
               >
                 <li>
-                  <Link href="/terms" className={linkClass}>
+                  <button
+                    type="button"
+                    onClick={() => setTermsOfUseOpen(true)}
+                    className={linkClass}
+                  >
                     {dict.footer.termsOfUse}
-                  </Link>
+                  </button>
                 </li>
                 <li aria-hidden="true">
                   <span className="block w-px h-3.5 bg-white/65" />
@@ -147,6 +158,12 @@ export default function Footer({ dict }: FooterProps) {
           </div>
         </div>
       </footer>
+
+      <TermsOfUsePopup
+        open={termsOfUseOpen}
+        onOpenChange={setTermsOfUseOpen}
+        dict={dict.terms.termsOfUse}
+      />
 
       <PrivacyNoticePopup
         open={privacyOpen}

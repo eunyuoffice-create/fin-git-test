@@ -276,6 +276,14 @@
           ]
         }
       ]
+    },
+    "termsOfUse": {
+      "title": "Terms of Use",
+      "intro": {
+        "subtitle": "Terms of Use for Demo Request",
+        "lastUpdated": "Last Updated: 1st Feb. 2026",
+        "description": "To provide you with the best demo experience, FinProfile Co., Ltd. (\"we\", \"us\") collects and processes your personal data in compliance with global data protection laws."
+      }
     }
   },
   "footer": {
