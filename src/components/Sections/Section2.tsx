@@ -327,22 +327,22 @@ export default function Section2CreditReview({ dict }: Section2Props) {
                       quality={100}
                     />
                   </i>
-                  <i className="absolute top-[365px] right-[40px]">
-                    <Image
-                      src="/images/sections/section2/icon-calculator.webp"
-                      alt=""
-                      width={86}
-                      height={110}
-                      className="object-contain"
-                      quality={100}
-                    />
-                  </i>
                   <i className="absolute top-[316px] right-[11px]">
                     <Image
                       src="/images/sections/section2/icon-chart.webp"
                       alt=""
                       width={63}
                       height={63}
+                      className="object-contain w-[63px] h-[63px]"
+                      quality={100}
+                    />
+                  </i>
+                  <i className="absolute top-[365px] right-[40px]">
+                    <Image
+                      src="/images/sections/section2/icon-calculator.webp"
+                      alt=""
+                      width={86}
+                      height={110}
                       className="object-contain"
                       quality={100}
                     />
