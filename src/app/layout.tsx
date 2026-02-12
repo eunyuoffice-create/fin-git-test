@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 
@@ -24,6 +24,10 @@ const lato = localFont({
   display: 'optional',
   preload: false,
 });
+
+export const viewport: Viewport = {
+  width: 1440,
+};
 
 export const metadata: Metadata = {
   title: 'FinSight AI: Agentic AI for Precise MSME Credit Underwriting',

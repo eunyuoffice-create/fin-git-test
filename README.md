@@ -1,15 +1,16 @@
 # FinProfile - Company Landing Page
 
-Next.js 14 기반 정적 사이트 + Slack 통합 문의 폼
+Next.js 15 기반 정적 사이트 + Slack 통합 문의 폼
 
 ---
 
 ## 🚀 프로젝트 개요
 
-- **프레임워크**: Next.js 14.2.x (App Router)
+- **프레임워크**: Next.js 15.5.x (App Router)
 - **렌더링**: SSG (Static Site Generation)
 - **배포**: AWS Amplify
 - **다국어**: 영어(en), 인도네시아어(id), 한국어(ko)
+- **뷰포트**: 1440px 고정 (모바일 자동 축소)
 - **주요 기능**: 회사 소개 페이지 + Slack 연동 문의 폼
 
 ---
@@ -191,13 +192,15 @@ npm audit fix
 
 | 분류 | 기술 |
 |------|------|
-| **프레임워크** | Next.js 14.2.x |
-| **언어** | TypeScript |
-| **스타일링** | Tailwind CSS |
+| **프레임워크** | Next.js 15.5.x (App Router) |
+| **언어** | TypeScript 5 |
+| **UI 라이브러리** | React 19 |
+| **스타일링** | Tailwind CSS 3.4 + shadcn/ui |
 | **폼 검증** | Zod |
 | **HTTP 클라이언트** | Axios |
-| **배포** | AWS Amplify |
+| **배포** | AWS Amplify (Static Export) |
 | **CDN** | CloudFront (Amplify 자동 제공) |
+| **Node.js** | >= 20 |
 
 ---
 
@@ -221,4 +224,4 @@ Private - All Rights Reserved
 
 ---
 
-**마지막 업데이트**: 2026-02-04
+**마지막 업데이트**: 2026-02-12
