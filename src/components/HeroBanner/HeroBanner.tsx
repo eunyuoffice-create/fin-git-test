@@ -171,13 +171,13 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
                         <div
                           className={cn(
                             'backdrop-blur-[6px] bg-[rgba(72,70,214,0.8)]',
-                            'rounded-2xl px-6 py-4'
+                            'rounded-2xl px-6 py-4 h-[110px] flex items-center justify-center'
                           )}
                         >
                           <p
                             className={cn(
-                              'text-xl font-medium text-white text-center',
-                              'leading-[1.3] tracking-[-0.3px] font-poppins'
+                              'text-lg font-medium text-white text-center',
+                              'leading-[1.3] tracking-[-0.27px] font-poppins'
                             )}
                           >
                             {slide.text}

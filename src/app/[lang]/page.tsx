@@ -75,7 +75,7 @@ export default async function HomePage({
 
       <main id="main-content" className="min-h-screen bg-white min-w-[1440px]" role="main">
         {/* Header - Sticky Navigation */}
-        <Header dict={dict} />
+        <Header dict={dict} lang={lang} />
 
         {/* Hero Banner */}
         <HeroBanner dict={dict} />

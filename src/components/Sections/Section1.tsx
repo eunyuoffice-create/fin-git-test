@@ -128,9 +128,8 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
                   alt=""
                   width={64}
                   height={64}
-  
                   className="object-contain"
-                quality={100}
+                  quality={100}
                 />
               </div>
             </article>
@@ -168,9 +167,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
                   alt=""
                   width={64}
                   height={64}
-  
-                quality={100}
-  
+                  quality={100}
                 />
               </div>
             </article>
@@ -184,7 +181,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
               'w-[824px] h-[130px] rounded-[18px] overflow-hidden',
               'relative flex items-center pl-[209px]',
               'after:content-[""] after:w-[153px] after:h-[119px] after:rounded-[18px] after:absolute after:left-[56px] after:bottom-[0]',
-              'after:bg-[url("/images/common/icons/icon-bank.webp")] after:bg-center after:bg-no-repeat',
+              'after:bg-[url("/images/sections/section1/icon_bank.webp")] after:bg-center after:bg-no-repeat',
               'before:content-[""] before:w-full before:h-full before:rounded-[18px] before:absolute before:left-0 before:top-0',
               'before:bg-[url("/images/sections/section1/bg-bank.webp")] before:bg-center before:bg-no-repeat'
             )}
@@ -199,13 +196,13 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
               className={cn(
                 'w-[540px] ml-5',
                 'text-[#363a5b] poppins font-medium text-center',
-                'leading-[1.4] tracking-[-0.38px]'
+                'leading-[32px] tracking-[-0.38px] '
               )}
             >
               <p className="text-[20px] whitespace-pre-wrap">
                 {dict.section1.bankStatement.line1}
               </p>
-              <p className="text-[28px] whitespace-pre-wrap">
+              <p className="text-[24px] whitespace-pre-wrap tracking-[-1.36px]">
                 {dict.section1.bankStatement.line2}
               </p>
             </div>
@@ -259,9 +256,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
                 alt=""
                 width={74}
                 height={35}
-
-              quality={100}
-
+                quality={100}
               />
             </div>
           </div>
@@ -281,7 +276,7 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
               width={128}
               height={128}
               className="object-contain"
-            quality={100}
+              quality={100}
             />
           </div>
         </ScrollReveal>
@@ -308,13 +303,12 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
                 alt=""
                 width={1000}
                 height={420}
-
                 sizes="1000px"
                 className="w-full h-full object-cover"
-              quality={100}
+                quality={100}
               />
               {/* chip: 1st (0ms) */}
-              <div className="absolute left-[50%] bottom-[0] translate-x-[-50%] z-10">
+              <div className="absolute left-[50%] bottom-[-80px] translate-x-[-50%] z-10">
                 <div
                   className="s1-Image"
                   style={{ '--s1-delay': '0ms' } as React.CSSProperties}
@@ -324,10 +318,9 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
                     alt=""
                     width={480}
                     height={382}
-    
                     sizes="480px"
                     className="object-contain"
-                  quality={100}
+                    quality={100}
                   />
                 </div>
               </div>
@@ -339,11 +332,10 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
                 <Image
                   src="/images/sections/section1/icon2.webp"
                   alt=""
-                  width={191}
-                  height={274}
-  
-                  className="w-full h-full object-contain"
-                quality={100}
+                  width={138}
+                  height={138}
+                  className="w-[138px] h-[138px] object-contain"
+                  quality={100}
                 />
               </div>
               {/* icon3: 3rd (800ms) */}
@@ -354,11 +346,10 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
                 <Image
                   src="/images/sections/section1/icon3.webp"
                   alt=""
-                  width={171}
-                  height={220}
-  
-                  className="w-full h-full object-contain"
-                quality={100}
+                  width={108}
+                  height={108}
+                  className="w-[108px] h-[108px] object-contain"
+                  quality={100}
                 />
               </div>
               {/* icon1: 4th (1200ms) */}
@@ -369,11 +360,10 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
                 <Image
                   src="/images/sections/section1/icon1.webp"
                   alt=""
-                  width={144}
-                  height={80}
-  
-                  className="w-full h-full object-contain"
-                quality={100}
+                  width={96}
+                  height={96}
+                  className="w-[96px] h-[96px] object-contain"
+                  quality={100}
                 />
               </div>
             </div>

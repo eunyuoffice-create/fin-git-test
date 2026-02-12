@@ -14,18 +14,18 @@
     "requestDemo": "Request Demo"
   },
   "hero": {
-    "title": "Focus on\ncredit decisions,\nNot data processing",
-    "subtitle": "Close credit data gaps with AI — and gain a competitive edge in the credit-invisible market.",
+    "title": "Focus on Underwriting,\nNot Data Processing",
+    "subtitle": "The Autonomous AI Infrastructure Redefining Credit Access in Southeast Asia",
     "cta": "Request Demo",
     "slides": [
       {
-        "text": "Fraud & Submission requirement validation in 30 seconds."
+        "text": "Bank Statement Forgery & Submission \nrequirement validation in 30 seconds."
       },
       {
-        "text": "Income Statement Level Financial Report"
+        "text": "Income Statement-Level Intelligence in 5 \nMinutes: From Raw Bank Statement Data\n to Decision-Ready Insights."
       },
       {
-        "text": "Supply Chain Financing Evidence reconciliation in seconds."
+        "text": "Autonomous Supply Chain \nFianancing (SCF) DD: \nReconcile Evidence in Seconds"
       }
     ]
   },
@@ -37,81 +37,85 @@
     "point2": {
       "title": "Unverifiable\nFinancial Reality"
     },
+
     "bankStatement": {
-      "line1": "The only thing you can trust is",
-      "line2": "Bank Statement"
+      "line1": "The only data you can trust is",
+      "line2": " \"Bank Statement\" telling the true financial status"
     },
     "timeConsuming": "Time-consuming and expensive",
     "but": "But",
-    "experienceTitle": "Experience FinProfile"
+    "experienceTitle": "Experience FinSight AI"
   },
   "section2": {
-    "title": "Reinvent Credit Reviews\nwith AI Automation",
+    "title": "Unlock Full Credit Visibility with Just a Bank Statement \nwithin 5 Minutes of Agentic AI Velocity",
     "finsightAI": "FinSight AI",
     "manual": {
       "perLoan": "Per Loan Application",
       "timeValue": "5",
       "timeUnit": "day+",
-      "timeDetail": "= 7,200min",
+      "timeDetail": "of manual labor",
+      "descriptionTitle": "Manual processing of 1,000+ pages per loan involving",
       "descriptions": [
-        "Requires analysis of 6,000 to 20,000 cases transactions and \nmanual attribute classification",
-        "Unable to secure management cost"
+        "repetitive labeling",
+        "high error risks",
+        "significant operational \noverhead"
       ]
     },
     "ai": {
       "perLoan": "Per Loan Application",
       "timeValue": "5",
       "timeUnit": "min",
-      "description": "AI automatically verifies uploads and suggests review requirements"
+      "timeDetail": "of Agentic Precision",
+      "descriptionTitle": "An end-to-end autonomous workflow that masters months of bank statements",
+      "descriptions": ["in under 5 minutes", "with uncompromised accuracy"]
     }
   },
   "section3": {
     "items": [
       {
         "badge": "Context-Aware AI",
-        "title": "Not Rule-Bound, Transaction\nAware Analysis",
-        "description": "95% accurate analysis powered by counterparty and Auto transaction categorization"
+        "title": "Beyond Rule-based: Context-Aware Reasoning AI Agent",
+        "description": "Moves beyond rigid, rule-based systems to understand \"why\" a transaction occurred :\ndistinguishing business inventory from personal spending."
       },
       {
         "badge": "Pre-Verification AI",
-        "title": "One-click review\nfor complex manual checks",
-        "description": "No need to verify every requirement one by one — AI confirms submission compliance in seconds."
+        "title": "One-click submission validation : Zero Manual Effort for Complex Validations",
+        "description": "Stop opening files one-by-one; our AI agent instantly audits every submission for both authenticity and compliance, providing real-time feedback to pinpoint missing requirements and slash applicant churn."
       },
       {
         "badge": "Precision Beyond Human",
-        "title": "Pinpoint Fraud,\nManipulation Detection",
-        "description": "FinSight AI removes the need for manual, highlight-by-highlight transaction reviews \nby automatically detecting signs of fraud and data manipulation with accuracy."
+        "title": "Adversarial Fraud Intelligence: Mastering the 'DNA' of Authentic Statements",
+        "description": "Our AI agent identifies the subtle 'impossible' transactions and logical flaws that even the most pixel-perfect forgeries can't hide.\n\nBeyond Human Oversight: While a human eye sees a document, our agent sees the structural inconsistencies that reveal a file has been tampered with."
       },
       {
         "badge": "Country-Specific Financial AI",
-        "title": "understand indonesia,\nwith indonesia",
-        "description": "Trained on millions of transactions, FinSight AI delivers precise, country-specific transaction insights."
+        "title": "Hyper-Local AI Agents: Master the Context of Indonesian Finance",
+        "description": "Powered by a proprietary knowledge database that mastered the unique nuances of every Indonesian financial institutions' secret words."
       }
     ]
   },
   "section4": {
-    "title": "How Companies Are\nTransforming Workflows\nwith FinSight AI",
+    "title": "Agentic Transformation:\nSuccess Stories in AI-Driven Financing",
     "items": [
       {
         "icon": "/images/common/icons/icon-hana.webp",
         "color": "",
         "company": "Sinarmas Hana Finance",
-        "industry": "Indonesian conglomerate \n Multi-finance",
+        "industry": "Indonesian conglomerate Multi-finance",
         "quotes": [
-          "What used to take our expert 3 days,\n manually reconciling accounts\n receivable lists with bank statement,\n FinSight Al completes in under 1 minutes\n with superior accuracy.",
-          "It even detects transactions that\n manual reviews often miss. This shift\n allows our team to focus on high-value\n decision-making rather than data\n processing, giving us the agility to\n aggressively expand our supply chain\n finance business."
+          "What used to take our expert 3 days, manually reconciling accounts receivable lists with bank statement, FinSight Al completes in under 1 minutes with superior accuracy.",
+          "It even detects transactions that manual reviews often miss. This shift allows our team to focus on high-value decision-making rather than data processing, giving us the agility to aggressively expand our supply chain finance business."
         ]
       },
       {
         "name": "Credit Analyst Z",
         "initial": "Z",
-
         "color": "#5864B1",
         "company": "SEA MSME Credit Provider",
         "quotes": [
-          "Finsight Al has been a game-changer\n for our workflow. It drastically reduced\n our analysis time, enabling faster and\n more accurate credit decisions and\n improved turnaround time.",
-          "With its industry-specific transaction\n categorization and automated insights,\n it is the ultimate tool for maximizing\n both productivity and efficiency.",
-          "Beyond speed, it detects hidden debt\n obligations that never appear on\n standard credit reports. This capability\n allows us to spot and mitigate 'invisible\n risks' that reports often miss."
+          "Finsight Al has been a game-changer for our workflow. It drastically reduced our analysis time, enabling faster and more accurate credit decisions and improved turnaround time.",
+          "With its industry-specific transaction categorization and automated insights, it is the ultimate tool for maximizing both productivity and efficiency.",
+          "Beyond speed, it detects hidden debt obligations that never appear on standard credit reports. This capability allows us to spot and mitigate 'invisible risks' that reports often miss."
         ]
       },
       {
@@ -120,14 +124,14 @@
         "color": "#58B195",
         "company": "Indonesian p2p loan platform",
         "quotes": [
-          "Finsight Al unlocked the '30-minute\n digital small to mid sized ticket loan\n market opportunity for us - a segment\n previously unreachable due to high\n processing costs.",
-          "Unlike other major solutions that \nunction merely as CR tools due to a \n lack of local context, FinSight Al delivers\n deep, actionable intelligence. It has \n become our core engine for scalable\n customer acquisition."
+          "Finsight Al unlocked the '30-minute digital small to mid sized ticket loan market opportunity for us - a segment previously unreachable due to high processing costs.",
+          "Unlike other major solutions that function merely as CR tools due to a lack of local context, FinSight Al delivers deep, actionable intelligence. It has become our core engine for scalable customer acquisition."
         ]
       }
     ]
   },
   "section5": {
-    "title": "FinProfile People",
+    "title": "The Visionaries\nPowering the AI Credit Revolution",
     "members": [
       {
         "name": "Cruz\nYoon",
@@ -139,15 +143,22 @@
           "Global Business Lead",
           "New Business & Investment"
         ],
-        "linkedInUrl": "https://www.linkedin.com/in/cruzyoon"
+        "linkedInUrl": "https://www.linkedin.com/in/cruzyoon",
+        "imgsize": {
+          "width": 193,
+          "height": 249
+        }
       },
       {
         "name": "Chang ho\nMoon",
-        "koreanName": "Jae Ho Yoon",
         "role": "CTO",
-        "description": "Full-stack Engineer with \n10 years of experience. \nRanked 4th in the National IT Skills \nCompetition",
+        "description": "Full-stack Engineer with \n10 years of experience.\nRanked 4th in the National IT Skills Competition",
         "tags": ["System Architecture", "Technical Strategy", "10+ Years Exp"],
-        "linkedInUrl": "https://www.linkedin.com/in/ggochang"
+        "linkedInUrl": "https://www.linkedin.com/in/ggochang",
+        "imgsize": {
+          "width": 205,
+          "height": 258
+        }
       },
       {
         "name": "Jannele\nShin",
@@ -159,7 +170,11 @@
           "Product Strategy",
           "Startup Specialist"
         ],
-        "linkedInUrl": "https://www.linkedin.com/in/eunjung-shin-8075a129"
+        "linkedInUrl": "https://www.linkedin.com/in/eunjung-shin-8075a129",
+        "imgsize": {
+          "width": 186,
+          "height": 243
+        }
       }
     ],
     "linkedIn": "LinkedIn"

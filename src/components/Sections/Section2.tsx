@@ -112,13 +112,16 @@ interface Section2Props {
         timeValue: string;
         timeUnit: string;
         timeDetail: string;
+        descriptionTitle: string;
         descriptions: string[];
       };
       ai: {
         perLoan: string;
         timeValue: string;
         timeUnit: string;
-        description: string;
+        timeDetail: string;
+        descriptionTitle: string;
+        descriptions: string[];
       };
     };
   };
@@ -254,15 +257,19 @@ export default function Section2CreditReview({ dict }: Section2Props) {
                 </div>
 
                 <ScrollReveal delay={200}>
-                  <div className="bg-white rounded-[24px] p-6 flex flex-col gap-4 w-[360px] mt-6">
-                    {dict.section2.manual.descriptions.map((desc, i) => (
-                      <ul
-                        key={i}
-                        className="list-disc ml-[27px] text-[18px] font-medium text-[#7a7a7a] font-poppins leading-normal tracking-[-0.27px] break-words"
-                      >
-                        <li>{desc}</li>
-                      </ul>
-                    ))}
+                  <div className="bg-white rounded-[24px] p-6 flex flex-col gap-4 w-[360px] mt-6 text-[#7a7a7a] text-[18px] tracking-[-0.27px]">
+                    <p className="font-medium font-poppins leading-normal whitespace-pre-wrap tracking-[-0.5px]">
+                      {dict.section2.manual.descriptionTitle}
+                    </p>
+                    <div className="flex flex-col gap-2 font-normal font-poppins">
+                      {dict.section2.manual.descriptions.map((desc, i) => (
+                        <ul key={i} className="list-disc ms-[27px]">
+                          <li className="leading-normal whitespace-pre-wrap">
+                            {desc}
+                          </li>
+                        </ul>
+                      ))}
+                    </div>
                   </div>
                 </ScrollReveal>
               </div>
@@ -291,6 +298,14 @@ export default function Section2CreditReview({ dict }: Section2Props) {
                       suffixClassName="text-[80px]"
                     />
                   </p>
+                  <ScrollReveal
+                    delay={800}
+                    className="z-10 w-full relative z-10"
+                  >
+                    <p className="text-center text-[20px] font-semibold font-poppins tracking-[-0.3px] mt-[-56px]">
+                      {dict.section2.ai.timeDetail}
+                    </p>
+                  </ScrollReveal>
 
                   <i
                     className="absolute top-[282px] right-[285px] s2-icon-rise"
@@ -303,9 +318,8 @@ export default function Section2CreditReview({ dict }: Section2Props) {
                       alt=""
                       width={45}
                       height={32}
-
                       className="object-contain"
-                    quality={100}
+                      quality={100}
                     />
                   </i>
                   <i className="absolute top-[359px] right-[157px]">
@@ -314,9 +328,8 @@ export default function Section2CreditReview({ dict }: Section2Props) {
                       alt=""
                       width={38}
                       height={47}
-
                       className="object-contain"
-                    quality={100}
+                      quality={100}
                     />
                   </i>
                   <i className="absolute top-[365px] right-[40px]">
@@ -325,9 +338,8 @@ export default function Section2CreditReview({ dict }: Section2Props) {
                       alt=""
                       width={86}
                       height={110}
-
                       className="object-contain"
-                    quality={100}
+                      quality={100}
                     />
                   </i>
                   <i className="absolute top-[316px] right-[11px]">
@@ -336,18 +348,26 @@ export default function Section2CreditReview({ dict }: Section2Props) {
                       alt=""
                       width={63}
                       height={63}
-
                       className="object-contain"
-                    quality={100}
+                      quality={100}
                     />
                   </i>
                 </div>
 
                 <ScrollReveal delay={800}>
-                  <div className="bg-white rounded-[24px] p-6 flex flex-col gap-4 w-[360px] mt-6">
-                    <ul className="list-disc ml-[27px] text-[18px] font-medium text-[#7a7a7a] font-poppins leading-normal tracking-[-0.27px] break-words">
-                      <li>{dict.section2.ai.description}</li>
-                    </ul>
+                  <div className="bg-white rounded-[24px] p-6 flex flex-col gap-4 w-[360px] mt-6 text-[#7a7a7a] text-[18px] tracking-[-0.27px]">
+                    <p className="font-medium font-poppins leading-normal whitespace-pre-wrap">
+                      {dict.section2.ai.descriptionTitle}
+                    </p>
+                    <div className="flex flex-col gap-2 font-normal font-poppins">
+                      {dict.section2.ai.descriptions.map((desc, i) => (
+                        <ul key={i} className="list-disc ms-[27px]">
+                          <li className="leading-normal whitespace-pre-wrap">
+                            {desc}
+                          </li>
+                        </ul>
+                      ))}
+                    </div>
                   </div>
                 </ScrollReveal>
               </div>
