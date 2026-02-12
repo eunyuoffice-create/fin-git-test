@@ -138,23 +138,14 @@
         "role": "CEO",
         "description": "동남아 시장에서의 풍부한 경험을 바탕으로, AI 기반 산업 문제 해결을 전문으로 합니다.",
         "tags": ["AI 전문 컨설턴트", "글로벌 사업 총괄", "신사업 & 투자"],
-        "linkedInUrl": "https://www.linkedin.com/in/cruzyoon",
-        "imgsize": {
-          "width": 193,
-          "height": 249
-        }
+        "linkedInUrl": "https://www.linkedin.com/in/cruzyoon"
       },
       {
         "name": "Chang ho\nMoon",
-        "koreanName": "문창호",
         "role": "CTO",
         "description": "10년 경력의 풀스택 엔지니어.\n전국 IT 기능 경진대회 4위.",
         "tags": ["시스템 아키텍처", "기술 전략", "10년+ 경력"],
-        "linkedInUrl": "https://www.linkedin.com/in/ggochang",
-        "imgsize": {
-          "width": 205,
-          "height": 258
-        }
+        "linkedInUrl": "https://www.linkedin.com/in/ggochang"
       },
       {
         "name": "Jannele\nShin",
@@ -162,11 +153,7 @@
         "role": "CXO",
         "description": "글로벌 디자인 컨설팅 분야 15년 경력의 서비스 디자이너. 국내외 20개 이상의 스타트업 디지털 서비스 기획을 리드.",
         "tags": ["국제 디자인 컨설턴트", "프로덕트 전략", "스타트업 전문가"],
-        "linkedInUrl": "https://www.linkedin.com/in/eunjung-shin-8075a129",
-        "imgsize": {
-          "width": 186,
-          "height": 243
-        }
+        "linkedInUrl": "https://www.linkedin.com/in/eunjung-shin-8075a129"
       }
     ],
     "linkedIn": "LinkedIn"

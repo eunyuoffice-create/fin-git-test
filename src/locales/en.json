@@ -143,22 +143,14 @@
           "Global Business Lead",
           "New Business & Investment"
         ],
-        "linkedInUrl": "https://www.linkedin.com/in/cruzyoon",
-        "imgsize": {
-          "width": 193,
-          "height": 249
-        }
+        "linkedInUrl": "https://www.linkedin.com/in/cruzyoon"
       },
       {
         "name": "Chang ho\nMoon",
         "role": "CTO",
         "description": "Full-stack Engineer with \n10 years of experience.\nRanked 4th in the National IT Skills Competition",
         "tags": ["System Architecture", "Technical Strategy", "10+ Years Exp"],
-        "linkedInUrl": "https://www.linkedin.com/in/ggochang",
-        "imgsize": {
-          "width": 205,
-          "height": 258
-        }
+        "linkedInUrl": "https://www.linkedin.com/in/ggochang"
       },
       {
         "name": "Jannele\nShin",
@@ -170,11 +162,7 @@
           "Product Strategy",
           "Startup Specialist"
         ],
-        "linkedInUrl": "https://www.linkedin.com/in/eunjung-shin-8075a129",
-        "imgsize": {
-          "width": 186,
-          "height": 243
-        }
+        "linkedInUrl": "https://www.linkedin.com/in/eunjung-shin-8075a129"
       }
     ],
     "linkedIn": "LinkedIn"

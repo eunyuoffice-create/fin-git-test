@@ -30,7 +30,6 @@ export default function TeamProfileCard({
   name,
   koreanName,
   role,
-  imgsize,
 }: TeamProfileCardProps) {
   return (
     <div className="h-[260px] relative overflow-hidden">
@@ -53,10 +52,10 @@ export default function TeamProfileCard({
         <Image
           src={imageSrc}
           alt={name}
-          className="object-cover w-full h-full"
+          className="object-cover w-[180px] h-[252px]"
           quality={100}
-          width={imgsize.width}
-          height={imgsize.height}
+          width={360}
+          height={504}
         />
       </figure>
 
