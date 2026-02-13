@@ -45,7 +45,7 @@ export default function TeamProfileCard({
       {/* Profile Image */}
       <figure
         className={cn(
-          'absolute left-[11px] top-[17px] bottom-0',
+          'absolute left-0 bottom-0 flex items-end',
           IMAGE_SIZES[index] ?? IMAGE_SIZES[0]
         )}
       >
