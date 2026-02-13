@@ -46,8 +46,8 @@ export default function ScrollReveal({
         if (entry.isIntersecting) {
           el.style.transitionDelay = `${delay}ms`;
           el.classList.add('scroll-revealed');
-        } else {
-          // Instant reset: disable transition → remove class → double-rAF re-enable
+        } else if (entry.intersectionRatio === 0) {
+          // Reset only when completely out of view (any direction)
           el.style.transition = 'none';
           el.classList.remove('scroll-revealed');
           el.style.transitionDelay = '0ms';
@@ -60,7 +60,7 @@ export default function ScrollReveal({
           });
         }
       },
-      { threshold }
+      { threshold: [0, threshold] }
     );
 
     observer.observe(el);

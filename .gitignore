@@ -22,6 +22,10 @@
 
 # claude code
 .claude/
+.omc/
+
+# original uncompressed videos
+public/videos/0213_finprofile_demo_04.mp4
 
 # IDE
 .idea/

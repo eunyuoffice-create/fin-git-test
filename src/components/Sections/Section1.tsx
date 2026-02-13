@@ -55,6 +55,10 @@ export default function Section1CreditAccess({ dict }: Section1Props) {
             );
           });
         } else {
+          // Only reset when element exits below viewport (scroll up)
+          const exitedAbove = entry.boundingClientRect.bottom < 0;
+          if (exitedAbove) return;
+
           imageEls.current.forEach((el) => {
             el.classList.remove('s1-Image-active', 's1-done');
           });

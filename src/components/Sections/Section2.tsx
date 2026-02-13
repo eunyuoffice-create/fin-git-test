@@ -43,13 +43,13 @@ function CountUp({
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
-        } else {
+        } else if (entry.intersectionRatio === 0) {
           setVisible(false);
           setCount(0);
           setShowSuffix(false);
         }
       },
-      { threshold: 0.3 }
+      { threshold: [0, 0.3] }
     );
 
     observer.observe(el);
@@ -155,8 +155,7 @@ export default function Section2CreditReview({ dict }: Section2Props) {
           leftEl.classList.add('scroll-revealed');
           rightEl.style.transitionDelay = '270ms';
           rightEl.classList.add('scroll-revealed');
-        } else {
-          // Instant reset: disable transition → remove class → double-rAF re-enable
+        } else if (entry.intersectionRatio === 0) {
           [leftEl, rightEl].forEach((panel) => {
             panel.style.transition = 'none';
             panel.classList.remove('scroll-revealed');
@@ -173,7 +172,7 @@ export default function Section2CreditReview({ dict }: Section2Props) {
           });
         }
       },
-      { threshold: 0.4 }
+      { threshold: [0, 0.4] }
     );
 
     observer.observe(el);
