@@ -19,24 +19,84 @@ const IMAGES = [
   '/images/sections/section3/ai-04.webp',
 ];
 
-export default function Section3Features({ dict }: Section3Props) {
+function StaticList({ dict }: Section3Props) {
+  return (
+    <div className="w-full px-[220px] py-[80px]">
+      <div className="w-[1000px] mx-auto flex flex-col gap-[100px]">
+        {dict.section3.items.map((item, index) => (
+          <article key={index} className="flex gap-[80px] items-center">
+            <div className="w-[320px] h-[400px] flex-shrink-0 relative rounded-[24px] overflow-hidden">
+              <Image
+                src={IMAGES[index]}
+                alt={item.title}
+                width={320}
+                height={400}
+                sizes="320px"
+                className="object-cover w-full h-full"
+                quality={100}
+              />
+            </div>
+            <div className="flex-1 flex flex-col gap-[40px]">
+              <div className="flex flex-col gap-[24px]">
+                <div
+                  className={cn(
+                    'inline-flex items-center gap-[8px]',
+                    'bg-[#3e14b4] px-[16px] py-[8px] rounded-[8px] w-fit',
+                    'before:content-[""] before:w-6 before:h-6 before:flex-shrink-0',
+                    'before:bg-no-repeat before:bg-center before:bg-contain',
+                    index === 0 || index === 2
+                      ? "before:bg-[url('/images/sections/section3/icon-badge_1.webp')]"
+                      : "before:bg-[url('/images/sections/section3/icon-badge_2.webp')]"
+                  )}
+                >
+                  <span
+                    className={cn(
+                      'text-[16px] font-medium text-white',
+                      'tracking-[-0.24px] font-poppins whitespace-pre-wrap'
+                    )}
+                  >
+                    {item.badge}
+                  </span>
+                </div>
+                <h3
+                  className={cn(
+                    'text-[40px] font-medium text-[#363a5b]',
+                    'leading-[1.3] tracking-[-0.6px] font-poppins whitespace-pre-wrap'
+                  )}
+                >
+                  {item.title}
+                </h3>
+              </div>
+              <p
+                className={cn(
+                  'text-[18px] text-[#7a7a7a]',
+                  'leading-[1.4] tracking-[-0.27px] font-poppins whitespace-pre-wrap'
+                )}
+              >
+                {item.description}
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function DesktopScrollAnimation({ dict }: Section3Props) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const activeRef = useRef(0);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Measured translate values to center each article in viewport
   const centersRef = useRef<number[]>([]);
-  // Cached wrapper height to avoid forced reflow on every scroll
   const wrapperHeightRef = useRef(0);
 
-  // Measure article positions once (mount + resize)
   const measure = useCallback(() => {
     const wrapper = wrapperRef.current;
     const text = textRef.current;
     if (!wrapper || !text) return;
 
-    // Cache offsetHeight here (read phase) to avoid reflow in scroll handler
     wrapperHeightRef.current = wrapper.offsetHeight;
 
     const vh = window.innerHeight;
@@ -46,9 +106,7 @@ export default function Section3Features({ dict }: Section3Props) {
 
     contentEls.forEach((el) => {
       const elRect = el.getBoundingClientRect();
-      // Position of content center relative to text container top
       const relCenter = elRect.top - textRect.top + elRect.height / 2;
-      // Translate needed to put this center at viewport center
       centers.push(relCenter - vh / 2);
     });
 
@@ -68,21 +126,17 @@ export default function Section3Features({ dict }: Section3Props) {
 
     const count = centers.length;
 
-    // Stepped progress with smootherstep (Perlin)
-    // → zero 1st & 2nd derivative at endpoints → strong pause at each item
     const expanded = progress * (count - 1);
     const seg = Math.min(Math.floor(expanded), count - 2);
     const f = Math.min(expanded - seg, 1);
     const eased = f * f * f * (f * (f * 6 - 15) + 10);
 
-    // Interpolate between measured center positions
     const from = centers[seg];
     const to = centers[Math.min(seg + 1, count - 1)];
     const translate = from + (to - from) * eased;
 
     text.style.transform = `translate3d(0,${-translate}px,0)`;
 
-    // Active image (snap to nearest item)
     const idx = Math.min(count - 1, Math.round(seg + eased));
     if (idx !== activeRef.current) {
       activeRef.current = idx;
@@ -96,7 +150,6 @@ export default function Section3Features({ dict }: Section3Props) {
     ).matches;
     if (prefersReducedMotion) return;
 
-    // Measure on mount and apply initial position immediately (no rAF delay)
     measure();
     onScroll();
 
@@ -128,10 +181,8 @@ export default function Section3Features({ dict }: Section3Props) {
         className="relative"
         style={{ height: `${(IMAGES.length + 1) * 100}vh` }}
       >
-        {/* Sticky viewport */}
         <div className="sticky top-0 h-screen overflow-hidden flex items-center">
           <div className="w-[1000px] mx-auto flex gap-[80px] items-center">
-            {/* Right - fixed image with cross-fade */}
             <div className="w-[320px] h-[400px] flex-shrink-0 relative rounded-[24px] overflow-hidden">
               {IMAGES.map((src, index) => (
                 <Image
@@ -140,7 +191,6 @@ export default function Section3Features({ dict }: Section3Props) {
                   alt={dict.section3.items[index]?.title || ''}
                   width={320}
                   height={400}
-
                   sizes="320px"
                   className="absolute inset-0 object-cover w-full h-full"
                   style={{
@@ -148,11 +198,10 @@ export default function Section3Features({ dict }: Section3Props) {
                     transition: 'opacity 0.5s ease-out',
                   }}
                   priority={index === 0}
-                quality={100}
+                  quality={100}
                 />
               ))}
             </div>
-            {/* Left - scrolling text */}
             <div className="flex-1 overflow-hidden h-screen">
               <div
                 ref={textRef}
@@ -216,4 +265,20 @@ export default function Section3Features({ dict }: Section3Props) {
       </div>
     </div>
   );
+}
+
+export default function Section3Features({ dict }: Section3Props) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // viewport meta is width=1440 so CSS media queries can't detect mobile
+    // Use screen.width to check actual device width
+    setIsMobile(window.screen.width < 1024);
+  }, []);
+
+  if (isMobile) {
+    return <StaticList dict={dict} />;
+  }
+
+  return <DesktopScrollAnimation dict={dict} />;
 }
